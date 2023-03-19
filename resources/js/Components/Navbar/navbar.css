@@ -1,0 +1,189 @@
+header {
+  background: #1f4f3d;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.logo {
+  width: 55px;
+  height: 30px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  min-width: 50%;
+}
+
+.nav-items a {
+  font-style: 14px;
+  line-height: 17px;
+  font-weight: 600;
+}
+
+.nav-items a:hover {
+  color: #009961;
+}
+
+
+.icon-menu {
+  display: none;
+}
+
+/*====================================================================
+menu for small screen
+======================================================================*/
+
+.menu-container {
+  background: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+  position: fixed;
+  z-index: 100;
+  top: 0;
+}
+
+.menu {
+  background: #fff;
+  width: 320px;
+  max-width: 100%;
+  height: 100%;
+  transform: translateX(0);
+
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 45%) !important;
+}
+
+/* icon-close btn */
+.icon-close {
+  float: right;
+  margin-right: 16px;
+}
+
+.logo-menu {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 70px;
+}
+
+.logo-menu img {
+  width: 80px;
+  height: 50px;
+}
+
+/* iten menu */
+.menu-items {
+}
+
+.menu-items li {
+  width: 227px;
+  margin-bottom: 17px;
+  text-align: center;
+  font-style: 14px;
+  line-height: 17px;
+  font-weight: 600;
+}
+
+.menu-items li:hover {
+  color: #009961;
+}
+
+/* download cv btn */
+.download-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.separator {
+  padding: 0;
+  margin: 0;
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.separator div{
+  width: 50%;
+  height: 2px;
+  background: #009961;
+  border-radius: 8px;
+}
+
+/* .menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 100;
+  background: #c4c4c4;
+  top: 0;
+  width: 320px;
+  max-width: 100%;
+  height: 100vh;
+  max-height: 100%;
+  margin: 0;
+  outline: 0;
+  transform: translateX(0);
+
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+} */
+
+
+
+
+/*======================================*/
+
+@media screen and (min-width: 567px) and (max-width: 768px) {
+  nav {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .nav-items {
+    min-width: 70%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  button {
+    display: none;
+    width: 110px;
+  }
+}
+
+/*======================================*/
+
+@media screen and (min-width: 567px) {
+  .menu-container {
+    display: none;
+  }
+}
+
+
+
+@media screen and (max-width: 567px) {
+  .icon-menu {
+    display: block;
+  }
+
+  .nav-items, .download {
+    display: none;
+  }
+}
