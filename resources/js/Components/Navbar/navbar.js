@@ -1,13 +1,13 @@
-import downloadCv from './../downloadCv/downloadCv.vue'
+// import downloadCv from './../downloadCv/downloadCv.vue'
 export default {
-  name: "Navbar",
+  name: 'Navbar',
   components: {
-    downloadCv
+    // downloadCv,
   },
   props: {
     src: {
       type: String,
-      default: "me-pink"
+      default: 'me-pink',
     },
   },
   data() {

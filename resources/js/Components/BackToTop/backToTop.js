@@ -1,29 +1,29 @@
 export default {
-    name: "BackToTop",
-    data() {
-      return {
-        scTimer: 0,
-        scY: 0,
-      }
+  name: 'BackToTop',
+  data() {
+    return {
+      scTimer: 0,
+      scY: 0,
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll: function () {
+      if (this.scTimer) return
+      this.scTimer = setTimeout(() => {
+        this.scY = window.scrollY
+        clearTimeout(this.scTimer)
+        this.scTimer = 0
+      }, 100)
     },
-    mounted() {
-      window.addEventListener('scroll', this.handleScroll);
+    toTop: function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
     },
-    methods: {
-      handleScroll: function () {
-        if (this.scTimer) return;
-        this.scTimer = setTimeout(() => {
-          this.scY = window.scrollY;
-          clearTimeout(this.scTimer);
-          this.scTimer = 0;
-        }, 100);
-      },
-      toTop: function () {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      },
-    },
+  },
 
 }

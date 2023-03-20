@@ -1,14 +1,14 @@
 export default {
-    name: "Footer",
+  name: 'Footer',
     
-    data() {
-        return {
-            currentYear: new Date().getFullYear(),
-        }
-    },
-    mounted(){
-    },
-    methods: {
+  data() {
+    return {
+      currentYear: new Date().getFullYear(),
     }
+  },
+  mounted(){
+  },
+  methods: {
+  },
 
 }
