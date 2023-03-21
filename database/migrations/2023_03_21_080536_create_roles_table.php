@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
-            $table->text('content');
-            $table->foreignIdFor(\App\Models\Theme::class);
-            // $table->foreignIdFor(\App\Models\Category::class)->constrained('categories');
+            $table->timestamps();
         });
     }
 
@@ -28,10 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            Schema::dropColumns('posts', [
-                'name', 'content'
-            ]);
-        });
+        Schema::dropIfExists('roles');
     }
 };
