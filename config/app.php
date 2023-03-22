@@ -207,6 +207,7 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
+    //'Vite' => \Illuminate\Support\Facades\Vite::class,
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,

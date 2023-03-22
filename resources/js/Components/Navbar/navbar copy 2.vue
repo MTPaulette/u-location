@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="bg-transparent border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+    <nav class="bg-gray-100 border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
       <div class="container flex flex-wrap items-center justify-between mx-auto w-full">
         <a href="/" class="flex items-center">
           <!-- <img src="{{ Vite::asset('resources/images/logo.png') }}" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" /> -->
@@ -86,19 +86,80 @@
         </div>
       </div>
     </nav>
-    <!-- breadcrumb -->
-    <nav class="text-sm font-semibold mb-6" aria-label="Breadcrumb">
-      <ol class="list-none p-0 inline-flex">
-        <li class="flex items-center text-blue-500">
-          <a href="#" class="text-gray-700">Home</a>
-          <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" /></svg>
-        </li>
-        <li class="flex items-center">
-          <a href="#" class="text-gray-600">Dashboard</a>
-        </li>
-      </ol>
-    </nav>
-    <!-- breadcrumb end -->
+
+    
+    <!-- ====== Navbar Section Start -->
+    <div class="ud-header bg-transparent absolute top-0 left-0 z-40 w-full flex items-center">
+      <div class="container">
+        <div class="flex -mx-4 items-center justify-between relative">
+          <div class="px-4 w-60 max-w-full">
+            <a href="index.html" class="navbar-logo w-full block py-5">
+              <img
+                src="assets/images/logo/logo-white.svg"
+                alt="logo"
+                class="w-full header-logo"
+              />
+            </a>
+          </div>
+          <div class="flex px-4 justify-between items-center w-full">
+            <div>
+              <button id="navbarToggler" class="block absolute right-4 top-1/2 -translate-y-1/2 lg:hidden focus:ring-2 ring-primary px-3 py-[6px] rounded-lg">
+                <span class="relative w-[30px] h-[2px] my-[6px] block bg-white" />
+                <span
+                  class="relative w-[30px] h-[2px] my-[6px] block bg-white"
+                />
+                <span
+                  class="relative w-[30px] h-[2px] my-[6px] block bg-white"
+                />
+              </button>
+              <nav
+                id="navbarCollapse"
+                class="
+                  absolute py-5 lg:py-0 lg:px-4 xl:px-6
+                  bg-white lg:bg-transparent shadow-lg rounded-lg max-w-[250px] w-full
+                  lg:max-w-full lg:w-full right-4 top-full hidden lg:block lg:static lg:shadow-none
+                "
+              >
+                <ul class="blcok lg:flex">
+                  <li class="relative group">
+                    <a
+                      href="#home"
+                      class="
+                        ud-menu-scroll text-base text-dark
+                        lg:text-white lg:group-hover:opacity-70
+                        lg:group-hover:text-white group-hover:text-primary
+                        py-2 lg:py-6 lg:inline-flex lg:px-0 flex mx-8 lg:mr-0
+                      "
+                    >
+                      Home
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="sm:flex justify-end hidden pr-16 lg:pr-0">
+              <a
+                href="signin.html"
+                class="
+                  text-base font-medium text-white
+                  hover:opacity-70 py-3 px-7 loginBtn
+                "
+              >
+                Sign In
+              </a>
+              <a 
+                href="signup.html"
+                class="text-base font-medium text-white bg-white bg-opacity-20 rounded-lg py-3
+                px-6 hover:bg-opacity-100 hover:text-dark signUpBtn duration-300 ease-in-out"
+              >
+                Sign Up
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ====== Navbar Section End -->
   </header>
 </template>
 
