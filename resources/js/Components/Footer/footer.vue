@@ -1,47 +1,56 @@
 <template>
-  <footer class="bg-gray-900 dark:bg-gray-900">
-    <div class="mx-auto w-full container p-4 sm:p-6">
+  <footer class="bg-gray-900">
+    <div class="mx-auto w-full p-4 sm:p-6">
+      <!-- <div class="lg:flex lg:justify-between">
+        <div class="mb-6 md:mb-0 bg-info w-full md:w-[350px]"> -->
       <div class="md:flex md:justify-between">
-        <div class="mb-6 md:mb-0">
-          <a href="https://flowbite.com/" class="flex items-center">
-            <img src="./../../../images/logo.png" class="h-8 md:h-12 mr-3" alt="Agrimax Logo" />
-            <span class="self-center text-3xl font-semibold whitespace-nowrap text-white dark:text-white">Agrimax</span>
+        <div class="mb-6 md:mb-0 w-full md:w-[350px]">
+          <a href="https://flowbite.com/" class="flex items-center ">
+            <div>
+              <img src="./../../../images/logo.png" class="h-8 md:h-12 mr-3" alt="Agrimax Logo" />
+            </div>
+            <div>
+              <span class="self-center text-3xl font-semibold whitespace-nowrap text-white dark:text-white">Agrimax</span>
+            </div>
           </a>
         </div>
-        <div class="grid grid-cols-3 gap-4 sm:gap-2 sm:grid-cols-3">
+        <div class="grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-6 md:grid-cols-7">
           <!-- <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3"> -->
           <div>
-            <h2 class="mb-6 text-base font-semibold text-white">Resources</h2>
-            <ul class="text-gray-400 text-sm dark:text-gray-400">
-              <li class="mb-4">
-                <a href="https://flowbite.com/" class="hover:text-mango">Flowbite</a>
-              </li>
-              <li>
-                <a href="https://tailwindcss.com/" class="hover:text-mango ">Tailwind CSS</a>
+            <h2 class="mb-6 text-base font-semibold text-white">Pages</h2>
+            <ul class="text-gray-600 text-sm dark:text-gray-400">
+              <li v-for="(pageLink, i) in pagesLinks" :key="i" ref="pagesLinksRef" class="mb-2">
+                <a :href="pageLink[0]" class=" hover:text-mango">{{ pageLink[1] }}</a>
               </li>
             </ul>
           </div>
+    
           <div>
-            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
-            <ul class="text-gray-600 dark:text-gray-400">
-              <li class="mb-4">
-                <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
-              </li>
-              <li>
-                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
+            <h2 class="mb-6 text-base font-semibold text-white">Legal</h2>
+            <ul class="text-gray-600 text-sm dark:text-gray-400">
+              <li v-for="(legalLink, i) in legalLinks" :key="i" ref="legalLinksRef" class="mb-2">
+                <a :href="legalLink[0]" class=" hover:text-mango">{{ legalLink[1] }}</a>
               </li>
             </ul>
           </div>
-          <div>
-            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-            <ul class="text-gray-600 dark:text-gray-400">
-              <li class="mb-4">
-                <a href="#" class="hover:underline">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+          <div class="col-span-2 md:col-span-3">
+            <h2 class="mb-6 text-base font-semibold text-white">Articles recents</h2>
+            <!-- <ul class="list-[square] pl-5 text-gray-600 text-sm dark:text-gray-400"> -->
+            <ul class="text-gray-600 text-sm dark:text-gray-400">
+              <li v-for="(post, i) in posts" :key="i" ref="postsRef" class="mb-2">
+                <a :href="post[0]" class=" hover:text-mango">
+                  <p>{{ post[1] }}</p>
+                </a>
               </li>
             </ul>
+          </div>
+          <div class="col-span-2">
+            <h2 class="mb-6 text-base font-semibold text-white">Quelques produits</h2>
+            <div class="flex flex-wrap text-gray-600 text-sm dark:text-gray-400">
+              <div v-for="(product, i) in products" :key="i" ref="productsRef" class="mb-2">
+                <Bagde :product="product" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -77,13 +86,27 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { initFlowbite } from 'flowbite'
+import Bagde from './bagde.vue'
 
 // initialize components based on data attribute selectors
 onMounted(() => {
   initFlowbite()
 })
+// const footerTitles = ref(['pages', 'articles recents', 'produits recents'])
+const pagesLinks = ref([['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/market','marche'], ['/services','services']])
+const pagesLinksRef = ref([])
+
+const products = ref(['mangue', 'ananas', 'oignon', 'pistache'])
+const productsRef = ref([])
+
+const legalLinks = ref([['/terms', 'Terms & Conditions'], ['/privacy', 'Privacy Policy']])
+const legalLinksRef = ref([])
+
+const posts = ref([['/terms', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius saepe totam aliquid,'], ['/privacy', ' magni veniam minima a quis ex consectetur debitis quasi mollitia recusandae labore']])
+const postsRef = ref([])
+
 </script>
 <!-- <script src="./footer.js"></script>
 <style scoped src="./footer.css"></style> -->

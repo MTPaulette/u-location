@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Theme;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,9 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        // dd(Post::all());
-        return Inertia("Post/post", [
-            'posts' => Post::all()
+        // dd(Post::orderByDesc('created_at')->paginate(5));
+        return Inertia("Guest/Post/allPost", [
+            'posts' => Post::orderByDesc('created_at')
+                    ->paginate(5)
         ]);
     }
 
@@ -47,9 +49,13 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        //
+        return Inertia("Guest/Post/postDetail", [
+            'post' => Post::find($id),
+            'categories' => Theme::all(),
+            'popularPosts' => Post::all()->take(4),
+        ]);
     }
 
     /**

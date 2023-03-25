@@ -1,9 +1,8 @@
 <template>
   <Navbar />
-  <!-- <div class="container mx-auto">
-  </div> -->
-
-  <slot />
+  <div class="container bg-green-50 mx-auto">
+    <slot />
+  </div>
   <Footer />
 </template>
 

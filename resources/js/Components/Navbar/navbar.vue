@@ -1,9 +1,9 @@
 <template>
   <header>
     <nav class="bg-transparent border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-      <div class="container flex flex-wrap items-center justify-between mx-auto w-full">
+      <div class="flex flex-wrap items-center justify-between mx-auto w-full">
         <a href="/" class="flex items-center">
-          <!-- <img src="{{ Vite::asset('resources/images/logo.png') }}" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" /> -->
+          <!-- <img src="{{ Vite::asset('resources/images/logo.png') }}" class="h-9 mr-3 sm:h-12" alt="Agrimax Logo" /> -->
           <img src="./../../../images/logo.png" class="h-9 mr-3 sm:h-12" alt="Agrimax Logo" />
         </a>
 
@@ -15,41 +15,13 @@
               <span class="sr-only">Search</span>
             </button>
             <div class="relative hidden md:block">
-              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" /></svg>
-                <span class="sr-only">Search icon</span>
-              </div>
-              <input id="search-navbar" type="text" class="block w-50 p-2 mr-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
+              <!-- search -->
+              <SearchBar />
             </div>
           </div>
 
-          <!-- get start btn -->
-          <!-- <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get started</button> -->
-          
           <!-- user's info dropdown menu -->
-          <button id="user-menu-button" type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full mr-2 md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-            <img class="w-8 h-8 rounded-full" src="./../../../images/img.PNG" alt="user photo" />
-          </button>
-          <div id="user-dropdown" class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600">
-            <div class="px-4 py-3">
-              <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-              <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
-            </div>
-            <ul class="py-2" aria-labelledby="user-menu-button">
-              <li>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
-              </li>
-              <li>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-              </li>
-              <li>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-              </li>
-              <li>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-              </li>
-            </ul>
-          </div>
+          <LoggedUser :user="user" />
 
           <!-- toggle icon menu on small screen-->
           <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
@@ -59,56 +31,42 @@
         </div>
 
         <!-- middle links menu -->
-        <div id="navbar-search" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 md:w-2/3 md:justify-center">
+        <div id="navbar-search" class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 md:justify-center">
           <div class="relative mt-3 md:hidden">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-              <svg class="w-5 h-5 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" /></svg>
-            </div>
-            <input id="search-navbar" type="text" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
+            <!-- search -->
+            <SearchBar />
           </div>
-          <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-              <Link href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</Link>
-            </li>
-            <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
-            </li>
-            <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
-            </li>
-            <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Blog</a>
-            </li>
-            <li>
-              <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Market</a>
+          <ul class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+            <li v-for="(linkItem, i) in menuItems" :key="i">
+              <!-- <Link href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Accueil</Link> -->
+              <a :href="linkItem[0]" class="block py-2 pl-3 pr-4 text-gray-900 rounded capitalize hover:bg-transparent hover:text-mango md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{ linkItem[1] }}</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <!-- breadcrumb -->
-    <nav class="text-sm font-semibold mb-6" aria-label="Breadcrumb">
-      <ol class="list-none p-0 inline-flex">
-        <li class="flex items-center text-blue-500">
-          <a href="#" class="text-gray-700">Home</a>
-          <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" /></svg>
-        </li>
-        <li class="flex items-center">
-          <a href="#" class="text-gray-600">Dashboard</a>
-        </li>
-      </ol>
-    </nav>
-    <!-- breadcrumb end -->
   </header>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { initFlowbite } from 'flowbite'
-import { Link } from '@inertiajs/vue3'
+// import { Link } from '@inertiajs/vue3'
+import SearchBar from './tools/searchBar.vue'
+import LoggedUser from './tools/loggedUser.vue'
 
 // initialize components based on data attribute selectors
 onMounted(() => {
   initFlowbite()
 })
+
+const menuItems = [['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/market','marche'], ['/services','services']]
+
+
+const user = ref({
+  name: 'paulette',
+  email: "paultte@myemail.com",
+})
+
+
 </script>
