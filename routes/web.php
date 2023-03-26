@@ -16,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/",[IndexController::class, "index"]);
+Route::get("/contact",[IndexController::class, "contact"]);
+Route::get("/about",[IndexController::class, "about"]);
+Route::get("/notFound",[IndexController::class, "notFound"]);
+
 Route::resource("post", PostController::class);

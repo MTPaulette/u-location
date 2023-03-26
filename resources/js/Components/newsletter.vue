@@ -1,29 +1,30 @@
 <template>
   <div
     class="
-      bg-onion-200
+    bg-onion-200
       rounded
       relative
       overflow-hidden
       text-center
       py-[60px]
       px-11
-      lg:px-8"
+      md:px-6 md:py-8
+      lg:px-8 lg:py-[60px]"
   >
     <h3 class="font-semibold text-white mb-2 text-2xl">
-      Join our newsletter!
+      Rejoindre notre newsletter!
     </h3>
     <p class="text-base text-white mb-8">
-      Enter your email to receive our latest newsletter.
+      Entrer votre email pour recevoir notre dernière newsletter.
     </p>
     <form>
       <input
         type="email"
-        placeholder="Your email address"
+        placeholder="votre adresse email"
         class="
           w-full
           text-center
-          h-[50px]
+          h-[40px] md:h-[35px] lg:h-[50px]
           text-sm
           font-medium
           bg-white bg-opacity-20
@@ -37,28 +38,31 @@
           focus:border-white
         "
       />
-      <input
+
+      <button type="submit" class="submit-btn-style border-mango">souscrire </button>
+      <!-- <input
         type="submit"
         value="Subscribe Now"
         class="
           w-full
           text-center
-          h-[50px]
+          h-[40px] md:h-[35px] lg:h-[50px]
           text-sm
           font-medium
           text-white
           rounded
-          bg-sheet-100
+          bg-mango
           mb-6
           cursor-pointer
           hover:shadow-lg hover:bg-opacity-90
         "
-      />
+      /> -->
     </form>
     <p class="text-sm font-medium text-white">
-      Don't worry, we don't spam
+      Ne vous inquiétez pas, nous ne spammons pas:
     </p>
   </div>
 </template>
-<!-- <p>
-          bg-[#13C296]</p> -->
+
+<script setup>
+</script>

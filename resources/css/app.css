@@ -7,3 +7,25 @@
     font-family: 'Poppins';
   }
 }
+
+@layer components {
+  .input-style {
+    @apply block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-mango focus:outline-none focus:ring-0 focus:border-mango
+  }
+
+  .submit-btn-style {
+    /* @apply w-full text-center capitalize h-[35px] md:h-[30px] lg:h-[45px] text-sm font-medium text-white rounded bg-mango mb-6 cursor-pointer hover:shadow-lg hover:bg-opacity-90 */
+    @apply w-full text-center capitalize h-[35px] md:h-[30px] lg:h-[45px] text-sm font-medium text-white rounded border bg-mango mb-6 cursor-pointer hover:shadow-lg hover:bg-transparent hover:text-mango hover:border-mango
+  }
+
+  .text-area-style {
+    @apply 
+    w-full
+    border-0 border-b border-[#f1f1f1]
+    focus:border-primary focus:outline-none
+    py-4
+    resize-none
+  }
+
+
+}

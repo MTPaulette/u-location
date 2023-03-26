@@ -1,8 +1,8 @@
 <template>
   <div class="w-full">
-    <h2 class="font-semibold text-dark text-sheet-100 pb-0 relative capitalize">{{ title }}</h2>
+    <h2 class="font-bold text-dark text-onion-200 pb-0 relative capitalize">{{ title }}</h2>
     <!-- <h2 class="font-semibold text-dark text-lg pb-0 relative capitalize">{{ title }}</h2> -->
-    <span class="h-[4px] bg-sheet-100 w-12 mb-2 inline-block" />
+    <span class="h-[4px] bg-onion-200 w-12 mb-2 inline-block" />
   </div>
 
   <!-- <div class="w-full flex align-middle">

@@ -46,14 +46,9 @@ defineProps({
   images: Array,
 })
 
-</script>
+const getImgUrl = (src) =>{
+  return  new URL('./../../images/carousel/'+src, import.meta.url).href
 
-<script>
-export default {
-  methods: {
-    getImgUrl(src) {
-      return  new URL('./../../images/carousel/'+src, import.meta.url).href
-    },
-  },
 }
+
 </script>

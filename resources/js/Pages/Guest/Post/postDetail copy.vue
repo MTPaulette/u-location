@@ -41,7 +41,9 @@
           </div>
           <div>
             <p class="text-base text-gray-700 dark:text-gray-50">
-              {{ post.content }}
+              {{ post.content }} <br /> <br />
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo veritatis praesentium voluptatum? Est at esse perferendis numquam mo
+              di enim doloremque. Deleniti consectetur dolores impedit voluptatem. Nihil accusamus harum illum necessitatibus.
             </p>
           </div>
         </div>
@@ -52,7 +54,8 @@
             <searchBar />
           </div>
 
-          <!-- categories -->
+          <!-- categories 
+                  @click="sortPostByCategory(category.id)"-->
           <div class="mt-6 relative hidden md:block">
             <div>
               <myTitle title="categories" />
@@ -64,7 +67,9 @@
                   :key="category.id"
                   class="hover:text-mango"
                 >
-                  {{ category.title }}
+                  <button type="submit" @click="sortPostByCategory(category.id)">
+                    {{ category.title }}
+                  </button>
                 </li>
               </ul>
             </div>
@@ -106,12 +111,30 @@ import myCarousel from '@/Components/myCarousel.vue'
 import popularPostCard from '@/Components/popularPostCard.vue'
 import newsletter from '@/Components/newsletter.vue'
 
-defineProps({
+import {useForm} from '@inertiajs/inertia-vue3'
+
+const props = defineProps({
   post: Object,
   categories: Object,
   popularPosts: Object,
+  filterCategoryId: Number,
 })
 
 const images = ['1.jpg', '2.png', '3.jpg', '4.PNG', '5.jpg']
 
+const filterByCategory = useForm({
+  category: props.filterCategoryId ?? null,
+})
+
+
+const sortPostByCategory = (id) =>{
+  filterByCategory.get(route('post.index'),
+    {
+      preserveState: true,
+      preserveScroll: true,
+    },
+  )
+  console.log("==============================="+id)
+
+}
 </script>
