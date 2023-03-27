@@ -1,27 +1,28 @@
 <template>
   <div>
     <pageTitle title="blog details" />
-    <div class="container mx-auto px-4">
+    <div class="mycontainer">
       <div class="grid grid-cols-1 md:grid-cols-3 md:gap-14">
         <div class="col-span-3 md:col-span-2">
-          <div class="bg-gray-50">
+          <div class="mb-8 mt-0">
             <myCarousel :images="images" />
           </div>
 
           <div>
-            <h2 class="mt-6 mb-3 font-bold text-xl md:text-2xl capitalize text-black dark:text-gray-100 ">{{ post.name }}</h2>
+            <myTitle :title="post.name" />
+            <!-- <h2 class="mt-6 mb-3 font-bold text-xl md:text-2xl capitalize text-black dark:text-gray-100 ">{{ post.name }}</h2> -->
             <div class="overflow-hidden border-b border-gray-100 pb-5 mb-6">
               <div class="flex text-sm text-gray-600 dark:text-gray-100">
-                <a href="#" class="flex items-center border-r-2 border-mango hover:text-mango px-4">
-                  <span class="mr-1 text-mango">
+                <a href="#" class="flex items-center border-r-2 border-gray-100 hover:text-mango px-4">
+                  <span class=" mr-1 text-sheet-100">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                       <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                     </svg>
                   </span>
                   By Admin
                 </a>
-                <a href="#" class="flex items-center border-r-2 border-mango hover:text-mango px-4">
-                  <span class="mr-1 text-mango pointer-events-none">
+                <a href="#" class="flex items-center border-r-2 border-gray-100 hover:text-mango px-4">
+                  <span class=" mr-1 text-sheet-100 pointer-events-none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
                       <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                     </svg>
@@ -29,7 +30,7 @@
                   Dec 24, 2018
                 </a>
                 <a href="#" class="flex items-center px-4">
-                  <span class="mr-1 text-mango pointer-events-none">
+                  <span class=" mr-1 text-sheet-100 pointer-events-none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
                       <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z" />
                     </svg>
@@ -39,6 +40,8 @@
               </div>
             </div>
           </div>
+
+
           <div>
             <p class="text-base text-gray-700 dark:text-gray-50">
               {{ post.content }}
@@ -55,7 +58,7 @@
           <!-- categories -->
           <div class="mt-6 relative hidden md:block">
             <div>
-              <myTitle title="categories" />
+              <sectionTitle title="categories" />
             </div>
             <div>
               <ul class="text-gray-900 font-medium text-lg dark:text-gray-400">
@@ -73,7 +76,7 @@
           <!-- articles populaires -->
           <div class="mt-6">
             <div>
-              <myTitle title="articles populaires" />
+              <sectionTitle title="articles populaires" />
             </div>
             <div v-for="popularPost in popularPosts" :key="popularPost.id">
               <Link :href="`${popularPost.id}`">
@@ -85,7 +88,7 @@
           <!-- newsletter -->
           <div class="mt-6">
             <div>
-              <myTitle title="newsletter" />
+              <sectionTitle title="newsletter" />
             </div>
             <div>
               <newsletter />
@@ -100,11 +103,12 @@
 <script setup>
 import { Link } from '@inertiajs/vue3'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
-import myTitle from '@/Components/myTitle.vue'
-import searchBar from '@/Components/Navbar/tools/searchBar.vue'
+import sectionTitle from '@/Components/sectionTitle.vue'
+import searchBar from '@/Components/searchSubmit.vue'
 import myCarousel from '@/Components/myCarousel.vue'
 import popularPostCard from '@/Components/popularPostCard.vue'
 import newsletter from '@/Components/newsletter.vue'
+import myTitle from '@/Components/myTitle.vue'
 
 defineProps({
   post: Object,

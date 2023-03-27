@@ -1,20 +1,17 @@
 <template>
   <div>
     <pageTitle title="contact" />
-    <div class="container mx-auto px-4">
+    <div class="mycontainer">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm:gap-7 md:gap-5 lg:gap-14">
         <div class="md:col-span-2">
-          <h2 class="text-[35px] font-semibold">
-            Vous pouvez nous contacter<br />
-            Par l'un des canaux suivants
-          </h2>
+          <myTitle title="Vous pouvez nous contacter par l'un des canaux suivants" />
 
           <div class="mt-4">
             Vous pouvez nous appeler ou nous laisser un message et c'est avec un grand plaisir que l'equipe d'Agrimax vous repondra. Nous vous attendons.
           </div>
 
-          <div class="flex flex-wrap justify-between px-8 mt-8 md:mt-16 mb-12 lg:mb-0">
-            <div class="flex w-full mt-8 md:w-2/5">
+          <div class="flex flex-wrap justify-between px-8 sm:px-0 lg:px-8 mt-8 md:mt-12 mb-12 lg:mb-0">
+            <div class="contact-card-style">
               <div class="text-[32px] text-sheet-100 mr-3 md:mr-6">
                 <svg
                   class="h-5 w-4 md:h-7 md:w-9"
@@ -35,7 +32,7 @@
                 </p>
               </div>
             </div>
-            <div class="flex w-full md:w-2/5 mt-8">
+            <div class="contact-card-style">
               <div class="text-[32px] text-sheet-100 mr-3 md:mr-6">
                 <svg
                   class="h-5 w-6 md:h-7 md:w-9"
@@ -51,7 +48,7 @@
                 <p class="text-base">agrimax@gmail.com</p>
               </div>
             </div>
-            <div class="flex w-full md:w-2/5 mt-8">
+            <div class="contact-card-style">
               <div class="text-[32px] text-sheet-100 mr-3 md:mr-6">
                 <svg 
                   class="h-5 w-7 md:h-7 md:w-9" fill="currentColor" viewBox="0 0 16 16"
@@ -64,13 +61,13 @@
                 <p class="text-base"> +237 678 513 874 </p>
               </div>
             </div>
-            <div class="flex w-full md:w-2/5 mt-8">
+            <div class="contact-card-style">
               <div class="text-[32px] text-sheet-100 mr-3 md:mr-6">
                 <svg
                   class="h-5 w-7 md:h-7 md:w-9" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"
                 ><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
               </div>
-              <div>
+              <div class="truncate">
                 <a target="_blank" href="https://facebook.com/agrimax" class="text-base">https://facebook.com/agrimax</a>
               </div>
             </div>
@@ -88,4 +85,5 @@
 <script setup>
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import formContact from '@/Components/formContact.vue'
+import myTitle from '@/Components/myTitle.vue'
 </script>

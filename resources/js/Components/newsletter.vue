@@ -1,7 +1,7 @@
 <template>
   <div
     class="
-    bg-onion-200
+    bg-sheet-100
       rounded
       relative
       overflow-hidden

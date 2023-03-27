@@ -1,7 +1,5 @@
 <template>
   <Navbar />
-  <!-- <div class="container mx-auto">
-  </div> -->
 
   <slot />
   <Footer />

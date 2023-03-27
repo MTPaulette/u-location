@@ -58,7 +58,7 @@
                   @click="sortPostByCategory(category.id)"-->
           <div class="mt-6 relative hidden md:block">
             <div>
-              <myTitle title="categories" />
+              <sectionTitle title="categories" />
             </div>
             <div>
               <ul class="text-gray-900 font-medium text-lg dark:text-gray-400">
@@ -78,7 +78,7 @@
           <!-- articles populaires -->
           <div class="mt-6">
             <div>
-              <myTitle title="articles populaires" />
+              <sectionTitle title="articles populaires" />
             </div>
             <div v-for="popularPost in popularPosts" :key="popularPost.id">
               <Link :href="`${popularPost.id}`">
@@ -90,7 +90,7 @@
           <!-- newsletter -->
           <div class="mt-6">
             <div>
-              <myTitle title="newsletter" />
+              <sectionTitle title="newsletter" />
             </div>
             <div>
               <newsletter />
@@ -105,8 +105,8 @@
 <script setup>
 import { Link } from '@inertiajs/vue3'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
-import myTitle from '@/Components/myTitle.vue'
-import searchBar from '@/Components/Navbar/tools/searchBar.vue'
+import sectionTitle from '@/Components/sectionTitle.vue'
+import searchBar from '@/Components/searchSubmit.vue'
 import myCarousel from '@/Components/myCarousel.vue'
 import popularPostCard from '@/Components/popularPostCard.vue'
 import newsletter from '@/Components/newsletter.vue'

@@ -1,9 +1,9 @@
 <template>
   <pageTitle title="blog" />
-  <div class="ml-4">
-    <myTitle title="tous les articles" />
+  <div class="ml-3">
+    <myTitle title="Tous les articles" />
   </div>
-  <div class="px-4 sm:px-20 md:px-30 container mx-auto">
+  <div class="mycontainer sm:px-20 md:px-30">
     <div v-for="post in posts.data" :key="post.id">
       <Link :href="`post/${post.id}`">
         <popularPostCard :post="post" />
@@ -19,9 +19,9 @@
 <script setup>
 import { Link } from '@inertiajs/vue3'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
-import myTitle from '@/Components/myTitle.vue'
 import popularPostCard from '@/Components/popularPostCard.vue'
 import pagination from '@/Components/pagination.vue'
+import myTitle from '@/Components/myTitle.vue'
 
 defineProps({
   posts: Object,
