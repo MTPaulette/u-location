@@ -24,4 +24,6 @@ Route::get("/register",[IndexController::class, "register"]);
 Route::get("/login",[IndexController::class, "login"]);
 Route::get("/reset",[IndexController::class, "reset"]);
 
+Route::get("/dashboard",[IndexController::class, "dashboard"]);
+
 Route::resource("post", PostController::class);

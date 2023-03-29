@@ -33,4 +33,8 @@ class IndexController extends Controller
     public function reset() {
         return Inertia("Authentification/reset");
     }
+
+    public function dashboard() {
+        return Inertia("Dashboard/Home");
+    }
 }
