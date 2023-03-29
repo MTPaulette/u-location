@@ -22,5 +22,6 @@ Route::get("/notFound",[IndexController::class, "notFound"]);
 
 Route::get("/register",[IndexController::class, "register"]);
 Route::get("/login",[IndexController::class, "login"]);
+Route::get("/reset",[IndexController::class, "reset"]);
 
 Route::resource("post", PostController::class);

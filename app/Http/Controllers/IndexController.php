@@ -29,4 +29,8 @@ class IndexController extends Controller
     public function login() {
         return Inertia("Authentification/login");
     }
+
+    public function reset() {
+        return Inertia("Authentification/reset");
+    }
 }
