@@ -17,9 +17,8 @@ defineProps({
 </script>
 
 <style scoped>
-
 .main {
-  background-image: url('./../../../images/mangue1.jpg');
+  background-image: url('./../../../images/mango1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }

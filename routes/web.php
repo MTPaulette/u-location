@@ -20,6 +20,7 @@ Route::get("/contact",[IndexController::class, "contact"]);
 Route::get("/about",[IndexController::class, "about"]);
 Route::get("/notFound",[IndexController::class, "notFound"]);
 
+Route::get("/register",[IndexController::class, "register"]);
 Route::get("/login",[IndexController::class, "login"]);
 
 Route::resource("post", PostController::class);

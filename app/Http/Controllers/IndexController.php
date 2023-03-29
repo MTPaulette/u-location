@@ -22,6 +22,10 @@ class IndexController extends Controller
         return Inertia("Guest/Index/notFound");
     }
 
+    public function register() {
+        return Inertia("Authentification/register");
+    }
+
     public function login() {
         return Inertia("Authentification/login");
     }
