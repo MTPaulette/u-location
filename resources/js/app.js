@@ -6,6 +6,9 @@ import MainLayout from '@/Layouts/MainLayout.vue'
 import store from './store.js'
 
 
+// import "@fortawesome/fontawesome-free/css/all.min.css"
+
+
 createInertiaApp({
   resolve: async (name) => {
     const pages = import.meta.glob('./Pages/**/*.vue')

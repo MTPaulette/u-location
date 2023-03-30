@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,6 @@ Route::get("/register",[IndexController::class, "register"]);
 Route::get("/login",[IndexController::class, "login"]);
 Route::get("/reset",[IndexController::class, "reset"]);
 
-Route::get("/dashboard",[IndexController::class, "dashboard"]);
+Route::get("/dashboard",[DashboardController::class, "home"]);
 
 Route::resource("post", PostController::class);
