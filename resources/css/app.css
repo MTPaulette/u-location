@@ -51,6 +51,10 @@
   .label-login {
     @apply block mt-2 text-sm font-medium text-gray-900 dark:text-white
   }
+  
+  .card-default-dashboard {
+    @apply 
+  }
 
 
 }

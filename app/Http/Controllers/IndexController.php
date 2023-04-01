@@ -7,19 +7,19 @@ use Illuminate\Http\Request;
 class IndexController extends Controller
 {
     public function index() {
-        return Inertia("Guest/Index/index");
+        return Inertia("Guest/index");
     }
 
     public function contact() {
-        return Inertia("Guest/Index/contact");
+        return Inertia("Guest/contact");
     }
     
     public function about() {
-        return Inertia("Guest/Index/about");
+        return Inertia("Guest/about");
     }
 
     public function notFound() {
-        return Inertia("Guest/Index/notFound");
+        return Inertia("Guest/notFound");
     }
 
     public function register() {

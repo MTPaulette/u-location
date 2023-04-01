@@ -18,6 +18,8 @@ module.exports = {
       },
       'mango': '#fd5906',
       'info': 'green',
+      'success': '#219653',
+      'danger': '#D50100',
       'onion': {
         100: '#890352',
         200: '#580389',

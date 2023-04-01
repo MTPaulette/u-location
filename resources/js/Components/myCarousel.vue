@@ -34,11 +34,11 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { initFlowbite } from 'flowbite'
+import { initCarousels } from 'flowbite'
 
 // initialize components based on data attribute selectors
 onMounted(() => {
-  initFlowbite()
+  initCarousels()
 })
 
 defineProps({
@@ -49,5 +49,4 @@ const getImgUrl = (src) =>{
   return  new URL('./../../images/carousel/'+src, import.meta.url).href
 
 }
-
 </script>

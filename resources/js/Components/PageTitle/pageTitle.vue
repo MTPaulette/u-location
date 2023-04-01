@@ -5,12 +5,12 @@
     </h1>
   </div>
   <div class="ml-4 my-8">
-    <breadcrumb :page="title" />
+    <breadcrumb :link2="title" />
   </div>
 </template>
 
 <script setup>
-import breadcrumb from './tools/breadcrumb.vue'
+import breadcrumb from '@/Components/PageTitle/tools/breadcrumb.vue'
 defineProps({
   title: String,
 })

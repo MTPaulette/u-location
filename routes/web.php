@@ -26,5 +26,6 @@ Route::get("/login",[IndexController::class, "login"]);
 Route::get("/reset",[IndexController::class, "reset"]);
 
 Route::get("/dashboard",[DashboardController::class, "home"]);
+Route::get("/statistic",[DashboardController::class, "statistic"]);
 
 Route::resource("post", PostController::class);

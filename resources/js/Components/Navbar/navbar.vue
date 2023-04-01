@@ -52,8 +52,8 @@
 import { onMounted, ref } from 'vue'
 import { initFlowbite } from 'flowbite'
 // import { Link } from '@inertiajs/vue3'
-import SearchBar from './tools/searchBar.vue'
-import LoggedUser from './tools/loggedUser.vue'
+import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
+import LoggedUser from '@/Components/Navbar/tools/loggedUser.vue'
 
 // initialize components based on data attribute selectors
 onMounted(() => {
