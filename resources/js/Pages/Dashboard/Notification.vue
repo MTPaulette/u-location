@@ -1,0 +1,40 @@
+<template>
+  <DashboardLayout>
+    <div class="flex flex-wrap-reverse justify-between items-center mt-5 mb-3 mx-0 sm:mx-5">
+      <div>
+        <myTitle title="Notifications" />
+      </div>
+      <div>
+        <breadcrumb link1="dashboard" link2="notifications" />
+      </div>
+    </div>
+    <div class="w-full px-4 py-5 h-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <notification />
+      <notification />
+      <notification />
+      <notification />
+    </div>
+    <div v-if="posts.data.length" class="w-full flex justify-center mt-8 mb-12">
+      <pagination :links="posts.links" />
+    </div>
+  </DashboardLayout>
+</template>
+
+<script>
+import BaseLayout from '@/Layouts/BaseLayout.vue'
+
+export default {
+  layout: BaseLayout,
+}
+</script>
+
+<script setup>
+import DashboardLayout from '@/Layouts/DashboardLayout.vue'
+import breadcrumb from '@/Components/PageTitle/tools/breadcrumb.vue'
+import myTitle from '@/Components/myTitle.vue'
+import notification from '@/Components/Notification/notification.vue'
+import pagination from '@/Components/pagination.vue'
+defineProps({
+  posts: Object,
+})
+</script>

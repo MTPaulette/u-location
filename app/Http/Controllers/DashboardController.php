@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,5 +13,12 @@ class DashboardController extends Controller
     
     function statistic() {
         return Inertia("Dashboard/Statistic");
+    }
+
+    function notification() {
+        return Inertia("Dashboard/Notification", [
+            'posts' => Post::orderByDesc('created_at')
+                    ->paginate(5)
+        ]);
     }
 }
