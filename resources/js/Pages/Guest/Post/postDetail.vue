@@ -85,7 +85,7 @@
             </div>
           </div>
 
-          <!-- newsletter -->
+          <!-- newsletter
           <div class="mt-6">
             <div>
               <sectionTitle title="newsletter" />
@@ -93,7 +93,7 @@
             <div>
               <newsletter />
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -107,7 +107,7 @@ import sectionTitle from '@/Components/sectionTitle.vue'
 import searchBar from '@/Components/searchSubmit.vue'
 import myCarousel from '@/Components/myCarousel.vue'
 import popularPostCard from '@/Components/popularPostCard.vue'
-import newsletter from '@/Components/newsletter.vue'
+// import newsletter from '@/Components/newsletter1.vue'
 import myTitle from '@/Components/myTitle.vue'
 
 defineProps({

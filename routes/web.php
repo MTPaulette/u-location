@@ -28,5 +28,6 @@ Route::get("/reset",[IndexController::class, "reset"]);
 Route::get("/dashboard",[DashboardController::class, "home"]);
 Route::get("/statistic",[DashboardController::class, "statistic"]);
 Route::get("/notifications",[DashboardController::class, "notification"]);
+Route::get("/invoice",[DashboardController::class, "invoice"]);
 
 Route::resource("post", PostController::class);

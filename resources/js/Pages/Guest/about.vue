@@ -10,15 +10,7 @@
               Notre Equipe
             </span>
             <myTitle title="Rencontrer notre Equipe" />
-            <p
-              class="
-                  text-lg
-                  sm:text-xl
-                  leading-relaxed
-                  sm:leading-relaxed
-                  text-body-color
-                "
-            >
+            <p class="text-lg sm:text-xl leading-relaxed sm:leading-relaxed text-body-color">
               Une Equipe de personnes <span class="text-sheet-100">jeunes </span>et <span class="text-sheet-100">dynamiques </span>
               pour vous servir.
             </p>

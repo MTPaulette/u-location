@@ -21,4 +21,11 @@ class DashboardController extends Controller
                     ->paginate(5)
         ]);
     }
+
+    function invoice() {
+        return Inertia("Dashboard/Invoice", [
+            'posts' => Post::orderByDesc('created_at')
+                    ->paginate(5)
+        ]);
+    }
 }
