@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -24,8 +25,8 @@ class DashboardController extends Controller
 
     function invoice() {
         return Inertia("Dashboard/Invoice", [
-            'posts' => Post::orderByDesc('created_at')
-                    ->paginate(5)
+            'products' => Product::orderByDesc('created_at')
+                    ->paginate(10)
         ]);
     }
 }

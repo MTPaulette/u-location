@@ -3,6 +3,8 @@
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +33,5 @@ Route::get("/notifications",[DashboardController::class, "notification"]);
 Route::get("/invoice",[DashboardController::class, "invoice"]);
 
 Route::resource("post", PostController::class);
+Route::resource("user", UserController::class);
+// Route::resource("product", ProductController::class);

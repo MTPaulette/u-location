@@ -11,9 +11,9 @@
 <script>
 import BaseLayout from '@/Layouts/BaseLayout.vue'
 import DashboardLayout from '@/Layouts/DashboardLayout.vue'
-import CardLineChart from '@/Components/Card/CardLineChart.vue'
-import CardBarChart from '@/Components/Card/CardBarChart.vue'
-import CardTest from '@/Components/Card/CardTest.vue'
+import CardLineChart from '@/Components/Cards/CardLineChart.vue'
+import CardBarChart from '@/Components/Cards/CardBarChart.vue'
+import CardTest from '@/Components/Cards/CardTest.vue'
 
 export default {
   name: 'DashboardHome',

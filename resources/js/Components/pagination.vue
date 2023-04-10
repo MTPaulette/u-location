@@ -2,9 +2,9 @@
   <div class="flex gap-1">
     <Link 
       v-for="(link, i) in links"
-      :key="i" class="px-2 py-0.5 text-xs rounded-md bg-gray-900 text-gray-50"
+      :key="i" class="px-2.5 py-1 text-xs rounded-md bg-gray-900 text-gray-50"
       :href="link.url"
-      :class="{'bg-mango text-gray-900': link.active }"
+      :class="{'bg-blue-800 text-gray-50': link.active }"
       v-html="link.label"
     />
   </div>

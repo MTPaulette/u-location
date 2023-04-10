@@ -1,16 +1,18 @@
 <!-- :href="route('post.show', {post: post.id}) -->
 <template>
-  <div class="border-0 border-gray-100 border-b dark:border-gray-700">
-    <div class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+  <div class="border-0 border-gray-100 border-b dark:border-gray-700 max-w-full">
+    <div class="flex items-center px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
       <div class="flex-shrink-0">
-        <img class="rounded w-11 h-11" src="./../../images/mango1.jpg" alt="Jese image" />
+        <img class="rounded w-12 lg:w-1/6 h-12" src="./../../images/mango50.jpg" alt="product image" />
       </div>
       <div class="w-full pl-3">
-        <h4 class="w-full truncate h-5 mb-1">
-          <a href="" class="text-base md:text-sm">{{ post.name }}</a>
+        <h4 class="w-5/6 truncate h-5 mb-1">
+          <a href="" class="text-base">{{ post.name }}</a>
+          <!-- <a href="" class="text-base md:text-sm">{{ post.name }}</a> -->
         </h4>
       
         <p class="h-10 md:h-8 overflow-hidden text-justify text-sm md:text-xs mb-2 text-gray-700 dark:text-gray-400">{{ post.content }}</p>
+        <!-- <p class="h-10 md:h-8 overflow-hidden text-justify text-sm md:text-xs mb-2 text-gray-700 dark:text-gray-400">{{ post.content }}</p> -->
     
 
         <div class="flex items-center truncate text-xs md:text-[10px] text-gray-600 dark:text-gray-400">

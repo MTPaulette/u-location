@@ -79,5 +79,5 @@ export default {
 import DashboardLayout from '@/Layouts/DashboardLayout.vue'
 import breadcrumb from '@/Components/PageTitle/tools/breadcrumb.vue'
 import myTitle from '@/Components/myTitle.vue'
-import CardDefault from '@/Components/Card/cardDefault.vue'
+import CardDefault from '@/Components/Cards/cardDefault.vue'
 </script>

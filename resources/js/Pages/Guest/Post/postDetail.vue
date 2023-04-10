@@ -2,7 +2,7 @@
   <div>
     <pageTitle title="blog details" />
     <div class="mycontainer">
-      <div class="grid grid-cols-1 md:grid-cols-3 md:gap-14">
+      <div class="grid grid-cols-1 md:grid-cols-3 md:gap-8 lg:gap-14">
         <div class="col-span-3 md:col-span-2">
           <div class="mb-8 mt-0">
             <myCarousel :images="images" />
@@ -49,7 +49,7 @@
           </div>
         </div>
 
-        <div class="md:px-4 py-8 md:mb-16 border-0 md:border rounded border-gray-100">
+        <div class="md:px-4 py-8 md:mb-16 border-0 lg:border rounded border-gray-100">
           <div class="relative hidden md:block">
             <!-- search -->
             <searchBar />
@@ -80,20 +80,10 @@
             </div>
             <div v-for="popularPost in popularPosts" :key="popularPost.id">
               <Link :href="`${popularPost.id}`">
-                <popularPostCard :post="popularPost" />
+                <postCard :post="popularPost" />
               </Link>
             </div>
           </div>
-
-          <!-- newsletter
-          <div class="mt-6">
-            <div>
-              <sectionTitle title="newsletter" />
-            </div>
-            <div>
-              <newsletter />
-            </div>
-          </div> -->
         </div>
       </div>
     </div>
@@ -106,8 +96,7 @@ import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import sectionTitle from '@/Components/sectionTitle.vue'
 import searchBar from '@/Components/searchSubmit.vue'
 import myCarousel from '@/Components/myCarousel.vue'
-import popularPostCard from '@/Components/popularPostCard.vue'
-// import newsletter from '@/Components/newsletter1.vue'
+import postCard from '@/Components/postCard.vue'
 import myTitle from '@/Components/myTitle.vue'
 
 defineProps({

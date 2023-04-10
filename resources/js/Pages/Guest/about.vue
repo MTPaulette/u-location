@@ -23,7 +23,7 @@
           <!-- <div v-for="i in 4" :key="i" class="w-1/2 md:w-1/4 self-center bg-mango"> fd5906-->
           <div class="w-[150px] h-[100px] border-2 border-sheet-100 relative">
             <img
-              src="./../../../../resources/images/carousel/1.jpg"
+              src="./../../../images/carousel/1.jpg"
               :alt="i"
               class="w-full h-full"
             />

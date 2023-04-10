@@ -14,7 +14,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        // dd(Post::orderByDesc('created_at')->paginate(5));
+        return Inertia("Dashboard/Invoice", [
+            'products' => Product::orderByDesc('created_at')
+                    ->paginate(10)
+        ]);
     }
 
     /**
