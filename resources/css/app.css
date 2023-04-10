@@ -13,6 +13,10 @@
     @apply mx-auto px-4 sm:px-6 md:px-8
   }
 
+  .sidebar-icon {
+    @apply flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white
+  }
+
   .input-search {
     @apply block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-mango focus:border-mango dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-mango dark:focus:border-mango
   }
@@ -45,11 +49,11 @@
   }
 
   .input-login {
-    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-mango focus:border-mango block w-full px-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-mango dark:focus:border-mango
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg shadow-sm focus:ring-mango focus:border-mango block w-full px-3.5 py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-mango dark:focus:border-mango
   }
 
   .label-login {
-    @apply block mt-2 text-sm font-medium text-gray-900 dark:text-white
+    @apply block mt-2 text-sm capitalize font-medium text-black dark:text-white
   }
   
   .card-default-dashboard {
@@ -76,6 +80,10 @@
     @apply bg-yellow-500 hover:bg-yellow-800 focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800
   }
 
+  .btn-extrasmall {
+    @apply px-2.5 py-1.5 text-xs
+  }
+
   .btn-small {
     @apply px-3 py-2 text-sm
   }
@@ -85,7 +93,7 @@
   }
 
   .btn-large {
-    @apply px-5 py-3 text-base
+    @apply px-5 py-5 text-base
   }
 
 }

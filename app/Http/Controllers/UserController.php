@@ -14,10 +14,22 @@ class UserController extends Controller
      */
     public function index()
     {
-        // dd(Post::orderByDesc('created_at')->paginate(5));
-        return Inertia("Dashboard/User", [
+        return Inertia("Dashboard/User/List", [
             'users' => User::orderByDesc('created_at')
-                    ->paginate(5)
+                    ->paginate(10)
+        ]);
+    }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return Inertia("Dashboard/User/Profile", [
+            'user' => User::find($id),
         ]);
     }
 }

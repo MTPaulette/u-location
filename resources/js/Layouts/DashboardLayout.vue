@@ -2,7 +2,7 @@
   <div>
     <Sidebar />
   
-    <div class="bg- bg-gray-100 p-4 sm:ml-52 xl:ml-64 mt-14">
+    <div class="bg-gray-100 dark:bg-gray-700 p-4 sm:ml-52 xl:ml-64 mt-14">
       <!-- <div class="bg- bg-gray-100 p-4 sm:ml-64 mt-14"> -->
       <slot />
       <Footer />

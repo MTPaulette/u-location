@@ -29,7 +29,7 @@
 
         <div class="w-1/6">
           <!-- <img src="./../../../images/logo.png" class="w-full md:w-32 md:h-28" alt="Agrimax Logo" /> -->
-          <img src="./../../../images/logo.png" class="w-20 h-24 md:w-32 md:h-28" alt="Agrimax Logo" />
+          <img src="./../../../../images/logo.png" class="w-20 h-24 md:w-32 md:h-28" alt="Agrimax Logo" />
         </div>
 
         <div class="w-1/3 text-gray-500 dark:text-gray-400 text-base">
@@ -41,7 +41,7 @@
       </div>
 
       <div class="my-12">
-        <TableInvoice :products="products" />
+        <ListInvoice :products="products" />
       </div>
 
       <div class="my-14">
@@ -76,7 +76,7 @@ import myTitle from '@/Components/myTitle.vue'
 import Alert from '@/Components/alert.vue'
 import Button from '@/Components/button.vue'
 // import CardTable from "@/Components/Cards/CardTable.vue"
-import TableInvoice from '@/Components/Tables/tableInvoice.vue'
+import ListInvoice from '@/Components/Invoice/ShowInvoice.vue'
 
 defineProps({
   products: Object,

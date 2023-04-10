@@ -18,18 +18,18 @@
           </div>
         </div> 
         <div>
-          <label for="phone" class="label-login">Phone number</label>
-          <input id="phone" type="tel" class="input-login" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
-        </div>
-        <div class=" ">
           <label for="email" class="label-login">Email address</label>
           <input id="email" type="email" class="input-login" placeholder="john.doe@company.com" required />
         </div> 
-        <div class=" ">
+        <div>
+          <label for="phone" class="label-login">Phone number</label>
+          <input id="phone" type="tel" class="input-login" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
+        </div>
+        <div>
           <label for="password" class="label-login">Password</label>
           <input id="password" type="password" class="input-login" placeholder="•••••••••" required />
         </div> 
-        <div class=" ">
+        <div>
           <label for="confirm_password" class="label-login">Confirm password</label>
           <input id="confirm_password" type="password" class="input-login" placeholder="•••••••••" required />
         </div> 

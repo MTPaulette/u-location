@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\order;
+use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -12,9 +13,11 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    function index() {
+        return Inertia("Dashboard/Invoice/Show", [
+            'products' => Product::orderByDesc('created_at')
+                    ->paginate(10)
+        ]);
     }
 
     /**

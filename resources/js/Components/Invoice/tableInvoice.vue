@@ -10,7 +10,7 @@
           <th scope="col" class="px-6 py-3">
             Product name
           </th>
-          <th scope="col-span-2" class="px-6 py-3">
+          <th scope="col" class="px-6 py-3">
             Description
           </th>
           <th scope="col" class="px-6 py-3">

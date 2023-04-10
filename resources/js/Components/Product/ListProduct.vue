@@ -3,7 +3,7 @@
     <div class="block sm:flex sm:justify-between sm:items-center py-3 bg-white dark:bg-gray-800">
       <div class="flex items-center">
         <div class="relative">
-          <SearchBar placeholder="Search for users" />
+          <SearchBar placeholder="Search for products" />
         </div>
         <div>
           <button id="dropdownActionButton" data-dropdown-toggle="dropdownDotsHorizontal" class="inline-flex mt-2 ml-2 text-sm font-medium text-center text-gray-900 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600" type="button"> 
@@ -26,15 +26,15 @@
               </li>
             </ul>
             <div class="py-1">
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete User</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete Product</a>
             </div>
           </div>
         </div>
       </div>
       <div class="flex mt-5 sm:mt-0">
         <div>
-          <Button label="add user" hasicon btn small>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
+          <Button label="add product" hasicon btn small>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
               <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
             </svg>
           </Button>
@@ -42,7 +42,7 @@
 
         <div>
           <Button label="export" hasicon light small>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
               <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
               <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
             </svg>
@@ -63,13 +63,19 @@
             </div>
           </th>
           <th scope="col" class="px-6 py-2.5">
-            Name
+            Product ID
           </th>
           <th scope="col" class="px-6 py-2.5">
-            Position
+            Product name
           </th>
           <th scope="col" class="px-6 py-2.5">
-            Status
+            description
+          </th>
+          <th scope="col" class="px-6 py-2.5">
+            In stock
+          </th>
+          <th scope="col" class="px-6 py-2.5">
+            Price
           </th>
           <th scope="col" class="px-6 py-2.5">
             Since
@@ -80,35 +86,35 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="user in users.data" :key="user.id" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <tr v-for="product in products.data" :key="product.id" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
           <td class="w-4 p-4">
             <div class="flex items-center">
               <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
               <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
             </div>
           </td>
-          <th scope="row" class="flex items-center px-6 py-2.5 text-gray-900 whitespace-nowrap dark:text-white">
-            <img class="w-10 h-10 rounded-full" src="./../../../images/img.PNG" alt="Jese image" />
-            <div class="pl-3">
-              <div class="text-base font-semibold">{{ user.name }}</div>
-              <div class="font-normal text-gray-500">{{ user.email }}</div>
-            </div>  
+          <th scope="row" class="px-6 py-2.5">
+            {{ product.code }}
           </th>
-          <td class="px-6 py-2.5 capitalize">
-            yaounde, cameroon
+          <td class="px-6 py-2.5 capitalize font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            {{ product.designation }}
           </td>
           <td class="px-6 py-2.5">
-            <div class="flex items-center">
-              <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2" /> Online
-            </div>
+            Design and Development Service
           </td>
           <td class="px-6 py-2.5">
-            {{ user.created_at }}
+            68 in stock
+          </td>
+          <td class="px-6 py-2.5">
+            {{ product.price }} FCFA
+          </td>
+          <td class="px-6 py-2.5">
+            {{ product.created_at }}
           </td>
           <td class="px-6 py-2.5 flex justify-between w-full ">
-            <div data-modal-target="editUserModal" data-modal-show="editUserModal">
+            <div data-modal-target="editProductModal" data-modal-show="editProductModal">
               <!-- Modal toggle -->
-              <Button label="edit" hasicon btn small>
+              <Button label="edit" hasicon btn extrasmall>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
@@ -117,7 +123,7 @@
             </div>
 
             <div>
-              <Button label="block" hasicon warning small>
+              <Button label="block" hasicon warning extrasmall>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z" />
                   <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z" />
@@ -127,7 +133,7 @@
             </div>
 
             <div>
-              <Button label="delete" hasicon danger small>
+              <Button label="delete" hasicon danger extrasmall>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
                   <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
@@ -139,23 +145,23 @@
       </tbody>
     </table>
 
-    <!-- Edit user modal -->
-    <EditUserModal />
+    <!-- Edit product modal -->
+    <EditProductModal />
   </div>
 
-  <div v-if="users.data.length" class="w-full flex mt-8 mb-12">
-    <pagination :links="users.links" />
+  <div v-if="products.data.length" class="w-full flex mt-8 mb-12">
+    <pagination :links="products.links" />
   </div>
 </template>
 
 <script setup>
-import pagination from '@/Components/Tables/tools/pagination.vue'
+import pagination from '@/Components/paginationTable.vue'
 import Button from '@/Components/button.vue'
-import EditUserModal from '@/Components/Modals/EditUserModal.vue'
+import EditProductModal from '@/Components/Product/EditProduct.vue'
 import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
 
 defineProps({
-  users: Object,
+  products: Object,
 })
 
 </script>
