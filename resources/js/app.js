@@ -2,8 +2,16 @@ import '../css/app.css'
 import 'flowbite'
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
+import { InertiaProgress } from '@inertiajs/progress'
 import MainLayout from '@/Layouts/MainLayout.vue'
-import store from './store.js'
+
+/* progress when render inertia page */
+InertiaProgress.init({
+  delay: 2,
+  color: "#fd5906",
+  includeCSS: true,
+  showSpinner: true,
+})
 
 
 // import "@fortawesome/fontawesome-free/css/all.min.css"
@@ -20,7 +28,6 @@ createInertiaApp({
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
       .use(plugin)
-      .use(store)
       .mount(el)
   },
 })
