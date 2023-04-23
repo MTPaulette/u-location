@@ -3,22 +3,30 @@
   <button
     v-if="hasicon" :type="type"
     :class="{'btn-default':btn, 'btn-light':light, 'btn-success':success, 'btn-warning':warning, 'btn-danger':danger,'btn-extrasmall':extrasmall, 'btn-small': small, 'btn-base': base, 'btn-large': large }"
-    class="inline-flex items-center mr-2 mb-2 capitalize font-medium text-white rounded-lg focus:ring-4 focus:outline-none"
+    class="inline-flex items-center mb-2 capitalize font-medium text-white rounded-lg focus:ring-4 focus:outline-none"
   >
     <slot />
     <span class="ml-2">{{ label }}</span>
     <!-- <span class="ml-2 hidden sm:inline">{{ label }}</span> -->
   </button>
+  <!-- class="px-5 py-2.5 mr-2 mb-2 capitalize font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" -->
+  
 
-  <button v-else :type="type" class="px-5 py-2.5 mr-2 mb-2 capitalize font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{ label }}</button>
+  <button
+    v-else :type="type"
+    :class="{'btn-default':btn, 'btn-light':light, 'btn-success':success, 'btn-warning':warning, 'btn-danger':danger,'btn-extrasmall':extrasmall, 'btn-small': small, 'btn-base': base, 'btn-large': large }"
+    class="inline-flex items-center mb-2 capitalize font-medium text-white rounded-lg focus:ring-4 focus:outline-none"
+  >
+    {{ label }}
+  </button>
 </template>
 
 <script setup>
 defineProps({
-  label: Object,
+  label: String,
   type: {
     type: String,
-    default: 'button',
+    default: 'btn',
   },
   hasicon: {
     type: Boolean,

@@ -24,6 +24,10 @@
   .input-style {
     @apply block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-mango focus:outline-none focus:ring-0 focus:border-mango
   }
+  
+  .input-error {
+    @apply mt-0.5 text-xs text-red-600 dark:text-red-500 text-right
+  }
 
   .submit-btn-style {
      @apply w-full text-center capitalize h-[35px] md:h-[30px] lg:h-[45px] text-sm font-medium text-white rounded border bg-mango mb-6 cursor-pointer hover:shadow-lg hover:bg-transparent hover:text-mango hover:border-mango

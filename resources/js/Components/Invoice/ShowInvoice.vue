@@ -94,12 +94,12 @@
     </table>
   </div>
   <div v-if="products.data.length" class="w-full flex justify-center mt-8 mb-12">
-    <pagination :links="products.links" />
+    <Pagination :links="products.links" />
   </div>
 </template>
 
 <script setup>
-import pagination from '@/Components/pagination.vue'
+import Pagination from '@/Components/pagination.vue'
 
 defineProps({
   products: Object,

@@ -37,22 +37,24 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { initDropdowns } from 'flowbite'
 
 import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
 import LoggedUser from '@/Components/Navbar/tools/loggedUser.vue'
 import Notification from '@/Components/Navbar/tools/notification.vue'
 
+import { usePage } from '@inertiajs/vue3'
+import { computed } from 'vue'
+
+const page = usePage()
+const user = computed(
+  () => page.props.user,
+)
+
 // initialize components based on data attribute selectors
 onMounted(() => {
   initDropdowns()
 })
-
-const user = ref({
-  name: 'paulette',
-  email: "paultte@myemail.com",
-})
-
 
 </script>

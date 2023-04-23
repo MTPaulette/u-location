@@ -64,7 +64,35 @@ class DatabaseSeeder extends Seeder
             'name' => 'administrator'
         ]);
 
-        \App\Models\User::factory(5)->create();
+        
+        \App\Models\Country::factory(5)->create();
+
+        \App\Models\City::factory(2)->create([
+            'country_id' => 1
+        ]);
+        \App\Models\City::factory()->create([
+            'country_id' => 2
+        ]);
+        \App\Models\City::factory(2)->create([
+            'country_id' => 3
+        ]);
+        \App\Models\City::factory(2)->create([
+            'country_id' => 4
+        ]);
+
+
+        \App\Models\User::factory(2)->create([
+            'city_id' => 4
+        ]);
+        \App\Models\User::factory(2)->create([
+            'city_id' => 1
+        ]);
+        \App\Models\User::factory()->create([
+            'city_id' => 3
+        ]);
+        \App\Models\User::factory(2)->create([
+            'city_id' => 7
+        ]);
 
         $user1 = \App\Models\User::find(1);
         $user2 = \App\Models\User::find(2);
@@ -96,5 +124,6 @@ class DatabaseSeeder extends Seeder
         $product1->orders()->attach($order1);
         $product2->orders()->attach($order1);
         $product3->orders()->attach($order2);
+
     }
 }

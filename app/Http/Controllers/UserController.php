@@ -32,4 +32,22 @@ class UserController extends Controller
             'user' => User::find($id),
         ]);
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        User::create(
+            $request->validate([
+            'name' => 'required|max:50',
+            'email' => 'required|unique',
+            'password' => 'required|min:6',
+        ]));
+        return to_route('user.index')->with('success', 'user was successfully created!!!');
+        // return redirect('/post)
+    }
 }

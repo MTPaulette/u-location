@@ -13,10 +13,15 @@ class Product extends Model
     use HasFactory;
     protected $fillable = [
         'code',
-        'designation',
+        'name',
+        'description',
         'price',
+        'initial_stock',
+        'remaining_stock',
         'reduction'
     ];
+
+    // protected $dateFormat = 'U';
 
     public function images(): HasMany {
         return $this->hasMany(Image::class);

@@ -6,7 +6,7 @@
       <Link 
         v-for="(link, i) in links"
         :key="i" class="font-semibold dark:text-white px-1.5 py-0.5"
-        :href="link.url"
+        :href="link.url? link.url: '#'"
         :class="{'bg-sheet-200 text-gray-50 rounded-md': link.active }"
         v-html="link.label"
       />

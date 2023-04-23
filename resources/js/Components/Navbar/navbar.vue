@@ -49,11 +49,18 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
 // import { Link } from '@inertiajs/vue3'
 import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
 import LoggedUser from '@/Components/Navbar/tools/loggedUser.vue'
+import { usePage } from '@inertiajs/vue3'
+import { computed } from 'vue'
+
+const page = usePage()
+const user = computed(
+  () => page.props.user,
+)
 
 // initialize components based on data attribute selectors
 onMounted(() => {
@@ -61,12 +68,5 @@ onMounted(() => {
 })
 
 const menuItems = [['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/market','marche'], ['/services','services']]
-
-
-const user = ref({
-  name: 'paulette',
-  email: "paultte@myemail.com",
-})
-
 
 </script>

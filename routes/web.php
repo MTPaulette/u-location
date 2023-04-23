@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,14 +20,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/",[IndexController::class, "index"]);
+Route::get("/",[IndexController::class, "index"])->name("index");
 Route::get("/contact",[IndexController::class, "contact"]);
 Route::get("/about",[IndexController::class, "about"]);
 Route::get("/notFound",[IndexController::class, "notFound"]);
 
-Route::get("/register",[IndexController::class, "register"]);
-Route::get("/login",[IndexController::class, "login"]);
-Route::get("/reset",[IndexController::class, "reset"]);
 
 Route::get("/dashboard",[DashboardController::class, "home"]);
 Route::get("/statistic",[DashboardController::class, "statistic"]);
@@ -37,3 +35,9 @@ Route::resource("post", PostController::class);
 Route::resource("user", UserController::class);
 Route::resource("product", ProductController::class);
 Route::resource("invoice", OrderController::class);
+
+Route::get("/register",[AuthController::class, "register"]);
+
+Route::get("/login",[AuthController::class, "create"])->name("login");
+Route::post("/login",[AuthController::class, "store"])->name("login");
+Route::delete("/logout",[AuthController::class, "destroy"])->name("logout");

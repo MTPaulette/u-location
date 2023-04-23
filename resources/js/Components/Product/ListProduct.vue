@@ -40,7 +40,7 @@
           </Button>
         </div>
 
-        <div>
+        <div class="ml-2">
           <Button label="export" hasicon light small>
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
               <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
@@ -68,11 +68,14 @@
           <th scope="col" class="px-6 py-2.5">
             Product name
           </th>
-          <th scope="col" class="px-6 py-2.5">
-            description
+          <th scope="col-span-2" class="px-6 py-2.5">
+            Description
           </th>
           <th scope="col" class="px-6 py-2.5">
-            In stock
+            Initial stock
+          </th>
+          <th scope="col" class="px-6 py-2.5">
+            Remaining stock
           </th>
           <th scope="col" class="px-6 py-2.5">
             Price
@@ -97,13 +100,16 @@
             {{ product.code }}
           </th>
           <td class="px-6 py-2.5 capitalize font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            {{ product.designation }}
+            {{ product.name }}
           </td>
           <td class="px-6 py-2.5">
-            Design and Development Service
+            {{ product.description }}
           </td>
           <td class="px-6 py-2.5">
-            68 in stock
+            {{ product.initial_stock }}
+          </td>
+          <td class="px-6 py-2.5">
+            {{ product.remaining_stock }}
           </td>
           <td class="px-6 py-2.5">
             {{ product.price }} FCFA
@@ -122,7 +128,7 @@
               </Button>
             </div>
 
-            <div>
+            <div class="mx-2">
               <Button label="block" hasicon warning extrasmall>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z" />
@@ -146,18 +152,23 @@
     </table>
 
     <!-- Edit product modal -->
-    <EditProductModal />
-  </div>
+    <Modal title="Edit product">
+      <template #default>
+        <EditProduct />
+      </template>
+    </Modal>
 
-  <div v-if="products.data.length" class="w-full flex mt-8 mb-12">
-    <pagination :links="products.links" />
+    <div v-if="products.data.length" class="w-full flex mt-8 mb-12">
+      <pagination :links="products.links" />
+    </div>
   </div>
 </template>
 
 <script setup>
 import pagination from '@/Components/paginationTable.vue'
 import Button from '@/Components/button.vue'
-import EditProductModal from '@/Components/Product/EditProduct.vue'
+import EditProduct from '@/Components/Product/EditProduct.vue'
+import Modal from '@/Components/modal.vue'
 import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
 
 defineProps({

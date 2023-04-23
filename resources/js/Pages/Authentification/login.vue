@@ -5,14 +5,16 @@
     </template>
 
     <template #default>
-      <form class="h-2/6 flex flex-col justify-between sm:w-[400px] mt-12">
+      <form class="h-2/6 flex flex-col justify-between sm:w-[400px] mt-12" @submit.prevent="login">
         <div>
           <label for="email" class="label-login">Email address</label>
-          <input id="email" type="email" class="input-login" placeholder="john.doe@company.com" required />
+          <input id="email" v-model="form.email" type="email" class="input-login" placeholder="john.doe@company.com" />
+          <p v-if="form.errors.email" class="input-error">{{ form.errors.email }}</p>
         </div> 
         <div>
           <label for="password" class="label-login">Password</label>
-          <input id="password" type="password" class="input-login" placeholder="•••••••••" required />
+          <input id="password" v-model="form.password" type="password" class="input-login" placeholder="" />
+          <p v-if="form.errors.password" class="input-error">{{ form.errors.password }}</p>
         </div> 
         <div class="mt-7">
           <button type="submit" class="rounded-lg submit-btn-style border-mango">creer compte</button>
@@ -31,6 +33,14 @@
 <script setup>
 import AuthentificationLayout from '@/Layouts/AuthentificationLayout.vue'
 import myTitle from '@/Components/myTitle.vue'
+import { useForm } from '@inertiajs/vue3'
+
+const form = useForm({
+  email: null,
+  password: null,
+})
+
+const login = () => form.post('/login')
 </script>
 
 <script>

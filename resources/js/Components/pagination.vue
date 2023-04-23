@@ -3,8 +3,8 @@
     <Link 
       v-for="(link, i) in links"
       :key="i" class="px-2.5 py-1 text-xs rounded-md bg-gray-900 text-gray-50"
-      :href="link.url"
-      :class="{'bg-blue-800 text-gray-50': link.active }"
+      :href="link.url? link.url: '#'"
+      :class="{'bg-sheet-200 text-gray-50 rounded-md': link.active }"
       v-html="link.label"
     />
   </div>

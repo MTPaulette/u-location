@@ -5,10 +5,10 @@
         <button id="product-tab" class="inline-block p-4 border-b-2 rounded-t-lg" data-tabs-target="#product" type="button" role="tab" aria-controls="product" aria-selected="false">Product</button>
       </li>
       <li class="mr-2" role="presentation">
-        <button id="ingredient-tab" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" data-tabs-target="#ingredient" type="button" role="tab" aria-controls="ingredient" aria-selected="false">Ingredient</button>
+        <button id="ingredient-tab" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" data-tabs-target="#ingredient" type="button" role="tab" aria-controls="ingredient" aria-selected="true">Ingredient</button>
       </li>
       <li class="mr-2" role="presentation">
-        <button id="advantage-tab" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" data-tabs-target="#advantage" type="button" role="tab" aria-controls="advantage" aria-selected="true">Advantage</button>
+        <button id="advantage-tab" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" data-tabs-target="#advantage" type="button" role="tab" aria-controls="advantage" aria-selected="false">Advantage</button>
       </li>
     </ul>
   </div>
@@ -143,6 +143,11 @@
           Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.
         </p>
       </div>
+      <!-- </div>   -->
+
+      <div class="bg-gray-100 my-4">
+        <Multiselect />
+      </div>
     </div>
 
 
@@ -154,61 +159,6 @@
       <div class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
         <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Advantage tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
       </div>
-
-      <div class="py-6 px-0 space-x-0 lg:p-6 lg:pb-0 lg:space-y-6">
-        <div>
-          <VueMultiselect 
-            v-model="selected" :options="options" name="selected[]"
-            :multiple="true" :taggable="true" tag-placeholder="Add this as new tag"
-            placeholder="select advantage"
-            label="city"
-            track-by="id" :close-on-select="false" :clear-on-select="false" :preserve-search="true"
-            @tag="addTag"
-          />
-        </div>
-        <!--br />ipsum <pre class="langage-json"><code> {{ selected }}</code></pre> <br /-->
-
-        <div class="mt-4">
-          <Button label="More advantages" hasicon light class="w-full py-2.5 text-sm flex justify-center" />
-        </div>
-
-      
-        <form id="product-example" action="#" class="relative bg-white dark:bg-gray-700" @submit.prevent="addNewAdvantage">
-          <p class="block mt-6 mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name<span class="ml-1 text-red-500">*</span></p>
-          <div class="text-base" role="alert">
-            <ul class="mt-1.5 ml-4 list-disc list-inside text-gray-500 dark:text-gray-400">
-              <li v-for="advantage in newAdvantages" :key="advantage.id">{{ advantage.city }}</li>
-              <li> At least 10 characters (and up to 100 characters)</li>
-              <li>At least one lowercase character</li>
-              <li>Inclusion of at least one special character, e.g., ! @ # ?</li>
-            </ul>
-          </div>
-          <div class="w-full mt-4 mb-2">
-            lorrr {{ newAdvantage }}
-            <label for="advantage" class="sr-only">advantage</label>
-            <input id="advantage" v-model="newAdvantage" type="text" name="advantage" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="..." />
-          </div>
-          <div class="flex">
-            <div>
-              <Button type="submit" label="add" btn success small />
-            </div>
-            <button type="button" class="text-gray-900 hover:text-red-600 text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-              </svg>
-            </button>
-          </div>
-
-
-
-
-          <div class="flex items-center py-6 border-t border-gray-200 rounded-b dark:border-gray-600">
-            <div>
-              <Button type="submit" label="save all" btn success base />
-            </div>
-          </div>
-        </form>
-      </div>
     </div>
   </div>
 </template>
@@ -216,7 +166,7 @@
 <script setup>
 import Button from '@/Components/button.vue'
 import { useForm } from '@inertiajs/vue3'
-import { ref } from 'vue'
+import Multiselect from '@/Components/Product/tools/Multiselect.vue'
 
 const form = useForm({
   name: null,
@@ -224,61 +174,5 @@ const form = useForm({
   price: 0,
   initial_stock: 0,
 })
-const newAdvantage = ref('')
-const newAdvantages = ref([])
-
 const save = () => form.post('/login')
-const addNewAdvantage = () => {
-  console.log(newAdvantage.value)
-  const advantage = {
-    id: newAdvantage.value.substring(0,2)+Math.floor((Math.random()*10000000)),
-    city: newAdvantage.value,
-  }
-  // this.options.push(advantage)
-  newAdvantages.value.push(advantage)
-  newAdvantage.value = ''
-}
-
-/*
-const advantages = ref([
-  { text: 'text 1', value: '1' },
-  { text: 'text 2', value: '2' },
-  { text: 'text 3', value: '3' },
-  { text: 'text 4', value: '4' },
-  { text: 'text 5', value: '5' },
-])
-
-*/
 </script>
-
-<script>
-import VueMultiselect from 'vue-multiselect'
-export default{
-  components: { VueMultiselect },
-
-  data () {
-    return {
-      selected: [],
-      options: [
-        {id: '1' , city: 'city loremmmmmmmm ipsuuuuuuuuuuuum tttttttttrhj ghdfsr cfys jjghi sre ffgkhv dfdgd 1'},
-        {id: '2' , city: 'city loremmmmmmmm ipsuuuuuuuuuuuum tttttttttrhj ghdfsr cfys jjghi sre ffgkhv dfdgd 2'},
-        {id: '3' , city: 'city loremmmmmmmm ipsuuuuuuuuuuuum tttttttttrhj ghdfsr cfys jjghi sre ffgkhv dfdgd 3'},
-        {id: '4' , city: 'city loremmmmmmmm ipsuuuuuuuuuuuum tttttttttrhj ghdfsr cfys jjghi sre ffgkhv dfdgd 4'},
-      ],
-    }
-  },
-
-  methods: {
-    addTag(newTag) {
-      const tag = {
-        id: newTag.substring(0,2)+Math.floor((Math.random()*10000000)),
-        city: newTag,
-      }
-      this.options.push(tag)
-      this.selected.push(tag)
-    },
-  },
-}
-</script>
-<!-- <style src="@vueform/multiselect/themes/tailwind.css"></style> -->
-<style src="vue-multiselect/dist/vue-multiselect.css"></style>
