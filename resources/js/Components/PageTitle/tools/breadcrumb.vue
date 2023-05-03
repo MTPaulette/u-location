@@ -1,6 +1,6 @@
 <template>
   <!-- breadcrumb -->
-  <nav class="text-sm capitalize font-semibold mb-6" aria-label="Breadcrumb">
+  <div class="text-sm capitalize font-semibold bg-gray-100 px-5 py-3" aria-label="Breadcrumb">
     <ol class="list-none p-0 inline-flex">
       <li class="flex items-center text-gray-600">
         <Link href="#" class="text-gray-700 dark:text-gray-400">{{ link1 }}</Link>
@@ -10,7 +10,7 @@
         <a href="#" class="text-sheet-100 hover:text-mango">{{ link2 }}</a>
       </li>
     </ol>
-  </nav>
+  </div>
   <!-- breadcrumb end -->
 </template>
 

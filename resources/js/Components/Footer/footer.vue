@@ -4,7 +4,7 @@
       <!-- <div class="lg:flex lg:justify-between">
         <div class="mb-6 md:mb-0 bg-info w-full md:w-[350px]"> -->
       <div class="md:flex md:justify-between">
-        <div class="mb-6 md:mb-0 w-full md:w-[350px]">
+        <div class="mb-6 md:mb-0 w-full md:w-[350px] mr-5">
           <a href="https://flowbite.com/" class="flex items-center ">
             <div>
               <img src="./../../../images/logo.png" class="h-8 md:h-12 mr-3" alt="Agrimax Logo" />

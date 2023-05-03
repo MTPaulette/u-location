@@ -1,6 +1,6 @@
 <template>
-  <nav class="px-2 sm:px-4 py-2.5 bg-green-50 text-gray-700 text-sm font-light border-b border-green-200 dark:bg-gray-800 dark:border-gray-700">
-    <div class="flex flex-wrap items-center justify-between mx-auto w-full">
+  <nav class="px-2 sm:px-4 py-1 bg-green-50 text-gray-700 dark:text-gray-400 text-sm font-light border-b border-green-200 dark:bg-gray-900 dark:border-gray-700">
+    <div class="flex flex-wrap items-center justify-center md:justify-between mx-auto w-full">
       <div class="flex">
         <div class="flex items-center border-r-2 border-green-100 pr-6 mr-6">
           <span class="mr-2 text-sheet-100">
@@ -39,6 +39,9 @@
           </span>
           <span>8h-17h</span>
         </div>
+        <!-- </div>
+      
+      <div class="flex">
         <div class="flex items-center border-r-2 border-green-100 pr-6 mr-6">
           <span class="mr-2 text-sheet-100">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-4" fill="currentColor" viewBox="0 0 16 16">
@@ -46,7 +49,7 @@
             </svg>
           </span>
           <span>My account</span>
-        </div>
+        </div> -->
         <div class="flex items-center px-2">
           <span class="mr-2 text-sheet-100">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-4" fill="currentColor" viewBox="0 0 16 16">

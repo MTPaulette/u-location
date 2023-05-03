@@ -1,7 +1,9 @@
 <template>
   <Topbar />
   <SearchCategoryBar />
-  <Navbar />
+  <div class="hidden sm:block">
+    <NavbarCategory />
+  </div>
   <div class=" text-black dark:text-gray-400 bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700">
     <div v-if="flashSuccess">
       <FlashAlert :message="flashSuccess" />
@@ -15,7 +17,7 @@
 <script setup>
 import Topbar from '@/Components/Navbar/topbar.vue'
 import SearchCategoryBar from '@/Components/Navbar/searchCategoryBar.vue'
-import Navbar from '@/Components/Navbar/navbar.vue'
+import NavbarCategory from '@/Components/Navbar/navbarCategory.vue'
 import Footer from '@/Components/Footer/footer.vue'
 import Newsletter from '@/Components/newsletter.vue'
 

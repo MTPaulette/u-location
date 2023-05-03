@@ -1,10 +1,10 @@
 <template>
-  <div class="flex justify-center items-center w-full h-32 md:h-52 bg-purple-200 main">
+  <!-- <div class="flex justify-center items-center w-full h-32 md:h-52 bg-purple-200 main">
     <h1 class="font-semibold text-sheet-200 text-3xl md:text-4xl capitalize text-opacity-100">
       {{ title }} page
     </h1>
-  </div>
-  <div class="ml-4 my-8">
+  </div> -->
+  <div class="mb-8">
     <breadcrumb :link2="title" />
   </div>
 </template>

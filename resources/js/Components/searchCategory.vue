@@ -1,21 +1,26 @@
 <template>
   <form>
     <div class="flex">
-      <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your Email</label>
-      <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-5 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 dark:border-gray-700 dark:text-white rounded-l-md hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800" type="button">All categories <svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></button>
-      <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-md shadow w-44 dark:bg-gray-700">
+      <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">categories</label>
+      <button id="dropdown-button" :data-dropdown-toggle="id" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-3 md:px-5 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-200 dark:border-gray-700 dark:text-white rounded-l-md hover:bg-gray-200 dark:bg-gray-600 dark:hover:bg-gray-700" type="button">
+        All categories
+        <svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </button>
+      <div :id="id" class="over-y z-10 hidden bg-gray-50 divide-y divide-gray-100 shadow-lg w-36 h-[170px] dark:bg-gray-700">
         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-          <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Shopping</a>
+          <li class="border-b border-gray-200 dark:border-gray-700">
+            <a href="#" class="block px-4 py-2 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">Shopping</a>
           </li>
-          <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Images</a>
+          <li class="border-b border-gray-200 dark:border-gray-700">
+            <a href="#" class="block px-4 py-2 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">Images</a>
           </li>
-          <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">News</a>
+          <li class="border-b border-gray-200 dark:border-gray-700">
+            <a href="#" class="block px-4 py-2 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">News</a>
           </li>
-          <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Finance</a>
+          <li class="border-b border-gray-200 dark:border-gray-700">
+            <a href="#" class="block px-4 py-2 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">Finance</a>
           </li>
         </ul>
       </div>
@@ -26,3 +31,33 @@
     </div>
   </form>
 </template>
+
+<script setup>
+
+defineProps({
+  id: {
+    type: String,
+    default: "dropdown",
+  },
+})
+</script>
+
+<style scoped>
+.over-y {
+  overflow-y: scroll;
+}
+
+.over-y::-webkit-scrollbar{
+  width: 2px;
+}
+
+.over-y::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 6px #FFF;
+}
+
+.over-y::-webkit-scrollbar-thumb{
+  outline: 1px solid #C4C4C4;
+  background: #C4C4C4;
+  border-radius: 8px;
+}
+</style>

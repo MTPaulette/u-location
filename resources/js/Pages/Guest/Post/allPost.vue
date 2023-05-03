@@ -47,7 +47,7 @@ defineProps({
 </script>
 
 <script>
-import MainLayout from '@/Layouts/MainLayout.vue'
+import MainLayout from '@/Layouts/GuestLayout.vue'
 
 export default {
   layout: MainLayout,
