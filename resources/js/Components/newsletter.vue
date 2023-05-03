@@ -16,7 +16,7 @@
             </svg>
           </div>
           <input id="email" type="email" class="py-4 pl-12 input-search" placeholder="Entrer votre email" required />
-          <button type="submit" class="absolute top-0 right-0 px-5 sm:px-7 py-4 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">S'inscrire</button>
+          <button type="submit" class="absolute top-0 right-0 px-5 sm:px-7 py-4 text-sm font-medium text-white bg-green-700 rounded-r-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">S'inscrire</button>
         </div>
       </div>
     </form>

@@ -2,7 +2,7 @@
   <div>
     <pageTitle title="a propos" />
     
-    <div class="mycontainer">
+    <div class="mycontainer py-12 sm:py-20">
       <div class="flex flex-wrap -mx-4">
         <div class="w-full px-4">
           <div class="text-center mx-auto mb-[60px] max-w-[620px]">

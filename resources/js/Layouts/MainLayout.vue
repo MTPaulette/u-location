@@ -1,5 +1,10 @@
 <template>
-  <Navbar />
+  <Topbar />
+  <!-- <div class="flex flex-col-reverse sm:flex-col"></div> -->
+  <SearchCategoryBar />
+  <div class="hidden sm:block">
+    <NavbarCategory />
+  </div>
   <div class=" text-black dark:text-gray-400 bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700">
     <div v-if="flashSuccess">
       <FlashAlert :message="flashSuccess" />
@@ -11,7 +16,9 @@
 </template>
 
 <script setup>
-import Navbar from '@/Components/Navbar/navbar.vue'
+import Topbar from '@/Components/Navbar/topbar.vue'
+import SearchCategoryBar from '@/Components/Navbar/searchCategoryBar.vue'
+import NavbarCategory from '@/Components/Navbar/navbarCategory.vue'
 import Footer from '@/Components/Footer/footer.vue'
 import Newsletter from '@/Components/newsletter.vue'
 

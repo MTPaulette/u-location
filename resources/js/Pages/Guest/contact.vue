@@ -1,7 +1,7 @@
 <template>
   <div>
     <pageTitle title="contact" />
-    <div class="mycontainer">
+    <div class="mycontainer py-12 sm:py-20">
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 sm:gap-7 md:gap-5 lg:gap-14">
         <div class="md:col-span-2">
           <myTitle title="Vous pouvez nous contacter par l'un des canaux suivants" />
