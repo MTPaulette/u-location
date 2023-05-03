@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-gray-100 relative overflow-hidden text-center py-16 px-6 sm:px-12 md:px-28">
+  <div class="relative overflow-hidden text-center py-16 px-6 sm:px-12 md:px-28 bg-gray-100 dark:bg-gray-700">
     <MyTitle title="Rejoindre notre newsletter!" />
     <!-- <h3 class="font-semibold text-gray-900 mb-2 text-2xl">Rejoindre notre newsletter!</h3> -->
-    <p class="text-base text-gray-900 mt-3 mb-8">
+    <p class="text-base text-black mt-3 mb-8">
       Voulez-vous etre averti lorsqu'il y'a du nouveau sur Agrimax? Inscrivez vous à la Newsletter et vous
       serez parmi les premiers à découvrir les nouveaux produits, les nouvelles articles et les informations complémentaires.
     </p>
@@ -20,11 +20,11 @@
         </div>
       </div>
     </form>
-    <p class="text-sm font-medium text-gray-700">
+    <p class="text-sm font-medium text-gray-700 dark:text-black">
       En vous abonnant, vous acceptez les <a href="/terms" class="text-mango hover:underline dark:text-mango">terms and conditions</a> et <a href="/privacy" class="text-mango hover:underline dark:text-mango">privacy policy</a>
       <!-- En vous abonnant, vous acceptez les <a href="/terms" class="text-mango hover:underline dark:text-mango">terms and conditions</a> and <a href="/privacy" class="text-mango hover:underline dark:text-mango">privacy policy</a> -->
     </p>
-    <p class="text-sm font-medium text-gray-900">Ne vous inquiétez pas, nous ne spammons pas</p>
+    <p class="text-sm font-medium text-black dark:text-gray-400">Ne vous inquiétez pas, nous ne spammons pas</p>
   </div>
 </template>
 

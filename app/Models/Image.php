@@ -10,9 +10,20 @@ class Image extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'link',
-        'description'
+        'filename',
     ];
+
+    protected $appends = [
+        'src',
+    ];
+
+    public function getSrcAttribute() {
+        return asset("storage/{$this->filename}");
+    }
+
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
+    }
 
     public function post(): BelongsTo {
         return $this->belongsTo(Post::class);

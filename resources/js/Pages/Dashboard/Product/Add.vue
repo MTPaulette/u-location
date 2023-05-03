@@ -10,17 +10,14 @@
     </div>
     <div class="w-full px-3 py-5 h-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div class="">
-        <EditProduct />
+        <EditProduct :advantages="advantages" :ingredients="ingredients" :weights="weights" :categories="categories" />
       </div>
     </div>
   </DashboardLayout>
 </template>
 
 <script>
-import BaseLayout from '@/Layouts/BaseLayout.vue'
-
 export default {
-  layout: BaseLayout,
   methods: {
     updateProfilePic() {
       const profilePic = this.$refs.profilePic
@@ -40,6 +37,10 @@ import EditProduct from '@/Components/Product/EditProduct.vue'
 
 defineProps({
   user: Object,
+  advantages: Object,
+  ingredients: Object,
+  weights: Object,
+  categories: Object,
 })
 </script>
 

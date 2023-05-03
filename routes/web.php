@@ -7,6 +7,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\UserAccountController;
+use App\Http\Controllers\UserImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,18 +29,34 @@ Route::get("/about",[IndexController::class, "about"]);
 Route::get("/notFound",[IndexController::class, "notFound"]);
 
 
+Route::middleware('auth')->group(function () {
 Route::get("/dashboard",[DashboardController::class, "home"]);
 Route::get("/statistic",[DashboardController::class, "statistic"]);
 Route::get("/notifications",[DashboardController::class, "notification"]);
 Route::get("/invoice",[DashboardController::class, "invoice"]);
+});
 
 Route::resource("post", PostController::class);
 Route::resource("user", UserController::class);
 Route::resource("product", ProductController::class);
 Route::resource("invoice", OrderController::class);
 
-Route::get("/register",[AuthController::class, "register"]);
 
 Route::get("/login",[AuthController::class, "create"])->name("login");
 Route::post("/login",[AuthController::class, "store"])->name("login");
 Route::delete("/logout",[AuthController::class, "destroy"])->name("logout");
+
+Route::get("/register",[UserAccountController::class, "create"])->name("register");
+Route::post("/register",[UserAccountController::class, "store"])->name("register");
+
+Route::middleware('auth')->group(function () {
+Route::get('/profile', [UserAccountController::class, 'show'])->name('profile');
+Route::put('/profile', [UserAccountController::class, 'update'])->name('profile.update');
+Route::resource('user.image', UserImageController::class)->only(['create', 'store','destroy']);
+Route::put('/password', [PasswordController::class, 'update'])->name('password.update');
+});
+// Route::middleware('auth')->group(function () {});
+
+  // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+  // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+  // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

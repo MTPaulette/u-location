@@ -15,6 +15,10 @@ class Post extends Model
         'content'
     ];
 
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
+    }
+
     public function theme(): BelongsTo {
         return $this->belongsTo(Theme::class);
     }

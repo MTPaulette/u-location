@@ -108,3 +108,11 @@ defineProps({
 const images = ['1.jpg', '2.png', '3.jpg', '4.PNG', '5.jpg']
 
 </script>
+
+<script>
+import MainLayout from '@/Layouts/MainLayout.vue'
+
+export default {
+  layout: MainLayout,
+}
+</script>

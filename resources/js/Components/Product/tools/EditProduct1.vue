@@ -31,20 +31,20 @@
             <!-- name -->
             <!-- <div class=""> -->
             <div class="col-span-2">
-              <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name<span class="ml-1 text-red-500">*</span></label>
-              <input id="name" v-model="form.name" type="text" name="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bonnie" />
+              <label for="name" class="label">Product Name<span class="required">*</span></label>
+              <input id="name" v-model="form.name" type="text" name="name" class="input" placeholder="Bonnie" />
             </div>
 
             <!-- price -->
             <div class="">
-              <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price (FCFA)<span class="ml-1 text-red-500">*</span></label>
-              <input id="price" v-model="form.price" type="number" name="price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Green" />
+              <label for="price" class="label">Price (FCFA)<span class="required">*</span></label>
+              <input id="price" v-model="form.price" type="number" name="price" class="input" placeholder="Green" />
             </div>
 
             <!-- initial_stock -->
             <div class="">
-              <label for="initial_stock" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Initial Stock<span class="ml-1 text-red-500">*</span></label>
-              <input id="initial_stock" v-model="form.initial_stock" type="number" name="initial_stock" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="example@company.com" />
+              <label for="initial_stock" class="label">Initial Stock<span class="required">*</span></label>
+              <input id="initial_stock" v-model="form.initial_stock" type="number" name="initial_stock" class="input" placeholder="example@company.com" />
             </div>
 
             <!-- description -->
@@ -53,7 +53,7 @@
             </div> -->
             
             <div class="col-span-2">
-              <p for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Description</p>
+              <p for="description" class="label">Product Description</p>
               <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
                 <div class="flex items-center justify-between px-3 py-2 border-b dark:border-gray-600">
                   <div class="flex flex-wrap items-center divide-gray-200 sm:divide-x dark:divide-gray-600">

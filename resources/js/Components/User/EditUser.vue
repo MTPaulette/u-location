@@ -16,36 +16,36 @@
         <div class="p-6 space-y-6">
           <div class="grid grid-cols-6 gap-6">
             <div class="col-span-6 sm:col-span-3">
-              <label for="first-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
-              <input id="first-name" type="text" name="first-name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Bonnie" />
+              <label for="first-name" class="label">First Name</label>
+              <input id="first-name" type="text" name="first-name" class="input" placeholder="Bonnie" />
             </div>
             <div class="col-span-6 sm:col-span-3">
-              <label for="last-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
-              <input id="last-name" type="text" name="last-name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Green" />
+              <label for="last-name" class="label">Last Name</label>
+              <input id="last-name" type="text" name="last-name" class="input" placeholder="Green" />
             </div>
             <div class="col-span-6 sm:col-span-3">
-              <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-              <input id="email" type="email" name="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="example@company.com" />
+              <label for="email" class="label">Email</label>
+              <input id="email" type="email" name="email" class="input" placeholder="example@company.com" />
             </div>
             <div class="col-span-6 sm:col-span-3">
-              <label for="phone-number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
-              <input id="phone-number" type="number" name="phone-number" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="e.g. +(12)3456 789" />
+              <label for="phone-number" class="label">Phone Number</label>
+              <input id="phone-number" type="number" name="phone-number" class="input" placeholder="e.g. +(12)3456 789" />
             </div>
             <div class="col-span-6 sm:col-span-3">
-              <label for="department" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Department</label>
-              <input id="department" type="text" name="department" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Development" />
+              <label for="department" class="label">Department</label>
+              <input id="department" type="text" name="department" class="input" placeholder="Development" />
             </div>
             <div class="col-span-6 sm:col-span-3">
-              <label for="company" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Company</label>
-              <input id="company" type="number" name="company" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="123456" />
+              <label for="company" class="label">Company</label>
+              <input id="company" type="number" name="company" class="input" placeholder="123456" />
             </div>
             <div class="col-span-6 sm:col-span-3">
-              <label for="current-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Current Password</label>
-              <input id="current-password" type="password" name="current-password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="••••••••" />
+              <label for="current-password" class="label">Current Password</label>
+              <input id="current-password" type="password" name="current-password" class="input" placeholder="••••••••" />
             </div>
             <div class="col-span-6 sm:col-span-3">
-              <label for="new-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New Password</label>
-              <input id="new-password" type="password" name="new-password" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="••••••••" />
+              <label for="new-password" class="label">New Password</label>
+              <input id="new-password" type="password" name="new-password" class="input" placeholder="••••••••" />
             </div>
           </div>
         </div>

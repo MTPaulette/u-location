@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->string('name');
-            $table->string('description');
-            $table->unsignedInteger('price');
-            $table->unsignedInteger('initial_stock');
-            $table->unsignedInteger('remaining_stock');
-            $table->unsignedInteger('reduction');
+            $table->text('description');
+            $table->unsignedInteger('reduction')->default(0);
+            $table->text('preparation')->nullable();
+            $table->text('utilisation')->nullable();
             $table->foreignIdFor(\App\Models\Category::class);
+            $table->foreignIdFor(\App\Models\User::class);
             $table->timestamps();
         });
     }

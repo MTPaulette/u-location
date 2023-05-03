@@ -26,7 +26,7 @@
   }
   
   .input-error {
-    @apply mt-0.5 text-xs text-red-600 dark:text-red-500 text-right
+    @apply mt-0.5 text-xs text-red-600 dark:required text-right
   }
 
   .submit-btn-style {
@@ -43,7 +43,7 @@
   }
 
   .text-area {
-    @apply block p-2.5 mt-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-mango focus:border-mango dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-mango dark:focus:border-mango
+    @apply block p-2.5 mt-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-300 focus:border-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-700 dark:focus:border-blue-800
        
   }
 
@@ -52,14 +52,19 @@
     @apply flex w-full mt-8 md:w-2/5
   }
 
-  .input-login {
-    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg shadow-sm focus:ring-mango focus:border-mango block w-full px-3.5 py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-mango dark:focus:border-mango
+  .input {
+    @apply shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+    /* @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg shadow-sm focus:ring-mango focus:border-mango block w-full px-3.5 py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-mango dark:focus:border-mango */
   }
 
-  .label-login {
-    @apply block mt-2 text-sm capitalize font-medium text-black dark:text-white
+  .label {
+    @apply block mt-2 text-sm capitalize font-medium text-gray-900 dark:text-white
   }
   
+  .required {
+    @apply ml-1 text-red-500
+  }
+
   .card-default-dashboard {
     @apply 
   }

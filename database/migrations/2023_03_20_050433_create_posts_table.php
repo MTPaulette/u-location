@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->foreignIdFor(\App\Models\Theme::class);
+            $table->foreignIdFor(\App\Models\User::class);
             $table->timestamps();
         });
     }

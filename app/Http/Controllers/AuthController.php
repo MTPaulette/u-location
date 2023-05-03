@@ -22,15 +22,15 @@ class AuthController extends Controller
             ]);
         }
         $request->session()->regenerate();
-        return redirect()->intended('/dashboard');
+        return redirect()->intended('/dashboard')->with('success', 'welcome new logged user');
     }
 
     public function destroy(Request $request) {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('index');
+        return redirect()->route('index')->with('success', 'logout user');
 
-        return Inertia("Authentification/reset");
+        //return Inertia("Authentification/reset");
     }
 }

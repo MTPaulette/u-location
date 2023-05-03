@@ -52,7 +52,8 @@
     </div>
 
 
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 my-5">
+    <!-- <table class="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400 my-5"> -->
+    <table class="table-auto">
       <thead class="text-xs text-white uppercase bg-sheet-100 dark:bg-gray-700 dark:text-gray-400">
         <!-- <thead class="text-xs text-gray-500 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"> -->
         <tr>
@@ -68,7 +69,7 @@
           <th scope="col" class="px-6 py-2.5">
             Product name
           </th>
-          <th scope="col-span-2" class="px-6 py-2.5">
+          <th scope="col" class="px-6 py-2.5">
             Description
           </th>
           <th scope="col" class="px-6 py-2.5">
@@ -154,7 +155,7 @@
     <!-- Edit product modal -->
     <Modal title="Edit product">
       <template #default>
-        <EditProduct />
+        <EditProduct :advantages="advantages" :ingredients="ingredients" :weights="weights" :categories="categories" />
       </template>
     </Modal>
 
@@ -173,6 +174,10 @@ import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
 
 defineProps({
   products: Object,
+  advantages: Object,
+  ingredients: Object,
+  weights: Object,
+  categories: Object,
 })
 
 </script>

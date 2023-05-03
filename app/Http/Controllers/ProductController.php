@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Ingredient;
+use App\Models\Advantage;
+use App\Models\Weight;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -27,7 +31,12 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return Inertia("Dashboard/Product/Add");
+        return Inertia("Dashboard/Product/Add", [
+            'advantages' =>  Advantage::all('id', 'name'),
+            'ingredients' =>  Ingredient::all('id', 'name'),
+            'weights' =>  Weight::all('id', 'name'),
+            'categories' =>  Category::all('id', 'name'),
+        ]);
     }
 
     /**
@@ -38,7 +47,23 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        
+        $product = new Product();
+        $product->code = "PROD_".$request->name;
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->preparation = $request->preparation;
+        $product->utilisation = $request->utilisation;
+        $product->category_id = $request->category_id;
+
+        $product->save();
+
+        return Product::latest()->first()->id;
+        
+        /*
+        return redirect()->route('/product')->with('success', 'product created');
+        */
     }
 
     /**

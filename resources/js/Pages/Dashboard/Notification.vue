@@ -20,14 +20,6 @@
   </DashboardLayout>
 </template>
 
-<script>
-import BaseLayout from '@/Layouts/BaseLayout.vue'
-
-export default {
-  layout: BaseLayout,
-}
-</script>
-
 <script setup>
 import DashboardLayout from '@/Layouts/DashboardLayout.vue'
 import breadcrumb from '@/Components/PageTitle/tools/breadcrumb.vue'

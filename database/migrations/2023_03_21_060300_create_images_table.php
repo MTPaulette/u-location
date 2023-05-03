@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('link');
-            $table->string('description');
+            $table->string('filename');
+            // $table->foreignIdFor(\App\Models\Post::class)->constrained('users');
+            $table->foreignIdFor(\App\Models\User::class)->nullable();
             $table->foreignIdFor(\App\Models\Post::class)->nullable();
             $table->foreignIdFor(\App\Models\Product::class)->nullable();
             $table->timestamps();

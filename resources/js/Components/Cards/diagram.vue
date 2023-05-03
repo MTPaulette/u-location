@@ -106,7 +106,7 @@
               <p class="font-semibold text-xl">Joseph Brent</p>
               <p>Product 34</p>
             </div>
-            <span class="text-red-500 font-semibold text-lg">$74.99</span>
+            <span class="required font-semibold text-lg">$74.99</span>
           </div>
 
           <div class="w-full bg-gray-100 border rounded-lg flex justify-between items-center px-4 py-2 mb-4">

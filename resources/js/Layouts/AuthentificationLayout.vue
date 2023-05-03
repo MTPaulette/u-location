@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center absolute w-full h-full px-4">
+  <div class="flex justify-center items-center absolute w-full h-full px-4 bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700">
     <div class="max-w-[400px] w-full sm:w-2/3 md:w-auto">
       <div class="w-full text-center bg-white dark:bg-gray-700 mb-1">
         <slot name="title" />

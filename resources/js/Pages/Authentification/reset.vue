@@ -7,8 +7,8 @@
     <template #default>
       <form class="h-2/6 flex flex-col justify-between sm:w-[400px] mt-12">
         <div>
-          <label for="email" class="label-login">Adresse email</label>
-          <input id="email" type="email" class="input-login" placeholder="john.doe@company.com" required />
+          <label for="email" class="label">Adresse email</label>
+          <input id="email" type="email" class="input" placeholder="john.doe@company.com" required />
         </div> 
         <div class="mt-7">
           <button type="submit" class="rounded-lg submit-btn-style border-mango">creer compte</button>

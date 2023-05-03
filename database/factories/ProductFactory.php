@@ -20,10 +20,11 @@ class ProductFactory extends Factory
             'code' => fake()->countryCode(),
             'name' => fake()->word(),
             'description' => fake()->sentence(),
-            'price' => fake()->numberBetween(1000, 5000),
-            'initial_stock' => fake()->numberBetween(1000, 2000),
-            'remaining_stock' => fake()->numberBetween(100, 250),
+            // 'initial_stock' => fake()->numberBetween(1000, 2000),
+            // 'remaining_stock' => fake()->numberBetween(100, 250),
             'reduction' => fake()->numberBetween(1, 25),
+            'preparation' => fake()->paragraph(),
+            'utilisation' => fake()->paragraph(5),
         ];
     }
 }

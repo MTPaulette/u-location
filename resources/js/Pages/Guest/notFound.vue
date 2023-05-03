@@ -110,3 +110,11 @@
 <script setup>
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 </script>
+
+<script>
+import MainLayout from '@/Layouts/MainLayout.vue'
+
+export default {
+  layout: MainLayout,
+}
+</script>

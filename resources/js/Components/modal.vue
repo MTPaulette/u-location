@@ -13,7 +13,9 @@
           </button>
         </div>
         <!-- Modal body -->
-        <slot />
+        <div class=" px-5 pb-12">
+          <slot />
+        </div>
       </div>
     </div>
   </div>

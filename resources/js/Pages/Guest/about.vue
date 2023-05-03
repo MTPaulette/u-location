@@ -54,3 +54,11 @@ import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import myTitle from '@/Components/myTitle.vue'
 
 </script>
+
+<script>
+import MainLayout from '@/Layouts/MainLayout.vue'
+
+export default {
+  layout: MainLayout,
+}
+</script>

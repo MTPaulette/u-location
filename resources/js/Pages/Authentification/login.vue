@@ -7,13 +7,13 @@
     <template #default>
       <form class="h-2/6 flex flex-col justify-between sm:w-[400px] mt-12" @submit.prevent="login">
         <div>
-          <label for="email" class="label-login">Email address</label>
-          <input id="email" v-model="form.email" type="email" class="input-login" placeholder="john.doe@company.com" />
+          <label for="email" class="label">Email address</label>
+          <input id="email" v-model="form.email" type="email" class="input" placeholder="john.doe@company.com" />
           <p v-if="form.errors.email" class="input-error">{{ form.errors.email }}</p>
         </div> 
         <div>
-          <label for="password" class="label-login">Password</label>
-          <input id="password" v-model="form.password" type="password" class="input-login" placeholder="" />
+          <label for="password" class="label">Password</label>
+          <input id="password" v-model="form.password" type="password" class="input" placeholder="" />
           <p v-if="form.errors.password" class="input-error">{{ form.errors.password }}</p>
         </div> 
         <div class="mt-7">

@@ -15,13 +15,13 @@ class Product extends Model
         'code',
         'name',
         'description',
-        'price',
-        'initial_stock',
-        'remaining_stock',
         'reduction'
     ];
 
     // protected $dateFormat = 'U';
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
+    }
 
     public function images(): HasMany {
         return $this->hasMany(Image::class);
@@ -33,5 +33,17 @@ class Product extends Model
 
     public function orders(): BelongsToMany {
         return $this->belongsToMany(Order::class, 'product_orders');
+    }
+    
+    public function advantages(): BelongsToMany {
+        return $this->belongsToMany(Advantage::class, 'advantage_products');
+    }
+    
+    public function ingredients(): BelongsToMany {
+        return $this->belongsToMany(Ingredient::class, 'ingredient_products');
+    }
+
+    public function weights(): BelongsToMany {
+        return $this->belongsToMany(Weight::class, 'weight_products');
     }
 }

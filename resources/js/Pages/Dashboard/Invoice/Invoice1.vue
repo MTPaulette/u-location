@@ -165,16 +165,14 @@
 </template>
 
 <script>
-import BaseLayout from '@/Layouts/BaseLayout.vue'
 // import Vue3Html2pdf from 'vue3-html2pdf'
 
 export default {
-  layout: BaseLayout,
   methods: {
     /*
-            Generate Report using refs and calling the
-            refs function generatePdf()
-        */
+      Generate Report using refs and calling the
+      refs function generatePdf()
+    */
     generateReport () {
       this.$refs.html2Pdf.generatePdf()
     },

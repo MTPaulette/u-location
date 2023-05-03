@@ -9,33 +9,34 @@
         <div class="grid gap-2 sm:gap-6 grid-cols-2">
           <!-- <div class="grid sm:gap-6 grid-cols-1 sm:grid-cols-2"> -->
           <div>
-            <label for="first_name" class="label-login">First name</label>
-            <input id="first_name" type="text" class="input-login" placeholder="John" />
-            <p class="input-error">{{ form.errors.name }}</p>
+            <label for="first_name" class="label">First name</label>
+            <input id="first_name" v-model="form.firstname" type="text" class="input" placeholder="John" />
+            <p class="input-error">{{ form.errors.firstname }}</p>
           </div>
           <div>
-            <label for="last_name" class="label-login">Last name</label>
-            <input id="last_name" v-model="form.name" type="text" class="input-login" placeholder="Doe" />
-            <p class="input-error">{{ form.errors.name }}</p>
+            <label for="last_name" class="label">Last name</label>
+            <input id="last_name" v-model="form.lastname" type="text" class="input" placeholder="Doe" />
+            <p class="input-error">{{ form.errors.lastname }}</p>
           </div>
         </div> 
         <div>
-          <label for="email" class="label-login">Email address</label>
-          <input id="email" v-model="form.email" type="email" class="input-login" placeholder="john.doe@company.com" />
+          <label for="email" class="label">Email address</label>
+          <input id="email" v-model="form.email" type="email" class="input" placeholder="john.doe@company.com" />
           <p class="input-error">{{ form.errors.email }}</p>
         </div> 
+        <!-- <div>
+          <label for="phone" class="label">Phone number</label>
+          <input id="phone" type="tel" class="input" placeholder="123-45-678" />
+        </div> -->
         <div>
-          <label for="phone" class="label-login">Phone number</label>
-          <input id="phone" type="tel" class="input-login" placeholder="123-45-678" />
-        </div>
-        <div>
-          <label for="password" class="label-login">Password</label>
-          <input id="password" v-model="form.password" type="password" class="input-login" placeholder="•••••••••" />
+          <label for="password" class="label">Password</label>
+          <input id="password" v-model="form.password" type="password" class="input" placeholder="********" />
           <p class="input-error">{{ form.errors.password }}</p>
         </div> 
         <div>
-          <label for="confirm_password" class="label-login">Confirm password</label>
-          <input id="confirm_password" type="password" class="input-login" placeholder="•••••••••" />
+          <label for="confirm_password" class="label">Confirm password</label>
+          <input id="confirm_password" v-model="form.password_confirmation" type="password" class="input" placeholder="********" />
+          <p class="input-error">{{ form.errors.password_confirmation }}</p>
         </div> 
         <div class="flex items-start mt-4">
           <div class="flex items-center h-5">
@@ -62,12 +63,14 @@ import myTitle from '@/Components/myTitle.vue'
 import { useForm } from '@inertiajs/vue3'
 
 const form = useForm({
-  name: null,
+  firstname: null,
+  lastname: null,
   email: null,
   password: null,
+  password_confirmation: null,
 })
 
-const create = () => form.post('/user')
+const create = () => form.post('/register')
 </script>
 
 <script>

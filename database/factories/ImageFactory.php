@@ -17,8 +17,7 @@ class ImageFactory extends Factory
     public function definition()
     {
         return [
-            'link' => fake()->image(null, 360, 360, 'animals', true),
-            'description' => fake()->sentence(),
+            'filename' => fake()->image(null, 360, 360, 'animals', true),
         ];
     }
 }

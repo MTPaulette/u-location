@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="bg-transparent border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+    <nav class="bg-transparent px-2 sm:px-4 py-2.5 rounded bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700">
       <div class="flex flex-wrap items-center justify-between mx-auto w-full">
         <a href="/" class="flex items-center">
           <!-- <img src="{{ Vite::asset('resources/images/logo.png') }}" class="h-9 mr-3 sm:h-12" alt="Agrimax Logo" /> -->

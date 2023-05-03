@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email')->unique();
-            $table->string('telephone')->unique();
-            $table->string('address');
+            $table->string('telephone')->nullable();
+            $table->string('address')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignIdFor(\App\Models\City::class);
+            $table->foreignIdFor(\App\Models\City::class)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
