@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('telephone')->nullable();
             $table->string('address')->nullable();
+            $table->boolean('is_admin')->default(false);
+            $table->boolean('is_distributor')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignIdFor(\App\Models\City::class)->nullable();

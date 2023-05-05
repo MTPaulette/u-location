@@ -10,6 +10,14 @@ class PostPolicy
 {
     use HandlesAuthorization;
 
+    // give all permissions for admin
+    public function before(?User $user, $ability)
+    {
+        if($user?->is_admin /*&& $ability == 'update' */) {
+            return true;
+        }
+    }
+
     /**
      * Determine whether the user can view any models.
      *
@@ -32,7 +40,7 @@ class PostPolicy
      */
     public function view(?User $user, Post $post)
     {
-        return true;
+        return false;
     }
 
     /**
@@ -43,7 +51,7 @@ class PostPolicy
      */
     public function create(User $user)
     {
-        return true;
+        return false;
     }
 
     /**
@@ -56,7 +64,8 @@ class PostPolicy
     public function update(User $user, Post $post)
     {
         //only the owner can update his post
-        return $user->id == $post->user_id;
+        // return $user->id == $post->user_id;
+        return false;
     }
 
     /**
@@ -68,7 +77,7 @@ class PostPolicy
      */
     public function delete(User $user, Post $post)
     {
-        return $user->id == $post->user_id;
+        return false;
     }
 
     /**
@@ -80,7 +89,7 @@ class PostPolicy
      */
     public function restore(User $user, Post $post)
     {
-        return $user->id == $post->user_id;
+        return false;
     }
 
     /**
@@ -92,6 +101,6 @@ class PostPolicy
      */
     public function forceDelete(User $user, Post $post)
     {
-        return $user->id == $post->user_id;
+        return false;
     }
 }

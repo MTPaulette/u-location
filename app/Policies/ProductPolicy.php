@@ -10,6 +10,14 @@ class ProductPolicy
 {
     use HandlesAuthorization;
 
+    // give all permissions for admin
+    public function before(?User $user, $ability)
+    {
+        if($user?->is_admin /*&& $ability == 'update' */) {
+            return true;
+        }
+    }
+
     /**
      * Determine whether the user can view any models.
      *
@@ -41,7 +49,7 @@ class ProductPolicy
      */
     public function create(User $user)
     {
-        return true;
+        return false;
     }
 
     /**
@@ -53,7 +61,8 @@ class ProductPolicy
      */
     public function update(User $user, Product $product)
     {
-        return $user->id == $product->user_id;
+        return false;
+        // return $user->id == $product->user_id;
     }
 
     /**
@@ -65,7 +74,7 @@ class ProductPolicy
      */
     public function delete(User $user, Product $product)
     {
-        return $user->id == $product->user_id;
+        return false;
     }
 
     /**
@@ -77,7 +86,7 @@ class ProductPolicy
      */
     public function restore(User $user, Product $product)
     {
-        return $user->id == $product->user_id;
+        return false;
     }
 
     /**
@@ -89,6 +98,6 @@ class ProductPolicy
      */
     public function forceDelete(User $user, Product $product)
     {
-        return $user->id == $product->user_id;
+        return false;
     }
 }

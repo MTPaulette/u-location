@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Info;
 use App\Models\Post;
 use App\Models\Theme;
 use Illuminate\Http\Request;
@@ -21,6 +22,7 @@ class PostController extends Controller
     public function index()
     {
         return Inertia("Guest/Post/allPost", [
+            'informations' =>  Info::find(1),
             'posts' => Post::orderByDesc('created_at')
                     ->paginate(5)
         ]);
@@ -62,6 +64,7 @@ class PostController extends Controller
         //$this->authorize('view', $post);
 
         return Inertia("Guest/Post/postDetail", [
+            'informations' =>  Info::find(1),
             'post' => $post,
             'categories' => Theme::all(),
             'popularPosts' => Post::all()->take(4),

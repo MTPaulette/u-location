@@ -52,9 +52,11 @@ class DatabaseSeeder extends Seeder
 
 
         \App\Models\User::factory(2)->create([
+            'is_admin' => true,
             'city_id' => 4
         ]);
         \App\Models\User::factory(2)->create([
+            'is_distributor' => true,
             'city_id' => 1
         ]);
         \App\Models\User::factory()->create([

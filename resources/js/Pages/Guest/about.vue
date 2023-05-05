@@ -7,14 +7,11 @@
         <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
             <div class="text-center mx-auto mb-[60px] max-w-[620px]">
-              <span class="font-semibold text-lg text-primary mb-2 block">
-                Notre Equipe
+              <span class="font-semibold text-lg text-primary mb-2 block capitalize">
+                notre equipe
               </span>
-              <myTitle title="Rencontrer notre Equipe" />
-              <p class="text-lg sm:text-xl leading-relaxed sm:leading-relaxed text-body-color">
-                Une Equipe de personnes <span class="text-sheet-100">jeunes </span>et <span class="text-sheet-100">dynamiques </span>
-                pour vous servir.
-              </p>
+              <myTitle :title="informations.about_title" />
+              <p class="text-lg sm:text-xl leading-relaxed sm:leading-relaxed">{{ informations.about_subtitle }}</p>
             </div>
           </div>
         </div>
