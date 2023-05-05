@@ -42,7 +42,7 @@ defineProps({
 })
 </script>
 
-<style scoped>
+<style>
 .over-y {
   overflow-y: scroll;
 }

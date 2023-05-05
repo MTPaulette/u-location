@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\IndexController;
+use App\Http\Controllers\GuestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
@@ -23,24 +23,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/",[IndexController::class, "index"])->name("index");
-Route::get("/contact",[IndexController::class, "contact"]);
-Route::get("/about",[IndexController::class, "about"]);
-Route::get("/notFound",[IndexController::class, "notFound"]);
+Route::get("/",[GuestController::class, "index"])->name("index");
+Route::get("/contact",[GuestController::class, "contact"]);
+Route::get("/about",[GuestController::class, "about"]);
+Route::get("/notFound",[GuestController::class, "notFound"]);
+Route::get("/cart",[GuestController::class, "cart"]);
 
 
 Route::middleware('auth')->group(function () {
-Route::get("/dashboard",[DashboardController::class, "home"]);
-Route::get("/statistic",[DashboardController::class, "statistic"]);
-Route::get("/notifications",[DashboardController::class, "notification"]);
-Route::get("/invoice",[DashboardController::class, "invoice"]);
+  Route::get("/dashboard",[DashboardController::class, "home"]);
+  Route::get("/statistic",[DashboardController::class, "statistic"]);
+  Route::get("/notifications",[DashboardController::class, "notification"]);
 });
 
-Route::resource("post", PostController::class);
 Route::resource("user", UserController::class);
 Route::resource("product", ProductController::class);
-Route::resource("invoice", OrderController::class);
+Route::resource("post", PostController::class);
 
+Route::middleware('auth')->group(function () {
+  Route::resource("invoice", OrderController::class);
+});
 
 Route::get("/login",[AuthController::class, "create"])->name("login");
 Route::post("/login",[AuthController::class, "store"])->name("login");

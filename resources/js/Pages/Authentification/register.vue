@@ -10,18 +10,18 @@
           <!-- <div class="grid sm:gap-6 grid-cols-1 sm:grid-cols-2"> -->
           <div>
             <label for="first_name" class="label">First name</label>
-            <input id="first_name" v-model="form.firstname" type="text" class="input" placeholder="John" />
+            <input id="first_name" v-model="form.firstname" type="text" class="input" />
             <p class="input-error">{{ form.errors.firstname }}</p>
           </div>
           <div>
             <label for="last_name" class="label">Last name</label>
-            <input id="last_name" v-model="form.lastname" type="text" class="input" placeholder="Doe" />
+            <input id="last_name" v-model="form.lastname" type="text" class="input" />
             <p class="input-error">{{ form.errors.lastname }}</p>
           </div>
         </div> 
         <div>
           <label for="email" class="label">Email address</label>
-          <input id="email" v-model="form.email" type="email" class="input" placeholder="john.doe@company.com" />
+          <input id="email" v-model="form.email" type="email" class="input" />
           <p class="input-error">{{ form.errors.email }}</p>
         </div> 
         <!-- <div>
@@ -30,12 +30,12 @@
         </div> -->
         <div>
           <label for="password" class="label">Password</label>
-          <input id="password" v-model="form.password" type="password" class="input" placeholder="********" />
+          <input id="password" v-model="form.password" type="password" class="input" />
           <p class="input-error">{{ form.errors.password }}</p>
         </div> 
         <div>
           <label for="confirm_password" class="label">Confirm password</label>
-          <input id="confirm_password" v-model="form.password_confirmation" type="password" class="input" placeholder="********" />
+          <input id="confirm_password" v-model="form.password_confirmation" type="password" class="input" />
           <p class="input-error">{{ form.errors.password_confirmation }}</p>
         </div> 
         <div class="flex items-start mt-4">

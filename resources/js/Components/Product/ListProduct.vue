@@ -33,7 +33,7 @@
       </div>
       <div class="flex mt-5 sm:mt-0">
         <div>
-          <Button label="add product" hasicon btn small>
+          <Button label="add product" hasicon rounded btn small>
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
               <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
             </svg>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="ml-2">
-          <Button label="export" hasicon light small>
+          <Button label="export" hasicon rounded light small>
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
               <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
               <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
@@ -121,7 +121,7 @@
           <td class="px-6 py-2.5 flex justify-between w-full ">
             <div data-modal-target="editProductModal" data-modal-show="editProductModal">
               <!-- Modal toggle -->
-              <Button label="edit" hasicon btn extrasmall>
+              <Button label="edit" hasicon rounded btn extrasmall>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
@@ -129,8 +129,8 @@
               </Button>
             </div>
 
-            <div class="mx-2">
-              <Button label="block" hasicon warning extrasmall>
+            <div class="mx-1">
+              <Button label="block" hasicon rounded warning extrasmall>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z" />
                   <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z" />
@@ -140,7 +140,7 @@
             </div>
 
             <div>
-              <Button label="delete" hasicon danger extrasmall>
+              <Button label="delete" hasicon rounded danger extrasmall>
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
                   <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
@@ -155,7 +155,10 @@
     <!-- Edit product modal -->
     <Modal title="Edit product">
       <template #default>
-        <EditProduct :advantages="advantages" :ingredients="ingredients" :weights="weights" :categories="categories" />
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo voluptates optio,
+        sapiente placeat non maiores? Quam soluta accusamus quisquam vel ullam expedita
+        et quae est tempora exercitationem impedit, suscipit quaerat!
+        <!-- <EditProduct :advantages="advantages" :ingredients="ingredients" :weights="weights" :categories="categories" /> -->
       </template>
     </Modal>
 
@@ -168,7 +171,7 @@
 <script setup>
 import pagination from '@/Components/paginationTable.vue'
 import Button from '@/Components/button.vue'
-import EditProduct from '@/Components/Product/EditProduct.vue'
+// import EditProduct from '@/Components/Product/EditProduct.vue'
 import Modal from '@/Components/modal.vue'
 import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
 

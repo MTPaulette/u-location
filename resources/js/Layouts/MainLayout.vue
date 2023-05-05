@@ -1,5 +1,5 @@
 <template>
-  <Topbar />
+  <Topbar :informations="informations" />
   <!-- <div class="flex flex-col-reverse sm:flex-col"></div> -->
   <SearchCategoryBar />
   <div class="hidden sm:block">
@@ -30,4 +30,8 @@ const page = usePage()
 const flashSuccess = computed(
   () => page.props.flash.success,
 )
+
+defineProps({
+  informations: Object,
+})
 </script>

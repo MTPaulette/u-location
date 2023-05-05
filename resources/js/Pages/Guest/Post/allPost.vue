@@ -7,7 +7,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 md:gap-14">
       <div class="col-span-3 md:col-span-2">
         <div v-for="post in posts.data" :key="post.id">
-          <Link :href="`post/${post.id}`">
+          <Link :href="route('post.show', {post: post.id})">
             <postCard :post="post" />
           </Link>
         </div>

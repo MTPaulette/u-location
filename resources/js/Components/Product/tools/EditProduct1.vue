@@ -117,14 +117,14 @@
         </div>
         <!-- Modal footer -->
         <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-          <Button type="submit" label="save all" btn success base />
+          <Button type="submit" label="save all" rounded  success base />
           
           <!-- <div class="flex mt-5 sm:mt-0">
             <div class="ml-2">
-              <Button label="previous" hasicon light base />
+              <Button label="previous"  hasicon rounded light base />
             </div>
             <div>
-              <Button label="save" btn success base />
+              <Button label="save" success base />
             </div>
           </div> -->
         </div>

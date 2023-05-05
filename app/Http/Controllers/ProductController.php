@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Product::class, 'product');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +51,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
+        //dd($request->user()->id);
         
         $product = new Product();
         $product->code = "PROD_".$request->name;
@@ -56,6 +60,7 @@ class ProductController extends Controller
         $product->preparation = $request->preparation;
         $product->utilisation = $request->utilisation;
         $product->category_id = $request->category_id;
+        $product->user_id = $request->user()->id;
 
         $product->save();
 

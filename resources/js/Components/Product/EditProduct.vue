@@ -90,7 +90,7 @@
                 <div class="flex mt-2">
                   <div @click="addWeightInitialStock">
                     <div class="btn-default btn-success btn-small inline-flex items-center mb-2 capitalize font-medium text-white rounded-lg focus:ring-4 focus:outline-none">add</div>
-                    <!-- <Button label="add" btn success small /> -->
+                    <!-- <Button label="add" success small /> -->
                   </div>
                   <button type="button" class="text-gray-900 hover:text-red-600 text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white" @click="moreIngredient = !moreIngredient">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
@@ -167,7 +167,7 @@
         </div>
         <!-- Modal footer -->
         <div class="mx-0 lg:mx-6 py-6 border-t border-gray-200 rounded-b dark:border-gray-600">
-          <Button type="submit" label="save all" btn success base />
+          <Button type="submit" label="save all" rounded  success base />
         </div>
       </form>
     </div>
@@ -199,7 +199,7 @@
         <!--br />ipsum <pre class="langage-json"><code> {{ selected }}</code></pre> <br /-->
 
         <div v-if="!moreIngredient" class="mt-4" @click="moreIngredient = !moreIngredient">
-          <Button label="More ingredients" hasicon light class="w-full py-2.5 text-sm flex justify-center" />
+          <Button label="More ingredients" hasicon rounded light class="w-full py-2.5 text-sm flex justify-center" />
         </div>
 
         <form class="relative bg-white dark:bg-gray-700" @submit.prevent="addNewIngredient">
@@ -225,7 +225,7 @@
             </div>
             <div class="flex">
               <div>
-                <Button type="submit" label="add" btn success small />
+                <Button type="submit" label="add" success small />
               </div>
               <button type="button" class="text-gray-900 hover:text-red-600 text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white" @click="moreIngredient = !moreIngredient">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
@@ -249,7 +249,7 @@
 
           <div class="flex items-center py-6 border-t border-gray-200 rounded-b dark:border-gray-600">
             <div>
-              <Button type="submit" label="save all" btn success base />
+              <Button type="submit" label="save all" rounded  success base />
             </div>
           </div>
         </form>
@@ -280,7 +280,7 @@
         <!--br />ipsum <pre class="langage-json"><code> {{ selected }}</code></pre> <br /-->
 
         <div v-if="!moreAdvantage" class="mt-4" @click="moreAdvantage = !moreAdvantage">
-          <Button label="More advantages" hasicon light class="w-full py-2.5 text-sm flex justify-center" />
+          <Button label="More advantages" hasicon rounded light class="w-full py-2.5 text-sm flex justify-center" />
         </div>
 
       
@@ -306,7 +306,7 @@
           </div>
           <div class="flex">
             <div>
-              <Button type="submit" label="add" btn success small />
+              <Button type="submit" label="add" success small />
             </div>
             <button type="button" class="text-gray-900 hover:text-red-600 text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white" @click="moreAdvantage = !moreAdvantage">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
@@ -320,7 +320,7 @@
 
           <div class="flex items-center py-6 border-t border-gray-200 rounded-b dark:border-gray-600">
             <div>
-              <Button type="submit" label="save all" btn success base />
+              <Button type="submit" label="save all" rounded  success base />
             </div>
           </div>
         </form>

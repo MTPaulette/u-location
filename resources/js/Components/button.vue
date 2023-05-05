@@ -2,8 +2,8 @@
   <!-- <button v-if="hasicon" type="button" class="inline-flex items-center capitalize text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800"> -->
   <button
     v-if="hasicon" :type="type"
-    :class="{'btn-default':btn, 'btn-light':light, 'btn-success':success, 'btn-warning':warning, 'btn-danger':danger,'btn-extrasmall':extrasmall, 'btn-small': small, 'btn-base': base, 'btn-large': large }"
-    class="inline-flex items-center mb-2 capitalize font-medium text-white rounded-lg focus:ring-4 focus:outline-none"
+    :class="{'rounded-lg':rounded ,'btn-default':btn, 'btn-light':light, 'btn-success':success, 'btn-warning':warning, 'btn-danger':danger,'btn-extrasmall':extrasmall, 'btn-small': small, 'btn-base': base, 'btn-large': large }"
+    class="inline-flex items-center mb-2 capitalize font-medium text-white focus:ring-4 focus:outline-none"
   >
     <slot />
     <span class="ml-2">{{ label }}</span>
@@ -14,8 +14,8 @@
 
   <button
     v-else :type="type"
-    :class="{'btn-default':btn, 'btn-light':light, 'btn-success':success, 'btn-warning':warning, 'btn-danger':danger,'btn-extrasmall':extrasmall, 'btn-small': small, 'btn-base': base, 'btn-large': large }"
-    class="inline-flex items-center mb-2 capitalize font-medium text-white rounded-lg focus:ring-4 focus:outline-none"
+    :class="{'rounded-lg':rounded ,'btn-default':btn, 'btn-light':light, 'btn-success':success, 'btn-warning':warning, 'btn-danger':danger,'btn-extrasmall':extrasmall, 'btn-small': small, 'btn-base': base, 'btn-large': large }"
+    class="inline-flex items-center mb-2 capitalize font-medium text-white focus:ring-4 focus:outline-none"
   >
     {{ label }}
   </button>
@@ -24,6 +24,10 @@
 <script setup>
 defineProps({
   label: String,
+  rounded: {
+    type: Boolean,
+    default: false,
+  },
   type: {
     type: String,
     default: 'btn',

@@ -79,7 +79,7 @@
               <sectionTitle title="articles populaires" />
             </div>
             <div v-for="popularPost in popularPosts" :key="popularPost.id">
-              <Link :href="`${popularPost.id}`">
+              <Link :href="route('post.show', {post: popularPost.id})">
                 <postCard :post="popularPost" />
               </Link>
             </div>
