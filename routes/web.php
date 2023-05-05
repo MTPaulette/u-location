@@ -10,6 +10,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\UserImageController;
+use App\Http\Controllers\ProductImageController;
+use App\Http\Controllers\PostImageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,10 +54,12 @@ Route::get("/register",[UserAccountController::class, "create"])->name("register
 Route::post("/register",[UserAccountController::class, "store"])->name("register");
 
 Route::middleware('auth')->group(function () {
-Route::get('/profile', [UserAccountController::class, 'show'])->name('profile');
-Route::put('/profile', [UserAccountController::class, 'update'])->name('profile.update');
-Route::resource('user.image', UserImageController::class)->only(['create', 'store','destroy']);
-Route::put('/password', [PasswordController::class, 'update'])->name('password.update');
+  Route::get('/profile', [UserAccountController::class, 'show'])->name('profile');
+  Route::put('/profile', [UserAccountController::class, 'update'])->name('profile.update');
+  Route::resource('user.image', UserImageController::class)->only(['create', 'store','destroy']);
+  Route::resource('product.image', ProductImageController::class)->only(['create', 'store','destroy']);
+  Route::resource('post.image', PostImageController::class)->only(['create', 'store','destroy']);
+  Route::put('/password', [PasswordController::class, 'update'])->name('password.update');
 });
 // Route::middleware('auth')->group(function () {});
 

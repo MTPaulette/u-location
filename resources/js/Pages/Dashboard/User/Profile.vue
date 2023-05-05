@@ -20,9 +20,10 @@
             <div class="pl-3 md:pl-0">
               <div class="text-base truncate font-semibold mb-0.5 dark:text-white">{{ user.firstname }} <span class="uppercase">{{ user.lastname }}</span></div>
               <div class="font-normal text-gray-500 mb-4 truncate">{{ user.email }}</div>
-              <form enctype="multipart/form-data" :action="route('user.image.store', { user: user.id})" method="POST">
+
+              <form enctype="multipart/form-data" :action="route('user.image.store', { user: user.id})" method="POST" class="bg-mango my-5">
                 <!-- <form enctype="multipart/form-data" action="/userImage" method="post"> -->
-                <input type="file" multiple name="images[]" />
+                <input type="file" name="images" />
                 <button type="submit">send</button>
               </form>
 
@@ -96,7 +97,7 @@
             </div>
             
             <div class="mt-3">
-              <Button type="submit" label="save" btn small />
+              <Button type="submit" label="save" rounded btn small />
             </div>
           </form>
         </div>
@@ -137,7 +138,7 @@
           </div>
             
           <div>
-            <Button type="submit" label="save" btn small />
+            <Button type="submit" label="save" rounded btn small />
             <!-- <button type="submit" class="rounded-lg submit-btn-style border-mango">creer compte</button> -->
           </div>
           <!-- <button type="submit" class="mt-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-mango font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-mango dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button> -->

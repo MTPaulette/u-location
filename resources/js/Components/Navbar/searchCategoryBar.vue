@@ -59,8 +59,15 @@
 import SearchCategory from '@/Components/searchCategory.vue'
 import Pannier from '@/Components/Navbar/tools/pannier.vue'
 import LoggedUser from '@/Components/Navbar/tools/loggedUser.vue'
-import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
+import { usePage } from '@inertiajs/vue3'
+import { computed, onMounted } from 'vue'
+
+const page = usePage()
+const user = computed(
+  () => page.props.user,
+)
+
 
 // initialize components based on data attribute selectors
 onMounted(() => {

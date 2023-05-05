@@ -57,12 +57,20 @@
     /* @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg shadow-sm focus:ring-mango focus:border-mango block w-full px-3.5 py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-mango dark:focus:border-mango */
   }
 
+  .input-file-style {
+    @apply file:bg-mango border rounded-md file:px-4 file:py-2 border-gray-200 dark:border-gray-700 file:text-gray-700 file:dark:text-gray-400 file:border-0 file:bg-gray-100 file:dark:bg-gray-800 file:font-medium file:hover:bg-gray-200 file:dark:hover:bg-gray-700 file:hover:cursor-pointer file:mr-4
+  }
+
   .label {
     @apply block mt-2 text-sm capitalize font-medium text-gray-900 dark:text-white
   }
   
   .required {
     @apply ml-1 text-red-500
+  }
+
+  .disabled {
+    @apply disabled:cursor-not-allowed disabled:opacity-25
   }
 
   .card-default-dashboard {

@@ -12,6 +12,7 @@
       </li>
     </ul>
   </div>
+  
   <div id="myTabContent">
     <div id="product" class="hidden" role="tabpanel" aria-labelledby="product-tab">
       <div class="my-4">
@@ -167,7 +168,7 @@
         </div>
         <!-- Modal footer -->
         <div class="mx-0 lg:mx-6 py-6 border-t border-gray-200 rounded-b dark:border-gray-600">
-          <Button type="submit" label="save all" rounded  success base />
+          <Button type="submit" label="save all" rounded success base />
         </div>
       </form>
     </div>
@@ -249,7 +250,7 @@
 
           <div class="flex items-center py-6 border-t border-gray-200 rounded-b dark:border-gray-600">
             <div>
-              <Button type="submit" label="save all" rounded  success base />
+              <Button type="submit" label="save all" rounded success base />
             </div>
           </div>
         </form>
@@ -320,7 +321,7 @@
 
           <div class="flex items-center py-6 border-t border-gray-200 rounded-b dark:border-gray-600">
             <div>
-              <Button type="submit" label="save all" rounded  success base />
+              <Button type="submit" label="save all" rounded success base />
             </div>
           </div>
         </form>

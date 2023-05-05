@@ -94,13 +94,13 @@
 
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
-import { Link } from '@inertiajs/vue3'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import sectionTitle from '@/Components/sectionTitle.vue'
 import searchBar from '@/Components/searchSubmit.vue'
 import myCarousel from '@/Components/myCarousel.vue'
 import postCard from '@/Components/postCard.vue'
 import myTitle from '@/Components/myTitle.vue'
+import { Link } from '@inertiajs/vue3'
 
 defineProps({
   post: Object,

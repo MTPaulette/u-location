@@ -89,7 +89,7 @@
             </div>
             
             <div class="mt-3">
-              <Button type="submit" label="save" btn small />
+              <Button type="submit" label="save" rounded  btn small />
             </div>
           </form>
         </div>
@@ -127,7 +127,7 @@
           </div>
             
           <div>
-            <Button type="submit" label="save" btn small>mmm</Button>
+            <Button type="submit" label="save" rounded  btn small>mmm</Button>
             <!-- <button type="submit" class="rounded-lg submit-btn-style border-mango">creer compte</button> -->
           </div>
           <!-- <button type="submit" class="mt-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-mango font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-mango dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button> -->
