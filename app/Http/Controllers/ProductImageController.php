@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductImageController extends Controller
 {
@@ -15,6 +16,7 @@ class ProductImageController extends Controller
      */
     public function create(Product $product)
     {
+        $product->load(['images']);
         return Inertia("Dashboard/Product/ProductImage/Create", [
             'product' => $product
         ]);
@@ -44,7 +46,7 @@ class ProductImageController extends Controller
             }
         }
         
-        return redirect()->back()->with('success', 'images uploaded!!!');
+        return back()->with('success', 'images uploaded!!!');
         //return to_route('profile')->with('success', 'images successfully added!!!');
     }
 
@@ -54,8 +56,11 @@ class ProductImageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product, Image $image)
     {
-        //
+        Storage::disk('public')->delete($image->filename);
+        $image->delete();
+
+        return redirect()->back()->with('success', 'Image was deleted!');
     }
 }

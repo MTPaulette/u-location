@@ -24,6 +24,5 @@ class PasswordController extends Controller
         ]);
 
         return redirect('/dashboard')->with('success', 'password was successfully modified!!!');
-        // return back()->with('success', 'password was successfully modified!!!');
     }
 }

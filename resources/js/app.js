@@ -9,7 +9,7 @@ import BaseLayout from '@/Layouts/BaseLayout.vue'
 
 /* progress when render inertia page */
 InertiaProgress.init({
-  delay: 2,
+  delay: 0,
   color: "#fd5906",
   includeCSS: true,
   showSpinner: true,
@@ -20,6 +20,7 @@ InertiaProgress.init({
 
 
 createInertiaApp({
+  progress: false,
   resolve: async (name) => {
     const pages = import.meta.glob('./Pages/**/*.vue')
     const page = await pages[`./Pages/${name}.vue`]()
@@ -34,7 +35,3 @@ createInertiaApp({
       .mount(el)
   },
 })
-
-import.meta.glob([
-  '../images/**',
-])

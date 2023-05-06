@@ -50,7 +50,6 @@ class UserAccountController extends Controller
         event(new Registered($user));
         
         return to_route('user.index')->with('success', 'user was successfully created!!!');
-        // return redirect('/post)
     }
     
 
