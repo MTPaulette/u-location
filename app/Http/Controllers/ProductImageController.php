@@ -56,7 +56,7 @@ class ProductImageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product, Image $image)
+    public function destroy($product, Image $image)
     {
         Storage::disk('public')->delete($image->filename);
         $image->delete();
