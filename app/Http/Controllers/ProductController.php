@@ -24,6 +24,7 @@ class ProductController extends Controller
     {
         return Inertia("Dashboard/Product/List", [
             'products' => Product::orderByDesc('created_at')
+                    ->withCount('images')
                     ->paginate(10)
         ]);
     }
