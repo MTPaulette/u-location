@@ -56,7 +56,7 @@ Route::post("/register",[UserAccountController::class, "store"])->name("register
 Route::middleware('auth')->group(function () {
   Route::get('/profile', [UserAccountController::class, 'show'])->name('profile');
   Route::put('/profile', [UserAccountController::class, 'update'])->name('profile.update');
-  Route::resource('user.image', UserImageController::class)->only(['create', 'store','destroy']);
+  Route::resource('userImage', UserImageController::class)->only(['store','destroy']);
   Route::resource('product.image', ProductImageController::class)->only(['create', 'store','destroy']);
   Route::resource('post.image', PostImageController::class)->only(['create', 'store','destroy']);
   Route::put('/password', [PasswordController::class, 'update'])->name('password.update');

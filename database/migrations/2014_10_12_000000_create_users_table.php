@@ -22,9 +22,10 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->boolean('is_admin')->default(false);
             $table->boolean('is_distributor')->default(false);
+            $table->foreignIdFor(\App\Models\City::class)->nullable();
+            $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignIdFor(\App\Models\City::class)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

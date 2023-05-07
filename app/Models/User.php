@@ -27,6 +27,7 @@ class User extends Authenticatable
         'firstname',
         'lastname',
         'email',
+        'image',
         'password',
     ];
 
@@ -48,6 +49,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    protected $appends = [
+        'src',
+    ];
+
+    public function getSrcAttribute() {
+        return asset("storage/{$this->image}");
+    }
 
     protected function password(): Attribute {
         return Attribute::make(
@@ -62,10 +71,6 @@ class User extends Authenticatable
 
     public function products(): HasMany {
         return $this->hasMany(Product::class);
-    }
-
-    public function images(): HasMany {
-        return $this->hasMany(Image::class);
     }
 
     public function roles(): BelongsToMany {

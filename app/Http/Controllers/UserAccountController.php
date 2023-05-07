@@ -25,6 +25,7 @@ class UserAccountController extends Controller
     {
         return Inertia("Dashboard/User/Profile", [
             'user' => Auth::user(),
+            // 'user' => Auth::user()->load('images'),
             'countries' =>  Country::all('id', 'name'),
             'cities' =>  City::all('id', 'name'),
         ]);
@@ -91,19 +92,5 @@ class UserAccountController extends Controller
 
         return redirect()->back()->with('success', 'profile was successfully updated!!!');
         // return redirect('/dashboard')->with('success', 'profile was successfully updated!!!');
-    }
-    
-    public function update1(Request $request)
-    {
-        // dd($request->user());
-
-        //$user = Auth::user();
-
-        $request->user()->update([
-            'password' => $request->password,
-        ]);
-
-        return redirect('/dashboard')->with('success', 'password was successfully modified!!!');
-        // return back()->with('success', 'password was successfully modified!!!');
     }
 }

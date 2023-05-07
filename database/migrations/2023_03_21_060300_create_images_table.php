@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('filename');
             // $table->foreignIdFor(\App\Models\Post::class)->constrained('users');
-            $table->foreignIdFor(\App\Models\User::class)->nullable();
             $table->foreignIdFor(\App\Models\Post::class)->nullable();
             $table->foreignIdFor(\App\Models\Product::class)->nullable();
             $table->timestamps();

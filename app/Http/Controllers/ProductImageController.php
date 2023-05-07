@@ -30,7 +30,6 @@ class ProductImageController extends Controller
      */
     public function store(Product $product, Request $request)
     {
-        // dd($request->hasFile('images'));
         if($request->hasFile('images')) {
             $request->validate([
                 'images.*' => 'mimes:jpg,png,jpeg,webp|max:5000'
@@ -39,7 +38,7 @@ class ProductImageController extends Controller
             ]);
 
             foreach ($request->file('images') as $file){
-                $path = $file->store('images', 'public');
+                $path = $file->store("images/product/{$product->id}", 'public');
                 $product->images()->save(new Image([
                     'filename' => $path
                 ]));
@@ -47,7 +46,6 @@ class ProductImageController extends Controller
         }
         
         return back()->with('success', 'images uploaded!!!');
-        //return to_route('profile')->with('success', 'images successfully added!!!');
     }
 
     /**

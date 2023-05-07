@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class UserImageController extends Controller
 {
@@ -24,9 +26,10 @@ class UserImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(User $user, Request $request)
+    public function store(Request $request)
     {
-        //dd($request->hasFile('images'));
+        $user = $request->user();
+
         if($request->hasFile('images')) {
             $request->validate([
                 'images.*' => 'mimes:jpg,png,jpeg,webp|max:5000'
@@ -34,15 +37,22 @@ class UserImageController extends Controller
                 'images.*.mimes' => 'the file should be in one of the formats: jpg, png, jpeg, webp'
             ]);
 
-            $path = $request->file('images')->store('images', 'public');
-            $user->images()->save(new Image([
-                'filename' => $path
-            ]));
+            if(isset($user->image)) {
+                Storage::disk('public')->delete($user->image);
+            }
+            
+            foreach ($request->file('images') as $file){
+                $path = $file->store('images/user', 'public');
+                $user->image = $path;
+            }
         }
+
+        $user->update();
         
-        return redirect()->back()->with('success', 'images uploaded!!!');
+        return redirect()->back()->with('success', 'profile image uploaded!!!');
         // return to_route('profile')->with('success', 'images successfully added!!!');
     }
+    
     
     /**
      * Remove the specified resource from storage.
@@ -50,8 +60,13 @@ class UserImageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($userImage)
     {
-        //
+        $user = Auth::user();
+        Storage::disk('public')->delete($user->image);
+        $user->image = null;
+        $user->update();
+
+        return redirect()->back()->with('success', 'Image was deleted!');
     }
 }

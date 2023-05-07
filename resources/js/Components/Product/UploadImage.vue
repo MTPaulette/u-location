@@ -57,11 +57,10 @@
 
 <script setup>
 import Button from '@/Components/button.vue'
-import ImageError from '@/Components/Product/tools/ImageError.vue'
-import { useForm, Link } from '@inertiajs/vue3'
+import ImageError from '@/Components/ImageError.vue'
+import { useForm, Link, router } from '@inertiajs/vue3'
 import { computed, ref } from 'vue'
 import NProgress from 'nprogress'
-import { router } from '@inertiajs/vue3'
 
 const props = defineProps({ 
   product: Object,

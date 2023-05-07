@@ -23,17 +23,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Info::factory()->create();
         \App\Models\Category::factory(3)->create();
         \App\Models\Theme::factory(2)->create();
-
-        \App\Models\Image::factory(1)->create();
-        
-        \App\Models\Image::factory(1)->create([
-            'product_id' => 1
-        ]);
-
-        \App\Models\Image::factory(1)->create([
-            'post_id' => 2
-        ]);
-
         
         \App\Models\Country::factory(5)->create();
 
