@@ -39,8 +39,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource("user", UserController::class);
-Route::resource("product", ProductController::class);
-Route::resource("post", PostController::class);
+  Route::resource("post", PostController::class);
+  Route::resource("product", ProductController::class);
 
 Route::middleware('auth')->group(function () {
   Route::resource("invoice", OrderController::class);

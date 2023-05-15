@@ -21,9 +21,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Inertia("Guest/Post/allPost", [
+        return Inertia("Dashboard/Post/List", [
             'informations' =>  Info::find(1),
             'posts' => Post::orderByDesc('created_at')
+                    ->withCount('images')
                     ->paginate(5)
         ]);
     }
@@ -35,7 +36,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //$this->authorize('create', Post::class);
+        return Inertia("Dashboard/Post/Add", [
+            'themes' =>  Theme::all('id', 'title'),
+        ]);
     }
 
     /**
@@ -46,7 +49,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->user()->id);
+        
+        $post = new Post();
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->theme_id = $request->theme_id;
+        $post->user_id = $request->user()->id;
+
+        $post->save();
+        return redirect()->route('post.index')->with('success', 'post created');
     }
 
     /**

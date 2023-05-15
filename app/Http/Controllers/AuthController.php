@@ -22,7 +22,7 @@ class AuthController extends Controller
             ]);
         }
         $request->session()->regenerate();
-        return redirect()->intended('/dashboard')->with('success', 'welcome new logged user');
+        return redirect()->intended('/dashboard')->with('success', 'welcome logged user');
     }
 
     public function destroy(Request $request) {
