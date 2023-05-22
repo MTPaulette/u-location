@@ -109,7 +109,7 @@
               {{ post.theme }}
             </td>
             <td class="px-6 py-2.5">
-              {{ post.user }} FCFA
+              {{ post.user }}
             </td>
             <td class="px-6 py-2.5">
               {{ post.created_at }}

@@ -4,6 +4,8 @@ use App\Http\Controllers\GuestController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PostDashboardController;
+use App\Http\Controllers\ProductDashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AuthController;
@@ -39,8 +41,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource("user", UserController::class);
-  Route::resource("post", PostController::class);
-  Route::resource("product", ProductController::class);
+Route::resource("post", PostController::class)->only(['index', 'show']);
+Route::resource("product", ProductController::class)->only(['index', 'show']);
 
 Route::middleware('auth')->group(function () {
   Route::resource("invoice", OrderController::class);
@@ -61,7 +63,16 @@ Route::middleware('auth')->group(function () {
   Route::resource('post.image', PostImageController::class)->only(['create', 'store','destroy']);
   Route::put('/password', [PasswordController::class, 'update'])->name('password.update');
 });
-// Route::middleware('auth')->group(function () {});
+
+
+Route::middleware('auth')->group(function () {
+  Route::prefix('dashboard')
+    ->name('dashboard.')
+    ->group(function () {
+      Route::resource("post", PostDashboardController::class);
+      Route::resource("product", ProductDashboardController::class);
+  });
+});
 
   // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
   // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

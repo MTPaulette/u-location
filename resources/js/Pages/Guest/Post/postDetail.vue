@@ -6,7 +6,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 md:gap-8 lg:gap-14">
           <div class="col-span-3 md:col-span-2">
             <div class="mb-8 mt-0">
-              <myCarousel :images="images" />
+              <myCarousel :images="post.images" />
             </div>
 
             <div>
@@ -109,6 +109,5 @@ defineProps({
   informations: Object,
 })
 
-const images = ['1.jpg', '2.png', '3.jpg', '4.PNG', '5.jpg']
-
+// const images = ['1.jpg', '2.png', '3.jpg', '4.PNG', '5.jpg']
 </script>

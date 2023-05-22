@@ -125,7 +125,7 @@ const formpost = useForm({
 })
 
 const savePostInformation = () => {
-  const newPost_id = formpost.post('/post')
+  const newPost_id = formpost.post('/dashboard/post')
   console.log("========================================")
   console.log(newPost_id)
 }

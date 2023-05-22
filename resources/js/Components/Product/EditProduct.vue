@@ -359,7 +359,7 @@ const newAdvantage = ref('')
 const newAdvantages = ref([])
 
 const saveProductInformation = () => {
-  const newProduct_id = formproduct.post('/product')
+  const newProduct_id = formproduct.post('/dasboard/product')
   console.log("========================================")
   console.log(newProduct_id)
 }

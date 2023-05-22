@@ -1,14 +1,20 @@
 <template>
   <div id="indicators-carousel" class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-      <div v-for="image in images" :key="image.id" class="hidden duration-700 ease-in-out" data-carousel-item>
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-96 bg-mango">
+      <!-- Item 1 -->
+      <div v-for="image in images" :key="image.id" class="hidden duration-700 ease-in-out" data-carousel-item="active">
         <img :src="getImgUrl(image.filename)" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
       </div>
     </div>
     <!-- Slider indicators -->
-    <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-      <button v-for="image in images" :key="image.id" type="button" class="w-3 h-3 rounded-full" aria-current="false" :aria-label="'Slide'+image.id" :data-carousel-slide-to="image.id" />
+    <div class="bg-mango absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+      <!-- <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2"> -->
+      <!-- <button v-for="(image, i) in images" :key="i" type="button" class="w-3 h-3 rounded-full" aria-current="false" :aria-label="'Slide'+i" :data-carousel-slide-href="i" /> -->
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 2" data-carousel-slide-href="1" />
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-href="2" />
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-href="3" />
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-href="4" />
     </div>
     <!-- Slider controls -->
     <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
