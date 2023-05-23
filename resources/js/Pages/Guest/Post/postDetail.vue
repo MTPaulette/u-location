@@ -20,7 +20,7 @@
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                       </svg>
                     </span>
-                    <span v-if="post.user.is_admin">By Admin</span>
+                    <span v-if="post.user.role_id === 1">By Admin</span>
                     <span v-else>By {{ post.user.lastname }}</span>
                   </a>
                   <a href="#" class="flex items-center border-r-2 border-gray-100 px-4 cursor-text">
@@ -63,13 +63,14 @@
                 <sectionTitle title="categories" />
               </div>
               <div>
-                <ul class="text-gray-900 font-medium text-lg dark:text-gray-400">
+                <ul class="flex flex-wrap text-gray-900 font-medium text-lg dark:text-gray-400 w-full h-[250px] over-y">
                   <li 
                     v-for="category in categories" 
                     :key="category.id"
-                    class="hover:text-mango"
                   >
-                    {{ category.title }}
+                    <span class="bg-green-50 border border-green-200 hover:bg-sheet-200 hover:text-white hover:border-sheet-200 dark:hover:bg-gray-500 dark:text-blue-400 text-xs mr-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700">
+                      {{ category.title }}
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -109,6 +110,4 @@ defineProps({
   popularPosts: Object,
   informations: Object,
 })
-
-// const images = ['1.jpg', '2.png', '3.jpg', '4.PNG', '5.jpg']
 </script>

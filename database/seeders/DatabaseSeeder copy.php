@@ -41,9 +41,11 @@ class DatabaseSeeder extends Seeder
 
 
         \App\Models\User::factory(2)->create([
+            // 'is_admin' => true,
             'city_id' => 4
         ]);
         \App\Models\User::factory(10)->create([
+            // 'is_distributor' => true,
             'city_id' => 1
         ]);
         \App\Models\User::factory(5)->create([
@@ -90,17 +92,16 @@ class DatabaseSeeder extends Seeder
 
         /* role */
         \App\Models\Role::factory()->create([
-            'name' => 'administrator'
+            'name' => 'sample'
         ]);
         \App\Models\Role::factory()->create([
             'name' => 'distributor'
         ]);
         \App\Models\Role::factory()->create([
-            'name' => 'sample'
+            'name' => 'administrator'
         ]);
 
 
-    /*
         $users = \App\Models\User::all();
         foreach($users as $user) {
             $user->roles()->attach(1);
@@ -116,7 +117,6 @@ class DatabaseSeeder extends Seeder
         $user1->roles()->sync($roleAdmin);
         $user2->roles()->sync($roleDistributor);
         $user3->roles()->sync($roleDistributor);
-    */
 
 
         \App\Models\Order::factory()->create([

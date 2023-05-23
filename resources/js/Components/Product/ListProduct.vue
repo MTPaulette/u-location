@@ -132,7 +132,7 @@
                         <span>images</span>
                       </button> -->
 
-                      <Link class="w-full" :href="route('product.image.create', {product: product.id})">
+                      <Link class="w-full" :href="route('dashboard.product.image.create', {product: product.id})">
                         <Button :label="'images ('+product.images_count+')'" hasicon rounded transparent large>
                           <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />

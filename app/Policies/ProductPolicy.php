@@ -13,7 +13,8 @@ class ProductPolicy
     // give all permissions for admin
     public function before(?User $user, $ability)
     {
-        if($user?->is_admin /*&& $ability == 'update' */) {
+        // id role for admin
+        if($user?->role->id === 1 /*&& $ability == 'update' */) {
             return true;
         }
     }

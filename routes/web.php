@@ -33,20 +33,9 @@ Route::get("/about",[GuestController::class, "about"]);
 Route::get("/notFound",[GuestController::class, "notFound"]);
 Route::get("/cart",[GuestController::class, "cart"]);
 
-
-Route::middleware('auth')->group(function () {
-  Route::get("/dashboard",[DashboardController::class, "home"]);
-  Route::get("/statistic",[DashboardController::class, "statistic"]);
-  Route::get("/notifications",[DashboardController::class, "notification"]);
-});
-
-Route::resource("user", UserController::class);
 Route::resource("post", PostController::class)->only(['index', 'show']);
 Route::resource("product", ProductController::class)->only(['index', 'show']);
 
-Route::middleware('auth')->group(function () {
-  Route::resource("invoice", OrderController::class);
-});
 
 Route::get("/login",[AuthController::class, "create"])->name("login");
 Route::post("/login",[AuthController::class, "store"])->name("login");
@@ -55,20 +44,30 @@ Route::delete("/logout",[AuthController::class, "destroy"])->name("logout");
 Route::get("/register",[UserAccountController::class, "create"])->name("register");
 Route::post("/register",[UserAccountController::class, "store"])->name("register");
 
+
 Route::middleware('auth')->group(function () {
-  Route::get('/profile', [UserAccountController::class, 'show'])->name('profile');
-  Route::put('/profile', [UserAccountController::class, 'update'])->name('profile.update');
-  Route::resource('userImage', UserImageController::class)->only(['store','destroy']);
-  Route::resource('product.image', ProductImageController::class)->only(['create', 'store','destroy']);
-  Route::resource('post.image', PostImageController::class)->only(['create', 'store','destroy']);
-  Route::put('/password', [PasswordController::class, 'update'])->name('password.update');
+  Route::get("/dashboard",[DashboardController::class, "home"]);
+  Route::get("/statistic",[DashboardController::class, "statistic"]);
+  Route::get("/notifications",[DashboardController::class, "notification"]);
+  Route::resource("invoice", OrderController::class);
 });
 
 
 Route::middleware('auth')->group(function () {
+  Route::get('/profile', [UserAccountController::class, 'show'])->name('profile');
+  Route::put('/profile', [UserAccountController::class, 'update'])->name('profile.update');
+  Route::resource('userImage', UserImageController::class)->only(['store','destroy']);
+  Route::put('/password', [PasswordController::class, 'update'])->name('password.update');
+});
+
+
+Route::middleware(['auth', 'isAdmin'])->group(function () {
   Route::prefix('dashboard')
     ->name('dashboard.')
     ->group(function () {
+      Route::resource("user", UserController::class);
+      Route::resource('product.image', ProductImageController::class)->only(['create', 'store','destroy']);
+      Route::resource('post.image', PostImageController::class)->only(['create', 'store','destroy']);
       Route::resource("post", PostDashboardController::class);
       Route::resource("product", ProductDashboardController::class);
   });

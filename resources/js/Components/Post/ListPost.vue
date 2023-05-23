@@ -119,7 +119,7 @@
                 <tr>
                   <td colspan="3">
                     <div class="w-full">
-                      <Link class="w-full" :href="route('post.image.create', {post: post.id})">
+                      <Link class="w-full" :href="route('dashboard.post.image.create', {post: post.id})">
                         <Button :label="'images ('+post.images_count+')'" hasicon rounded transparent large>
                           <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
