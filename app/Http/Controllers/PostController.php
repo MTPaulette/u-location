@@ -25,12 +25,14 @@ class PostController extends Controller
         return Inertia("Guest/Post/allPost", [
             'informations' =>  Info::find(1),
 
+            /* 
             'images' =>  DB::table('images')
                             ->select('id', 'filename', 'post_id')
                             ->whereNotNull('post_id')
                             ->orderByDesc('created_at') // get first images
                             ->take(5) //or limit(5)
                             ->get(),
+            */
 
             'posts' => Post::orderByDesc('created_at')
                             ->withCount('images')
@@ -38,38 +40,6 @@ class PostController extends Controller
                             ->paginate(5)
         ]);
     }
-
-    /*
-            'posts' => Post::join('images', 'posts.id', '=', 'images.post_id')
-                    // DB::table('posts')
-                    // ->join('images', 'posts.id', '=', 'images.post_id')
-                    ->select('posts.*', 'images.*')
-                    //->get()
-                    //->orderByDesc('posts.created_at')
-                    // ->withCount('images')
-                    ->groupBy('posts.id')
-                    ->paginate(5)
-
-            'posts' => DB::table('posts')
-                    ->join('images', 'posts.id', '=', 'images.post_id')
-                    ->select('posts.*', 'images.*', DB::raw('count(*)'))
-                    ->groupBy('posts.id')
-                    //->orderByDesc('posts.created_at')
-                    // ->withCount('images')
-                    ->paginate(5)
-                    
-            'posts' => 
-                    Post::join('images', 'posts.id', '=', 'images.post_id')
-                    ->select('posts.*', 'images.*')
-                    ->groupBy('images.post_id')
-                    //->orderByDesc('posts.created_at')
-                    ->withCount('images')
-                    ->paginate(5)
-
-            'posts' => Post::orderByDesc('created_at')
-                    ->withCount('images')
-                    ->paginate(5)
-                     */
     
     /**
      * Display the specified resource.
@@ -85,7 +55,7 @@ class PostController extends Controller
 
         //$this->authorize('view', $post);
 
-        $post->load(['images']);
+        $post->load(['images', 'user']);
         return Inertia("Guest/Post/postDetail", [
             'informations' =>  Info::find(1),
             'post' => $post,

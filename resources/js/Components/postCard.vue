@@ -2,7 +2,7 @@
   <div class="border-0 border-gray-100 border-b dark:border-gray-700 max-w-full">
     <div class="flex items-center px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
       <div class="flex-shrink-0">
-        <img v-if="post.images.length>0" class="rounded w-16 lg:w-1/6 h-14" :src="getImgUrl(post.images[0].filename)" alt="product image" />
+        <img v-if="post.images.length" class="rounded w-16 h-14" :src="getImgUrl(post.images[0].filename)" alt="product image" />
       </div>
       <div class="w-full pl-3">
         <h4 class="w-5/6 truncate h-5 mb-1">
@@ -21,6 +21,7 @@
             </svg>
           </span>
           <div class="truncate">
+            lo {{ post.createdAtDiff }}
             {{ post.created_at }}
           </div>
         </div>

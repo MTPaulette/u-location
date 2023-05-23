@@ -6,14 +6,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+// use Carbon\Carbon;
 
 class Post extends Model
 {
     use HasFactory;
     protected $fillable = [
         'name',
-        'content'
+        'content',
+        // 'created_at'
     ];
+
+    /*
+    public function setCreatedAtAttribute() {
+        // return $this->created_at->diffForHumans();
+        return new Carbon($this->created_at);
+    }
+    */
 
     public function user(): BelongsTo {
         return $this->belongsTo(User::class);

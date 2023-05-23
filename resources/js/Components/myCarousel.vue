@@ -1,5 +1,9 @@
 <template>
-  <div id="indicators-carousel" class="relative w-full" data-carousel="slide">
+  <div v-if="images.length == 1" class="relative w-full">
+    <img :src="getImgUrl(images[0].filename)" class=" h-56 overflow-hidden rounded-lg md:h-96 w-full" alt="..." />
+  </div>
+    
+  <div v-else id="indicators-carousel" class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
       <div v-for="image in images" :key="image.id" class="hidden duration-700 ease-in-out" data-carousel-item>

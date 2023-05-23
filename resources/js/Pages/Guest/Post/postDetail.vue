@@ -5,32 +5,33 @@
       <div class="mycontainer">
         <div class="grid grid-cols-1 md:grid-cols-3 md:gap-8 lg:gap-14">
           <div class="col-span-3 md:col-span-2">
-            <div class="mb-8 mt-0">
+            <div v-if="post.images.length" class="mb-8 mt-0">
               <myCarousel :images="post.images" />
             </div>
 
             <div>
-              <myTitle :title="post.name" />
+              <myTitle :title="post.title" />
               <!-- <h2 class="mt-6 mb-3 font-bold text-xl md:text-2xl capitalize text-black dark:text-gray-100 ">{{ post.name }}</h2> -->
               <div class="overflow-hidden border-b border-gray-100 pb-5 mb-6">
                 <div class="flex text-sm text-gray-600 dark:text-gray-100">
-                  <a href="#" class="flex items-center border-r-2 border-gray-100 hover:text-mango px-4">
+                  <a href="#" class="flex items-center border-r-2 border-gray-100 px-4 capitalize cursor-text">
                     <span class=" mr-1 text-sheet-100">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                       </svg>
                     </span>
-                    By Admin
+                    <span v-if="post.user.is_admin">By Admin</span>
+                    <span v-else>By {{ post.user.lastname }}</span>
                   </a>
-                  <a href="#" class="flex items-center border-r-2 border-gray-100 hover:text-mango px-4">
+                  <a href="#" class="flex items-center border-r-2 border-gray-100 px-4 cursor-text">
                     <span class=" mr-1 text-sheet-100 pointer-events-none">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
                         <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                       </svg>
                     </span>
-                    Dec 24, 2018
+                    {{ post.created_at }}
                   </a>
-                  <a href="#" class="flex items-center px-4">
+                  <a href="#" class="flex items-center px-4 cursor-text">
                     <span class=" mr-1 text-sheet-100 pointer-events-none">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
                         <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z" />
