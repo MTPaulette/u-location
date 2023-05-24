@@ -57,22 +57,10 @@
               <searchBar />
             </div>
 
-            <!-- categories -->
+            <!-- themes -->
             <div class="mt-6 relative hidden md:block">
               <div>
-                <sectionTitle title="categories" />
-              </div>
-              <div>
-                <ul class="flex flex-wrap text-gray-900 font-medium text-lg dark:text-gray-400 w-full h-[250px] over-y">
-                  <li 
-                    v-for="category in categories" 
-                    :key="category.id"
-                  >
-                    <span class="bg-green-50 border border-green-200 hover:bg-sheet-200 hover:text-white hover:border-sheet-200 dark:hover:bg-gray-500 dark:text-blue-400 text-xs mr-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700">
-                      {{ category.title }}
-                    </span>
-                  </li>
-                </ul>
+                <CategoryList title="Categories" :themes="themes" />
               </div>
             </div>
 
@@ -103,10 +91,11 @@ import myCarousel from '@/Components/myCarousel.vue'
 import postCard from '@/Components/postCard.vue'
 import myTitle from '@/Components/myTitle.vue'
 import { Link } from '@inertiajs/vue3'
+import CategoryList from '@/Components/categoryList.vue'
 
 defineProps({
   post: Object,
-  categories: Object,
+  themes: Object,
   popularPosts: Object,
   informations: Object,
 })

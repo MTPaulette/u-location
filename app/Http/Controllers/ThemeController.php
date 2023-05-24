@@ -14,19 +14,12 @@ class ThemeController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia("Dashboard/Add/Theme", [
+            'themes' => Theme::orderBy('title', 'asc')
+                                    ->get()
+        ]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -35,51 +28,22 @@ class ThemeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $theme = new Theme();
+        $theme->title = $request->theme;
+
+        $theme->save();
+        return redirect()->route('theme.index')->with('success', 'theme successfully created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Theme  $theme
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Theme $theme)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Theme  $theme
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Theme $theme)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Theme  $theme
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Theme $theme)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Theme  $theme
-     * @return \Illuminate\Http\Response
      */
-    public function destroy(Theme $theme)
+    public function destroy($id)
     {
-        //
+        $theme = Theme::find($id);
+        $theme->delete();
+
+        return redirect()->back()->with('success', 'Image was deleted!');
     }
 }

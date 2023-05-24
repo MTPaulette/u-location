@@ -59,11 +59,30 @@ class PostController extends Controller
         return Inertia("Guest/Post/postDetail", [
             'informations' =>  Info::find(1),
             'post' => $post,
-            'categories' => Theme::all(),
+            'themes' => Theme::all(),
             'popularPosts' => Post::orderByDesc('created_at')
                                 ->with('images')
                                 ->get()
                                 ->take(4)
+        ]);
+    }
+
+    /**
+     * Display the all posts of this theme.
+     *
+     * @param  \App\Models\Theme  $theme
+     * @return \Illuminate\Http\Response
+     */
+    public function getPostsByTheme(Theme $theme)
+    {
+        return Inertia("Guest/Post/postsByTheme", [
+            'informations' =>  Info::find(1),
+            'theme' =>  $theme,
+            'themes' => Theme::all(),
+            'posts' => Post::where('theme_id', '=', $theme->id)
+                            ->orderByDesc('created_at')
+                            ->with('images')
+                            ->paginate(5)
         ]);
     }
 }

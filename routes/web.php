@@ -14,6 +14,10 @@ use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\UserImageController;
 use App\Http\Controllers\ProductImageController;
 use App\Http\Controllers\PostImageController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\AdvantageController;
+use App\Http\Controllers\IngredientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,10 +37,15 @@ Route::get("/about",[GuestController::class, "about"]);
 Route::get("/notFound",[GuestController::class, "notFound"]);
 Route::get("/cart",[GuestController::class, "cart"]);
 
+
 Route::resource("post", PostController::class)->only(['index', 'show']);
 Route::resource("product", ProductController::class)->only(['index', 'show']);
 
+/* search post by them and product by category */
+Route::get("/posts/category/{theme}",[PostController::class, "getPostsByTheme"])->name("PostsByTheme");
+Route::get("/products/{category}",[ProductController::class, "getProductsByCategory"])->name("ProductsByCategory");
 
+/* authentification's route */
 Route::get("/login",[AuthController::class, "create"])->name("login");
 Route::post("/login",[AuthController::class, "store"])->name("login");
 Route::delete("/logout",[AuthController::class, "destroy"])->name("logout");
@@ -58,6 +67,15 @@ Route::middleware('auth')->group(function () {
   Route::put('/profile', [UserAccountController::class, 'update'])->name('profile.update');
   Route::resource('userImage', UserImageController::class)->only(['store','destroy']);
   Route::put('/password', [PasswordController::class, 'update'])->name('password.update');
+  Route::resource("user", UserController::class);
+});
+
+
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+  Route::resource("category",CategoryController::class)->only(['index','store','destroy']);
+  Route::resource("theme",ThemeController::class)->only(['index','store','destroy']);
+  Route::resource("advantage",AdvantageController::class)->only(['index','store','destroy']);
+  Route::resource("ingredient",IngredientController::class)->only(['index','store','destroy']);
 });
 
 
@@ -65,7 +83,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
   Route::prefix('dashboard')
     ->name('dashboard.')
     ->group(function () {
-      Route::resource("user", UserController::class);
       Route::resource('product.image', ProductImageController::class)->only(['create', 'store','destroy']);
       Route::resource('post.image', PostImageController::class)->only(['create', 'store','destroy']);
       Route::resource("post", PostDashboardController::class);

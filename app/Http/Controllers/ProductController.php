@@ -39,4 +39,15 @@ class ProductController extends Controller
     {
         //
     }
+
+    /**
+     * Display the all products of this category.
+     *
+     * @param  \App\Models\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function getProductsByCategory(Category $category)
+    {
+        //
+    }
 }
