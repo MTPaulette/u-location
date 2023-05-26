@@ -12,14 +12,13 @@
               </svg>
             </button>
             <!-- <div id="category-dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 shadow-lg w-48 h-[350px] dark:bg-gray-700"> -->
-            <div id="category-dropdown" class="z-10 bg-white divide-y divide-gray-100 shadow-lg w-48 h-[350px] dark:bg-gray-700">
+            <div id="category-dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 shadow-lg w-48 h-[350px] dark:bg-gray-700">
               <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="category-button">
                 <li
                   v-for="category in categories" 
                   :key="category.id"
                   class="border-b border-gray-200 dark:border-gray-700"
                 >
-                  <!-- <a href="#" class="block px-4 py-2.5 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Shopping</a> -->
                   <Link :href="route('ProductsByCategory', {category: category})" class="block px-4 py-2.5 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">
                     {{ category.name }}
                   </Link>
@@ -62,7 +61,7 @@ defineProps({
   categories: Object,
 })
 
-const menuItems = [['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/#','services']]
+const menuItems = [['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/#','services'], ['/product','store']]
 
 </script>
 

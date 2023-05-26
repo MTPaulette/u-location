@@ -53,6 +53,7 @@ class ProductDashboardController extends Controller
     public function store(Request $request)
     {
         //dd($request->user()->id);
+        dd($request);
         
         $product = new Product();
         $product->code = "PROD_".$request->name;

@@ -13,6 +13,7 @@ class ProductController extends Controller
     {
         $this->authorizeResource(Product::class, 'product');
     }
+    
     /**
      * Display a listing of the resource.
      *
@@ -20,13 +21,15 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Inertia("Dashboard/Product/List", [
+        return Inertia("Guest/Product/allProduct", [
+            'informations' =>  Info::find(1),
             'products' => Product::orderByDesc('created_at')
-                    ->withCount('images')
-                    ->paginate(10)
+                            ->withCount('images')
+                            ->with('images')
+                            ->paginate(5)
         ]);
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -35,9 +38,17 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $product->load(['images', 'user']);
+        return Inertia("Guest/Product/productDetail", [
+            'informations' =>  Info::find(1),
+            'product' => $product,
+            'categories' => Category::orderBy('created_at')->get(),
+            'popularProducts' => Product::orderByDesc('created_at')
+                                ->with('images')
+                                ->get()
+                                ->take(4)
+        ]);
     }
-
     /**
      * Display the all products of this category.
      *

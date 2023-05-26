@@ -5,13 +5,13 @@
       <div class="mycontainer">
         <div class="grid grid-cols-1 md:grid-cols-3 md:gap-8 lg:gap-14">
           <div class="col-span-3 md:col-span-2">
-            <div v-if="post.images.length" class="mb-8 mt-0">
-              <myCarousel :images="post.images" />
+            <div v-if="product.images.length" class="mb-8 mt-0">
+              <myCarousel :images="product.images" />
             </div>
 
             <div>
-              <myTitle :title="post.title" />
-              <!-- <h2 class="mt-6 mb-3 font-bold text-xl md:text-2xl capitalize text-black dark:text-gray-100 ">{{ post.name }}</h2> -->
+              <myTitle :title="product.title" />
+              <!-- <h2 class="mt-6 mb-3 font-bold text-xl md:text-2xl capitalize text-black dark:text-gray-100 ">{{ product.name }}</h2> -->
               <div class="overflow-hidden border-b border-gray-100 pb-5 mb-6">
                 <div class="flex text-sm text-gray-600 dark:text-gray-100">
                   <a href="#" class="flex items-center border-r-2 border-gray-100 px-4 capitalize cursor-text">
@@ -20,8 +20,8 @@
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                       </svg>
                     </span>
-                    <span v-if="post.user.role_id === 1">By Admin</span>
-                    <span v-else>By {{ post.user.lastname }}</span>
+                    <span v-if="product.user.role_id === 1">By Admin</span>
+                    <span v-else>By {{ product.user.lastname }}</span>
                   </a>
                   <a href="#" class="flex items-center border-r-2 border-gray-100 px-4 cursor-text">
                     <span class=" mr-1 text-sheet-100 pointer-events-none">
@@ -29,7 +29,7 @@
                         <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                       </svg>
                     </span>
-                    {{ post.created_at }}
+                    {{ product.created_at }}
                   </a>
                   <a href="#" class="flex items-center px-4 cursor-text">
                     <span class=" mr-1 text-sheet-100 pointer-events-none">
@@ -46,7 +46,7 @@
 
             <div>
               <p class="text-base text-gray-700 dark:text-gray-50">
-                {{ post.content }}
+                {{ product.content }}
               </p>
             </div>
           </div>
@@ -69,9 +69,9 @@
               <div>
                 <sectionTitle title="articles populaires" />
               </div>
-              <div v-for="popularPost in popularPosts" :key="popularPost.id">
-                <Link :href="route('post.show', {post: popularPost.id})">
-                  <postCard :post="popularPost" />
+              <div v-for="popularProduct in popularProducts" :key="popularProduct.id">
+                <Link :href="route('product.show', {product: popularProduct.id})">
+                  <productCard :product="popularProduct" />
                 </Link>
               </div>
             </div>
@@ -88,15 +88,15 @@ import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import sectionTitle from '@/Components/sectionTitle.vue'
 import searchBar from '@/Components/searchSubmit.vue'
 import myCarousel from '@/Components/myCarousel.vue'
-import postCard from '@/Components/postCard.vue'
+import productCard from '@/Components/productCard.vue'
 import myTitle from '@/Components/myTitle.vue'
 import { Link } from '@inertiajs/vue3'
 import ThemeList from '@/Components/themeList.vue'
 
 defineProps({
-  post: Object,
+  product: Object,
   themes: Object,
-  popularPosts: Object,
+  popularProducts: Object,
   informations: Object,
 })
 </script>

@@ -43,7 +43,7 @@ Route::resource("product", ProductController::class)->only(['index', 'show']);
 
 /* search post by them and product by category */
 Route::get("/posts/category/{theme}",[PostController::class, "getPostsByTheme"])->name("PostsByTheme");
-Route::get("/products/{category}",[ProductController::class, "getProductsByCategory"])->name("ProductsByCategory");
+Route::get("/products/category/{category}",[ProductController::class, "getProductsByCategory"])->name("ProductsByCategory");
 
 /* authentification's route */
 Route::get("/login",[AuthController::class, "create"])->name("login");

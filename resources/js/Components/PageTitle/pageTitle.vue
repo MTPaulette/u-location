@@ -4,7 +4,7 @@
       {{ title }} page
     </h1>
   </div> -->
-  <div class="mb-8">
+  <div class="pb-8">
     <breadcrumb :link2="title" />
   </div>
 </template>

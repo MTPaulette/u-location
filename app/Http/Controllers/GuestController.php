@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Info;
 use App\Models\Product;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
@@ -13,6 +14,10 @@ class GuestController extends Controller
         return Inertia("Guest/index", [
             'informations' =>  Info::find(1),
             'categories' => Category::orderBy('name', 'asc')->get(),
+            'posts' => Post::orderByDesc('created_at')
+                                ->with('images')
+                                ->get()
+                                ->take(4)
         ]);
     }
 
