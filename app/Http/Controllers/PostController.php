@@ -59,7 +59,7 @@ class PostController extends Controller
         return Inertia("Guest/Post/postDetail", [
             'informations' =>  Info::find(1),
             'post' => $post,
-            'themes' => Theme::all(),
+            'themes' => Theme::orderBy('created_at')->get(),
             'popularPosts' => Post::orderByDesc('created_at')
                                 ->with('images')
                                 ->get()

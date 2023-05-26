@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\Ingredient;
-use App\Models\Advantage;
-use App\Models\Weight;
+use App\Models\Info;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -48,6 +46,14 @@ class ProductController extends Controller
      */
     public function getProductsByCategory(Category $category)
     {
-        //
+        return Inertia("Guest/Product/productsByCategory", [
+            'informations' =>  Info::find(1),
+            'category' =>  $category,
+            'categories' => Category::orderBy('name', 'asc')->get(),
+            'products' => Product::where('category_id', '=', $category->id)
+                            ->orderByDesc('created_at')
+                            ->with('images')
+                            ->paginate(5)
+        ]);
     }
 }

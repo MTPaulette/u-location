@@ -10,7 +10,7 @@ class Theme extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title'
+        'name'
     ];
 
     public function posts(): HasMany {

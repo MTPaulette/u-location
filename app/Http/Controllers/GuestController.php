@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Info;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -11,6 +12,7 @@ class GuestController extends Controller
     public function index() {
         return Inertia("Guest/index", [
             'informations' =>  Info::find(1),
+            'categories' => Category::orderBy('name', 'asc')->get(),
         ]);
     }
 

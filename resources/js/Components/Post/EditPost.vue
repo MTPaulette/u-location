@@ -33,7 +33,7 @@
             <div class="col-span-2">
               <label for="theme" class="label">Category<span class="required">*</span></label>
               <select id="theme" v-model="formpost.theme_id" name="weight" class="input">
-                <option v-for="theme in themes" :key="theme.id" :value="theme.id">{{ theme.title }}</option>
+                <option v-for="theme in themes" :key="theme.id" :value="theme.id">{{ theme.name }}</option>
               </select>
             </div>
 

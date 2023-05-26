@@ -9,7 +9,7 @@
           </a>
 
           <div class="w-1/2 hidden sm:block">
-            <SearchCategory />
+            <SearchCategory :categories="categories" />
           </div>
 
           <div class="flex items-center text-gray-900">
@@ -29,7 +29,7 @@
               <LoggedUser :user="user" />
             </div>
             <!-- toggle icon menu on small screen-->
-            <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
+            <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
               <span class="sr-only">Open menu</span>
               <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>
             </button>
@@ -37,7 +37,7 @@
         </div>
 
         <!-- middle links menu -->
-        <div class="block sm:hidden w-full">
+        <div class="block bg-mango sm:hidden w-full">
           <div id="navbar-search" class="items-center justify-between hidden w-full bg-black mt-2 py-2 md:flex md:w-auto md:order-1 md:justify-center">
             <ul class="flex flex-col px-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
               <li v-for="(linkItem, i) in menuItems" :key="i" class="py-1 sm:py-0 h-auto sm:h-16 px-4 flex items-center hover:bg-sheet-200">
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="w-full mt-7 block sm:hidden">
-          <SearchCategory id="dropdown2" />
+          <SearchCategory id="dropdown2" :categories="categories" />
         </div>
       </div>
     </nav>
@@ -67,6 +67,10 @@ const page = usePage()
 const user = computed(
   () => page.props.user,
 )
+
+defineProps({
+  categories: Object,
+})
 
 
 // initialize components based on data attribute selectors

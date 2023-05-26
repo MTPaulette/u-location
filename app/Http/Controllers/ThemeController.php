@@ -15,7 +15,7 @@ class ThemeController extends Controller
     public function index()
     {
         return Inertia("Dashboard/Add/Theme", [
-            'themes' => Theme::orderBy('title', 'asc')
+            'themes' => Theme::orderBy('name', 'asc')
                                     ->get()
         ]);
     }
@@ -29,7 +29,7 @@ class ThemeController extends Controller
     public function store(Request $request)
     {
         $theme = new Theme();
-        $theme->title = $request->theme;
+        $theme->name = $request->theme;
 
         $theme->save();
         return redirect()->route('theme.index')->with('success', 'theme successfully created');

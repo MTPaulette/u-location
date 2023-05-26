@@ -12,6 +12,7 @@ module.exports = {
     extend: {},
     colors: {
       'sheet': {
+        50: '#61a60e',
         100: '#047634',
         200: '#036b2f',
         300: '#01170a',

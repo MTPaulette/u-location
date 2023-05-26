@@ -99,7 +99,7 @@
       </div>
     </div>
   </form>
-  <!-- <div v-if="products.data.length" class="w-full flex justify-center mt-8 mb-12">
+  <!-- <div v-if="products.data.length" class="w-full flex justify-center mt-8 pb-12">
     <Pagination :links="products.links" />
   </div> -->
 </template>

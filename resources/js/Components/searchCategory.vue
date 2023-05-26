@@ -10,8 +10,13 @@
       </button>
       <div :id="id" class="over-y z-10 hidden bg-gray-50 divide-y divide-gray-100 shadow-lg w-36 h-[170px] dark:bg-gray-700">
         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-          <li class="border-b border-gray-200 dark:border-gray-700">
-            <a href="#" class="block px-4 py-2 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">Shopping</a>
+          <li
+            v-for="category in categories" 
+            :key="category.id" class="border-b border-gray-200 dark:border-gray-700"
+          >
+            <Link :href="route('ProductsByCategory', {category: category})" class="block px-4 py-2 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">
+              {{ category.name }}
+            </Link>
           </li>
           <li class="border-b border-gray-200 dark:border-gray-700">
             <a href="#" class="block px-4 py-2 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">Images</a>
@@ -33,8 +38,10 @@
 </template>
 
 <script setup>
+import { Link } from '@inertiajs/vue3'
 
 defineProps({
+  categories: Object,
   id: {
     type: String,
     default: "dropdown",

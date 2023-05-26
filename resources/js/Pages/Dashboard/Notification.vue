@@ -14,7 +14,7 @@
       <notification />
       <notification />
     </div>
-    <div v-if="posts.data.length" class="w-full flex justify-center mt-8 mb-12">
+    <div v-if="posts.data.length" class="w-full flex justify-center mt-8 pb-12">
       <pagination :links="posts.links" />
     </div>
   </DashboardLayout>
