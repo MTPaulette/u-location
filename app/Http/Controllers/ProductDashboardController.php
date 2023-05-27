@@ -52,8 +52,7 @@ class ProductDashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->user()->id);
-        dd($request);
+        //dd($request->ingredients[0]['id']);
         
         $product = new Product();
         $product->code = "PROD_".$request->name;
@@ -66,11 +65,15 @@ class ProductDashboardController extends Controller
 
         $product->save();
 
-        return Product::latest()->first()->id;
-        
-        /*
+        foreach($request->ingredients as $ingredient) {
+            $product->ingredients()->attach($ingredient['id']);
+        }
+
+        foreach($request->advantages as $advantage) {
+            $product->advantages()->attach($advantage['id']);
+        }
+
         return redirect()->route('dashboard.product.index')->with('success', 'product successfully created');
-        */
     }
 
     /**

@@ -46,7 +46,7 @@
               <div class="grid grid-cols-4 h-full">
                 <div v-for="postI in posts" :key="postI.id" class="bg-danger h-full">
                   <Link :href="route('post.show', {post: postI.id})">
-                    <productCard :post="postI" />
+                    <productCard :product="postI" />
                   </Link>
                 </div>
               </div>

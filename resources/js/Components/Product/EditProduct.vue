@@ -13,7 +13,7 @@
     </ul>
   </div>
   
-  <div id="myTabContent">
+  <form id="myTabContent" action="#" @submit.prevent="saveProductInformation">
     <div id="product" class="hidden" role="tabpanel" aria-labelledby="product-tab">
       <div class="my-4">
         <h2 class="font-semibold text-xl md:text-2xl text-gray-600 dark:text-gray-100"> Product informations </h2>
@@ -25,7 +25,7 @@
           Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.
         </p>
       </div>
-      <form action="#" class="relative bg-white dark:bg-gray-700" @submit.prevent="saveProductInformation">
+      <div class="relative bg-white dark:bg-gray-700">
         <!-- Modal body -->
         <div class="py-6 px-0 space-x-0 lg:p-6 lg:space-y-6">
           <div class="grid grid-cols-2 gap-6">
@@ -166,11 +166,7 @@
             </div>
           </div>
         </div>
-        <!-- Modal footer -->
-        <div class="mx-0 lg:mx-6 py-6 border-t border-gray-200 rounded-b dark:border-gray-600">
-          <Button type="submit" label="save all" rounded success base />
-        </div>
-      </form>
+      </div>
     </div>
 
     <!-- product ingredients -->
@@ -189,7 +185,7 @@
       <div class="py-6 px-0 space-x-0 lg:p-6 lg:pb-0 lg:space-y-6">
         <div>
           <VueMultiselect 
-            v-model="ingredient.selected" :options="ingredient.options"
+            v-model="formproduct.ingredients" :options="ingredients"
             :multiple="true" :taggable="true" tag-placeholder="Add this as new tag"
             placeholder="select ingredient"
             label="name"
@@ -197,63 +193,18 @@
             @tag="addTagIngredient"
           />
         </div>
-        <!--br />ipsum <pre class="langage-json"><code> {{ selected }}</code></pre> <br /-->
-
-        <div v-if="!moreIngredient" class="mt-4" @click="moreIngredient = !moreIngredient">
-          <Button label="More ingredients" hasicon rounded light class="w-full py-2.5 text-sm flex justify-center" />
+        
+        <!-- preparation -->
+        <div class="mt-4">
+          <label for="preparation" class="block mt-6 mb-2 text-sm font-medium text-gray-900 dark:text-white">Preparation</label>
+          <textarea v-model="formproduct.preparation" rows="4" class="text-area" placeholder="product preparation..." />
         </div>
 
-        <form class="relative bg-white dark:bg-gray-700" @submit.prevent="addNewIngredient">
-          <div v-if="moreIngredient">
-            <p class="block mt-6 mb-2 text-sm font-medium text-gray-900 dark:text-white">More ingredients</p>
-            <div class="text-base" role="alert">
-              <ul class="mt-1.5 list-disc list-inside text-gray-500 dark:text-gray-400">
-                <li v-for="(ingredient, i) in newIngredients" :key="i" class="flex justify-between pl-3 bg-green-50 border rounded-lg border-green-200">
-                  <div>{{ ingredient }}</div>
-                  <div @click="removeIngredient(i)">
-                    <button type="button" class="text-gray-900 hover:text-red-600 text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-2 h-2" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                      </svg>
-                    </button>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="w-full mt-4 mb-2">
-              <label for="ingredient" class="sr-only">ingredient</label>
-              <input id="ingredient" v-model="newIngredient" type="text" name="ingredient" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-300 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="..." />
-            </div>
-            <div class="flex">
-              <div>
-                <Button type="submit" label="add" success small />
-              </div>
-              <button type="button" class="text-gray-900 hover:text-red-600 text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white" @click="moreIngredient = !moreIngredient">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- preparation -->
-          <div class="mt-4">
-            <label for="preparation" class="block mt-6 mb-2 text-sm font-medium text-gray-900 dark:text-white">Preparation</label>
-            <textarea v-model="preparation" rows="4" class="text-area" placeholder="product preparation..." />
-          </div>
-
-          <!-- utilisation -->
-          <div class="mt-4 mb-6">
-            <label for="utilisation" class="block mt-6 mb-2 text-sm font-medium text-gray-900 dark:text-white">Utilisation</label>
-            <textarea v-model="utilisation" rows="4" class="text-area" placeholder="product utilisation..." />
-          </div>
-
-          <div class="flex items-center py-6 border-t border-gray-200 rounded-b dark:border-gray-600">
-            <div>
-              <Button type="submit" label="save all" rounded success base />
-            </div>
-          </div>
-        </form>
+        <!-- utilisation -->
+        <div class="mt-4 mb-6">
+          <label for="utilisation" class="block mt-6 mb-2 text-sm font-medium text-gray-900 dark:text-white">Utilisation</label>
+          <textarea v-model="formproduct.utilisation" rows="4" class="text-area" placeholder="product utilisation..." />
+        </div>
       </div>
     </div>
 
@@ -268,9 +219,11 @@
       </div>
 
       <div class="py-6 px-0 space-x-0 lg:p-6 lg:pb-0 lg:space-y-6">
+        <!-- <div>
+            v-model="formproduct.advantage.selected" :options="formproduct.advantage.options" -->
         <div>
           <VueMultiselect 
-            v-model="advantage.selected" :options="advantage.options"
+            v-model="formproduct.advantages" :options="advantages"
             :multiple="true" :taggable="true" tag-placeholder="Add this as new tag"
             placeholder="select advantage"
             label="name"
@@ -278,68 +231,38 @@
             @tag="addTagAdvantage"
           />
         </div>
-        <!--br />ipsum <pre class="langage-json"><code> {{ selected }}</code></pre> <br /-->
-
-        <div v-if="!moreAdvantage" class="mt-4" @click="moreAdvantage = !moreAdvantage">
-          <Button label="More advantages" hasicon rounded light class="w-full py-2.5 text-sm flex justify-center" />
+        <!-- Modal footer -->
+        <div class="mx-0 lg:mx-6 py-6 border-t border-gray-200 rounded-b dark:border-gray-600">
+          <Button type="submit" label="save all" rounded success base />
         </div>
-
-      
-        <form v-else class="relative bg-white dark:bg-gray-700" @submit.prevent="addNewAdvantage">
-          <p class="block mt-6 mb-2 text-sm font-medium text-gray-900 dark:text-white">More advantages</p>
-          <div class="text-base" role="alert">
-            <ul class="mt-1.5 list-disc list-inside text-gray-500 dark:text-gray-400">
-              <li v-for="(advantage, i) in newAdvantages" :key="i" class="flex justify-between pl-3 bg-green-50 border rounded-lg border-green-200">
-                <div>{{ advantage }}</div>
-                <div @click="removeAdvantage(i)">
-                  <button type="button" class="text-gray-900 hover:text-red-600 text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-2 h-2" fill="currentColor" viewBox="0 0 16 16">
-                      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                    </svg>
-                  </button>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="w-full mt-4 mb-2">
-            <label for="advantage" class="sr-only">advantage</label>
-            <input id="advantage" v-model="newAdvantage" type="text" name="advantage" class="input" placeholder="..." />
-          </div>
-          <div class="flex">
-            <div>
-              <Button type="submit" label="add" success small />
-            </div>
-            <button type="button" class="text-gray-900 hover:text-red-600 text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white" @click="moreAdvantage = !moreAdvantage">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-              </svg>
-            </button>
-          </div>
-
-
-
-
-          <div class="flex items-center py-6 border-t border-gray-200 rounded-b dark:border-gray-600">
-            <div>
-              <Button type="submit" label="save all" rounded success base />
-            </div>
-          </div>
-        </form>
       </div>
     </div>
-  </div>
+  </form>
 </template>
 
 <script setup>
+import VueMultiselect from 'vue-multiselect'
 import Button from '@/Components/button.vue'
 import { useForm } from '@inertiajs/vue3'
 import { ref } from 'vue'
+// import { computed } from 'vue'
+
+defineProps({
+  advantages: Object,
+  ingredients: Object,
+  weights: Object,
+  categories: Object,
+})
 
 const formproduct = useForm({
   name: '',
   description: '',
+  preparation: '',
+  utilisation: '',
   category_id: '',
   weights: [],
+  ingredients: [],
+  advantages: [],
 })
 
 let weightInitialStock = {
@@ -349,14 +272,6 @@ let weightInitialStock = {
 }
 
 const moreIngredient = ref(false)
-const newIngredient = ref('')
-const preparation = ref('')
-const utilisation = ref('')
-const newIngredients = ref([])
-
-const moreAdvantage = ref(false)
-const newAdvantage = ref('')
-const newAdvantages = ref([])
 
 const saveProductInformation = () => {
   const newProduct_id = formproduct.post('/dashboard/product')
@@ -386,75 +301,20 @@ const removeWeightInitialStock = (id) => {
   formproduct.weights.splice(id,1)
 }
 
-//Ingredient
-const addNewIngredient = () => {
-  if(newIngredient.value != '') {
-    newIngredients.value.push(newIngredient.value)
-    newIngredient.value = ''
+const addTagIngredient = (newTag) => {
+  const tag = {
+    id: newTag.substring(0,2)+Math.floor((Math.random()*10000000)),
+    city: newTag,
   }
+  formproduct.ingredients.push(tag)
 }
 
-const removeIngredient = (id) => {
-  console.log(id)
-  newIngredients.value.splice(id,1)
-}
-//advantage
-const addNewAdvantage = () => {
-  if(newAdvantage.value != '') {
-    newAdvantages.value.push(newAdvantage.value)
-    newAdvantage.value = ''
+const addTagAdvantage = (newTag) => {
+  const tag = {
+    id: newTag.substring(0,2)+Math.floor((Math.random()*10000000)),
+    city: newTag,
   }
-}
-
-const removeAdvantage = (id) => {
-  console.log(id)
-  newAdvantages.value.splice(id,1)
+  formproduct.advantages.push(tag)
 }
 </script>
-
-<script>
-import VueMultiselect from 'vue-multiselect'
-export default{
-  components: { VueMultiselect },
-  props: {
-    advantages: Object,
-    ingredients: Object,
-    weights: Object,
-    categories: Object,
-  },
-
-  data () {
-    return {
-      ingredient: {
-        selected: [],
-        options: this.ingredients,
-      },
-      advantage: {
-        selected: [],
-        options: this.advantages,
-      },
-    }
-  },
-
-  methods: {
-    addTagIngredient(newTag) {
-      const tag = {
-        id: newTag.substring(0,2)+Math.floor((Math.random()*10000000)),
-        city: newTag,
-      }
-      this.ingredient.options.push(tag)
-      this.ingredient.selected.push(tag)
-    },
-    addTagAdvantage(newTag) {
-      const tag = {
-        id: newTag.substring(0,2)+Math.floor((Math.random()*10000000)),
-        city: newTag,
-      }
-      this.advantage.options.push(tag)
-      this.advantage.selected.push(tag)
-    },
-  },
-}
-</script>
-<!-- <style src="@vueform/multiselect/themes/tailwind.css"></style> -->
 <style src="vue-multiselect/dist/vue-multiselect.css"></style>
