@@ -43,7 +43,8 @@ class PostDashboardController extends Controller
     public function create()
     {
         return Inertia("Dashboard/Post/Add", [
-            'themes' =>  Theme::all('id', 'title'),
+            // 'themes' =>  Theme::all('id', 'title'), 
+            'themes' => Theme::select('id', 'name')->orderBy('name', 'asc')->get()
         ]);
     }
 

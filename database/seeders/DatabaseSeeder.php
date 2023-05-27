@@ -166,25 +166,19 @@ class DatabaseSeeder extends Seeder
         \App\Models\Weight::factory()->create([ 'name' => '500g']);
         \App\Models\Weight::factory()->create([ 'name' => '1kg']);
 
-        \App\Models\Weight_product::factory()->create([
-            'initial_stock' => 200,
-            'weight_id' => 1,
-            'product_id' => 1
-        ]);
-        \App\Models\Weight_product::factory()->create([
-            'initial_stock' => 150,
-            'weight_id' => 3,
-            'product_id' => 1
-        ]);
-        \App\Models\Weight_product::factory()->create([
-            'initial_stock' => 100,
-            'weight_id' => 1,
-            'product_id' => 2
-        ]);
-        \App\Models\Weight_product::factory()->create([
-            'initial_stock' => 350,
-            'weight_id' => 2,
-            'product_id' => 3
-        ]);
-    }
+
+        $w1 = \App\Models\Weight::find(1);
+        $w2 = \App\Models\Weight::find(2);
+        $w3 = \App\Models\Weight::find(3);
+
+        $product1->weights()->attach($w1, ['price' => 25000, 'initial_stock' => 500, 'remaining_stock' => 500]);
+        $product1->weights()->attach($w3, ['price' => 2500, 'initial_stock' => 350, 'remaining_stock' => 350]);
+        $product2->weights()->attach($w1, ['price' => 7500, 'initial_stock' => 800, 'remaining_stock' => 800]);
+        $product3->weights()->attach($w2, ['price' => 10000, 'initial_stock' => 750, 'remaining_stock' => 750]);
+
+        $product1->weights()->attach($w3);
+        $product2->weights()->attach($w1);
+        $product3->weights()->attach($w2);
+        
+}
 }

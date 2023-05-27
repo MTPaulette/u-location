@@ -16,7 +16,7 @@ class ThemeController extends Controller
     {
         return Inertia("Dashboard/Add/Theme", [
             'themes' => Theme::orderBy('name', 'asc')
-                                    ->get()
+                                ->get()
         ]);
     }
     

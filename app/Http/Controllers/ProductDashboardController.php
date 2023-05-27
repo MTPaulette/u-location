@@ -37,10 +37,10 @@ class ProductDashboardController extends Controller
     public function create()
     {
         return Inertia("Dashboard/Product/Add", [
-            'advantages' =>  Advantage::all('id', 'name'),
-            'ingredients' =>  Ingredient::all('id', 'name'),
+            'advantages' =>  Advantage::select('id', 'name')->orderBy('name', 'asc')->get(),
+            'ingredients' =>  Ingredient::select('id', 'name')->orderBy('name', 'asc')->get(),
             'weights' =>  Weight::all('id', 'name'),
-            'categories' =>  Category::all('id', 'name'),
+            'categories' =>  Category::select('id', 'name')->orderBy('name', 'asc')->get(),
         ]);
     }
 
@@ -52,7 +52,7 @@ class ProductDashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->ingredients[0]['id']);
+        // dd($request->weights);
         
         $product = new Product();
         $product->code = "PROD_".$request->name;
@@ -71,6 +71,10 @@ class ProductDashboardController extends Controller
 
         foreach($request->advantages as $advantage) {
             $product->advantages()->attach($advantage['id']);
+        }
+
+        foreach($request->weights as $weight) {
+            $product->weights()->attach($weight['weight_id'], ['price' => $weight['price'], 'initial_stock' => $weight['initial_stock'], 'remaining_stock' => $weight['initial_stock']]);
         }
 
         return redirect()->route('dashboard.product.index')->with('success', 'product successfully created');

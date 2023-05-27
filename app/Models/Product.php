@@ -45,5 +45,6 @@ class Product extends Model
 
     public function weights(): BelongsToMany {
         return $this->belongsToMany(Weight::class, 'weight_products');
+        // return $this->belongsToMany(Weight::class)->using(Weight_product::class);
     }
 }

@@ -30,7 +30,7 @@ class InfoFactory extends Factory
             'whatsapp' => '+237 678513874',
             'facebook' => 'https://facebook.com/agrimax',
 
-            'about_title' => "Rencontrer notre Equipe",
+            'about_title' => "Rencontrer notre equipe",
             'about_subtitle' => "Une Equipe de personnes jeunes et dynamiques pour vous servir.",
 
             'contact_title' => "Vous pouvez nous contacter par l'un des canaux suivants",

@@ -19,10 +19,9 @@ return new class extends Migration
                     ->onDelete('cascade');
             $table->foreignIdFor(\App\Models\Product::class)
                     ->onDelete('cascade');
-            $table->unsignedInteger('price');
-            $table->unsignedInteger('initial_stock');
-            $table->unsignedInteger('remaining_stock');
-            $table->timestamps();
+            $table->unsignedInteger('price')->default(0);
+            $table->unsignedInteger('initial_stock')->default(0);
+            $table->unsignedInteger('remaining_stock')->default(0);
         });
     }
 

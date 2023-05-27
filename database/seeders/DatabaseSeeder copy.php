@@ -166,6 +166,16 @@ class DatabaseSeeder extends Seeder
         \App\Models\Weight::factory()->create([ 'name' => '500g']);
         \App\Models\Weight::factory()->create([ 'name' => '1kg']);
 
+
+        $w1 = \App\Models\Weight::find(1);
+        $w2 = \App\Models\Weight::find(2);
+        $w3 = \App\Models\Weight::find(3);
+
+        $product1->weights()->attach($w1, ['price' => 25000, ]);
+        $product1->weights()->attach($w3);
+        $product2->weights()->attach($w1);
+        $product3->weights()->attach($w2);
+
         \App\Models\Weight_product::factory()->create([
             'initial_stock' => 200,
             'weight_id' => 1,
