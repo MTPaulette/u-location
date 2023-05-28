@@ -38,10 +38,17 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $product->load(['images', 'user']);
+        /*
+        $categories = $product->categories;
+        foreach ($categories as $category) {
+            $similarProducts = $category->products->shuffle()->with('images')->take(4);
+        }
+        */
+        $product->load(['images', 'advantages', 'ingredients', 'weights']);
         return Inertia("Guest/Product/productDetail", [
             'informations' =>  Info::find(1),
             'product' => $product,
+            // 'similarProducts' => $similarProducts,
             'categories' => Category::orderBy('created_at')->get(),
             'popularProducts' => Product::orderByDesc('created_at')
                                 ->with('images')
@@ -49,6 +56,7 @@ class ProductController extends Controller
                                 ->take(4)
         ]);
     }
+    
     /**
      * Display the all products of this category.
      *

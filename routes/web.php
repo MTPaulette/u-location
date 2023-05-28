@@ -18,6 +18,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\InvoiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,7 +59,8 @@ Route::middleware('auth')->group(function () {
   Route::get("/dashboard",[DashboardController::class, "home"]);
   Route::get("/statistic",[DashboardController::class, "statistic"]);
   Route::get("/notifications",[DashboardController::class, "notification"]);
-  Route::resource("invoice", OrderController::class);
+  Route::resource("order", OrderController::class);
+  Route::resource("invoice", InvoiceController::class);
 });
 
 

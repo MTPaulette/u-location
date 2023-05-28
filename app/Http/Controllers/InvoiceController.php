@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class OrderController extends Controller
+class InvoiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        return Inertia('Orders/Index', [
-            'orders' => Auth::user()->orders()->with('products')->latest()->paginate(2)
+    function index() {
+        return Inertia("Dashboard/Invoice/Show", [
+            'products' => Product::orderByDesc('created_at')
+                    ->paginate(10)
         ]);
     }
 
@@ -43,22 +44,21 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order) {
-        return Inertia('Orders/Show', [
-            'order' => $order->load('products'),
-        ]);
+    public function show(order $order)
+    {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit(order $order)
     {
         //
     }
@@ -67,10 +67,10 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request, order $order)
     {
         //
     }
@@ -78,10 +78,10 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \App\Models\order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(order $order)
     {
         //
     }

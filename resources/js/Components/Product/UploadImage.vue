@@ -26,17 +26,15 @@
 
 
   <div v-if="product.images.length" class="relative h-3/5 w-full">
-    <div class="border-2 border-mango rounded">
+    <div class="border-2 border-mango rounded h-56 overflow-hidden md:h-96">
       <!-- <Link :href="route('dashboard.product.image.destroy', {product: props.product.id, image: product.images[selectedImage].id})" method="DELETE" as="btn" class="absolute bg-mango text-white hover:text-red-500 top-0 right-0 p-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
           </svg>
         </Link> -->
-      <div class="w-full h-full">
-        <img v-if="selectedImage < product.images.length" :src="product.images[selectedImage].src" />
-        <img v-else :src="product.images[0].src" />
-      </div>
+      <img v-if="selectedImage < product.images.length" :src="product.images[selectedImage].src" class="w-full h-full" />
+      <img v-else :src="product.images[0].src" class="w-full h-full" />
     </div>
 
     <ul class="flex flex-wrap gap-4 justify-center items-center my-12">
@@ -47,8 +45,8 @@
             <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
           </svg>
         </Link>
-        <div class="w-14 md:w-20 h-auto border-2" :class="selectedImage==i?'border-mango': 'border-gray-700'">
-          <img :src="image.src" />
+        <div class="border-2 rounded w-16 h-14 md:w-24 md:h-20 mx-2" :class="selectedImage==i?'border-mango': 'border-gray-700'">
+          <img :src="image.src" class="w-full h-full" />
         </div>
       </li>
     </ul>

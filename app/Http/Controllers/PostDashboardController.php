@@ -28,7 +28,7 @@ class PostDashboardController extends Controller
                     // DB::table('posts')
                     ->leftJoin('users', 'users.id', '=', 'posts.user_id')
                     ->leftJoin('themes', 'themes.id', '=', 'posts.theme_id')
-                    ->select('posts.*', 'users.email as user', 'themes.title as theme')
+                    ->select('posts.*', 'users.email as user', 'themes.name as theme')
                     ->orderByDesc('created_at')
                     ->withCount('images')
                     ->paginate(5)
@@ -66,28 +66,6 @@ class PostDashboardController extends Controller
 
         $post->save();
         return redirect()->route('dashboard.post.index')->with('success', 'post successfully created');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        // if(Auth::user()->can("view", $post)) {
-           // abort(403);
-        // };
-
-        //$this->authorize('view', $post);
-
-        return Inertia("Guest/Post/postDetail", [
-            'informations' =>  Info::find(1),
-            'post' => $post,
-            'categories' => Theme::all(),
-            'popularPosts' => Post::all()->take(4),
-        ]);
     }
 
     /**

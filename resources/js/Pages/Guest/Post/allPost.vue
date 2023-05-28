@@ -17,9 +17,9 @@
         <div class="hidden md:block md:col-span-2 h-full md:px-4 py-8 md:mb-16 border-0 rounded border-gray-100">
           <div class="md:flex justify-center min-w-[200px]">
             <div class="w-full min-w-[204px] h-3/6">
-              <div class="flex-shrink-0 bg-white border-2 border-mango rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700">
-                <img v-if="posts.data[selectedImage].images.length" class="rounded w-full min-w-[200px] h-40" :src="getImgUrl(posts.data[selectedImage].images[0].filename)" />
-              </div>
+              <!-- <div class="flex-shrink-0 bg-white border-2 border-mango rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"> -->
+              <img v-if="posts.data[selectedImage].images.length" class="w-full min-w-[200px] h-40 bg-white border-2 border-mango rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700" :src="getImgUrl(posts.data[selectedImage].images[0].filename)" />
+              <!-- </div> -->
               <div class="flex justify-center w-full mt-7">
                 <div v-for="(post, i) in posts.data" :key="post.id" class="h-auto w-auto" @click="selectedImage=i">
                   <img v-if="post.images.length" class="border-2 w-12 h-12 mx-1" :class="selectedImage==i?'border-mango': 'border-sheet-100'" :src="getImgUrl(post.images[0].filename)" />
@@ -53,7 +53,7 @@ defineProps({
   informations: Object,
 })
 
-const selectedImage = ref(1)
+const selectedImage = ref(0)
 
 const getImgUrl = (src) =>{
   return  new URL('./../../../../../public/storage/'+src, import.meta.url).href

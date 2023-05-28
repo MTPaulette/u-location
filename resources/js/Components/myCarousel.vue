@@ -1,6 +1,6 @@
 <template>
   <div v-if="images.length == 1" class="relative w-full">
-    <img :src="getImgUrl(images[0].filename)" class=" h-56 overflow-hidden rounded-lg md:h-96 w-full" alt="..." />
+    <img :src="getImgUrl(images[0].filename)" class="h-56 overflow-hidden rounded-lg md:h-96 w-full" alt="..." />
   </div>
     
   <div v-else id="indicators-carousel" class="relative w-full" data-carousel="slide">

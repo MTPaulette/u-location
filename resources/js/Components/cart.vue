@@ -44,9 +44,9 @@
             </td>
             <td class="px-6 py-2">
               <div class="flex items-center justify-center h-7 border border-gray-200 dark:border-gray-700">
-                <span class="px-2" @click="decrement">&mdash;</span>
+                <span class="px-2 cursor-pointer" @click="decrement">&mdash;</span>
                 <input type="text" :value="form.qty" readonly class="w-12 h-7 border-t border-b border-gray-200 dark:border-gray-700 bg-gray-50" />
-                <span class="px-2" @click="increment">&#xff0b;</span>
+                <span class="px-2 cursor-pointer" @click="increment">&#xff0b;</span>
               </div>
               <!-- <input id="qty" v-model="form.qty" type="number" min="1" name="qty" /> -->
             </td>
