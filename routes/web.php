@@ -19,6 +19,7 @@ use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,11 +37,27 @@ Route::get("/",[GuestController::class, "index"])->name("index");
 Route::get("/contact",[GuestController::class, "contact"]);
 Route::get("/about",[GuestController::class, "about"]);
 Route::get("/notFound",[GuestController::class, "notFound"]);
-Route::get("/cart",[GuestController::class, "cart"]);
+// Route::get("/cart",[GuestController::class, "cart"]);
 
 
 Route::resource("post", PostController::class)->only(['index', 'show']);
 Route::resource("product", ProductController::class)->only(['index', 'show']);
+Route::resource("cart", CartController::class)->only(['index', 'store', 'update', 'destroy']);
+
+/* cart routes */
+
+Route::prefix('cart')
+->name('cart.')
+->group(function () {
+  // Route::resource("cart", CartController::class)->only(['index', 'show']);
+  /*
+  Route::get("/",[CartController::class, "show"]);
+  Route::post("/add",[CartController::class, "store"]);
+  Route::get("/",[CartController::class, "update"]);
+  Route::get("/",[CartController::class, "destroy"]);
+  */
+  
+});
 
 /* search post by them and product by category */
 Route::get("/posts/category/{theme}",[PostController::class, "getPostsByTheme"])->name("PostsByTheme");

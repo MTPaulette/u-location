@@ -32,7 +32,7 @@ class Product extends Model
     }
 
     public function orders(): BelongsToMany {
-        return $this->belongsToMany(Order::class, 'product_orders');
+        return $this->belongsToMany(Order::class);
     }
     
     public function advantages(): BelongsToMany {

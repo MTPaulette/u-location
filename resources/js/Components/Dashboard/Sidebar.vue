@@ -98,6 +98,9 @@
               <Link href="/billing" class="sidebar-item">Billing</Link>
             </li>
             <li>
+              <Link href="/order" class="sidebar-item">Order</Link>
+            </li>
+            <li>
               <Link href="/invoice" class="sidebar-item">Invoice</Link>
             </li>
           </ul>

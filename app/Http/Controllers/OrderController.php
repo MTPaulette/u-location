@@ -14,7 +14,7 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return Inertia('Orders/Index', [
+        return Inertia('Dashboard/Orders/Index', [
             'orders' => Auth::user()->orders()->with('products')->latest()->paginate(2)
         ]);
     }
@@ -47,7 +47,7 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Order $order) {
-        return Inertia('Orders/Show', [
+        return Inertia('Dashboard/Orders/Show', [
             'order' => $order->load('products'),
         ]);
     }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Info;
-use App\Models\Product;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -36,14 +35,6 @@ class GuestController extends Controller
     public function notFound() {
         return Inertia("Guest/notFound", [
             'informations' =>  Info::find(1),
-        ]);
-    }
-
-    public function cart() {
-        return Inertia("Guest/cart", [
-            'informations' =>  Info::find(1),
-            'products' => Product::orderByDesc('created_at')
-                    ->paginate(10)
         ]);
     }
 
