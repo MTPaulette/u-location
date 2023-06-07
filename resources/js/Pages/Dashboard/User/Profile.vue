@@ -13,7 +13,7 @@
     <div class="w-full h-auto">
       <div class="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 sm:gap-7 md:gap-5 lg:gap-14">
         <!-- change profile pic -->
-        <div class="block w-full px-5 py-5 h-auto md:col-span-2 lg:col-span-1 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="block w-full px-5 py-5 h-auto md:col-span-2 lg:col-span-1 bg-white border my-border-gray rounded-lg shadow dark:bg-gray-800">
           <UpdateProfileImage :user="user" />
           <div v-if="user.telephone">
             <div class="font-normal text-gray-500">Phone Number</div>
@@ -27,7 +27,7 @@
         </div>
 
         <!-- general informations -->
-        <div class="mt-4 md:mt-0 md:col-span-3 lg:col-span-2 w-full px-5 py-5 h-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="mt-4 md:mt-0 md:col-span-3 lg:col-span-2 w-full px-5 py-5 h-auto bg-white border my-border-gray rounded-lg shadow dark:bg-gray-800">
           <div class="mb-4">
             <h2 class="font-semibold text-xl md:text-2xl text-gray-700 dark:text-gray-100"> General Information </h2>
           </div>
@@ -80,7 +80,7 @@
       </div>
 
       <!-- password information -->
-      <div class="my-4 md:my-5 lg:my-12 md:col-span-2 w-full px-5 py-5 h-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="my-4 md:my-5 lg:my-12 md:col-span-2 w-full px-5 py-5 h-auto bg-white border my-border-gray rounded-lg shadow dark:bg-gray-800">
         <div class="mb-4">
           <h2 class="font-semibold text-xl md:text-2xl text-gray-700 dark:text-gray-100"> Password Information </h2>
         </div>

@@ -7,7 +7,7 @@
       <ImageError :errors="imageErrors" />
     </div>
   
-    <div class="flex justify-between items-center border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mb-12 px-4 py-5">
+    <div class="flex justify-between items-center border-2 my-border-gray border-dashed rounded-lg mb-12 px-4 py-5">
       <input 
         type="file" multiple class="w-1/2 input-file-style"
         @input="addFiles"

@@ -10,7 +10,7 @@
     </div>
 
     <Vue3Html2pdf>
-      <div class="w-full px-3 py-5 h-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="w-full px-3 py-5 h-auto bg-white border my-border-gray rounded-lg shadow dark:bg-gray-800">
         <div class="flex justify-between">
           <div class="text-base text-gray-500 dark:text-gray-400">
             <!-- <div class="w-2/5 bg-pineapple"> -->
@@ -54,7 +54,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   Apple MacBook Pro 17"
                 </th>
@@ -71,7 +71,7 @@
                 </td>
               </tr>
 
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   landing page
                 </th>
@@ -87,7 +87,7 @@
                   <p class="text-sm">$1000</p>
                 </td>
               </tr>
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   Apple MacBook Pro 17"
                 </th>
@@ -105,7 +105,7 @@
               </tr>
 
             
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" />
                 <td />
                 <td>
@@ -116,7 +116,7 @@
                 </td>
               </tr>
 
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" />
                 <td />
                 <td>
@@ -127,7 +127,7 @@
                 </td>
               </tr>
 
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" />
                 <td />
                 <td>
@@ -138,7 +138,7 @@
                 </td>
               </tr>
             
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" />
                 <td />
                 <td>

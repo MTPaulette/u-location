@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+  <div class="mb-4 border-b my-border-gray">
     <ul id="myTab" class="flex flex-wrap -mb-px text-sm font-medium text-center" data-tabs-toggle="#myTabContent" role="tablist">
       <li class="mr-2" role="presentation">
         <button id="post-tab" class="inline-block p-4 border-b-2 rounded-t-lg" data-tabs-target="#post" type="button" role="tab" aria-controls="post" aria-selected="false">Post</button>
@@ -40,7 +40,7 @@
             <!-- description -->
             <div class="col-span-2">
               <p for="description" class="label">Post Content</p>
-              <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+              <div class="w-full mb-4 border my-border-gray rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
                 <div class="flex items-center justify-between px-3 py-2 border-b dark:border-gray-600">
                   <div class="flex flex-wrap items-center divide-gray-200 sm:divide-x dark:divide-gray-600">
                     <div class="flex items-center space-x-1 sm:pr-4">
@@ -102,7 +102,7 @@
           </div>
         </div>
         <!-- Modal footer -->
-        <div class="mx-0 lg:mx-6 py-6 border-t border-gray-200 rounded-b dark:border-gray-600">
+        <div class="mx-0 lg:mx-6 py-6 border-t my-border-gray rounded-b dark:border-gray-600">
           <Button type="submit" label="save all" rounded success base />
         </div>
       </form>

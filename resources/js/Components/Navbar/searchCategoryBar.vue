@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="w-full px-2 sm:px-4 py-14 rounded border-gray-300 dark:border-gray-700 dark:bg-gray-800 bg-white">
+    <nav class="w-full px-2 sm:px-4 py-14 rounded border-gray-300 dark:bg-gray-800 bg-white">
       <div class="flex flex-wrap items-center justify-start mx-auto w-full">
         <div class="flex items-center justify-between w-full">
           <a href="/" class="flex items-center">
@@ -42,7 +42,7 @@
             <ul class="flex flex-col px-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
               <li v-for="(linkItem, i) in menuItems" :key="i" class="py-1 sm:py-0 h-auto sm:h-16 px-4 flex items-center hover:bg-sheet-200">
                 <!-- <Link href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Accueil</Link> -->
-                <a :href="linkItem[0]" class="block py-2 pl-3 pr-4 text-gray-100 capitalize hover:bg-transparent md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{ linkItem[1] }}</a>
+                <a :href="linkItem[0]" class="block py-2 pl-3 pr-4 text-gray-100 capitalize hover:bg-transparent md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">{{ linkItem[1] }}</a>
               </li>
             </ul>
           </div>

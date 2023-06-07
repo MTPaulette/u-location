@@ -3,7 +3,7 @@
     <div>
       <pageTitle title="blog details" />
       <div class="mycontainer md:px-10 lg:px-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 md:gap-10 border-b border-gray-100 pb-5 mb-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 md:gap-10 border-b my-border-gray pb-5 mb-4">
           <myTitle :title="product.name" class="uppercase md:hidden block text-white bg-black text-center p-2" />
           <div v-if="product.images.length" class="mb-2 md:mb-8 mt-0">
             <div class="flex justify-center w-full h-56 sm:h-64 md:h-72">
@@ -21,7 +21,6 @@
           <div>
             <myTitle :title="product.name" class="uppercase hidden md:block text-white bg-black text-center p-2" />
             <div class="pb-2 md:pb-5 mb-0 md:mb-6">
-              <!-- <div class="border-b border-gray-100 pb-5 mb-0 md:mb-6"> -->
               <div class="flex flex-wrap gap-2 justify-center w-full my-4 sm:my-7 text-gray-600 dark:text-gray-100">
                 <div
                   v-for="weight in product.weights" 
@@ -33,59 +32,32 @@
                   <p v-if="weight.pivot.remaining_stock == 0"><span class="text-red-600 text-sm">not available</span></p>
                 </div>
               </div>
-              <p class="font-medium text-justify border-b border-gray-100 pb-5 mb-4">
+              <p class="font-medium text-justify border-b my-border-gray pb-5 mb-4">
                 {{ product.description }}
               </p>
               <!-- weight -->
-              <div class="">
-                <p class="font-semibold">Products added to the basket</p>
-                <div class="text-base" role="alert">
-                  <ul class="my-4 list-disc list-inside text-gray-500 dark:text-gray-400">
-                    <li v-for="(selectedWeight, i) in form.weights" :key="i" class="flex justify-between bg-green-50 border rounded-lg border-green-200 mb-2">
-                      <div class="flex items-center">
-                        <p class="border-gray-300 border-r-2 px-10">Weight: <span class="ml-3 text-gray-900">{{ product.weights[selectedWeight.weight_id].name }}</span></p>
-                        <p class="px-10">Qty: <span class="ml-3 text-gray-900">{{ selectedWeight.qty }}</span></p>
-                      </div>
-                      <div @click="removeWeightQty(i)">
-                        <button type="button" class="text-gray-900 hover:text-red-600 text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="w-2 h-2" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                          </svg>
-                        </button>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              
-
-                <!-- <div class=""> -->
+              <div class="w-full">
+                <p class="font-semibold mb-2 text-gray-900 dark:text-gray-200 ">Products added to the basket</p>
                 <div class="px-1 lg:px-10">
-                  form.weight_id:   {{ form.weight_id }}
-                  <form class="flex justify-around md:justify-between items-end" @submit.prevent="addToCart">
-                    <!-- <div class="col-span-3 sm:col-span-1"> -->
-                    <div class="">
-                      <label for="weight" class="label mb-1">Weight</label>
-                      <select id="weight" v-model="weightIndex" name="weight" class="w-24 py-1 text-center border-t border-b border-gray-200 dark:border-gray-700 bg-gray-50" @click="initialiseForm()">
-                        <!-- <select id="weight" v-model="form.weight_id" name="weight" class="w-24 h-8 text-center border-t border-b border-gray-200 dark:border-gray-700 bg-gray-50"> -->
+                  <form class="flex flex-wrap gap-2 w-full justify-around md:justify-end items-end" @submit.prevent="addToCart">
+                    <div class="block sm:flex items-center">
+                      <label for="weight" class="label mb-1 mr-2">Weight:</label>
+                      <select id="weight" v-model="weightIndex" name="weight" class="w-24 py-1 text-center border-t border-b my-border-gray bg-gray-50 dark:bg-transparent" @click="initialiseForm()">
+                        <!-- <select id="weight" v-model="form.weight_id" name="weight" class="w-24 h-8 text-center border-t border-b my-border-gray bg-gray-50"> -->
                         <option v-for="(weight, i) in product.weights" :key="weight.id" :value="i">
                           {{ weight.name }}
-                          <!-- <input v-model="form.price" :value="weight.pivot.price" type="text" class="sr-only" />
-                          <input v-model="form.remaining_stock" :value="weight.pivot.remaining_stock" type="text" class="sr-only" /> -->
                         </option>
                       </select>
                     </div>
-                    <div>
-                      <label for="qty" class="label mb-1">Qty</label>
-                      <div class="flex items-center justify-center border border-gray-200 dark:border-gray-700">
+                    <div class="block sm:flex items-center">
+                      <label for="qty" class="label mb-1 mr-2">Qty:</label>
+                      <div class="flex items-center justify-center border my-border-gray">
                         <span class="px-2 cursor-pointer" @click="decrement">&mdash;</span>
-                        <input type="text" :value="form.qty" readonly class="w-12 h-8 text-center border-none bg-gray-50" />
+                        <input type="text" :value="form.qty" readonly class="w-12 h-8 text-center border-none bg-gray-50 dark:bg-transparent" />
                         <span class="px-2 cursor-pointer" @click="increment">&#xff0b;</span>
                       </div>
                     </div>
-                    <!-- <div @click="addWeightQty"> -->
-                    <!-- <div class="btn-default btn-success btn-small inline-flex items-center capitalize font-medium text-white rounded-lg focus:ring-4 focus:outline-none">add to cart</div> -->
                     <Button label="add to cart" type="submit" rounded success small />
-                    <!-- </div> -->
                   </form>
                 </div>
               </div>
@@ -96,8 +68,8 @@
 
         <div class="w-full pb-8">
           <!-- composition -->
-          <div class="border-b border-gray-100 pb-5 mb-4">
-            <sectionTitle title="Composition" />
+          <div class="border-b my-border-gray pb-5 mb-4">
+            <sectionTitle title="Composition" orange />
 
             <span v-for="ingredient in product.ingredients" :key="ingredient.id" class="px-1">
               {{ ingredient.name }},
@@ -107,7 +79,7 @@
           </div>
 
           <!-- preparation -->
-          <div class="border-b border-gray-100 pb-5 mb-4">
+          <div class="border-b my-border-gray pb-5 mb-4">
             <sectionTitle title="Preparation" />
             <p class="font-medium text-justify">
               {{ product.preparation }}
@@ -115,16 +87,16 @@
           </div>
 
           <!-- advantage -->
-          <div class="border-b border-gray-100 pb-5 mb-6">
-            <sectionTitle title="Advantages" />
-            <div class="p-4 mb-4 text-green-900 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
+          <div class="border-b my-border-gray pb-5 mb-6">
+            <sectionTitle title="Advantages" green />
+            <div class="px-2 text-green-900 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
               <UlList title="Some advantages" :lists="product.advantages" />
             </div>
           </div>
 
           <!-- utilisation -->
           <div class="pb-5 mb-4">
-            <sectionTitle title="Utilisation" />
+            <sectionTitle title="Utilisation" yellow />
             <p class="font-medium text-justify">
               {{ product.utilisation }}
             </p>

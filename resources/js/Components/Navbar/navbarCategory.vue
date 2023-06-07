@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav class="px-2 sm:px-4 py-2.5 sm:py-0 h-auto sm:h-16 bg-black">
-      <div class="flex flex-wrap items-center justify-start mx-auto w-full">
+      <div class="flex items-center justify-start mx-auto w-full">
         <div class="flex items-center justify-between sm:justify-start w-full sm:w-auto">
           <div>
             <label for="category-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">categories</label>
@@ -12,12 +12,12 @@
               </svg>
             </button>
             <!-- <div id="category-dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 shadow-lg w-48 h-[350px] dark:bg-gray-700"> -->
-            <div id="category-dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 shadow-lg w-48 h-[350px] dark:bg-gray-700">
+            <div id="category-dropdown" class="z-10 bg-white hidden divide-y divide-gray-100 shadow-lg w-48 h-[350px] dark:bg-gray-700">
               <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="category-button">
                 <li
                   v-for="category in categories" 
                   :key="category.id"
-                  class="border-b border-gray-200 dark:border-gray-700"
+                  class="border-b my-border-gray"
                 >
                   <Link :href="route('ProductsByCategory', {category: category})" class="block px-4 py-2.5 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">
                     {{ category.name }}
@@ -37,7 +37,7 @@
         <div id="navbar-search" class="items-center justify-between hidden w-full sm:flex sm:w-auto sm:order-1 sm:justify-center">
           <ul class="flex flex-col px-4 sm:flex-row sm:space-x-8 sm:mt-0 sm:text-sm sm:font-medium">
             <li v-for="(linkItem, i) in menuItems" :key="i" class="py-2.5 sm:py-0 px-0 sm:px-1 md:px-2 lg:px-4 h-auto sm:h-16 flex items-center hover:bg-sheet-200">
-              <a :href="linkItem[0]" class="block py-2 pl-3 pr-4 text-gray-100 capitalize hover:bg-transparent sm:p-0 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white sm:dark:hover:bg-transparent dark:border-gray-700">{{ linkItem[1] }}</a>
+              <a :href="linkItem[0]" class="block py-2 pl-3 pr-4 text-gray-100 capitalize hover:bg-transparent sm:p-0 text-center dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white sm:dark:hover:bg-transparent">{{ linkItem[1] }}</a>
             </li>
           </ul>
         </div>

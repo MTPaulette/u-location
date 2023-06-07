@@ -26,7 +26,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="product in products.data" :key="product.id" class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-600">
+          <tr v-for="product in products.data" :key="product.id" class="bg-gray-50 border-b dark:bg-gray-800 hover:bg-white dark:hover:bg-gray-600">
             <th scope="row" class="px-6 py-3">
               {{ product.code }}
             </th>
@@ -44,7 +44,7 @@
             </td>
           </tr>
             
-        <!-- <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <!-- <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
           <th scope="row" class="px-6 py-2" />
           <td />
           <td />
@@ -56,7 +56,7 @@
           </td>
         </tr>
             
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
           <th scope="row" class="px-6 py-2" />
           <td />
           <td />
@@ -68,7 +68,7 @@
           </td>
         </tr>
             
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
           <th scope="row" class="px-6 py-2" />
           <td />
           <td />
@@ -80,7 +80,7 @@
           </td>
         </tr>
 
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <tr class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
           <th scope="row" class="px-6 py-2" />
           <td />
           <td />
@@ -109,7 +109,7 @@
           <p class="font-semibold px-1 bg-onion-200 text-white">30%</p>
         </div>
 
-        <div class="flex justify-between pb-3 border-b border-gray-200 dark:border-gray-700">
+        <div class="flex justify-between pb-3 border-b my-border-gray">
           <p>Shipping Charge</p>
           <p class="font-semibold text-black dark:text-white">free</p>
         </div>

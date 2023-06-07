@@ -3,7 +3,7 @@
     <div>
       <pageTitle title="blog details" />
       <div class="mycontainer md:px-10 lg:px-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 md:gap-10 border-b border-gray-100 pb-5 mb-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 md:gap-10 border-b my-border-gray pb-5 mb-4">
           <myTitle :title="product.name" class="uppercase md:hidden block text-white bg-black text-center p-2" />
           <div v-if="product.images.length" class="mb-2 md:mb-8 mt-0">
             <div class="flex justify-center w-full h-56 sm:h-64 md:h-72">
@@ -21,7 +21,7 @@
           <div>
             <myTitle :title="product.name" class="uppercase hidden md:block text-white bg-black text-center p-2" />
             <div class="pb-2 md:pb-5 mb-0 md:mb-6">
-              <!-- <div class="border-b border-gray-100 pb-5 mb-0 md:mb-6"> -->
+              <!-- <div class="border-b my-border-gray pb-5 mb-0 md:mb-6"> -->
               <div class="flex flex-wrap gap-2 justify-center w-full my-4 sm:my-7 text-gray-600 dark:text-gray-100">
                 <div
                   v-for="weight in product.weights" 
@@ -33,7 +33,7 @@
                   <p v-if="weight.pivot.remaining_stock == 0"><span class="text-red-600 text-sm">not available</span></p>
                 </div>
               </div>
-              <p class="font-medium text-justify border-b border-gray-100 pb-5 mb-4">
+              <p class="font-medium text-justify border-b my-border-gray pb-5 mb-4">
                 {{ product.description }}
               </p>
               <!-- weight -->
@@ -64,14 +64,14 @@
                     <!-- <div class="col-span-3 sm:col-span-1"> -->
                     <div class="">
                       <label for="weight" class="label mb-1">Weight</label>
-                      <select id="weight" v-model="weightQty.weight_id" name="weight" class="w-24 py-1.5 text-center border-t border-b border-gray-200 dark:border-gray-700 bg-gray-50">
-                        <!-- <select id="weight" v-model="weightQty.weight_id" name="weight" class="w-24 h-8 text-center border-t border-b border-gray-200 dark:border-gray-700 bg-gray-50"> -->
+                      <select id="weight" v-model="weightQty.weight_id" name="weight" class="w-24 py-1.5 text-center border-t border-b my-border-gray bg-gray-50">
+                        <!-- <select id="weight" v-model="weightQty.weight_id" name="weight" class="w-24 h-8 text-center border-t border-b my-border-gray bg-gray-50"> -->
                         <option v-for="weight in product.weights" :key="weight.id" :value="weight.id">{{ weight.name }}</option>
                       </select>
                     </div>
                     <div>
                       <label for="qty" class="label mb-1">Qty</label>
-                      <div class="flex items-center justify-center border border-gray-200 dark:border-gray-700">
+                      <div class="flex items-center justify-center border my-border-gray">
                         <span class="px-2 cursor-pointer" @click="decrement">&mdash;</span>
                         <input type="text" :value="weightQty.qty" readonly class="w-12 h-8 text-center border-none bg-gray-50" />
                         <span class="px-2 cursor-pointer" @click="increment">&#xff0b;</span>
@@ -91,7 +91,7 @@
 
         <div class="w-full pb-8">
           <!-- composition -->
-          <div class="border-b border-gray-100 pb-5 mb-4">
+          <div class="border-b my-border-gray pb-5 mb-4">
             <sectionTitle title="Composition" />
 
             <span v-for="ingredient in product.ingredients" :key="ingredient.id" class="px-1">
@@ -102,7 +102,7 @@
           </div>
 
           <!-- preparation -->
-          <div class="border-b border-gray-100 pb-5 mb-4">
+          <div class="border-b my-border-gray pb-5 mb-4">
             <sectionTitle title="Preparation" />
             <p class="font-medium text-justify">
               {{ product.preparation }}
@@ -110,7 +110,7 @@
           </div>
 
           <!-- advantage -->
-          <div class="border-b border-gray-100 pb-5 mb-6">
+          <div class="border-b my-border-gray pb-5 mb-6">
             <sectionTitle title="Advantages" />
             <div class="p-4 mb-4 text-green-900 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
               <UlList title="Some advantages" :lists="product.advantages" />

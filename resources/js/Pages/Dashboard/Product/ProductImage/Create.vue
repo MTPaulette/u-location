@@ -8,7 +8,7 @@
         <myTitle title="Add Product's Images" />
       </div>
     </div>
-    <div class="w-full px-3 py-5 h-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="w-full px-3 py-5 h-auto bg-white border my-border-gray rounded-lg shadow dark:bg-gray-800">
       <div class="">
         <UploadImage :product="product" />
       </div>

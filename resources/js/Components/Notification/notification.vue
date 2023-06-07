@@ -1,5 +1,5 @@
 <template>
-  <div class="border-0 border-gray-100 border-b dark:border-gray-700">
+  <div class="border-0 my-border-gray border-b">
     <a href="#" class="flex px-0.5 sm:px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
       
       <div class="mr-3 md:mr-5">

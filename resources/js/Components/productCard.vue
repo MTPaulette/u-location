@@ -1,5 +1,5 @@
 <template>
-  <div class="border-0 border-gray-100 border-b dark:border-gray-700 max-w-full">
+  <div class="border-0 my-border-gray border-b max-w-full">
     <div class="flex items-center px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
       <div class="flex-shrink-0">
         <img v-if="product.images.length" class="rounded w-16 h-14" :src="getImgUrl(product.images[0].filename)" alt="product image" />

@@ -14,11 +14,11 @@
           </div>
         </div>
 
-        <div class="hidden md:block md:col-span-2 h-full md:px-4 py-8 md:mb-16 border-0 rounded border-gray-100">
+        <div class="hidden md:block md:col-span-2 h-full md:px-4 py-8 md:mb-16 border-0 rounded my-border-gray">
           <div class="md:flex justify-center min-w-[200px]">
             <div class="w-full min-w-[204px] h-3/6">
-              <!-- <div class="flex-shrink-0 bg-white border-2 border-mango rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700"> -->
-              <img v-if="posts.data[selectedImage].images.length" class="w-full min-w-[200px] h-40 bg-white border-2 border-mango rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700" :src="getImgUrl(posts.data[selectedImage].images[0].filename)" />
+              <!-- <div class="flex-shrink-0 bg-white border-2 border-mango rounded-lg shadow-lg dark:bg-gray-800"> -->
+              <img v-if="posts.data[selectedImage].images.length" class="w-full min-w-[200px] h-40 bg-white border-2 border-mango rounded-lg shadow-lg dark:bg-gray-800" :src="getImgUrl(posts.data[selectedImage].images[0].filename)" />
               <!-- </div> -->
               <div class="flex justify-center w-full mt-7">
                 <div v-for="(post, i) in posts.data" :key="post.id" class="h-auto w-auto" @click="selectedImage=i">
@@ -27,7 +27,7 @@
               </div>
             </div>
           </div>
-          <div class="flex justify-center items-center w-full h-36 mt-20 border border-gray-100 bg-gray-300 ">
+          <div class="flex justify-center items-center w-full h-36 mt-20 border my-border-gray bg-gray-300 ">
             pub
           </div>
         </div>

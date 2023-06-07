@@ -1,5 +1,5 @@
 <template>
-  <nav class="px-2 sm:px-4 py-1 bg-purple-50 text-gray-700 dark:text-gray-400 text-sm font-light border-b border-purple-200 dark:bg-gray-900 dark:border-gray-700">
+  <nav class="px-2 sm:px-4 py-1 bg-purple-50 text-gray-700 dark:text-gray-400 text-sm font-light border-b border-purple-200 dark:bg-gray-900">
     <div class="flex flex-wrap items-center justify-center md:justify-between mx-auto w-full">
       <div class="flex">
         <div class="flex items-center border-r-2 border-purple-100 pr-6 mr-6">

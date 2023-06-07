@@ -10,7 +10,7 @@
     </div>
 
 
-    <div class="w-full px-3 py-5 h-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="w-full px-3 py-5 h-auto bg-white border my-border-gray rounded-lg shadow dark:bg-gray-800">
       <div class="flex justify-between w-full">
         <div class="text-base text-gray-500 dark:text-gray-400 w-1/3">
           <!-- <div class="text-base text-gray-500 dark:text-gray-400 w-[130px] md:w-1/3 bg-green-100"> -->

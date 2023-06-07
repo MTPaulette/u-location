@@ -29,7 +29,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="product in products.data" :key="product.id" class="bg-gray-50 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-600">
+          <tr v-for="product in products.data" :key="product.id" class="bg-gray-50 border-b dark:bg-gray-800 hover:bg-white dark:hover:bg-gray-600">
             <th scope="row" class="px-6 py-2">
               {{ product.code }}
             </th>
@@ -43,7 +43,7 @@
               {{ product.price }} FCFA
             </td>
             <td class="px-6 py-2">
-              <div class="flex items-center justify-center border border-gray-200 dark:border-gray-700">
+              <div class="flex items-center justify-center border my-border-gray">
                 <span class="px-2 cursor-pointer" @click="decrement">&mdash;</span>
                 <input type="text" :value="form.qty" readonly class="w-12 h-7 text-center border-none bg-white" />
                 <span class="px-2 cursor-pointer" @click="increment">&#xff0b;</span>
@@ -79,7 +79,7 @@
           <p class="font-semibold px-1 bg-onion-200 text-white">30%</p>
         </div>
 
-        <div class="flex justify-between pb-2 border-b border-gray-200 dark:border-gray-700">
+        <div class="flex justify-between pb-2 border-b my-border-gray">
           <p>Shipping Charge</p>
           <p class="font-semibold text-black dark:text-white">free</p>
         </div>

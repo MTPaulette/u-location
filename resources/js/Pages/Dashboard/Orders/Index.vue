@@ -8,7 +8,7 @@
         <myTitle title="My Orders" />
       </div>
     </div>
-    <div class="w-full px-3 py-5 h-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="w-full px-3 py-5 h-auto bg-white border my-border-gray rounded-lg shadow dark:bg-gray-800">
       <div class="">
         <div class="flex flex-col space-y-2 px-6 py-2">
           <div v-for="(order, index) in orders.data" :key="index">

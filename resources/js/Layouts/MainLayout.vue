@@ -5,7 +5,7 @@
   <div class="hidden sm:block">
     <NavbarCategory :categories="categories" />
   </div>
-  <div class=" text-black dark:text-gray-400 bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+  <div class=" text-black dark:text-gray-400 bg-white my-border-gray dark:bg-gray-800">
     <div v-if="flashSuccess">
       <FlashAlert :message="flashSuccess" />
     </div>

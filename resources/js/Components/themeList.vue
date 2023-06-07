@@ -9,7 +9,7 @@
           v-for="theme in themes" 
           :key="theme.id"
         >
-          <Link :href="route('PostsByTheme', {theme: theme})" class="bg-green-50 border border-green-200 hover:bg-sheet-200 hover:text-white hover:border-sheet-200 dark:hover:bg-gray-500 dark:text-blue-400 text-xs mr-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700">
+          <Link :href="route('PostsByTheme', {theme: theme})" class="bg-green-50 border border-green-200 hover:bg-sheet-200 hover:text-white hover:border-sheet-200 dark:border-gray-700 dark:text-gray-400 text-xs mr-2 px-2.5 py-0.5 rounded-full dark:bg-transparent">
             {{ theme.name }}
           </Link>
         </li>

@@ -18,7 +18,7 @@
           <p v-else class="mt-5 text-gray-500">Aucun resultat</p>
         </div>
 
-        <div class="hidden md:block md:col-span-2 h-full md:px-4 py-8 md:mb-16 border-0 rounded border-gray-100">
+        <div class="hidden md:block md:col-span-2 h-full md:px-4 py-8 md:mb-16 border-0 rounded my-border-gray">
           <div class="md:flex justify-center min-w-[200px]">
             <div class="w-full min-w-[204px] h-3/6">
               <div>
@@ -26,7 +26,7 @@
               </div>
             </div>
           </div>
-          <div class="flex justify-center items-center w-full h-36 mt-20 border border-gray-100 bg-gray-300 ">
+          <div class="flex justify-center items-center w-full h-36 mt-20 border my-border-gray bg-gray-300 ">
             pub
           </div>
         </div>

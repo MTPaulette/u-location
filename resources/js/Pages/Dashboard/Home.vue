@@ -8,7 +8,7 @@
         <breadcrumb link1="dashboard" link2="accueil" />
       </div>
     </div>
-    <div class="border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+    <div class="border-2 my-border-gray border-dashed rounded-lg">
       <!-- <div class="flex flex-wrap md:gap-2 lg:bg-pineapple xl:bg-mango sm:bg-sheet-100 md:bg-danger gap-4 mb-4"> -->
       <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 md:gap-2 gap-4 mb-4">
         <CardDefault type="order" title="nouvelle commande" value="34567" percent="+2.00" />

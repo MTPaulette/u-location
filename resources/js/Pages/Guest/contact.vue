@@ -76,7 +76,7 @@
             </div>
           </div>
 
-          <div class="md:px-4 py-8 md:mb-16 border rounded border-gray-100">
+          <div class="md:px-4 py-8 md:mb-16 border rounded my-border-gray">
             <formContact />
           </div>
         </div>
