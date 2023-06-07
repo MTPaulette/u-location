@@ -38,11 +38,11 @@
               <!-- weight -->
               <div class="w-full">
                 <p class="font-semibold mb-2 text-gray-900 dark:text-gray-200 ">Products added to the basket</p>
-                <div class="px-1 lg:px-10">
+                <div>
                   <form class="flex flex-wrap gap-2 w-full justify-around md:justify-end items-end" @submit.prevent="addToCart">
                     <div class="block sm:flex items-center">
                       <label for="weight" class="label mb-1 mr-2">Weight:</label>
-                      <select id="weight" v-model="weightIndex" name="weight" class="w-24 py-1 text-center border-t border-b my-border-gray bg-gray-50 dark:bg-transparent" @click="initialiseForm()">
+                      <select id="weight" v-model="weightIndex" name="weight" class="w-24 md:w-[90px] xl:w-24 py-1 text-center border-t border-b my-border-gray bg-gray-50 dark:bg-transparent" @click="initialiseForm()">
                         <!-- <select id="weight" v-model="form.weight_id" name="weight" class="w-24 h-8 text-center border-t border-b my-border-gray bg-gray-50"> -->
                         <option v-for="(weight, i) in product.weights" :key="weight.id" :value="i">
                           {{ weight.name }}
@@ -53,7 +53,8 @@
                       <label for="qty" class="label mb-1 mr-2">Qty:</label>
                       <div class="flex items-center justify-center border my-border-gray">
                         <span class="px-2 cursor-pointer" @click="decrement">&mdash;</span>
-                        <input type="text" :value="form.qty" readonly class="w-12 h-8 text-center border-none bg-gray-50 dark:bg-transparent" />
+                        <!-- <input type="text" :value="form.qty" class="w-12 md:w-10 xl:w-12 h-8 text-center border-none bg-gray-50 dark:bg-transparent" /> -->
+                        <input type="text" :value="form.qty" readonly class="w-12 md:w-10 xl:w-12 h-8 text-center border-none bg-gray-50 dark:bg-transparent" />
                         <span class="px-2 cursor-pointer" @click="increment">&#xff0b;</span>
                       </div>
                     </div>
@@ -69,7 +70,7 @@
         <div class="w-full pb-8">
           <!-- composition -->
           <div class="border-b my-border-gray pb-5 mb-4">
-            <sectionTitle title="Composition" orange />
+            <sectionTitle title="Composition" />
 
             <span v-for="ingredient in product.ingredients" :key="ingredient.id" class="px-1">
               {{ ingredient.name }},
@@ -80,7 +81,7 @@
 
           <!-- preparation -->
           <div class="border-b my-border-gray pb-5 mb-4">
-            <sectionTitle title="Preparation" />
+            <sectionTitle title="Preparation" orange />
             <p class="font-medium text-justify">
               {{ product.preparation }}
             </p>
@@ -89,7 +90,7 @@
           <!-- advantage -->
           <div class="border-b my-border-gray pb-5 mb-6">
             <sectionTitle title="Advantages" green />
-            <div class="px-2 text-green-900 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
+            <div class="px-2 py-4 -mt-2 text-green-900 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
               <UlList title="Some advantages" :lists="product.advantages" />
             </div>
           </div>
