@@ -50,4 +50,13 @@ class UserController extends Controller
         return to_route('user.index')->with('success', 'user was successfully created!!!');
         // return redirect('/post)
     }
+
+    public function createPDF() {
+        $users = User::orderByDesc('created_at')->get();
+        $pdf = app('dompdf.wrapper');
+        $pdf->getDomPDF()->set_option("enable_php", true);
+        $pdf->loadView('download/users', compact('users'));
+        // return $pdf->download('agrimax_users_list'.now().'.pdf');
+        return $pdf->stream('agrimax_users_list'.now().'.pdf');
+    }
 }

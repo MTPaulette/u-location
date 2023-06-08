@@ -106,7 +106,18 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
       Route::resource('post.image', PostImageController::class)->only(['create', 'store','destroy']);
       Route::resource("post", PostDashboardController::class);
       Route::resource("product", ProductDashboardController::class);
+
+
   });
+});
+
+
+Route::prefix('export')
+->group(function () {
+    Route::get('/posts', [PostDashboardController::class, 'createPDF']);
+    Route::get('/products', [ProductDashboardController::class, 'createPDF']);
+    Route::get('/users', [UserController::class, 'createPDF']);
+      
 });
 
   // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

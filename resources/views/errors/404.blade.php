@@ -6,6 +6,7 @@
     <section id="not-found">
      <!-- <h2 class="bg-info"> {{ $exception->getMessage() }}</h2> -->
       <div class="main-div">
+        <img src="{{ URL::asset('/image/logo.png') }}" height="150px" width="200px" alt="Agrimax Logo" />
         <h2> 404 - We couldn't find that page.</h2>
         <h3>Maybe you can find what you need here?</h3>
         <div>

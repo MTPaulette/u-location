@@ -6,6 +6,7 @@ use App\Models\Info;
 use App\Models\Post;
 use App\Models\Theme;
 use Illuminate\Http\Request;
+use PDF;
 // use Illuminate\Support\Facades\DB;
 
 class PostDashboardController extends Controller
@@ -100,5 +101,22 @@ class PostDashboardController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function createPDF() {
+        $posts =
+                Post::select('posts.*')
+                // DB::table('posts')
+                ->leftJoin('users', 'users.id', '=', 'posts.user_id')
+                ->leftJoin('themes', 'themes.id', '=', 'posts.theme_id')
+                ->select('posts.*', 'users.email as user', 'themes.name as theme')
+                ->orderByDesc('created_at')
+                ->withCount('images')
+                ->get();
+        $pdf = app('dompdf.wrapper');
+        $pdf->getDomPDF()->set_option("enable_php", true);
+        $pdf->loadView('download/posts', compact('posts'));
+        // return $pdf->download('agrimax_posts_list'.now().'.pdf');
+        return $pdf->stream('agrimax_posts_list'.now().'.pdf');
     }
 }

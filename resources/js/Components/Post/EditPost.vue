@@ -39,6 +39,17 @@
 
             <!-- description -->
             <div class="col-span-2">
+              <div>
+                <Editor v-model="content" />
+
+                <div class="content">
+                  <h3>Content</h3>
+                  <pre><code>{{ content }}</code></pre>
+                </div>
+              </div>
+
+
+
               <p for="description" class="label">Post Content</p>
               <div class="w-full mb-4 border my-border-gray rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
                 <div class="flex items-center justify-between px-3 py-2 border-b dark:border-gray-600">
@@ -112,6 +123,7 @@
 
 <script setup>
 import Button from '@/Components/button.vue'
+import Editor from '@/Components/editor.vue'
 import { useForm } from '@inertiajs/vue3'
 
 defineProps({
@@ -123,6 +135,8 @@ const formpost = useForm({
   content: '',
   theme_id: '',
 })
+
+const content = '<p>A Vue.js wrapper component for tiptap to use <code>v-model</code>.</p>'
 
 const savePostInformation = () => {
   const newPost_id = formpost.post('/dashboard/post')

@@ -124,4 +124,13 @@ class ProductDashboardController extends Controller
     {
         //
     }
+    
+    public function createPDF() {
+        $products = Product::orderByDesc('created_at')->withCount('images')->get();
+        $pdf = app('dompdf.wrapper');
+        $pdf->getDomPDF()->set_option("enable_php", true);
+        $pdf->loadView('download/products', compact('products'));
+        // return $pdf->download('agrimax_products_list'.now().'.pdf');
+        return $pdf->stream('agrimax_products_list'.now().'.pdf');
+    }
 }
