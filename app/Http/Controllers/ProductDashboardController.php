@@ -23,8 +23,9 @@ class ProductDashboardController extends Controller
     public function index()
     {
         return Inertia("Dashboard/Product/List", [
-            'products' => Product::orderByDesc('created_at')
+            'products' => Product::orderBy('created_at')
                     ->withCount('images')
+                    ->with(['images', 'advantages', 'ingredients', 'weights'])
                     ->paginate(10)
         ]);
     }

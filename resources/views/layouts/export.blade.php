@@ -75,8 +75,8 @@
   }
 
   #posts td .post-user {
-    /* color: rgb(4 118 52 / 1); */
-    color: dodgerblue;
+    color: rgb(26 86 219 / 1);
+    /* color: dodgerblue; */
   }
 
   #posts table thead {

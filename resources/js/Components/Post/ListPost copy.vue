@@ -3,7 +3,7 @@
     <div class="block sm:flex sm:justify-between sm:items-center py-3 bg-white dark:bg-gray-800">
       <div class="flex items-center">
         <div class="relative">
-          <SearchBar placeholder="Search for products" />
+          <SearchBar placeholder="Search for posts" />
         </div>
         <div>
           <button id="dropdownActionButton" data-dropdown-toggle="dropdownDotsHorizontal" class="inline-flex mt-2 ml-2 text-sm font-medium text-center text-gray-900 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600" type="button"> 
@@ -26,21 +26,21 @@
               </li>
             </ul>
             <div class="py-1">
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete Product</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete Post</a>
             </div>
           </div>
         </div>
       </div>
       <div class="flex mt-5 sm:mt-0">
-        <Link :href="route('dashboard.product.create')">
-          <Button label="add product" hasicon rounded btn small>
+        <div>
+          <Button label="add post" hasicon rounded btn small>
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
               <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
             </svg>
           </Button>
-        </Link>
+        </div>
 
-        <a href="/export/products" class="ml-2">
+        <a href="/export/posts" class="ml-2">
           <Button label="export" hasicon rounded light small>
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
               <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
@@ -51,37 +51,32 @@
       </div>
     </div>
 
-
     <!-- <table class="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400 my-5"> -->
     <div class="relative overflow-x-auto">
       <table class="table-auto border">
-        {{ products }}
         <thead class="text-xs text-white uppercase bg-sheet-100 dark:bg-gray-700 dark:text-gray-400">
           <!-- <thead class="text-xs text-gray-500 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"> -->
           <tr>
-            <th scope="col" class="p-4">
+            <!-- <th scope="col" class="p-4">
               <div class="flex items-center">
                 <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                 <label for="checkbox-all-search" class="sr-only">checkbox</label>
               </div>
+            </th> -->
+            <th scope="col" class="px-6 py-2.5">
+              Post ID
             </th>
             <th scope="col" class="px-6 py-2.5">
-              Product ID
+              Post title
             </th>
             <th scope="col" class="px-6 py-2.5">
-              Product name
+              Content
             </th>
             <th scope="col" class="px-6 py-2.5">
-              Description
+              Theme
             </th>
             <th scope="col" class="px-6 py-2.5">
-              Initial stock
-            </th>
-            <th scope="col" class="px-6 py-2.5">
-              Remaining stock
-            </th>
-            <th scope="col" class="px-6 py-2.5">
-              Price
+              By
             </th>
             <th scope="col" class="px-6 py-2.5">
               Since
@@ -92,49 +87,39 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="product in products.data" :key="product.id" class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <td class="w-4 p-4">
+          <tr v-for="post in posts.data" :key="post.id" class="bg-white border-b dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <!-- <td class="w-4 p-4">
               <div class="flex items-center">
                 <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                 <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
               </div>
-            </td>
+            </td> -->
             <th scope="row" class="px-6 py-2.5">
-              {{ product.code }}
+              {{ post.id }}
             </th>
-            <td class="px-6 py-2.5 capitalize font-medium text-gray-900 whitespace-nowrap dark:text-white">
-              {{ product.name }}
+            <!-- <td class="px-6 py-2.5 capitalize font-medium text-gray-900 whitespace-nowrap dark:text-white"> -->
+            <td class="px-6 py-2.5 capitalize font-medium text-gray-900 dark:text-white">
+              {{ post.title }}
             </td>
             <td class="px-6 py-2.5">
-              {{ product.description }}
+              {{ post.content }}
             </td>
             <td class="px-6 py-2.5">
-              {{ product.initial_stock }}
+              {{ post.theme }}
             </td>
             <td class="px-6 py-2.5">
-              {{ product.remaining_stock }}
+              {{ post.user }}
             </td>
             <td class="px-6 py-2.5">
-              {{ product.price }} FCFA
-            </td>
-            <td class="px-6 py-2.5">
-              {{ product.created_at }}
+              {{ post.created_at }}
             </td>
             <td class="px-6 py-2.5 flex justify-between w-full ">
               <table>
                 <tr>
                   <td colspan="3">
                     <div class="w-full">
-                      <!-- <button type="button" class="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full relative inline-flex items-center justify-center py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
-                          <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
-                          <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
-                        </svg>
-                        <span>images</span>
-                      </button> -->
-
-                      <Link class="w-full" :href="route('dashboard.product.image.create', {product: product.id})">
-                        <Button :label="'images ('+product.images_count+')'" hasicon rounded transparent large>
+                      <Link class="w-full" :href="route('dashboard.post.image.create', {post: post.id})">
+                        <Button :label="'images ('+post.images_count+')'" hasicon rounded transparent large>
                           <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                             <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z" />
@@ -185,18 +170,18 @@
       </table>
     </div>
 
-    <!-- Edit product modal -->
-    <Modal title="Edit product">
+    <!-- Edit post modal -->
+    <Modal title="Edit post">
       <template #default>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo voluptates optio,
         sapiente placeat non maiores? Quam soluta accusamus quisquam vel ullam expedita
         et quae est tempora exercitationem impedit, suscipit quaerat!
-        <!-- <EditProduct :advantages="advantages" :ingredients="ingredients" :weights="weights" :categories="categories" /> -->
+        <!-- <EditPost :advantages="advantages" :ingredients="ingredients" :weights="weights" :categories="categories" /> -->
       </template>
     </Modal>
 
-    <div v-if="products.data.length" class="w-full flex mt-8 mb-12">
-      <pagination :links="products.links" />
+    <div v-if="posts.data.length" class="w-full flex mt-8 mb-12">
+      <pagination :links="posts.links" />
     </div>
   </div>
 </template>
@@ -204,16 +189,13 @@
 <script setup>
 import pagination from '@/Components/paginationTable.vue'
 import Button from '@/Components/button.vue'
-// import EditProduct from '@/Components/Product/EditProduct.vue'
+// import EditPost from '@/Components/Post/EditPost.vue'
 import Modal from '@/Components/modal.vue'
 import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
 import { Link } from '@inertiajs/vue3'
 
 defineProps({
-  products: Object,
-  advantages: Object,
-  ingredients: Object,
-  weights: Object,
+  posts: Object,
   categories: Object,
 })
 
