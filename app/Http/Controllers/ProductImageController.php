@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Intervention\Image\Facades\Image as ImageManager;
 use App\Models\Image;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -30,6 +31,7 @@ class ProductImageController extends Controller
      */
     public function store(Product $product, Request $request)
     {
+        $text = 'www.agrimax.com';
         if($request->hasFile('images')) {
             $request->validate([
                 'images.*' => 'mimes:jpg,png,jpeg,webp|max:5000'
@@ -38,7 +40,27 @@ class ProductImageController extends Controller
             ]);
 
             foreach ($request->file('images') as $file){
-                $path = $file->store("images/product/{$product->id}", 'public');
+                
+                $file_name = time().'_'.$file->getClientOriginalName();
+                $img = ImageManager::make($file);
+
+                $img->resize(1386,790);
+                $img->text($text,300,700,function($font){
+                    $font->file(public_path().DIRECTORY_SEPARATOR.'font'.DIRECTORY_SEPARATOR.'Roboto'.DIRECTORY_SEPARATOR.'Roboto-Regular.ttf');
+                    $font->size(100);
+                    $font->color("#f7941d");
+                    $font->align("left");
+                    $font->valign("bottom");
+                    $font->angle(30);
+                });
+                
+                $path = 'images'.DIRECTORY_SEPARATOR.'product'.DIRECTORY_SEPARATOR.$product->id.DIRECTORY_SEPARATOR.$file_name;
+                $fullpath = public_path().DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'product'.DIRECTORY_SEPARATOR.$product->id;
+                if(!file_exists($fullpath)) {
+                    mkdir($fullpath, 0777, true);
+                }
+
+                $img->save(public_path().DIRECTORY_SEPARATOR.'storage'.DIRECTORY_SEPARATOR.$path, 100);
                 $product->images()->save(new Image([
                     'filename' => $path
                 ]));

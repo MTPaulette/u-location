@@ -55,7 +55,7 @@
     <!-- <table class="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400 my-5"> -->
     <div class="relative overflow-x-auto">
       <table class="table-auto border">
-        {{ products }}
+        <!-- {{ products }} -->
         <thead class="text-xs text-white uppercase bg-sheet-100 dark:bg-gray-700 dark:text-gray-400">
           <!-- <thead class="text-xs text-gray-500 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"> -->
           <tr>

@@ -79,10 +79,10 @@
             </th>
             <th scope="col" class="px-5 py-3.5">
               Since
-            </th>
+            </th> -->
             <th scope="col" class="px-5 py-3.5">
               Action
-            </th> -->
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -105,16 +105,16 @@
             </td>
             <td class="px-5 py-3.5 relative text-justify">
               {{ post.content }}
-              <button id="dropdownPostActionsButton" data-dropdown-toggle="dropdownPostActions" class="absolute text-mango hover:text-sheet-100 top-2 -right-1" type="button"> 
+              <!-- <button id="dropdownPostActionsButton" data-dropdown-toggle="dropdownPostActions" class="absolute text-mango hover:text-sheet-100 top-2 -right-1" type="button"> 
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                 </svg>
               </button>
-              <div id="dropdownPostActions" class="z-50 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-32 dark:bg-gray-700 dark:divide-gray-600">
+              <div id="dropdownPostActions" class="z-50  bg-white divide-y divide-gray-100 rounded-lg shadow w-32 dark:bg-gray-700 dark:divide-gray-600">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownPostActionsButton">
                   <li>
                     <Link :href="route('dashboard.post.image.create', {post: post.id})" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                      images ({{ post.images_count }})
+                      {{ post.id }} images ({{ post.images_count }})
                     </Link>
                   </li><li>
                     <Link :href="route('dashboard.post.edit', {post: post.id})" class="block px-4 py-2 hover:bg-green-100 dark:hover:bg-green-600 dark:hover:text-white">
@@ -132,7 +132,7 @@
                     </Link>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </td>
             <!-- <td class="px-5 py-3.5">
               {{ post.theme }}
@@ -142,7 +142,7 @@
             </td>
             <td class="px-5 py-3.5">
               {{ post.created_at }}
-            </td>
+            </td> -->
             <td class="px-5 py-3.5 flex justify-between w-full ">
               <table>
                 <tr>
@@ -193,7 +193,7 @@
                   </td>
                 </tr>
               </table>
-            </td> -->
+            </td>
           </tr>
         </tbody>
       </table>
