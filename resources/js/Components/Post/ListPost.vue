@@ -103,7 +103,7 @@
               <br /><span class="underline font-semibold">by:</span> <br /><span class=" text-blue-700">{{ post.user }}</span>
               <br /><span class="underline font-semibold">at:</span> <br />{{ post.created_at }}
             </td>
-            <td class="px-5 py-3.5 relative text-justify">
+            <td class="px-5 py-3.5 relative text-justify text-gray-700 dark:text-gray-400">
               <p v-html="post.content" />
               <!-- <button id="dropdownPostActionsButton" data-dropdown-toggle="dropdownPostActions" class="absolute text-mango hover:text-sheet-100 top-2 -right-1" type="button"> 
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

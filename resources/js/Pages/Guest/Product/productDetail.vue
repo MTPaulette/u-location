@@ -32,9 +32,9 @@
                   <p v-if="weight.pivot.remaining_stock == 0"><span class="text-red-600 text-sm">not available</span></p>
                 </div>
               </div>
-              <p class="font-medium text-justify border-b my-border-gray pb-5 mb-4">
+              <div class="font-medium text-justify border-b my-border-gray pb-5 mb-4 text-gray-700 dark:text-gray-400">
                 <p v-html="product.description" />
-              </p>
+              </div>
               <!-- weight -->
               <div class="w-full">
                 <p class="font-semibold mb-2 text-gray-900 dark:text-gray-200 ">Products added to the basket</p>

@@ -105,7 +105,7 @@
             <td class="px-6 py-2.5 capitalize font-medium text-gray-900 whitespace-nowrap dark:text-white">
               {{ product.name }}
             </td>
-            <td class="px-6 py-2.5">
+            <td class="px-6 py-2.5 text-gray-700 dark:text-gray-400">
               <p v-html="product.description" />
             </td>
             <td class="px-6 py-2.5">

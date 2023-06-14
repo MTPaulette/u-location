@@ -33,7 +33,7 @@
           <button
             type="button" class="editor-btn"
             :disabled="!editor.can().chain().focus().toggleBold().run()"
-            :class="{ 'is-active': editor.isActive('bold') }"
+            :class="{ 'active-editor': editor.isActive('bold') }"
             @click="editor.chain().focus().toggleBold().run()"
           >
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +46,7 @@
           <button
             type="button" class="editor-btn" 
             :disabled="!editor.can().chain().focus().toggleItalic().run()" 
-            :class="{ 'is-active': editor.isActive('italic') }" 
+            :class="{ 'active-editor': editor.isActive('italic') }" 
             @click="editor.chain().focus().toggleItalic().run()"
           >
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +59,7 @@
           
           <button
             type="button" class="editor-btn" 
-            :class="{ 'is-active': editor.isActive('underline') }" @click="editor.chain().focus().toggleUnderline().run()"
+            :class="{ 'active-editor': editor.isActive('underline') }" @click="editor.chain().focus().toggleUnderline().run()"
           >
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M5.313 3.136h-1.23V9.54c0 2.105 1.47 3.623 3.917 3.623s3.917-1.518 3.917-3.623V3.136h-1.23v6.323c0 1.49-.978 2.57-2.687 2.57-1.709 0-2.687-1.08-2.687-2.57V3.136zM12.5 15h-9v-1h9v1z" />
@@ -71,7 +71,7 @@
           <button
             type="button" class="editor-btn"
             :disabled="!editor.can().chain().focus().toggleStrike().run()"
-            :class="{ 'is-active': editor.isActive('strike') }"
+            :class="{ 'active-editor': editor.isActive('strike') }"
             @click="editor.chain().focus().toggleStrike().run()"
           >
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -85,32 +85,32 @@
             <div v-show="type" class="absolute z-50 bottom-10 bg-white divide-y divide-gray-100 shadow-lg text-center w-[50px] h-auto dark:bg-gray-700">
               <ul class="max-h-[150px] over-y text-sm text-gray-700 dark:text-gray-200">
                 <li class="editor-dropitem my-border-gray" @click="type=false">
-                  <span :class="{ 'is-active': editor.isActive('heading', { level: 1 }) }" @click="editor.chain().focus().toggleHeading({ level: 1 }).run()">
+                  <span :class="{ 'active-editor': editor.isActive('heading', { level: 1 }) }" @click="editor.chain().focus().toggleHeading({ level: 1 }).run()">
                     h1
                   </span>
                 </li>
                 <li class="editor-dropitem my-border-gray" @click="type=false">
-                  <span :class="{ 'is-active': editor.isActive('heading', { level: 2 }) }" @click="editor.chain().focus().toggleHeading({ level: 2 }).run()">
+                  <span :class="{ 'active-editor': editor.isActive('heading', { level: 2 }) }" @click="editor.chain().focus().toggleHeading({ level: 2 }).run()">
                     h2
                   </span>
                 </li>
                 <li class="editor-dropitem my-border-gray" @click="type=false">
-                  <span :class="{ 'is-active': editor.isActive('heading', { level: 3 }) }" @click="editor.chain().focus().toggleHeading({ level: 3 }).run()">
+                  <span :class="{ 'active-editor': editor.isActive('heading', { level: 3 }) }" @click="editor.chain().focus().toggleHeading({ level: 3 }).run()">
                     h3
                   </span>
                 </li>
                 <li class="editor-dropitem my-border-gray" @click="type=false">
-                  <span :class="{ 'is-active': editor.isActive('heading', { level: 4 }) }" @click="editor.chain().focus().toggleHeading({ level: 4 }).run()">
+                  <span :class="{ 'active-editor': editor.isActive('heading', { level: 4 }) }" @click="editor.chain().focus().toggleHeading({ level: 4 }).run()">
                     h4
                   </span>
                 </li>
                 <li class="editor-dropitem my-border-gray" @click="type=false">
-                  <span :class="{ 'is-active': editor.isActive('heading', { level: 5 }) }" @click="editor.chain().focus().toggleHeading({ level: 5 }).run()">
+                  <span :class="{ 'active-editor': editor.isActive('heading', { level: 5 }) }" @click="editor.chain().focus().toggleHeading({ level: 5 }).run()">
                     h5
                   </span>
                 </li>
                 <li class="editor-dropitem my-border-gray" @click="type=false">
-                  <span :class="{ 'is-active': editor.isActive('heading', { level: 6 }) }" @click="editor.chain().focus().toggleHeading({ level: 6 }).run()">
+                  <span :class="{ 'active-editor': editor.isActive('heading', { level: 6 }) }" @click="editor.chain().focus().toggleHeading({ level: 6 }).run()">
                     h6
                   </span>
                 </li>
@@ -126,41 +126,41 @@
           
           <!-- palette color -->
           <div class="relative">
-            <div v-show="palette" class="absolute z-50 bottom-12 bg-white divide-y divide-gray-100 shadow-lg w-[80px] h-auto text-center dark:bg-gray-700">
+            <div v-show="palette" class="absolute z-50 bottom-12 bg-white divide-y divide-gray-100 shadow-lg w-[90px] h-auto text-center dark:bg-gray-700">
               <ul class="max-h-[150px] over-y text-sm text-gray-700 dark:text-gray-200">
-                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-mango" @click="palette=false">
-                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#f7941d' })}" @click="editor.chain().focus().setColor('#f7941d').run()">
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-mango  dark:hover:bg-mango" @click="palette=false">
+                  <span :class="{ 'active-editor': editor.isActive('textStyle', { color: '#f7941d' })}" @click="editor.chain().focus().setColor('#f7941d').run()">
                     mango
                   </span>
                 </li>
-                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-onion-100" @click="palette=false">
-                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#890352' })}" @click="editor.chain().focus().setColor('#890352').run()">
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-onion-100 dark:hover:bg-onion-100" @click="palette=false">
+                  <span :class="{ 'active-editor': editor.isActive('textStyle', { color: '#890352' })}" @click="editor.chain().focus().setColor('#890352').run()">
                     onion 100
                   </span>
                 </li>
-                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-onion-200" @click="palette=false">
-                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#580389' })}" @click="editor.chain().focus().setColor('#580389').run()">
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-onion-200 dark:hover:bg-onion-200" @click="palette=false">
+                  <span :class="{ 'active-editor': editor.isActive('textStyle', { color: '#580389' })}" @click="editor.chain().focus().setColor('#580389').run()">
                     onion 200
                   </span>
                 </li>
-                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-pineapple" @click="palette=false">
-                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#fcea4b' })}" @click="editor.chain().focus().setColor('#fcea4b').run()">
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-pineapple dark:hover:bg-pineapple" @click="palette=false">
+                  <span :class="{ 'active-editor': editor.isActive('textStyle', { color: '#fcea4b' })}" @click="editor.chain().focus().setColor('#fcea4b').run()">
                     pineapple
                   </span>
                 </li>
-                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-sheet-50" @click="palette=false">
-                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#61a60e' })}" @click="editor.chain().focus().setColor('#61a60e').run()">
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-sheet-50 dark:hover:bg-sheet-50" @click="palette=false">
+                  <span :class="{ 'active-editor': editor.isActive('textStyle', { color: '#61a60e' })}" @click="editor.chain().focus().setColor('#61a60e').run()">
                     sheet 50
                   </span>
                 </li>
-                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-sheet-100" @click="palette=false">
-                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#047634' })}" @click="editor.chain().focus().setColor('#047634').run()">
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-sheet-100 dark:hover:bg-sheet-100" @click="palette=false">
+                  <span :class="{ 'active-editor': editor.isActive('textStyle', { color: '#047634' })}" @click="editor.chain().focus().setColor('#047634').run()">
                     sheet 100
                   </span>
                 </li>
-                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-sheet-200" @click="palette=false">
-                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#036b2f' })}" @click="editor.chain().focus().setColor('#036b2f').run()">
-                    sheet 200
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-transparent" @click="palette=false">
+                  <span :class="{ 'active-editor': editor.isActive('textStyle', { color: 'currentColor' })}" @click="editor.chain().focus().setColor('currentColor').run()">
+                    currentColor
                   </span>
                 </li>
 
@@ -171,7 +171,7 @@
                 </li>
               </ul>
             </div>
-            <div class="editor-btn mt-3.5">
+            <div class="editor-btn mt-5">
               <button type="button" @click="palette=!palette">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm4 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM5.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
@@ -179,9 +179,9 @@
                 </svg>
                 <span class="sr-only">color</span>
               </button>
-              <div class="-ml-1.5 -mt-5">
+              <div class="-ml-1.5 -mt-3">
                 <input
-                  type="color" class="w-7 h-3"
+                  type="color" class="w-7 h-4"
                   :value="editor.getAttributes('textStyle').color"
                   @input="editor.chain().focus().setColor($event.target.value).run()"
                 />
@@ -191,7 +191,7 @@
           <!-- paragraph -->
           <button
             type="button" class="editor-btn" 
-            :class="{ 'is-active': editor.isActive('paragraph') }" 
+            :class="{ 'active-editor': editor.isActive('paragraph') }" 
             @click="editor.chain().focus().setParagraph().run()"
           >
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> 
@@ -203,7 +203,7 @@
           <!-- unordered list -->
           <button
             type="button" class="editor-btn" 
-            :class="{ 'is-active': editor.isActive('bulletList') }" 
+            :class="{ 'active-editor': editor.isActive('bulletList') }" 
             @click="editor.chain().focus().toggleBulletList().run()"
           >
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -215,7 +215,7 @@
           <!-- ordered list -->
           <button
             type="button" class="editor-btn" 
-            :class="{ 'is-active': editor.isActive('orderedList') }" 
+            :class="{ 'active-editor': editor.isActive('orderedList') }" 
             @click="editor.chain().focus().toggleOrderedList().run()"
           >
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -231,7 +231,7 @@
         <div class="flex flex-wrap items-center space-x-1 sm:pl-4">
           <!-- <button
             type="button" class="editor-btn" 
-            :class="{ 'is-active': editor.isActive('heading', { level: 1 }) }" 
+            :class="{ 'active-editor': editor.isActive('heading', { level: 1 }) }" 
             @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
           >
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> 
@@ -254,7 +254,7 @@
           <!-- blockquote -->
           <button
             type="button" class="editor-btn" 
-            :class="{ 'is-active': editor.isActive('blockquote') }" 
+            :class="{ 'active-editor': editor.isActive('blockquote') }" 
             @click="editor.chain().focus().toggleBlockquote().run()"
           >
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -267,7 +267,7 @@
           <button
             type="button" class="editor-btn" 
             :disabled="!editor.can().chain().focus().toggleCode().run()" 
-            :class="{ 'is-active': editor.isActive('code') }" 
+            :class="{ 'active-editor': editor.isActive('code') }" 
             @click="editor.chain().focus().toggleCode().run()"
           >
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
