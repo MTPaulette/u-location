@@ -44,10 +44,9 @@
             </div>
 
 
-            <div>
-              <p class="text-base text-gray-700 dark:text-gray-400">
-                <p v-html="post.content" />
-              </p>
+            <div class="text-base text-gray-700 dark:text-gray-400">
+              <p v-html="post.content" />
+              <!-- {{ post.content }} -->
             </div>
           </div>
 
@@ -100,3 +99,10 @@ defineProps({
   informations: Object,
 })
 </script>
+
+<style>
+ol {
+  list-style: disc;
+}
+
+</style>

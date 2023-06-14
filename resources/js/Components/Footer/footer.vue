@@ -1,5 +1,6 @@
 <template>
-  <footer class="bg-gray-900 dark:bg-gray-800">
+  <!-- <footer class="bg-gray-900 dark:bg-gray-800"> -->
+  <footer class="bg-gray-900 dark:bg-black">
     <div class="mx-auto w-full p-4 sm:p-6">
       <!-- <div class="lg:flex lg:justify-between">
         <div class="mb-6 md:mb-0 bg-info w-full md:w-[350px]"> -->

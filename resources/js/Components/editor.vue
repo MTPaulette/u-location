@@ -56,7 +56,11 @@
           </button>
 
           <!-- underline -->
-          <button type="button" class="editor-btn">
+          
+          <button
+            type="button" class="editor-btn" 
+            :class="{ 'is-active': editor.isActive('underline') }" @click="editor.chain().focus().toggleUnderline().run()"
+          >
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M5.313 3.136h-1.23V9.54c0 2.105 1.47 3.623 3.917 3.623s3.917-1.518 3.917-3.623V3.136h-1.23v6.323c0 1.49-.978 2.57-2.687 2.57-1.709 0-2.687-1.08-2.687-2.57V3.136zM12.5 15h-9v-1h9v1z" />
             </svg>
@@ -75,10 +79,11 @@
             </svg>
             <span class="sr-only">strike</span>
           </button>
+          
           <!-- type: h1, h2, h3, h4, h5, h6 -->
           <div class="relative">
             <div v-show="type" class="absolute z-50 bottom-10 bg-white divide-y divide-gray-100 shadow-lg text-center w-[50px] h-auto dark:bg-gray-700">
-              <ul class="text-sm text-gray-700 dark:text-gray-200">
+              <ul class="max-h-[150px] over-y text-sm text-gray-700 dark:text-gray-200">
                 <li class="editor-dropitem my-border-gray" @click="type=false">
                   <span :class="{ 'is-active': editor.isActive('heading', { level: 1 }) }" @click="editor.chain().focus().toggleHeading({ level: 1 }).run()">
                     h1
@@ -121,18 +126,67 @@
           
           <!-- palette color -->
           <div class="relative">
-            <div v-show="palette" class="absolute z-50 bottom-10 bg-white divide-y divide-gray-100 shadow-lg w-[100px] h-auto dark:bg-gray-700">
-              <ul class="text-sm text-gray-700 dark:text-gray-200">
-                <li class="editor-dropitem my-border-gray" @click="palette=false">lorem ipum</li>
+            <div v-show="palette" class="absolute z-50 bottom-12 bg-white divide-y divide-gray-100 shadow-lg w-[80px] h-auto text-center dark:bg-gray-700">
+              <ul class="max-h-[150px] over-y text-sm text-gray-700 dark:text-gray-200">
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-mango" @click="palette=false">
+                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#f7941d' })}" @click="editor.chain().focus().setColor('#f7941d').run()">
+                    mango
+                  </span>
+                </li>
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-onion-100" @click="palette=false">
+                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#890352' })}" @click="editor.chain().focus().setColor('#890352').run()">
+                    onion 100
+                  </span>
+                </li>
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-onion-200" @click="palette=false">
+                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#580389' })}" @click="editor.chain().focus().setColor('#580389').run()">
+                    onion 200
+                  </span>
+                </li>
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-pineapple" @click="palette=false">
+                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#fcea4b' })}" @click="editor.chain().focus().setColor('#fcea4b').run()">
+                    pineapple
+                  </span>
+                </li>
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-sheet-50" @click="palette=false">
+                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#61a60e' })}" @click="editor.chain().focus().setColor('#61a60e').run()">
+                    sheet 50
+                  </span>
+                </li>
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-sheet-100" @click="palette=false">
+                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#047634' })}" @click="editor.chain().focus().setColor('#047634').run()">
+                    sheet 100
+                  </span>
+                </li>
+                <li class="editor-dropitem my-border-gray hover:text-white hover:bg-sheet-200" @click="palette=false">
+                  <span :class="{ 'is-active': editor.isActive('textStyle', { color: '#036b2f' })}" @click="editor.chain().focus().setColor('#036b2f').run()">
+                    sheet 200
+                  </span>
+                </li>
+
+                <li class="editor-dropitem my-border-gray" @click="palette=false">
+                  <span @click="editor.chain().focus().unsetColor().run()">
+                    unsetColor
+                  </span>
+                </li>
               </ul>
             </div>
-            <button type="button" class="editor-btn" @click="palette=!palette">
-              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm4 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM5.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                <path d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8zm-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7z" />
-              </svg>
-              <span class="sr-only">color</span>
-            </button>
+            <div class="editor-btn mt-3.5">
+              <button type="button" @click="palette=!palette">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm4 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM5.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                  <path d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8zm-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7z" />
+                </svg>
+                <span class="sr-only">color</span>
+              </button>
+              <div class="-ml-1.5 -mt-5">
+                <input
+                  type="color" class="w-7 h-3"
+                  :value="editor.getAttributes('textStyle').color"
+                  @input="editor.chain().focus().setColor($event.target.value).run()"
+                />
+              </div>
+            </div>
           </div>
           <!-- paragraph -->
           <button
@@ -266,6 +320,10 @@
 <script>
 import StarterKit from '@tiptap/starter-kit'
 import { Editor, EditorContent } from '@tiptap/vue-3'
+import { Color } from '@tiptap/extension-color'
+import TextStyle from '@tiptap/extension-text-style'
+import Underline from '@tiptap/extension-underline'
+
 
 export default {
   components: {
@@ -305,11 +363,14 @@ export default {
       this.editor.commands.setContent(value, false)
     },
   },
-
+  
   mounted() {
     this.editor = new Editor({
       extensions: [
         StarterKit,
+        TextStyle,
+        Color,
+        Underline,
       ],
       content: this.modelValue,
       onUpdate: () => {
@@ -333,12 +394,99 @@ export default {
 }
 </script>
 
+<style lang="scss">
+/* Basic editor styles */
+.ProseMirror {
+  > * + * {
+    margin-top: 0.75em;
+  }
 
-<script setup>
-import { onMounted } from 'vue'
-import { initFlowbite } from 'flowbite'
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
 
-onMounted(() => {
-  initFlowbite()
-})
-</script>
+  ol {
+    list-style: disc;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+  }
+
+  h3 {
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  h4 {
+    font-size: 1em;
+    margin-top: 1.33em;
+    margin-bottom: 1.33em;
+  }
+
+  h5 {
+    font-size: 0.83em;
+    margin-top: 1.67em;
+    margin-bottom: 1.67em;
+  }
+
+  h6 {
+    font-size: 0.67em;
+    margin-top: 2.33em;
+    margin-bottom: 2.33em;
+  }
+
+  code {
+    background-color: rgba(#616161, 0.1);
+    color: #616161;
+  }
+
+  pre {
+    background: #0D0D0D;
+    color: #FFF;
+    font-family: 'JetBrainsMono', monospace;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+
+    code {
+      color: inherit;
+      padding: 0;
+      background: none;
+      font-size: 0.8rem;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(#0D0D0D, 0.1);
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid rgba(#0D0D0D, 0.1);
+    margin: 2rem 0;
+  }
+}
+</style>
