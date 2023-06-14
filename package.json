@@ -21,10 +21,13 @@
     "dependencies": {
         "@inertiajs/progress": "^0.2.7",
         "@inertiajs/vue3": "^1.0.2",
+        "@tiptap/extension-color": "^2.0.3",
+        "@tiptap/extension-text-style": "^2.0.3",
         "@tiptap/pm": "^2.0.3",
         "@tiptap/starter-kit": "^2.0.3",
         "@tiptap/vue-3": "^2.0.3",
         "@vitejs/plugin-vue": "^4.1.0",
+        "@vueuse/core": "^10.1.2",
         "chart.js": "^4.2.1",
         "nprogress": "^0.2.0",
         "vue": "^3.2.47",

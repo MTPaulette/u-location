@@ -106,7 +106,7 @@
               {{ product.name }}
             </td>
             <td class="px-6 py-2.5">
-              {{ product.description }}
+              <p v-html="product.description" />
             </td>
             <td class="px-6 py-2.5">
               {{ product.initial_stock }}

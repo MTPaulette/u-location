@@ -34,7 +34,7 @@
                 </div>
               </div>
               <p class="font-medium text-justify border-b my-border-gray pb-5 mb-4">
-                {{ product.description }}
+                <p v-html="product.description" />
               </p>
               <!-- weight -->
               <div class="">

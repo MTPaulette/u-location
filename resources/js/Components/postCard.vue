@@ -10,8 +10,8 @@
           <!-- <a href="" class="text-base md:text-sm">{{ post.name }}</a> -->
         </h4>
       
-        <p class="h-10 md:h-8 overflow-hidden text-justify text-sm md:text-xs mb-2 text-gray-700 dark:text-gray-400">{{ post.content }}</p>
-        <!-- <p class="h-10 md:h-8 overflow-hidden text-justify text-sm md:text-xs mb-2 text-gray-700 dark:text-gray-400">{{ post.content }}</p> -->
+        <p class="h-10 md:h-8 overflow-hidden text-justify text-sm md:text-xs mb-2 text-gray-700 dark:text-gray-400"><p v-html="post.content" /></p>
+        <!-- <p class="h-10 md:h-8 overflow-hidden text-justify text-sm md:text-xs mb-2 text-gray-700 dark:text-gray-400"><p v-html="post.content" /></p> -->
     
 
         <div class="flex items-center truncate text-xs md:text-[10px] text-gray-600 dark:text-gray-400">

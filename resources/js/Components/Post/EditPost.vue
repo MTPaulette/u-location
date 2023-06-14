@@ -39,19 +39,9 @@
 
             <!-- description -->
             <div class="col-span-2">
-              <div>
-                <Editor v-model="content" />
-
-                <div class="content">
-                  <h3>Content</h3>
-                  <pre><code>{{ content }}</code></pre>
-                </div>
-              </div>
-
-
-
               <p for="description" class="label">Post Content</p>
-              <div class="w-full mb-4 border my-border-gray rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+              <Editor v-model="formpost.content" />
+              <!-- <div class="w-full mb-4 border my-border-gray rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
                 <div class="flex items-center justify-between px-3 py-2 border-b dark:border-gray-600">
                   <div class="flex flex-wrap items-center divide-gray-200 sm:divide-x dark:divide-gray-600">
                     <div class="flex items-center space-x-1 sm:pr-4">
@@ -108,11 +98,12 @@
                   <label for="description" class="sr-only">Publish post</label>
                   <textarea id="description" v-model="formpost.content" rows="8" class="block w-full px-0 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="Write an article..." />
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
         <!-- Modal footer -->
+
         <div class="mx-0 lg:mx-6 py-6 border-t my-border-gray rounded-b dark:border-gray-600">
           <Button type="submit" label="save all" rounded success base />
         </div>
@@ -126,6 +117,13 @@ import Button from '@/Components/button.vue'
 import Editor from '@/Components/editor.vue'
 import { useForm } from '@inertiajs/vue3'
 
+import { onMounted } from 'vue'
+import { initFlowbite } from 'flowbite'
+
+onMounted(() => {
+  initFlowbite()
+})
+
 defineProps({
   themes: Object,
 })
@@ -135,8 +133,6 @@ const formpost = useForm({
   content: '',
   theme_id: '',
 })
-
-const content = '<p>A Vue.js wrapper component for tiptap to use <code>v-model</code>.</p>'
 
 const savePostInformation = () => {
   const newPost_id = formpost.post('/dashboard/post')

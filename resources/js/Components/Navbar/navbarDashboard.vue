@@ -21,8 +21,12 @@
           <div class="relative mr-2 sm:mr-3">
             <SearchBar />
           </div>
+          <!-- dark mode toggle  -->
+          <div class="mr-4 mt-2">
+            <DarkMode />
+          </div>
           <!-- notification -->
-          <div>
+          <div class="mt-2">
             <Notification />
           </div>
           <!-- user's info dropdown menu -->
@@ -43,6 +47,7 @@ import { initDropdowns } from 'flowbite'
 import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
 import LoggedUser from '@/Components/Navbar/tools/loggedUser.vue'
 import Notification from '@/Components/Navbar/tools/notification.vue'
+import DarkMode from '@/Components/Navbar/tools/darkMode.vue'
 
 import { usePage } from '@inertiajs/vue3'
 import { computed } from 'vue'

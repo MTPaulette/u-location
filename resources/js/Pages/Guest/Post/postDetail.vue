@@ -46,7 +46,7 @@
 
             <div>
               <p class="text-base text-gray-700 dark:text-gray-400">
-                {{ post.content }}
+                <p v-html="post.content" />
               </p>
             </div>
           </div>

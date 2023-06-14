@@ -102,7 +102,7 @@
               {{ post.title }}
             </td>
             <td class="px-6 py-2.5">
-              {{ post.content }}
+              <p v-html="post.content" />
             </td>
             <td class="px-6 py-2.5">
               {{ post.theme }}

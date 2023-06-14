@@ -104,7 +104,7 @@
               <br /><span class="underline font-semibold">at:</span> <br />{{ post.created_at }}
             </td>
             <td class="px-5 py-3.5 relative text-justify">
-              {{ post.content }}
+              <p v-html="post.content" />
               <!-- <button id="dropdownPostActionsButton" data-dropdown-toggle="dropdownPostActions" class="absolute text-mango hover:text-sheet-100 top-2 -right-1" type="button"> 
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
