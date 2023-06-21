@@ -5,7 +5,8 @@
       <myTitle title="Articles de la categorie:" />
     </div>
     <div class="mycontainer sm:px-20 md:px-7">
-      <myTitle class="text-gray-600" :title="'<<'+theme.name+'>>'" />
+      <h2 class="title mt-4 text-gray-600">"{{ theme.name }}"</h2>
+      <!-- <myTitle class="text-gray-600" :title="'<<'+theme.name+'>>'" /> -->
       <div class="grid grid-cols-1 md:grid-cols-5 md:gap-14">
         <div class="col-span-3 md:col-span-3">
           <div v-if="posts.data.length">
@@ -15,7 +16,7 @@
               </Link>
             </div>
           </div>
-          <p v-else class="mt-5 text-gray-500">Aucun resultat</p>
+          <p v-else class="my-8 text-xl md:text-2xl text-gray-500">Aucun resultat</p>
         </div>
 
         <div class="hidden md:block md:col-span-2 h-full md:px-4 py-8 md:mb-16 border-0 rounded my-border-gray">

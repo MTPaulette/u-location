@@ -21,25 +21,10 @@
     <!-- our products -->
     <div class="flex flex-col items-center w-full py-12 px-3 sm:px-12 md:px-14">
       <div class="w-full">
-        <h2 class="font-semibold text-2xl md:text-3xl dark:text-gray-100">Our Products </h2>
-        <span class="h-[4px] bg-onion-200 w-12 inline-block" />
-      <!-- <p class="text-sm font-medium text-gray-700 dark:text-black">You can find more products in our store <a href="/post" class="text-mango hover:underline dark:text-mango">there.</a></p> -->
+        <myTitle title="Our Products" />
       </div>
       <!-- Carousel data-carousel="slide" -->
       <div id="indicators-carousel" class="relative h-40 w-full bg-pink-50 mt-6" data-carousel="slide">
-        <!-- <div class="relative h-40 flex justify-between items-center bg-pineapple w-full">
-          <div class="hidden duration-700 ease-in-out bg-info" data-carousel-item>
-            <div class="absolute block bg-danger w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-              <div class="grid grid-cols-4 gap-4 w-full h-full bg-purple-200">
-                <div v-for="post in posts" :key="post.id" class="w-full h-full bg-purple-700">
-                  <Link :href="route('post.show', {post: post.id})">
-                    <productCard :post="post" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
         <div class="relative h-40 flex justify-between items-center bg-mango w-full">
           <div v-for="post in posts" :key="post.id" class="hidden duration-700 ease-in-out h-full" data-carousel-item>
             <div class="absolute block bg-purple-100 w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
@@ -53,18 +38,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="relative h-40 flex justify-between items-center bg-mango w-full">
-          <div v-for="post in posts" :key="post.id" class="hidden duration-700 ease-in-out flex flex-wrap" data-carousel-item>
-            <Link :href="route('post.show', {post: post.id})" class="absolute block bg-danger w-1/4 h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-              <productCard :post="post" />
-            </Link>
-          </div>
-        </div> -->
-        <!-- <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-          <div v-for="image in images" :key="image.id" class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img :src="getImgUrl(image.filename)" class="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-          </div>
-        </div> -->
 
         <!-- Slider controls -->
         <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
@@ -83,13 +56,11 @@
     </div>
 
     <!--from our blog -->
-    <div class="flex flex-col items-center w-full py-12 px-3 sm:px-12 md:px-14 bg-gray-100 dark:bg-gray-700">
+    <div class="flex flex-col items-center w-full py-12 px-3 sm:px-12 md:px-14 bg-gray-50 dark:bg-gray-900">
       <div class="w-full">
-        <h2 class="font-semibold text-2xl md:text-3xl dark:text-gray-100"> From Our Blog </h2>
-        <span class="h-[4px] bg-onion-200 w-12 inline-block" />
-        <!-- <p class="text-sm font-medium text-gray-700 dark:text-black">You can find more articles in our blog <a href="/product" class="text-mango hover:underline dark:text-mango">there.</a></p> -->
+        <myTitle title="From Our Blog" />
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-1 justify-between w-full mt-6">
+      <div class="grid grid-cols-1 sm:grid-cols-1 justify-between w-full">
         <div v-for="post in posts" :key="post.id" class="w-full">
           <Link :href="route('post.show', {post: post.id})">
             <postCard :post="post" />
@@ -106,6 +77,7 @@ import IndexLayout from '@/Layouts/IndexLayout.vue'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import postCard from '@/Components/postCard.vue'
 import productCard from '@/Components/productCard.vue'
+import myTitle from '@/Components/myTitle.vue'
 import { Link } from '@inertiajs/vue3'
 
 defineProps({

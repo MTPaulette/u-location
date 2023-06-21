@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="w-full px-2 sm:px-4 py-14 rounded border-gray-300 dark:bg-gray-800 bg-white">
+    <nav class="w-full px-2 sm:px-4 py-14 rounded border-gray-300 dark:bg-gray-800 bg-white main">
       <div class="flex flex-wrap items-center justify-start mx-auto w-full">
         <div class="flex items-center justify-between w-full">
           <a href="/" class="flex items-center">
@@ -103,5 +103,13 @@ const menuItems = [['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/
   outline: 1px solid #C4C4C4;
   background: #C4C4C4;
   border-radius: 8px;
+}
+</style>
+
+<style scoped>
+.main {
+  background-image: url('./../../../images/mango1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>

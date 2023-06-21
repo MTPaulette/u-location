@@ -1,6 +1,6 @@
 <template>
   <Topbar :informations="informations" />
-  <!-- <div class="flex flex-col-reverse sm:flex-col"></div> -->
+  <!-- <Navbar /> -->
   <SearchCategoryBar :categories="categories" />
   <div class="hidden sm:block">
     <NavbarCategory :categories="categories" />
@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+// import Navbar from '@/Components/Navbar/navbar.vue'
 import Topbar from '@/Components/Navbar/topbar.vue'
 import SearchCategoryBar from '@/Components/Navbar/searchCategoryBar.vue'
 import NavbarCategory from '@/Components/Navbar/navbarCategory.vue'

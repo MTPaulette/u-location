@@ -7,14 +7,17 @@ use App\Models\Info;
 use App\Models\Product;
 use App\Models\Weight;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 class CartController extends Controller
 {
     public function index()
     {
         return Inertia("Guest/cart", [
             'informations' =>  Info::find(1),
-            'products' => Product::orderByDesc('created_at')
-                    ->paginate(10)
+            'cartItems' => Cart::instance('default')->content(),
+            'cartnb' => Cart::instance('default')->count(),
+            // 'products' => Product::orderByDesc('created_at')->paginate(10)
         ]);
     }
 
@@ -26,39 +29,26 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         $product = $request->product;
         $product_id = $request->product['id'];
         $weight_id = $request->weight_id;
+        $weight_name = $request->weight;
         $qty = $request->qty;
         $price = $request->price;
 
-        // dd($request->product['weights'][$weight_id]);
+        // $cart1 = Cart::add(['id' => '293ad', 'name' => 'Product 1', 'qty' => 1, 'price' => 9.99, 'weight' => 550, 'options' => ['size' => 'large']]);
 
-        $cart = session()->get('cart', []);
-        if(isset($cart[$product_id])) {
-            dd('bjrrrrrrrrrrr');
-            if(isset($cart[$product_id]->weightQty[$weight_id])) {
-                $cart[$product_id]->weightQty[$weight_id]->qty = $cart[$product_id]->weightQty[$weight_id] + $qty;
-            }
-        } else {
-            $cart[$product_id] = [
-                "name" => $product['name'],
-                "image" => $product['images'],
-                "weightQty" => [
-                    $weight_id => [
-                        'weight' => Weight::find($weight_id),
-                        'qty' => $qty,
-                        'price' => $price,
-                    ]
-                ]
-            ];
-        }
-
-        dd($cart);
-        //session()->put('cart', $cart);
-        //return redirect()->back()->with('success', 'product has been added to cart!');
-
+        Cart::instance('default')->add($product_id, $product['name'], $qty, $price, $weight_id, [
+            'totalQty'=>$request->totalQty,
+            'product' => $product,
+            'product_code' => $product['code'],
+            'weight_name' => $weight_name,
+            'images' => $product['images'][0],
+            'description' => $product['description'],
+            'remaining_stock' => $request->remaining_stock
+        ])->associate('App\Models\Product');
+        // dd($cart2);
+        return redirect()->back()->with('success', 'product has been added to cart!');
     }
 
     /**
@@ -76,11 +66,12 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $rowId
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($rowId)
     {
-        //
+        Cart::instance('default')->remove($rowId);
+        return redirect()->back()->with('success', 'product has been removed to cart!');
     }
 }

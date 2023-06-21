@@ -4,7 +4,8 @@
       <pageTitle title="blog details" />
       <div class="mycontainer md:px-10 lg:px-20">
         <div class="grid grid-cols-1 md:grid-cols-2 md:gap-10 border-b my-border-gray pb-5 mb-4">
-          <myTitle :title="product.name" class="uppercase md:hidden block text-white bg-black text-center p-2" />
+          <h2 class="title mb-4 uppercase md:hidden block text-white bg-black text-center p-2"> {{ product.name }} </h2>
+          <!-- <myTitle :title="product.name" class="" /> -->
           <div v-if="product.images.length" class="mb-2 md:mb-8 mt-0">
             <div class="flex justify-center w-full h-56 sm:h-64 md:h-72">
               <img class="w-full max-w-[400px] h-full shadow-lg rounded-lg shadow-gray-500" :src="getImgUrl(product.images[selectedImage].filename)" />
@@ -19,17 +20,19 @@
 
           <!-- <div class="order-1 sm:order-2"> -->
           <div>
-            <myTitle :title="product.name" class="uppercase hidden md:block text-white bg-black text-center p-2" />
+            <!-- <myTitle :title="product.name" class="uppercase hidden md:block text-white bg-black text-center p-2" /> -->
+            <h2 class="title mb-4 uppercase hidden md:block text-white bg-black text-center p-2"> {{ product.name }} </h2>
             <div class="pb-2 md:pb-5 mb-0 md:mb-6">
-              <div class="flex flex-wrap gap-2 justify-center w-full my-4 sm:my-7 text-gray-600 dark:text-gray-100">
+              <div class="flex flex-wrap gap-2 justify-center w-full my-4 sm:my-7">
+                <!-- <div class="flex flex-wrap gap-2 justify-center w-full my-4 sm:my-7 text-gray-600 dark:text-gray-100"> -->
                 <div
                   v-for="weight in product.weights" 
                   :key="weight.id"
                   class="capitalize cursor-text w-[150px]"
                 >
-                  <p>weight: <span class="text-black dark:text-white font-extrabold">{{ weight.name }}</span></p>
-                  <p>Price: <span class="text-sheet-50 font-extrabold">{{ weight.pivot.price }} XAF</span></p>
-                  <p v-if="weight.pivot.remaining_stock == 0"><span class="text-red-600 text-sm">not available</span></p>
+                  <p>weight: <span class="font-extrabold">{{ weight.name }}</span></p>
+                  <p>Price: <span class="text-sheet-50 font-bold">{{ weight.pivot.price }} XAF</span></p>
+                  <p v-if="weight.pivot.remaining_stock == 0"><span class="text-red-600 text-xs">not available</span></p>
                 </div>
               </div>
               <div class="font-medium text-justify border-b my-border-gray pb-5 mb-4 text-gray-700 dark:text-gray-400">
@@ -39,7 +42,7 @@
               <div class="w-full">
                 <p class="font-semibold mb-2 text-gray-900 dark:text-gray-200 ">Products added to the basket</p>
                 <div>
-                  <form class="flex flex-wrap gap-2 w-full justify-around md:justify-end items-end" @submit.prevent="addToCart">
+                  <form class="flex flex-wrap gap-2 w-full justify-around md:justify-start items-end" @submit.prevent="addToCart">
                     <div class="block sm:flex items-center">
                       <label for="weight" class="label mb-1 mr-2">Weight:</label>
                       <select id="weight" v-model="weightIndex" name="weight" class="w-24 md:w-[90px] xl:w-24 py-1 text-center border-t border-b my-border-gray bg-gray-50 dark:bg-transparent" @click="initialiseForm()">
@@ -58,7 +61,7 @@
                         <span class="px-2 cursor-pointer" @click="increment">&#xff0b;</span>
                       </div>
                     </div>
-                    <Button label="add to cart" type="submit" rounded success small />
+                    <Button label="add to cart" type="submit" rounded success small :disabled="!canUpload" />
                   </form>
                 </div>
               </div>
@@ -90,7 +93,8 @@
           <!-- advantage -->
           <div class="border-b my-border-gray pb-5 mb-6">
             <sectionTitle title="Advantages" green />
-            <div class="px-2 py-4 -mt-2 text-green-900 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
+            <!-- <div class="px-2 py-4 -mt-2 text-green-900 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"> -->
+            <div class="px-2 py-4 -mt-2">
               <UlList title="Some advantages" :lists="product.advantages" />
             </div>
           </div>
@@ -116,7 +120,8 @@ import myTitle from '@/Components/myTitle.vue'
 import { ref } from 'vue'
 import UlList from '@/Components/ulList.vue'
 import Button from '@/Components/button.vue'
-import { useForm } from '@inertiajs/vue3'
+import { useForm, router } from '@inertiajs/vue3'
+import NProgress from 'nprogress'
 
 const props = defineProps({
   product: Object,
@@ -125,18 +130,26 @@ const props = defineProps({
   informations: Object,
 })
 
-const  weightIndex = ref(0)
+//progress bar for images upload
+router.on('progress', (event) => {
+  if (event.detail.progress.percentage) {
+    NProgress.set((event.detail.progress.percentage / 100) * 0.9)
+  }
+})
+
+const  weightIndex = ref()
+const canUpload = ref(false)
 
 const form = useForm({
   product: props.product,
   // product_id: '',
   weight_id: null,
+  weight: '',
   qty: 1,
   price: null,
   remaining_stock: null,
+  totalQty: 0,
 })
-
-
 
 const selectedImage = ref(0)
 
@@ -149,15 +162,30 @@ const initialiseForm = () => {
   const i = weightIndex.value
   console.log("===================================")
   console.log(i)
-  form.weight_id = props.product.weights[i].id
-  form.price = props.product.weights[i].pivot.price
-  form.remaining_stock = props.product.weights[i].pivot.remaining_stock
+  if(i != undefined) {
+    form.weight_id = props.product.weights[i].id
+    form.weight = props.product.weights[i].name
+    form.price = props.product.weights[i].pivot.price
+    form.remaining_stock = props.product.weights[i].pivot.remaining_stock
+
+    form.totalQty = form.qty
+    if(form.price != undefined) {
+      canUpload.value = true
+    }
+  }
 }
 
 
 const addToCart = () => {
-  form.post('/cart')
+  // form.post('/cart');
+  form.post(
+    route('cart.store'),
+    {
+      onSuccess: () => form.reset('images'),
+    },
+  )
 }
+
 
 
 const decrement = () => {
