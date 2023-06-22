@@ -29,7 +29,7 @@
                   class="capitalize cursor-text w-[150px]"
                 >
                   <p>weight: <span class="font-extrabold">{{ weight.name }}</span></p>
-                  <p>Price: <span class="text-sheet-50 font-bold">{{ weight.pivot.price }} XAF</span></p>
+                  <p>Price: <span class="text-sheet-50 font-bold">{{ formatPrice(weight.pivot.price) }}</span></p>
                   <p v-if="weight.pivot.remaining_stock == 0"><span class="text-red-600 text-xs">not available</span></p>
                 </div>
               </div>
@@ -170,9 +170,7 @@ const initialiseForm = () => {
   }
 }
 
-
 const addToCart = () => {
-  // form.post('/cart');
   form.post(
     route('cart.store'),
     {
@@ -182,12 +180,15 @@ const addToCart = () => {
 }
 
 
-
 const decrement = () => {
   if(form.qty >= 2)
     form.qty--
 }
 const increment = () => {
   form.qty = form.qty+1
+}
+
+const formatPrice = (price) => {
+  return price+" FCFA"
 }
 </script>

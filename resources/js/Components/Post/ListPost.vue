@@ -122,6 +122,9 @@
             </td>
             <td class="px-5 py-3.5 relative text-justify">
               <p v-html="post.content" />
+              <!-- <br />
+              <br />
+              {{ post.content }} -->
             </td>
             <!-- <td class="px-5 py-3.5 flex justify-between w-full ">
               <table>

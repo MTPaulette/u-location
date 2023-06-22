@@ -46,6 +46,7 @@
 
             <div class="text-base text-gray-700 dark:text-gray-400">
               <p class="content" v-html="post.content" />
+              <br /> <br /> <br /> {{ post.content }}
             </div>
           </div>
 
@@ -102,5 +103,9 @@ defineProps({
 <style>
 ol {
   list-style: disc;
+}
+
+u {
+  background: pink;
 }
 </style>

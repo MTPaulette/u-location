@@ -40,17 +40,12 @@
     margin-bottom: 10px;
   }
 
-  #posts h1 {
+  #posts .title h1 {
     width: 100%;
     padding-bottom: 20px;
     text-align: center;
     text-transform: uppercase;
     text-decoration: underline;
-  }
-
-  #posts p span {
-    text-decoration: underline;
-    font-weight: bold;
   }
 
   #posts table {
