@@ -17,14 +17,16 @@
           <h1>agrimax posts list</h1>
           <p><span>Date</span>: {{ now() }}</p>
         </div>
-        @yield('content')
+        <div class="content">
+          @yield('content')
+        </div>
       </div>
   </body>
 </html>
 
 
 <style>
-  #posts {
+  #posts, .content {
     width: 100%;
   }
 
@@ -41,7 +43,6 @@
   #posts h1 {
     width: 100%;
     padding-bottom: 20px;
-    /* color: rgb(4 118 52 / 1); */
     text-align: center;
     text-transform: uppercase;
     text-decoration: underline;
@@ -71,12 +72,10 @@
 
   #posts td .post-item {
     text-decoration: underline;
-    /* font-weight: bold; */
   }
 
   #posts td .post-user {
     color: rgb(26 86 219 / 1);
-    /* color: dodgerblue; */
   }
 
   #posts table thead {

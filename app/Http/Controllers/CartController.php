@@ -13,11 +13,23 @@ class CartController extends Controller
 {
     public function index()
     {
+        $cart = Cart::instance('default');
+        /*
+            $cartTaxRate = config('cart.tax');
+            $tax = config('cart.tax')/100;
+            $cartTax = $subtotal*$tax;
+        */
+        $subtotal = $cart->subtotal();
         return Inertia("Guest/cart", [
             'informations' =>  Info::find(1),
-            'cartItems' => Cart::instance('default')->content(),
-            'cartnb' => Cart::instance('default')->count(),
-            // 'products' => Product::orderByDesc('created_at')->paginate(10)
+            'cartItems' => $cart->content(),
+            'cartcount' => $cart->count(),
+            'subtotal' => $subtotal,
+            /*
+                'carttaxrate' => $cartTaxRate,
+                'carttax' => $cartTax,
+                'total' => $cart->total(),
+            */
         ]);
     }
 
@@ -36,10 +48,8 @@ class CartController extends Controller
         $qty = $request->qty;
         $price = $request->price;
 
-        // $cart1 = Cart::add(['id' => '293ad', 'name' => 'Product 1', 'qty' => 1, 'price' => 9.99, 'weight' => 550, 'options' => ['size' => 'large']]);
-
         Cart::instance('default')->add($product_id, $product['name'], $qty, $price, $weight_id, [
-            'totalQty'=>$request->totalQty,
+            'totalQty'=>$qty*$price,
             'product' => $product,
             'product_code' => $product['code'],
             'weight_name' => $weight_name,
@@ -47,7 +57,6 @@ class CartController extends Controller
             'description' => $product['description'],
             'remaining_stock' => $request->remaining_stock
         ])->associate('App\Models\Product');
-        // dd($cart2);
         return redirect()->back()->with('success', 'product has been added to cart!');
     }
 
@@ -55,12 +64,28 @@ class CartController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $rowId
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $rowId)
     {
-        //
+        $cart = Cart::instance('default');
+        $cartItem = $cart->get($rowId);
+        $cartItemOptions = $cartItem->options;
+
+        $qty = $request->qty;
+        $price = $cartItem->price;
+
+        $cart->update($rowId, $qty);
+        $cart->update($rowId, ['options' => [
+            'totalQty' => $qty*$price,
+            'product' => $cartItemOptions->product,
+            'product_code' => $cartItemOptions->product_code,
+            'weight_name' => $cartItemOptions->weight_name,
+            'images' => $cartItemOptions->images,
+            'description' => $cartItemOptions->description,
+            'remaining_stock' => $cartItemOptions->remaining_stock
+        ]]);
     }
 
     /**
@@ -73,5 +98,16 @@ class CartController extends Controller
     {
         Cart::instance('default')->remove($rowId);
         return redirect()->back()->with('success', 'product has been removed to cart!');
+    }
+
+    /**
+     * Remove all resources in the cart
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function clear()
+    {
+        Cart::instance('default')->destroy();
+        return redirect()->route('product.index')->with('success', 'the cart is empty now!');
     }
 }

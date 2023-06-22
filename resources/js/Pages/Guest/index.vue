@@ -21,7 +21,7 @@
     <!-- our products -->
     <div class="flex flex-col items-center w-full py-12 px-3 sm:px-12 md:px-14">
       <div class="w-full">
-        <myTitle title="Our Products" />
+        <sectionTitle title="Our Products" class="title" />
       </div>
       <!-- Carousel data-carousel="slide" -->
       <div id="indicators-carousel" class="relative h-40 w-full bg-pink-50 mt-6" data-carousel="slide">
@@ -58,7 +58,7 @@
     <!--from our blog -->
     <div class="flex flex-col items-center w-full py-12 px-3 sm:px-12 md:px-14 bg-gray-50 dark:bg-gray-900">
       <div class="w-full">
-        <myTitle title="From Our Blog" />
+        <sectionTitle title="From Our Blog" class="title" />
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-1 justify-between w-full">
         <div v-for="post in posts" :key="post.id" class="w-full">
@@ -78,6 +78,7 @@ import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import postCard from '@/Components/postCard.vue'
 import productCard from '@/Components/productCard.vue'
 import myTitle from '@/Components/myTitle.vue'
+import sectionTitle from '@/Components/sectionTitle.vue'
 import { Link } from '@inertiajs/vue3'
 
 defineProps({

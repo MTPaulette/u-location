@@ -42,9 +42,10 @@ Route::get("/notFound",[GuestController::class, "notFound"]);
 
 Route::resource("post", PostController::class)->only(['index', 'show']);
 Route::resource("product", ProductController::class)->only(['index', 'show']);
-Route::resource("cart", CartController::class)->only(['index', 'store', 'update', 'destroy']);
 
 /* cart routes */
+Route::resource("cart", CartController::class)->only(['index', 'store', 'update', 'destroy']);
+Route::delete("/clearCart",[CartController::class, "clear"])->name('cart.clear');
 
 Route::prefix('cart')
 ->name('cart.')

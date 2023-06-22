@@ -4,7 +4,6 @@
       <pageTitle title="blog details" />
       <div class="mycontainer md:px-10 lg:px-20">
         <div class="grid grid-cols-1 md:grid-cols-2 md:gap-10 border-b my-border-gray pb-5 mb-4">
-          <h2 class="title mb-4 uppercase md:hidden block text-white bg-black text-center p-2"> {{ product.name }} </h2>
           <!-- <myTitle :title="product.name" class="" /> -->
           <div v-if="product.images.length" class="mb-2 md:mb-8 mt-0">
             <div class="flex justify-center w-full h-56 sm:h-64 md:h-72">
@@ -20,8 +19,7 @@
 
           <!-- <div class="order-1 sm:order-2"> -->
           <div>
-            <!-- <myTitle :title="product.name" class="uppercase hidden md:block text-white bg-black text-center p-2" /> -->
-            <h2 class="title mb-4 uppercase hidden md:block text-white bg-black text-center p-2"> {{ product.name }} </h2>
+            <myTitle :title="product.name" class="uppercase hidden md:block text-white bg-black text-center p-2" />
             <div class="pb-2 md:pb-5 mb-0 md:mb-6">
               <div class="flex flex-wrap gap-2 justify-center w-full my-4 sm:my-7">
                 <!-- <div class="flex flex-wrap gap-2 justify-center w-full my-4 sm:my-7 text-gray-600 dark:text-gray-100"> -->
@@ -57,7 +55,7 @@
                       <div class="flex items-center justify-center border my-border-gray">
                         <span class="px-2 cursor-pointer" @click="decrement">&mdash;</span>
                         <!-- <input type="text" :value="form.qty" class="w-12 md:w-10 xl:w-12 h-8 text-center border-none bg-gray-50 dark:bg-transparent" /> -->
-                        <input type="text" :value="form.qty" readonly class="w-12 md:w-10 xl:w-12 h-8 text-center border-none bg-gray-50 dark:bg-transparent" />
+                        <input type="text" :value="form.qty" class="w-12 md:w-10 xl:w-12 h-8 text-center border-none bg-gray-50 dark:bg-transparent" />
                         <span class="px-2 cursor-pointer" @click="increment">&#xff0b;</span>
                       </div>
                     </div>
@@ -72,7 +70,7 @@
 
         <div class="w-full pb-8">
           <!-- composition -->
-          <div class="border-b my-border-gray pb-5 mb-4">
+          <div v-if="product.ingredients.length" class="border-b my-border-gray pb-5 mb-4">
             <sectionTitle title="Composition" />
 
             <span v-for="ingredient in product.ingredients" :key="ingredient.id" class="px-1">
@@ -83,7 +81,7 @@
           </div>
 
           <!-- preparation -->
-          <div class="border-b my-border-gray pb-5 mb-4">
+          <div v-if="product.preparation" class="border-b my-border-gray pb-5 mb-4">
             <sectionTitle title="Preparation" orange />
             <p class="font-medium text-justify">
               {{ product.preparation }}
@@ -91,7 +89,7 @@
           </div>
 
           <!-- advantage -->
-          <div class="border-b my-border-gray pb-5 mb-6">
+          <div v-if="product.advantages.length" class="border-b my-border-gray pb-5 mb-6">
             <sectionTitle title="Advantages" green />
             <!-- <div class="px-2 py-4 -mt-2 text-green-900 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"> -->
             <div class="px-2 py-4 -mt-2">
@@ -100,7 +98,7 @@
           </div>
 
           <!-- utilisation -->
-          <div class="pb-5 mb-4">
+          <div v-if="product.utilisation" class="pb-5 mb-4">
             <sectionTitle title="Utilisation" yellow />
             <p class="font-medium text-justify">
               {{ product.utilisation }}
@@ -148,7 +146,6 @@ const form = useForm({
   qty: 1,
   price: null,
   remaining_stock: null,
-  totalQty: 0,
 })
 
 const selectedImage = ref(0)
@@ -167,8 +164,6 @@ const initialiseForm = () => {
     form.weight = props.product.weights[i].name
     form.price = props.product.weights[i].pivot.price
     form.remaining_stock = props.product.weights[i].pivot.remaining_stock
-
-    form.totalQty = form.qty
     if(form.price != undefined) {
       canUpload.value = true
     }

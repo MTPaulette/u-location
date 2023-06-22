@@ -3,6 +3,7 @@
     <Sidebar />
   
     <div class="bg-gray-100 dark:bg-gray-700 p-4 sm:ml-52 xl:ml-64 mt-14">
+      <!-- <div class="bg-gray-100 dark:bg-gray-700 p-4 sm:ml-52 xl:ml-64 mt-14"> -->
       <div v-if="flashSuccess">
         <FlashAlert :message="flashSuccess" />
       </div>

@@ -1,7 +1,7 @@
 <template>
   <Navbar />
   <div class=" text-black dark:text-gray-400 bg-white my-border-gray dark:bg-gray-800">
-    <div v-if="flashSuccess">
+    <div v-if="flashSuccess" class="mt-8">
       <FlashAlert :message="flashSuccess" />
     </div>
     <slot />
