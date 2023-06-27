@@ -405,9 +405,12 @@ export default {
   ol {
     padding: 0 1rem;
   }
-
-  ol {
+  
+  ul {
     list-style: disc;
+  }
+  ol {
+    list-style: decimal;
   }
 
   h1, h2, h3, h4, h5, h6 {

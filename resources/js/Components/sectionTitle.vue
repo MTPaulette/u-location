@@ -3,7 +3,7 @@
     <h2 class="font-bold text-gray-900 dark:text-gray-200 pb-0 relative capitalize">{{ title }}</h2>
     <span
       class="h-[4px] w-12 mb-2 inline-block"
-      :class="{'bg-onion-200':purple, 'bg-sheet-200':green, 'bg-orange-400':orange, 'bg-pineapple':yellow}"
+      :class="{'bg-onion-200':purple, 'bg-sheet-50':green, 'bg-orange-400':orange, 'bg-pineapple':yellow}"
     />
   </div>
 </template>

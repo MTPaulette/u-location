@@ -47,19 +47,6 @@ Route::resource("product", ProductController::class)->only(['index', 'show']);
 Route::resource("cart", CartController::class)->only(['index', 'store', 'update', 'destroy']);
 Route::delete("/clearCart",[CartController::class, "clear"])->name('cart.clear');
 
-Route::prefix('cart')
-->name('cart.')
-->group(function () {
-  // Route::resource("cart", CartController::class)->only(['index', 'show']);
-  /*
-  Route::get("/",[CartController::class, "show"]);
-  Route::post("/add",[CartController::class, "store"]);
-  Route::get("/",[CartController::class, "update"]);
-  Route::get("/",[CartController::class, "destroy"]);
-  */
-  
-});
-
 /* search post by them and product by category */
 Route::get("/posts/category/{theme}",[PostController::class, "getPostsByTheme"])->name("PostsByTheme");
 Route::get("/products/category/{category}",[ProductController::class, "getProductsByCategory"])->name("ProductsByCategory");

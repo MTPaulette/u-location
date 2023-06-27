@@ -10,7 +10,7 @@
           <!-- <a href="" class="text-base md:text-sm">{{ post.name }}</a> -->
         </h4>
       
-        <div class="h-10 md:h-8 overflow-hidden text-justify text-sm md:text-xs mb-2 text-gray-700 dark:text-gray-400"><p v-html="post.content" /></div>
+        <div class="h-10 md:h-8 overflow-hidden text-justify text-sm md:text-xs mb-2 text-gray-700 dark:text-gray-400"><div class="content" v-html="post.content" /></div>
         <!-- <p class="h-10 md:h-8 overflow-hidden text-justify text-sm md:text-xs mb-2 text-gray-700 dark:text-gray-400"><p v-html="post.content" /></p> -->
     
 

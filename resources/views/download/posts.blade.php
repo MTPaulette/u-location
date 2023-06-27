@@ -20,6 +20,7 @@
         <br/><br/><span class="post-item">at:</span> <br/>{{ $post->created_at }}
       </td>
       <td>
+        <!-- {{ $post->content }} -->
         <?php echo(html_entity_decode($post->content)) ?>
       </td>
     </tr>

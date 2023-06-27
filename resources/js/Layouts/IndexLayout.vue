@@ -39,3 +39,4 @@ defineProps({
   categories: Object,
 })
 </script>
+

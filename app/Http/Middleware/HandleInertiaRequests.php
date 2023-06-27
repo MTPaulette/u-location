@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 class HandleInertiaRequests extends Middleware
 {
     /**
@@ -36,6 +38,7 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $cart = Cart::instance('default');
         return array_merge(parent::share($request), [
             'flash' => [
                 'success' => $request->session()->get('success')
@@ -46,7 +49,10 @@ class HandleInertiaRequests extends Middleware
                 'lastname' => $request->user()->lastname,
                 'email' => $request->user()->email,
                 'role' => $request->user()->role->id,
-            ] : null
+            ] : null,
+            'cartItems' => $cart->content(),
+            'cartcount' => $cart->count(),
+            'subtotal' => $cart->subtotal(),
         ]);
     }
 }

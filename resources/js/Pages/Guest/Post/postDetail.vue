@@ -46,7 +46,9 @@
 
             <div class="text-base text-gray-700 dark:text-gray-400">
               <p class="content" v-html="post.content" />
-              <br /> <br /> <br /> {{ post.content }}
+            </div>
+            <div class="mt-20">
+              <Share />
             </div>
           </div>
 
@@ -91,6 +93,7 @@ import postCard from '@/Components/postCard.vue'
 import myTitle from '@/Components/myTitle.vue'
 import { Link } from '@inertiajs/vue3'
 import ThemeList from '@/Components/themeList.vue'
+import Share from '@/Components/share.vue'
 
 defineProps({
   post: Object,
@@ -99,13 +102,3 @@ defineProps({
   informations: Object,
 })
 </script>
-
-<style>
-ol {
-  list-style: disc;
-}
-
-u {
-  background: pink;
-}
-</style>

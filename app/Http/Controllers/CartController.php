@@ -19,12 +19,11 @@ class CartController extends Controller
             $tax = config('cart.tax')/100;
             $cartTax = $subtotal*$tax;
         */
-        $subtotal = $cart->subtotal();
         return Inertia("Guest/cart", [
             'informations' =>  Info::find(1),
             'cartItems' => $cart->content(),
             'cartcount' => $cart->count(),
-            'subtotal' => $subtotal,
+            'subtotal' => $cart->subtotal(),
             /*
                 'carttaxrate' => $cartTaxRate,
                 'carttax' => $cartTax,
@@ -49,7 +48,7 @@ class CartController extends Controller
         $price = $request->price;
 
         Cart::instance('default')->add($product_id, $product['name'], $qty, $price, $weight_id, [
-            'totalQty'=>$qty*$price,
+            'totalPrice'=>$qty*$price,
             'product' => $product,
             'product_code' => $product['code'],
             'weight_name' => $weight_name,
@@ -78,7 +77,7 @@ class CartController extends Controller
 
         $cart->update($rowId, $qty);
         $cart->update($rowId, ['options' => [
-            'totalQty' => $qty*$price,
+            'totalPrice' => $qty*$price,
             'product' => $cartItemOptions->product,
             'product_code' => $cartItemOptions->product_code,
             'weight_name' => $cartItemOptions->weight_name,

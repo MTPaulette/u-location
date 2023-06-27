@@ -20,4 +20,24 @@
   background: #C4C4C4;
   border-radius: 8px;
 }
+
+.content ul {
+  padding: 0 1rem;
+  /* list-style: disc;  */
+  /* list-style-image: url("./../../images/feuille-50.png"); */
+}
+
+.content ul li {
+  list-style: none;
+  padding: 1px 20px;
+  background-image: url("./../../images/feuille-50.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 12px;
+}
+
+.content ol {
+  padding: 0 1rem;
+  list-style: decimal;
+}
 </style>

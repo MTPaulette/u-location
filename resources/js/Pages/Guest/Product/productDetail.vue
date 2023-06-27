@@ -7,7 +7,8 @@
           <!-- <myTitle :title="product.name" class="" /> -->
           <div v-if="product.images.length" class="mb-2 md:mb-8 mt-0">
             <div class="flex justify-center w-full h-56 sm:h-64 md:h-72">
-              <img class="w-full max-w-[400px] h-full shadow-lg rounded-lg shadow-gray-500" :src="getImgUrl(product.images[selectedImage].filename)" />
+              <img class="w-full max-w-[400px] h-full rounded-lg" :src="getImgUrl(product.images[selectedImage].filename)" />
+              <!-- <img class="w-full max-w-[400px] h-full shadow-lg rounded-lg shadow-gray-500" :src="getImgUrl(product.images[selectedImage].filename)" /> -->
             </div>
             <div class="flex flex-wrap gap-2 justify-center w-full mt-7">
               <div v-for="(image, i) in product.images" :key="image.id" class="w-16 h-14 md:w-20 md:h-16" @click="selectedImage=i">
@@ -34,7 +35,7 @@
                 </div>
               </div>
               <div class="font-medium text-justify border-b my-border-gray pb-5 mb-4 text-gray-700 dark:text-gray-400">
-                <p v-html="product.description" />
+                <p class="content" v-html="product.description" />
               </div>
               <!-- weight -->
               <div class="w-full">

@@ -15,3 +15,14 @@ defineProps({
   lists: Object,
 })
 </script>
+
+<style scoped>
+ul li {
+  list-style: none;
+  padding: 1px 20px;
+  background-image: url("./../../images/feuille-50.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 12px;
+}
+</style>

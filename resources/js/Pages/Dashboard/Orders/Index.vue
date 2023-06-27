@@ -39,7 +39,7 @@
                   <div class="flex-1 pl-4">
                     <span>{{ product.name }}</span>
                     <p>{{ product.details }}</p>
-                    <p><p v-html="product.description" /></p>
+                    <p class="content" v-html="product.description" />
                   </div>
                 </Link>
               </div>

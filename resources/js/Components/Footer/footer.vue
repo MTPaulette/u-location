@@ -1,7 +1,7 @@
 <template>
   <!-- <footer class="bg-gray-900 dark:bg-gray-800"> -->
   <footer class="bg-gray-900 dark:bg-black">
-    <div class="mx-auto w-full p-4 sm:p-6">
+    <div class="mx-auto w-full p-6 sm:p-8">
       <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0 w-full md:w-[350px] mr-5">
           <a href="https://flowbite.com/" class="flex items-center ">

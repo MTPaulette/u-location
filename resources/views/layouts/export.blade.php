@@ -30,6 +30,17 @@
     width: 100%;
   }
 
+  ul, ol {
+    margin: 0;
+    /* margin-top: -0.75rem; */
+    /* margin-bottom: -1.5rem; */
+  }
+
+  li p {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   #posts .logo {
     width: 170px;
     margin: 0px auto;

@@ -6,11 +6,11 @@
       </div>
       <div class="w-full pl-3">
         <h4 class="w-5/6 truncate h-5 mb-1">
-          <a href="" class="text-base">{{ cartItem.name }}</a>
+          <Link :href="route('product.show', {product: cartItem.options.product.id})" class="text-base hover:text-sheet-100">{{ cartItem.name }}</Link>
         </h4>
       
         <div class="h-10 md:h-8 w-full relative overflow-hidden text-justify text-sm md:text-xs mb-2 text-gray-700 dark:text-gray-400">
-          <p v-html="cartItem.options.description" />
+          <p class="content" v-html="cartItem.options.description" />
         </div>
     
 
@@ -31,7 +31,7 @@
   </td>
                   
   <td class="px-4 py-3 text-gray-900 dark:text-white">
-    <p class="font-semibold mb-2 whitespace-nowrap">{{ formatPrice(cartItem.options.totalQty) }}</p>
+    <p class="font-semibold mb-2 whitespace-nowrap">{{ formatPrice(cartItem.options.totalPrice) }}</p>
     <p class="text-gray-600 dark:text-gray-400 whitespace-nowrap">{{ formatPrice(cartItem.price) }} each</p>
   </td>
 
