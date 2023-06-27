@@ -23,7 +23,6 @@ class PostController extends Controller
     public function index()
     {
         return Inertia("Guest/Post/allPost", [
-            'informations' =>  Info::find(1),
 
             /* 
             'images' =>  DB::table('images')
@@ -57,7 +56,6 @@ class PostController extends Controller
 
         $post->load(['images', 'user']);
         return Inertia("Guest/Post/postDetail", [
-            'informations' =>  Info::find(1),
             'post' => $post,
             'themes' => Theme::orderBy('created_at')->get(),
             'popularPosts' => Post::orderByDesc('created_at')
@@ -76,7 +74,6 @@ class PostController extends Controller
     public function getPostsByTheme(Theme $theme)
     {
         return Inertia("Guest/Post/postsByTheme", [
-            'informations' =>  Info::find(1),
             'theme' =>  $theme,
             'themes' => Theme::all(),
             'posts' => Post::where('theme_id', '=', $theme->id)

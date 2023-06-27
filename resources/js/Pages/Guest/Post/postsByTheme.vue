@@ -1,5 +1,5 @@
 <template>
-  <MainLayout :informations="informations">
+  <MainLayout>
     <pageTitle title="articles de categorie" />
     <div class="ml-3">
       <myTitle title="Articles de la categorie:" />
@@ -41,7 +41,6 @@
 
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
-import { Link } from '@inertiajs/vue3'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import postCard from '@/Components/postCard.vue'
 import pagination from '@/Components/pagination.vue'
@@ -52,6 +51,5 @@ defineProps({
   posts: Object,
   theme: Object,
   themes: Object,
-  informations: Object,
 })
 </script>

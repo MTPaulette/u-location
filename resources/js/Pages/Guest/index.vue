@@ -1,5 +1,5 @@
 <template>
-  <IndexLayout :informations="informations" :categories="categories">
+  <IndexLayout>
     <pageTitle title="home" />
     <!-- <div class="w-full bg-gray-100 dark:bg-gray-700"> -->
     <div class="w-full">
@@ -77,13 +77,10 @@ import IndexLayout from '@/Layouts/IndexLayout.vue'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import postCard from '@/Components/postCard.vue'
 import productCard from '@/Components/productCard.vue'
-import myTitle from '@/Components/myTitle.vue'
+// import myTitle from '@/Components/myTitle.vue'
 import sectionTitle from '@/Components/sectionTitle.vue'
-import { Link } from '@inertiajs/vue3'
 
 defineProps({
   posts: Object,
-  informations: Object,
-  categories: Object,
 })
 </script>

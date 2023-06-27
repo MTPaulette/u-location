@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
+use App\Models\Category;
+use App\Models\Info;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class HandleInertiaRequests extends Middleware
@@ -50,6 +52,10 @@ class HandleInertiaRequests extends Middleware
                 'email' => $request->user()->email,
                 'role' => $request->user()->role->id,
             ] : null,
+            
+            'informations' =>  Info::find(1),
+            'categories' => Category::orderBy('name', 'asc')->get(),
+
             'cartItems' => $cart->content(),
             'cartcount' => $cart->count(),
             'subtotal' => $cart->subtotal(),

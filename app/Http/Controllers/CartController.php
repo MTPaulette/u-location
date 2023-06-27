@@ -20,7 +20,6 @@ class CartController extends Controller
             $cartTax = $subtotal*$tax;
         */
         return Inertia("Guest/cart", [
-            'informations' =>  Info::find(1),
             'cartItems' => $cart->content(),
             'cartcount' => $cart->count(),
             'subtotal' => $cart->subtotal(),

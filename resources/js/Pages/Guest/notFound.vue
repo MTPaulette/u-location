@@ -1,5 +1,5 @@
 <template>
-  <MainLayout :informations="informations">
+  <MainLayout>
     <pageTitle title="404" />
     <section class="bg-white py-12 sm:py-20">
       <div class="container">

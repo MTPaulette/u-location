@@ -1,5 +1,5 @@
 <template>
-  <MainLayout :informations="informations">
+  <MainLayout>
     <div>
       <pageTitle title="blog details" />
       <div class="mycontainer md:px-10 lg:px-20">
@@ -126,7 +126,6 @@ const props = defineProps({
   product: Object,
   themes: Object,
   popularProducts: Object,
-  informations: Object,
 })
 
 //progress bar for images upload

@@ -1,5 +1,5 @@
 <template>
-  <MainLayout :informations="informations">
+  <MainLayout>
     <pageTitle title="blog" />
     <div class="ml-3">
       <myTitle title="Tous les produits" />
@@ -50,7 +50,6 @@ import myTitle from '@/Components/myTitle.vue'
 
 defineProps({
   products: Object,
-  informations: Object,
 })
 
 const selectedImage = ref(0)

@@ -32,8 +32,12 @@ const flashSuccess = computed(
   () => page.props.flash.success,
 )
 
-defineProps({
-  informations: Object,
-  categories: Object,
-})
+const informations = computed(
+  () => page.props.informations,
+)
+
+const categories = computed(
+  () => page.props.categories,
+)
+
 </script>

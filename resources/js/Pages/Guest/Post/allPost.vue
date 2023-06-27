@@ -1,5 +1,5 @@
 <template>
-  <MainLayout :informations="informations">
+  <MainLayout>
     <pageTitle title="blog" />
     <div class="ml-3">
       <myTitle title="Tous les articles" />
@@ -48,9 +48,9 @@ import postCard from '@/Components/postCard.vue'
 import pagination from '@/Components/pagination.vue'
 import myTitle from '@/Components/myTitle.vue'
 
+
 defineProps({
   posts: Object,
-  informations: Object,
 })
 
 const selectedImage = ref(0)

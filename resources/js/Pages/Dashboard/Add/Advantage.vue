@@ -40,8 +40,7 @@ import breadcrumb from '@/Components/PageTitle/tools/breadcrumb.vue'
 import myTitle from '@/Components/myTitle.vue'
 import generalList from '@/Components/generalList.vue'
 import Button from '@/Components/button.vue'
-import { useForm } from '@inertiajs/vue3'
-import { router } from '@inertiajs/vue3'
+import { useForm, router } from '@inertiajs/vue3'
 
 
 defineProps({

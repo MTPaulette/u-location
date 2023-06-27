@@ -1,5 +1,5 @@
 <template>
-  <MainLayout :informations="informations">
+  <MainLayout>
     <pageTitle title="cart" />
     <div class="mycontainer md:px-10 lg:px-14">
       <!-- <Cart 
@@ -25,14 +25,8 @@ import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import Cart from '@/Components/Cart/cart.vue'
 
 defineProps({
-  informations: Object,
   cartItems: Object,
   cartcount: String,
   subtotal: String,
-  /*
-  carttaxrate: String,
-  carttax: String,
-  total: String,
-  */
 })
 </script>

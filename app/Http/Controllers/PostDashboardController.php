@@ -23,7 +23,6 @@ class PostDashboardController extends Controller
     public function index()
     {
         return Inertia("Dashboard/Post/List", [
-            'informations' =>  Info::find(1),
             'posts' => 
                     Post::select('posts.*')
                     // DB::table('posts')
@@ -44,7 +43,6 @@ class PostDashboardController extends Controller
     public function create()
     {
         return Inertia("Dashboard/Post/Add", [
-            // 'themes' =>  Theme::all('id', 'title'), 
             'themes' => Theme::select('id', 'name')->orderBy('name', 'asc')->get()
         ]);
     }

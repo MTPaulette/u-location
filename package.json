@@ -33,6 +33,7 @@
         "nprogress": "^0.2.0",
         "vue": "^3.2.47",
         "vue-multiselect": "^3.0.0-beta.1",
+        "vue-social-sharing": "^4.0.0-alpha4",
         "vuex": "^4.1.0"
     }
 }

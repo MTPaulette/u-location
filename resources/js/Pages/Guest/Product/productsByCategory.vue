@@ -1,5 +1,5 @@
 <template>
-  <MainLayout :informations="informations">
+  <MainLayout>
     <pageTitle title="articles de categorie" />
     <div class="ml-3">
       <myTitle title="Articles de la categorie:" />
@@ -40,17 +40,22 @@
 
 <script setup>
 import MainLayout from '@/Layouts/MainLayout.vue'
-import { Link } from '@inertiajs/vue3'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import productCard from '@/Components/productCard.vue'
 import pagination from '@/Components/pagination.vue'
 import myTitle from '@/Components/myTitle.vue'
 import ThemeList from '@/Components/themeList.vue'
 
+import { Link, usePage } from '@inertiajs/vue3'
+import { computed } from 'vue'
+
+const page = usePage()
+const categories = computed(
+  () => page.props.categories,
+)
+
 defineProps({
   products: Object,
   category: Object,
-  categories: Object,
-  informations: Object,
 })
 </script>

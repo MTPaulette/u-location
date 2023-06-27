@@ -22,7 +22,6 @@ class ProductController extends Controller
     public function index()
     {
         return Inertia("Guest/Product/allProduct", [
-            'informations' =>  Info::find(1),
             'products' => Product::orderByDesc('created_at')
                             ->withCount('images')
                             ->with('images')
@@ -46,10 +45,7 @@ class ProductController extends Controller
         */
         $product->load(['images', 'advantages', 'ingredients', 'weights']);
         return Inertia("Guest/Product/productDetail", [
-            'informations' =>  Info::find(1),
             'product' => $product,
-            // 'similarProducts' => $similarProducts,
-            'categories' => Category::orderBy('created_at')->get(),
             'popularProducts' => Product::orderByDesc('created_at')
                                 ->with('images')
                                 ->get()
@@ -66,9 +62,7 @@ class ProductController extends Controller
     public function getProductsByCategory(Category $category)
     {
         return Inertia("Guest/Product/productsByCategory", [
-            'informations' =>  Info::find(1),
             'category' =>  $category,
-            'categories' => Category::orderBy('name', 'asc')->get(),
             'products' => Product::where('category_id', '=', $category->id)
                             ->orderByDesc('created_at')
                             ->with('images')

@@ -1,5 +1,5 @@
 <template>
-  <MainLayout :informations="informations">
+  <MainLayout>
     <div>
       <pageTitle title="blog details" />
       <div class="mycontainer">
@@ -91,14 +91,13 @@ import searchBar from '@/Components/searchSubmit.vue'
 import myCarousel from '@/Components/myCarousel.vue'
 import postCard from '@/Components/postCard.vue'
 import myTitle from '@/Components/myTitle.vue'
-import { Link } from '@inertiajs/vue3'
 import ThemeList from '@/Components/themeList.vue'
 import Share from '@/Components/share.vue'
+import { Link } from '@inertiajs/vue3'
 
 defineProps({
   post: Object,
   themes: Object,
   popularPosts: Object,
-  informations: Object,
 })
 </script>

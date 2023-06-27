@@ -1,5 +1,5 @@
 <template>
-  <MainLayout :informations="informations">
+  <MainLayout>
     <div>
       <pageTitle title="contact" />
       <div class="mycontainer py-12 sm:py-20">
@@ -90,8 +90,12 @@ import MainLayout from '@/Layouts/MainLayout.vue'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import formContact from '@/Components/formContact.vue'
 import myTitle from '@/Components/myTitle.vue'
+import { usePage } from '@inertiajs/vue3'
+import { computed } from 'vue'
 
-defineProps({
-  informations: Object,
-})
+const page = usePage()
+const informations = computed(
+  () => page.props.informations,
+)
+
 </script>
