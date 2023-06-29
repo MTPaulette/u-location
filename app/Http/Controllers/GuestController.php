@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\Info;
+use App\Models\Product;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -11,6 +11,11 @@ class GuestController extends Controller
 {
     public function index() {
         return Inertia("Guest/index", [
+            'products' => Product::orderByDesc('created_at')
+                                ->with('images')
+                                ->get()
+                                ->take(4),
+
             'posts' => Post::orderByDesc('created_at')
                                 ->with('images')
                                 ->get()
