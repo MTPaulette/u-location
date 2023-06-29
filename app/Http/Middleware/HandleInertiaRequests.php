@@ -62,6 +62,17 @@ class HandleInertiaRequests extends Middleware
 
             // value of category and input in the searchCategory component
             'filters' => $request->query(),
+
+            'category' => 'change la moi dans le handleInertia requests',
+
+            /*
+            'category' => $request->query() ? (
+                            $request->query()['category'] ? 
+                                Category::select('name')->where('id', '=', $request->query()['category'])->first()->name
+                            : null
+                        ): null,
+            */
+            
         ]);
     }
 }

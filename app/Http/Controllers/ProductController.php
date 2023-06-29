@@ -21,42 +21,8 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $filters = $request->query();
-
-        /**
-         * how to filters data controller side? (filters parameters are passing in handleInertiaRequests as global props)
-         * method 1: use if statement
-         * method 2: with when method
-         * method 3: in the product model
-         * here the $value is the return of the examination of the if statement:$filters['category'] ?? false
-        */
-
-        // method 2
-        $query = Product::orderByDesc('created_at')
-                ->when(
-                    $filters['category'] ?? false,
-                    fn($query, $value) => $query->where('category_id', '=', $value)
-                )
-                ->when(
-                    $filters['q'] ?? false,
-                    fn($query, $value) => $query->where('q', 'LIKE', "%$value%")->orWhere('q', 'LIKE', "%$value%")
-                );
-
-        /*
-            // method 1
-            $query = Product::orderByDesc('created_at');
-            if($filters['category'] ?? false ) {
-                $query->where('category_id', '=', $filters['category']);
-            }
-
-            if($filters['q'] ?? false ) {
-                $q = $filters['q'];
-                $query->where('name', 'LIKE',"%$q%")->orWhere('description', 'LIKE',"%$q%");
-            }
-        */
-        
         return Inertia("Guest/Product/allProduct", [
-            'products' => $query->withCount('images')
+            'products' => Product::orderByDesc('created_at')->withCount('images')
                             ->with('images')
                             ->paginate(5)
                             ->withQueryString()
@@ -88,12 +54,9 @@ class ProductController extends Controller
     }
     
     /**
-     * Display the all products of this category.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * Display the all products filtered.
      */
-    public function getProductsFiltered(Category $category)
+    public function getProductsFiltered1(Category $category)
     {
         return Inertia("Guest/Product/productsFiltered", [
             'category' =>  $category,
@@ -101,6 +64,50 @@ class ProductController extends Controller
                             ->orderByDesc('created_at')
                             ->with('images')
                             ->paginate(5)
+        ]);
+    }
+
+    public function getProductsFiltered(Request $request)
+    {
+        $filters = $request->query();
+
+        /**
+         * how to filters data controller side? (filters parameters are passing in handleInertiaRequests as global props)
+         * method 1: use if statement
+         * method 2: with when method
+         * method 3: in the product model
+         * here the $value is the return of the examination of the if statement:$filters['category'] ?? false
+        */
+
+        // method 2
+        $query = Product::orderByDesc('created_at')
+                ->when(
+                    $filters['category'] ?? false,
+                    fn($query, $value) => $query->where('category_id', '=', $value)
+                )
+                ->when(
+                    $filters['q'] ?? false,
+                    fn($query, $value) => $query->where('name', 'LIKE', "%$value%")->orWhere('description', 'LIKE', "%$value%")
+                );
+
+        /*
+            // method 1
+            $query = Product::orderByDesc('created_at');
+            if($filters['category'] ?? false ) {
+                $query->where('category_id', '=', $filters['category']);
+            }
+
+            if($filters['q'] ?? false ) {
+                $q = $filters['q'];
+                $query->where('name', 'LIKE',"%$q%")->orWhere('description', 'LIKE',"%$q%");
+            }
+        */
+        
+        return Inertia("Guest/Product/productsFiltered", [
+            'products' => $query->withCount('images')
+                            ->with('images')
+                            ->paginate(5)
+                            ->withQueryString()
         ]);
     }
 }

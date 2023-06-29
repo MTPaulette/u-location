@@ -5,7 +5,8 @@
       <myTitle title="Articles de la categorie:" />
     </div>
     <div class="mycontainer sm:px-20 md:px-7">
-      <h2 class="title text-gray-600">"{{ category.name }}"</h2>
+      <!-- <h2 class="title text-gray-600">"{{ $page.props.filters['category'] }}"</h2> -->
+      <h2 class="title text-gray-600">"{{ $page.props.category }}"</h2>
       <div class="grid grid-cols-1 md:grid-cols-5 md:gap-14">
         <div class="col-span-3 md:col-span-3">
           <div v-if="products.data.length">
@@ -22,7 +23,7 @@
           <div class="md:flex justify-center min-w-[200px]">
             <div class="w-full min-w-[204px] h-3/6">
               <div>
-                <ThemeList title="Categories" :themes="categories" />
+                <CategoryList title="Categories" :categories="categories" />
               </div>
             </div>
           </div>
@@ -44,7 +45,7 @@ import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import productCard from '@/Components/productCard.vue'
 import pagination from '@/Components/pagination.vue'
 import myTitle from '@/Components/myTitle.vue'
-import ThemeList from '@/Components/themeList.vue'
+import CategoryList from '@/Components/categoryList.vue'
 
 import { Link, usePage } from '@inertiajs/vue3'
 import { computed } from 'vue'

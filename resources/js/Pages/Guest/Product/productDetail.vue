@@ -3,17 +3,19 @@
     <div>
       <pageTitle title="blog details" />
       <div class="mycontainer md:px-10 lg:px-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 md:gap-10 border-b my-border-gray pb-5 mb-4">
-          <!-- <myTitle :title="product.name" class="" /> -->
-          <div v-if="product.images.length" class="mb-2 md:mb-8 mt-0">
-            <div class="flex justify-center w-full h-56 sm:h-64 md:h-72">
-              <img class="w-full max-w-[400px] h-full rounded-lg" :src="getImgUrl(product.images[selectedImage].filename)" />
-              <!-- <img class="w-full max-w-[400px] h-full shadow-lg rounded-lg shadow-gray-500" :src="getImgUrl(product.images[selectedImage].filename)" /> -->
+        <myTitle :title="product.name" class="uppercase md:hidden block text-white bg-black text-center p-2" />
+        <div class="grid grid-cols-1 md:grid-cols-2 md:gap-10 border-b my-border-gray pb-5 mb-4 justify-center md:justify-start">
+          <div v-if="product.images.length" class="mb-2 md:mb-8 mt-0 w-full overflow-x-hidden flex justify-center items-center md:block md:justify-start md:items-start md:gap-0">
+            <div class="flex justify-center relative w-full md:w-full h-56 sm:h-64 md:h-72 mb-0 md:mb-7">
+              <img class="w-full md:max-w-[400px] h-full rounded-lg" :src="getImgUrl(product.images[selectedImage].filename)" />
             </div>
-            <div class="flex flex-wrap gap-2 justify-center w-full mt-7">
-              <div v-for="(image, i) in product.images" :key="image.id" class="w-16 h-14 md:w-20 md:h-16" @click="selectedImage=i">
-                <!-- <div v-for="(image, i) in product.images" :key="image.id" class="h-auto w-auto" @click="selectedImage=i"> -->
-                <img class="border-2 rounded w-full h-full" :class="selectedImage==i?'border-mango': 'border-sheet-100'" :src="getImgUrl(image.filename)" />
+            
+            <div class="over-y overflow-x-hidden flex flex-col md:flex-row md:flex-wrap w-20 sm:w-28 md:w-full h-56 sm:h-64 md:h-auto gap-1 justify-center items-end pr-1">
+              <div v-for="(image, i) in product.images" :key="image.id" @click="selectedImage=i">
+                <img class="border-2 rounded w-12 h-10 sm:w-16 sm:h-14 lg:w-20 lg:h-16" :class="selectedImage==i?'border-mango': 'border-sheet-100'" :src="getImgUrl(image.filename)" />
+              </div>
+              <div v-for="(image, i) in product.images" :key="image.id" @click="selectedImage=i">
+                <img class="border-2 rounded w-12 h-10 sm:w-16 sm:h-14 lg:w-20 lg:h-16" :class="selectedImage==i?'border-mango': 'border-sheet-100'" :src="getImgUrl(image.filename)" />
               </div>
             </div>
           </div>
@@ -23,7 +25,6 @@
             <myTitle :title="product.name" class="uppercase hidden md:block text-white bg-black text-center p-2" />
             <div class="pb-2 md:pb-5 mb-0 md:mb-6">
               <div class="flex flex-wrap gap-2 justify-center w-full my-4 sm:my-7">
-                <!-- <div class="flex flex-wrap gap-2 justify-center w-full my-4 sm:my-7 text-gray-600 dark:text-gray-100"> -->
                 <div
                   v-for="weight in product.weights" 
                   :key="weight.id"
@@ -45,7 +46,6 @@
                     <div class="block sm:flex items-center">
                       <label for="weight" class="label mb-1 mr-2">Weight:</label>
                       <select id="weight" v-model="weightIndex" name="weight" class="w-24 md:w-[90px] xl:w-24 py-1 text-center border-t border-b my-border-gray bg-gray-50 dark:bg-transparent" @click="initialiseForm()">
-                        <!-- <select id="weight" v-model="form.weight_id" name="weight" class="w-24 h-8 text-center border-t border-b my-border-gray bg-gray-50"> -->
                         <option v-for="(weight, i) in product.weights" :key="weight.id" :value="i">
                           {{ weight.name }}
                         </option>
@@ -55,7 +55,6 @@
                       <label for="qty" class="label mb-1 mr-2">Qty:</label>
                       <div class="flex items-center justify-center border my-border-gray">
                         <span class="px-2 cursor-pointer" @click="decrement">&mdash;</span>
-                        <!-- <input type="text" :value="form.qty" class="w-12 md:w-10 xl:w-12 h-8 text-center border-none bg-gray-50 dark:bg-transparent" /> -->
                         <input type="text" :value="form.qty" class="w-12 md:w-10 xl:w-12 h-8 text-center border-none bg-gray-50 dark:bg-transparent" />
                         <span class="px-2 cursor-pointer" @click="increment">&#xff0b;</span>
                       </div>
@@ -77,8 +76,6 @@
             <span v-for="ingredient in product.ingredients" :key="ingredient.id" class="px-1">
               {{ ingredient.name }},
             </span>
-
-            <!-- <UlList title="Composition" :lists="product.ingredients" /> -->
           </div>
 
           <!-- preparation -->
@@ -92,7 +89,6 @@
           <!-- advantage -->
           <div v-if="product.advantages.length" class="border-b my-border-gray pb-5 mb-6">
             <sectionTitle title="Advantages" green />
-            <!-- <div class="px-2 py-4 -mt-2 text-green-900 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400"> -->
             <div class="px-2 py-4 -mt-2">
               <UlList title="Some advantages" :lists="product.advantages" />
             </div>
@@ -192,3 +188,30 @@ const formatPrice = (price) => {
   return price+" FCFA"
 }
 </script>
+
+<style>
+img {
+  overflow: visible;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.over-x {
+
+  overflow-x: scroll;
+}
+
+.over-x::-webkit-scrollbar {
+  width: 2px;
+}
+
+.over-x::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px #FFF;
+}
+
+.over-x::-webkit-scrollbar-thumb{
+  outline: 1px solid #C4C4C4;
+  background: #C4C4C4;
+  border-radius: 8px;
+}
+
+</style>

@@ -40,7 +40,7 @@ class ProductDashboardController extends Controller
         return Inertia("Dashboard/Product/Add", [
             'advantages' =>  Advantage::select('id', 'name')->orderBy('name', 'asc')->get(),
             'ingredients' =>  Ingredient::select('id', 'name')->orderBy('name', 'asc')->get(),
-            'weights' =>  Weight::all('id', 'name'),
+            'weights' =>  Weight::all('id', ),
             'categories' =>  Category::select('id', 'name')->orderBy('name', 'asc')->get(),
         ]);
     }

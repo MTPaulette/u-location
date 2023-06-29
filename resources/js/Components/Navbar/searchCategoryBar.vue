@@ -75,7 +75,7 @@ onMounted(() => {
   initFlowbite()
 })
 
-const menuItems = [['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/market','marche'], ['/services','services']]
+const menuItems = [['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/#','services'], ['/product','store']]
 
 </script>
 

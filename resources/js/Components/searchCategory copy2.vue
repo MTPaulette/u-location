@@ -1,9 +1,12 @@
 <template>
+  <div class="bg-pineapple">
+    {{ $page.props.filters }}
+  </div>
   <form class="flex max-w-full justify-center" @submit.prevent="research">
     <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">categories</label>
     <button id="dropdown-button" :data-dropdown-toggle="id" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-3 md:px-5 text-sm font-medium text-center text-gray-900 bg-gray-100 border my-border-gray dark:text-white rounded-l-md hover:bg-gray-200 dark:bg-gray-600 dark:hover:bg-gray-700" type="button">
       <div class="w-20 truncate h-5">
-        <span v-if="filterForm.category">{{ selectedCategory }}</span>
+        <span v-if="filterForm.category">{{ filterForm.category }}</span>
         <span v-else>All categories</span>
       </div>
       <svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -12,13 +15,19 @@
     </button>
     <div :id="id" class="over-y z-10 hidden bg-gray-50 divide-y divide-gray-100 shadow-lg w-36 h-[170px] dark:bg-gray-700">
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
+        <!-- 
+        <li v-for="category in categories" :key="category.id" class="border-b my-border-gray">
+          <Link :href="route('product.filters', {category: category})" class="block px-4 py-2 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">
+            {{ category.name }}
+          </Link>
+        </li> -->
         <li class="border-b my-border-gray">
           <span class="block px-4 py-2 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white" @click="reset">
             <button type="reset">aucune categorie</button>
           </span>
         </li>
         <li v-for="category in categories" :key="category.id" class="border-b my-border-gray">
-          <span class="block px-4 py-2 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white" @click="setCategory(category)">
+          <span class="block px-4 py-2 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white" @click="filterForm.category=category.name">
             {{ category.name }}
           </span>
         </li>
@@ -36,7 +45,6 @@ import { useForm, usePage } from '@inertiajs/vue3'
 
 const page = usePage()
 const filters =  page.props.filters
-let selectedCategory = page.props.category
 
 defineProps({
   categories: Object,
@@ -61,15 +69,9 @@ const research = () => {
   )
 }
 
-const setCategory = (category) => {
-  selectedCategory = category.name
-  filterForm.category = category.id
-}
-
 const reset = () => {
   filterForm.category = null
   filterForm.q = null
-  selectedCategory = null
   research()
 }
 

@@ -96,7 +96,8 @@ onMounted(() => {
   initFlowbite()
 })
 
-const pagesLinks = ref([['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/market','marche'], ['/services','services']])
+const pagesLinks = ref([['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/#','services'], ['/product','store']])
+
 const pagesLinksRef = ref([])
 
 const legalLinks = ref([['/terms', 'Terms & Conditions'], ['/privacy', 'Privacy Policy']])

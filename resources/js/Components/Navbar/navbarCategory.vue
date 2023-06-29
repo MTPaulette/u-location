@@ -6,12 +6,14 @@
           <div>
             <label for="category-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">categories</label>
             <button id="category-button" data-dropdown-toggle="category-dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 sm:py-0 h-auto sm:h-16 px-2 md:px-4 text-base font-semibold uppercase text-center text-white bg-mango hover:bg-sheet-200 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700" type="button">
-              All categories
+              <div class="w-[142px] truncate h-5">
+                <span v-if="filterForm.category">{{ selectedCategory }}</span>
+                <span v-else>All categories</span>
+              </div>
               <svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
               </svg>
             </button>
-            <!-- <div id="category-dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 shadow-lg w-48 h-[350px] dark:bg-gray-700"> -->
             <div id="category-dropdown" class="z-10 bg-white hidden divide-y divide-gray-100 shadow-lg w-48 h-[350px] dark:bg-gray-700">
               <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="category-button">
                 <li
@@ -19,9 +21,12 @@
                   :key="category.id"
                   class="border-b my-border-gray"
                 >
-                  <Link :href="route('product.filters', {category: category})" class="block px-4 py-2.5 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">
+                  <span
+                    class="block px-4 py-2.5 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                    @click="research(category)"
+                  >
                     {{ category.name }}
-                  </Link>
+                  </span>
                 </li>
               </ul>
             </div>
@@ -48,7 +53,7 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { Link } from '@inertiajs/vue3'
+import { useForm, usePage } from '@inertiajs/vue3'
 import { initFlowbite } from 'flowbite'
 
 // initialize components based on data attribute selectors
@@ -60,6 +65,26 @@ defineProps({
   informations: Object,
   categories: Object,
 })
+
+const page = usePage()
+let selectedCategory = page.props.category
+
+const filterForm = useForm({
+  category: null,
+  q: null,
+})
+
+const research = (category) => {
+  filterForm.category = category.id
+  selectedCategory = category.name
+  filterForm.get(
+    route('product.filters'),
+    {
+      preserveState: true,
+      preserveScroll: true,
+    },
+  )
+}
 
 const menuItems = [['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/#','services'], ['/product','store']]
 
