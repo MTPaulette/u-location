@@ -5,8 +5,9 @@
         <img v-if="product.images.length" class="rounded w-16 h-14" :src="getImgUrl(product.images[0].filename)" alt="product image" />
       </div>
       <div class="w-full pl-3">
+        {{ product.category_id }}
         <h4 class="w-5/6 truncate h-5 mb-1">
-          <a href="" class="text-base">{{ product.title }}</a>
+          <a href="" class="text-base">{{ product.name }}</a>
           <!-- <a href="" class="text-base md:text-sm">{{ product.name }}</a> -->
         </h4>
       

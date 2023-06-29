@@ -19,7 +19,7 @@
                   :key="category.id"
                   class="border-b my-border-gray"
                 >
-                  <Link :href="route('ProductsByCategory', {category: category})" class="block px-4 py-2.5 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">
+                  <Link :href="route('product.filters', {category: category})" class="block px-4 py-2.5 hover:text-white hover:bg-sheet-200 dark:hover:bg-gray-600 dark:hover:text-white">
                     {{ category.name }}
                   </Link>
                 </li>

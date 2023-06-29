@@ -59,6 +59,9 @@ class HandleInertiaRequests extends Middleware
             'cartItems' => $cart->content(),
             'cartcount' => $cart->count(),
             'subtotal' => $cart->subtotal(),
+
+            // value of category and input in the searchCategory component
+            'filters' => $request->query(),
         ]);
     }
 }

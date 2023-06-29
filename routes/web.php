@@ -49,7 +49,7 @@ Route::delete("/clearCart",[CartController::class, "clear"])->name('cart.clear')
 
 /* search post by them and product by category */
 Route::get("/posts/category/{theme}",[PostController::class, "getPostsByTheme"])->name("PostsByTheme");
-Route::get("/products/category/{category}",[ProductController::class, "getProductsByCategory"])->name("ProductsByCategory");
+Route::get("/products/{category}",[ProductController::class, "getProductsFiltered"])->name("product.filters");
 
 /* authentification's route */
 Route::get("/login",[AuthController::class, "create"])->name("login");

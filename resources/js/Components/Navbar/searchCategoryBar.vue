@@ -8,7 +8,7 @@
           </a>
 
           <div class="w-1/2 hidden sm:block">
-            <SearchCategory :categories="categories" :filters="filters" />
+            <SearchCategory :categories="categories" />
           </div>
 
           <div class="flex items-center text-gray-900">
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="w-full mt-7 block sm:hidden">
-          <SearchCategory id="dropdown2" :categories="categories" :filters="filters" />
+          <SearchCategory id="dropdown2" :categories="categories" />
         </div>
       </div>
     </nav>
@@ -67,7 +67,6 @@ const user = computed(
 
 defineProps({
   categories: Object,
-  filters: Object,
 })
 
 

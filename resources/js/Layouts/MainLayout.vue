@@ -1,7 +1,7 @@
 <template>
   <Topbar :informations="informations" />
   <!-- <Navbar /> -->
-  <SearchCategoryBar :categories="categories" :filters="filters" />
+  <SearchCategoryBar :categories="categories" />
   <div class="hidden sm:block">
     <NavbarCategory :categories="categories" />
   </div>
@@ -26,10 +26,6 @@ import Newsletter from '@/Components/newsletter.vue'
 import { usePage } from '@inertiajs/vue3'
 import { computed } from 'vue'
 import FlashAlert from '@/Components/flashAlert.vue'
-
-defineProps({
-  filters: Object,
-})
 
 const page = usePage()
 const flashSuccess = computed(
