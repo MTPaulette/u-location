@@ -188,30 +188,3 @@ const formatPrice = (price) => {
   return price+" FCFA"
 }
 </script>
-
-<style>
-img {
-  overflow: visible;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.over-x {
-
-  overflow-x: scroll;
-}
-
-.over-x::-webkit-scrollbar {
-  width: 2px;
-}
-
-.over-x::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px #FFF;
-}
-
-.over-x::-webkit-scrollbar-thumb{
-  outline: 1px solid #C4C4C4;
-  background: #C4C4C4;
-  border-radius: 8px;
-}
-
-</style>
