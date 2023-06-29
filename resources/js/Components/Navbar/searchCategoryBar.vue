@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="w-full px-2 sm:px-4 py-14 rounded border-gray-300 dark:bg-gray-800 bg-white">
+    <nav class="w-full px-3 sm:px-4 py-14 rounded border-gray-300 dark:bg-gray-800 bg-white">
       <div class="flex flex-wrap items-center justify-start mx-auto w-full">
         <div class="flex items-center justify-between w-full">
           <a href="/" class="flex items-center">
@@ -8,7 +8,7 @@
           </a>
 
           <div class="w-1/2 hidden sm:block">
-            <SearchCategory :categories="categories" />
+            <SearchCategory :categories="categories" :filters="filters" />
           </div>
 
           <div class="flex items-center text-gray-900">
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="w-full mt-7 block sm:hidden">
-          <SearchCategory id="dropdown2" :categories="categories" />
+          <SearchCategory id="dropdown2" :categories="categories" :filters="filters" />
         </div>
       </div>
     </nav>
@@ -67,6 +67,7 @@ const user = computed(
 
 defineProps({
   categories: Object,
+  filters: Object,
 })
 
 
@@ -97,9 +98,7 @@ const menuItems = [['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/
   background: #C4C4C4;
   border-radius: 8px;
 }
-</style>
 
-<style scoped>
 .main {
   background-image: url('./../../../images/mango1.jpg');
   background-repeat: no-repeat;

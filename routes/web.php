@@ -104,8 +104,7 @@ Route::prefix('export')
 ->group(function () {
     Route::get('/posts', [PostDashboardController::class, 'createPDF']);
     Route::get('/products', [ProductDashboardController::class, 'createPDF']);
-    Route::get('/users', [UserController::class, 'createPDF']);
-      
+    Route::get('/users', [UserController::class, 'createPDF']);    
 });
 
   // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -19,13 +19,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         return Inertia("Guest/Product/allProduct", [
+            'filters' => $request->only(['category, q']),
             'products' => Product::orderByDesc('created_at')
                             ->withCount('images')
                             ->with('images')
                             ->paginate(5)
+                            ->withQueryString()
         ]);
     }
     
