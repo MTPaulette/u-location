@@ -55,7 +55,7 @@
                       <p class="px-10">initial stock: <span class="ml-3 text-gray-900">{{ selectedWeight.initial_stock }}</span></p>
                     </div>
                     <div @click="removeWeightInitialStock(i)">
-                      <button type="button" class="text-gray-900 hover:text-red-600 text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white">
+                      <button type="button" class="text-gray-900 hover:text-danger text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-2 h-2" fill="currentColor" viewBox="0 0 16 16">
                           <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
                         </svg>
@@ -93,7 +93,7 @@
                     <div class="btn-default btn-success btn-small inline-flex items-center mb-2 capitalize font-medium text-white rounded-lg focus:ring-4 focus:outline-none">add</div>
                     <!-- <Button label="add" success small /> -->
                   </div>
-                  <button type="button" class="text-gray-900 hover:text-red-600 text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white" @click="moreIngredient = !moreIngredient">
+                  <button type="button" class="text-gray-900 hover:text-danger text-sm px-3 -mt-2 py-2.5 dark:text-gray-400 dark:hover:text-white" @click="moreIngredient = !moreIngredient">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
                       <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
                     </svg>

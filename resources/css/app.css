@@ -36,7 +36,7 @@
   }
   
   .input-error {
-    @apply mt-0.5 text-xs text-red-600 dark:required text-right
+    @apply mt-0.5 text-xs text-danger dark:required text-right
   }
 
   .submit-btn-style {
@@ -76,7 +76,7 @@
   }
   
   .required {
-    @apply ml-1 text-red-500
+    @apply ml-1 text-danger
   }
 
   .disabled {

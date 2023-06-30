@@ -14,7 +14,7 @@ class GuestController extends Controller
             'products' => Product::orderByDesc('created_at')
                                 ->with('images')
                                 ->get()
-                                ->take(4),
+                                ->take(10),
 
             'posts' => Post::orderByDesc('created_at')
                                 ->with('images')

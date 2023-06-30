@@ -23,35 +23,22 @@
       <div class="w-full">
         <sectionTitle title="Our Products" class="title" />
       </div>
-      <!-- Carousel data-carousel="slide" -->
-      <div id="indicators-carousel" class="relative h-40 w-full bg-pink-50 mt-6" data-carousel="slide">
-        <div class="relative h-40 flex justify-between items-center bg-mango w-full">
-          <div v-for="post in posts" :key="post.id" class="hidden duration-700 ease-in-out h-full" data-carousel-item>
-            <div class="absolute block bg-purple-100 w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-              <div class="grid grid-cols-4 h-full">
-                <div v-for="postI in posts" :key="postI.id" class="bg-danger h-full">
-                  <Link :href="route('post.show', {post: postI.id})">
-                    <productCard :product="postI" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Slider controls -->
-        <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-          <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-sheet-100/30 dark:bg-gray-800/30 group-hover:bg-sheet-100/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-            <span class="sr-only">Previous</span>
-          </span>
-        </button>
-        <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-          <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-            <span class="sr-only">Next</span>
-          </span>
-        </button>
+      <!-- <div v-for="product in products" :key="product.id" class="relative w-1/2 md:w-1/3 lg:w-1/4 h-full"> -->
+      <div class="flex justify-between w-full overflow-x-scroll over-x">
+        <div v-for="product in products" :key="product.id" class="relative w-1/2 md:w-[225px] h-full">
+          <Link :href="route('product.show', {product: product.id})">
+            <productIndexCard :product="product" />
+          </Link>
+        </div>
+      </div>
+
+      <div class="flex justify-between w-full flex-wrap overflow-x-scroll over-y h-[510px]">
+        <div v-for="product in products" :key="product.id" class="relative w-1/2 md:w-1/3 lg:w-1/4 h-1/2">
+          <Link :href="route('product.show', {product: product.id})">
+            <productIndexCard :product="product" />
+          </Link>
+        </div>
       </div>
     </div>
 
@@ -76,12 +63,13 @@
 import IndexLayout from '@/Layouts/IndexLayout.vue'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import postCard from '@/Components/postCard.vue'
-import productCard from '@/Components/productCard.vue'
+import productIndexCard from '@/Components/productIndexCard.vue'
 // import myTitle from '@/Components/myTitle.vue'
 import sectionTitle from '@/Components/sectionTitle.vue'
 import { Link } from '@inertiajs/vue3'
 
 defineProps({
   posts: Object,
+  products: Object,
 })
 </script>

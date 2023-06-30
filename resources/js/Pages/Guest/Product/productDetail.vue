@@ -10,11 +10,11 @@
               <img class="w-full md:max-w-[400px] h-full rounded-lg" :src="getImgUrl(product.images[selectedImage].filename)" />
             </div>
             
-            <div class="over-y overflow-x-hidden flex flex-col md:flex-row md:flex-wrap w-20 sm:w-28 md:w-full h-56 sm:h-64 md:h-auto gap-1 justify-center items-end pr-1">
-              <div v-for="(image, i) in product.images" :key="image.id" @click="selectedImage=i">
+            <div class="over-y flex flex-col md:flex-row over-x w-20 sm:w-28 md:w-full h-56 sm:h-64 md:h-auto gap-1 items-end pr-1 md:pr-0 md:pb-1.5">
+              <div v-for="(image, i) in product.images" :key="image.id" class="flex-shrink-0" @click="selectedImage=i">
                 <img class="border-2 rounded w-12 h-10 sm:w-16 sm:h-14 lg:w-20 lg:h-16" :class="selectedImage==i?'border-mango': 'border-sheet-100'" :src="getImgUrl(image.filename)" />
               </div>
-              <div v-for="(image, i) in product.images" :key="image.id" @click="selectedImage=i">
+              <div v-for="(image, i) in product.images" :key="image.id" class="flex-shrink-0" @click="selectedImage=i">
                 <img class="border-2 rounded w-12 h-10 sm:w-16 sm:h-14 lg:w-20 lg:h-16" :class="selectedImage==i?'border-mango': 'border-sheet-100'" :src="getImgUrl(image.filename)" />
               </div>
             </div>
@@ -32,7 +32,7 @@
                 >
                   <p>weight: <span class="font-extrabold">{{ weight.name }}</span></p>
                   <p>Price: <span class="text-sheet-50 font-bold">{{ formatPrice(weight.pivot.price) }}</span></p>
-                  <p v-if="weight.pivot.remaining_stock == 0"><span class="text-red-600 text-xs">not available</span></p>
+                  <p v-if="weight.pivot.remaining_stock == 0"><span class="text-danger text-xs">not available</span></p>
                 </div>
               </div>
               <div class="font-medium text-justify border-b my-border-gray pb-5 mb-4 text-gray-700 dark:text-gray-400">

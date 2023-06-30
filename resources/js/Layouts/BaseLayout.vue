@@ -10,7 +10,10 @@
   overflow-y: scroll;
 }
 
-.over-x::-webkit-scrollbar,
+.over-x::-webkit-scrollbar{
+  height: 2px;
+}
+
 .over-y::-webkit-scrollbar{
   width: 2px;
 }

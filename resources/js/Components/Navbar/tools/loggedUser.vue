@@ -1,6 +1,8 @@
 <template>
   <button id="user-menu-button" type="button" class="flex mx-2 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-    <img class="w-8 h-8 rounded-full" src="./../../../../images/img.PNG" alt="user photo" />
+    <div class="flex-shrink-0">
+      <img class="w-8 h-8 rounded-full" src="./../../../../images/img.PNG" alt="user photo" />
+    </div>
   </button>
   <div id="user-dropdown" class="z-50 hidden my-4 text-base list-none bg-gray-50 divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
     <div v-if="user" class="px-4 py-3">
