@@ -6,10 +6,10 @@
         <div class="flex flex-wrap -mx-4">
           <div class="w-full px-4">
             <div class=" max-w-[850px] mx-auto text-center bg-white relative overflow-hidden py-20 px-8 sm:px-12 md:px-[60px]" data-wow-delay=".2s">
-              <h2 class="font-bold mb-8 text-dark text-3xl sm:text-4xl lg:text-[40px] xl:text-[42px]">
+              <h2 class="font-bold mb-8 text-black text-3xl sm:text-4xl lg:text-[40px] xl:text-[42px]">
                 404 - We couldn't find that page.
               </h2>
-              <h3 class="font-normal mb-8 text-xl md:text-2xl text-dark-700">
+              <h3 class="font-normal mb-8 text-xl md:text-2xl text-gray-700">
                 Maybe you can find what you need here?
               </h3>
               <div>

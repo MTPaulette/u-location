@@ -19,7 +19,7 @@
       <div v-for="cartItem in cartItems" :key="cartItem.rowId" class="flex justify-between w-full p-3 hover:bg-gray-100 dark:hover:bg-gray-700">
         <div class="w-full">
           <div class="w-full flex justify-between items-center">
-            <p class="font-semibold truncate capitalize text-gray-900 dark:text-gray-300">{{ cartItem.name }}</p>
+            <p class="font-semibold truncate capitalize w-5/6 text-gray-900 dark:text-gray-300">{{ cartItem.name }}</p>
             <div>
               <Link :href="route('product.show', {product: cartItem.options.product.id})">
                 <div class="text-gray-500 text-sm dark:text-gray-400 hover:text-black dark:hover:text-white">

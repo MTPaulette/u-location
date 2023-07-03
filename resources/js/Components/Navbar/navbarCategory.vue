@@ -40,9 +40,9 @@
 
         <!-- middle links menu -->
         <div id="navbar-search" class="items-center justify-between hidden w-full sm:flex sm:w-auto sm:order-1 sm:justify-center">
-          <ul class="flex flex-col px-4 sm:flex-row sm:space-x-8 sm:mt-0 sm:text-sm sm:font-medium">
-            <li v-for="(linkItem, i) in menuItems" :key="i" class="py-2.5 sm:py-0 px-0 sm:px-1 md:px-2 lg:px-4 h-auto sm:h-16 flex items-center hover:bg-sheet-200">
-              <a :href="linkItem[0]" class="block py-2 pl-3 pr-4 text-gray-100 capitalize hover:bg-transparent sm:p-0 text-center dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white sm:dark:hover:bg-transparent">{{ linkItem[1] }}</a>
+          <ul class="flex flex-col px-4 sm:flex-row sm:space-x-6 md:space-x-8 sm:mt-0 sm:text-sm sm:font-medium">
+            <li v-for="(linkItem, i) in menuItems" :key="i" class="py-2.5 sm:py-0 h-auto sm:h-16 flex items-center hover:bg-sheet-200">
+              <a :href="linkItem[0]" class="block py-2 pl-3 pr-4 whitespace-nowrap text-gray-100 capitalize hover:bg-transparent sm:p-0  px-0 sm:px-1 md:px-2 lg:px-4 sm:h-full sm:inline-flex sm:items-center sm:justify-center text-center dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white sm:dark:hover:bg-transparent">{{ linkItem[1] }}</a>
             </li>
           </ul>
         </div>

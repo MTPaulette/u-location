@@ -4,47 +4,64 @@
       <pageTitle title="a propos" />
     
       <!-- our mission -->
-      <div class="mycontainer py-12 sm:py-20">
-        <div class="flex justify-between items-center">
-          <div>
-            <h2>Notre mission</h2>
-          </div>
-          <div>
-            <img src="./../../../images/illustration/why-choose-us.png" class=" w-20 h-20" alt="" />
-          </div>
-        </div>
+      <div class="mycontainer pb-12 sm:pb-20">
+        <!-- <div class="mycontainer py-12 sm:py-20"> -->
         
-        <!-- why choose us -->
-        <div class="flex justify-around items-center w-full py-12 px-3 sm:px-12 md:px-14 bg-gray-50 dark:bg-gray-900">
+        <!-- our mission -->
+        <div class="block sm:flex justify-between items-center gap-6 sm:gap-20 md:gap-36 lg:gap-44 w-full pb-28">
           <div>
-            <h2>Notre mission</h2>
-          </div>
-          <div>
-            <img src="./../../../images/illustration/why-choose-us.png" class=" w-[300px] h-[250px]" alt="" />
-          </div>
-        </div>
-        <div class="flex flex-wrap -mx-4">
-          <div class="w-full px-4">
-            <div class="text-center mx-auto mb-7 sm:mb-14 max-w-[620px]">
-              <span class="font-semibold text-lg mb-2 block capitalize">notre equipe</span>
-              <myTitle :title="informations.about_title" />
-              <p class="text-lg sm:text-xl leading-relaxed sm:leading-relaxed">{{ informations.about_subtitle }}</p>
+            <myTitle title="Notre mission" />
+            <div class="flex-shrink-0 mb-4 flex sm:hidden justify-center items-center">
+              <img src="./../../../images/illustration/why-choose-us.png" class="w-[200px] h-[150px] md:w-[300px] md:h-[250px]" alt="" />
             </div>
+            <p class="text-lg sm:text-xl text-justify leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum fuga vero neque delectus
+              tempora reprehenderit velit, qui perferendis! Quisquam, illum? Sit magnam consequuntur
+              quo voluptatum eaque a esse pariatur beatae. Eum fuga vero neque delectus.
+            </p>
+          </div>
+          <div class="flex-shrink-0 hidden sm:block">
+            <img src="./../../../images/illustration/why-choose-us.png" class="w-[200px] h-[150px] md:w-[300px] md:h-[250px]" alt="" />
           </div>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-x-5 sm:gap-x-10">
-          <div v-for="i in 4" :key="i" class="mb-7">
-            <!-- <div v-for="i in 4" :key="i" class="w-1/2 md:w-1/4 self-center bg-mango"> fd5906-->
-            <div class="w-[75px] h-[50px] sm:w-[150px] sm:h-[100px] border-2 border-sheet-100 relative">
-              <img src="./../../../images/carousel/1.jpg" :alt="i" class="w-full h-full" />
-              <span class="absolute right-0 bottom-0">
-                <svg class="w-2 h-2 sm:w-5 sm:h-5" viewBox="0 0 22 22" fill="#047634" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M21.5 21.5L0.505701 21.5C0.767606 10.023 10.023 0.767604 21.5 0.505697L21.5 21.5Z" stroke="#047634" />
-                </svg>
-              </span>
+        <!-- why choose us bg-gray-50 dark:bg-gray-900 -->
+        <div class="block sm:flex justify-between items-center gap-6 sm:gap-20 md:gap-36 lg:gap-44 w-full pb-28">
+          <div class="flex-shrink-0 hidden sm:block">
+            <img src="./../../../images/illustration/why-choose-us.png" class="w-[200px] h-[150px] md:w-[300px] md:h-[250px]" alt="" />
+          </div>
+          <div>
+            <myTitle title="Why choose us?" />
+            <div class="flex-shrink-0 mb-4 flex sm:hidden justify-center items-center">
+              <img src="./../../../images/illustration/why-choose-us.png" class="w-[200px] h-[150px] md:w-[300px] md:h-[250px]" alt="" />
             </div>
-          <!-- <teamCard /> -->
+            <p class="text-lg sm:text-xl text-justify leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum fuga vero neque delectus
+              tempora reprehenderit velit, qui perferendis! Quisquam, illum? Sit magnam consequuntur
+              quo voluptatum eaque a esse pariatur beatae.
+            </p>
+          </div>
+        </div>
+
+        <!-- our team -->
+        <div>
+          <div class="flex flex-wrap -mx-4">
+            <div class="w-full px-4">
+              <div class="text-center mx-auto mb-7 sm:mb-14 max-w-[620px]">
+                <span class="font-semibold text-lg mb-2 block capitalize">notre equipe</span>
+                <myTitle :title="informations.about_title" class="font-bold mb-8 text-3xl sm:text-4xl lg:text-[40px] xl:text-[42px]" />
+                <p class="text-lg sm:text-xl leading-relaxed">{{ informations.about_subtitle }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-x-5 sm:gap-x-10">
+            <div v-for="i in 4" :key="i" class="mb-7">
+              <!-- <div v-for="i in 4" :key="i" class="w-1/2 md:w-1/4 self-center bg-mango"> fd5906-->
+              <div class="flex-shrink-0">
+                <img src="./../../../images/carousel/1.jpg" :alt="i" class="w-[75px] h-[75px] sm:w-[150px] sm:h-[150px] border-2 rounded-full border-gray-500 shadow-lg shadow-black" />
+              </div>
+            </div>
           </div>
         </div>
       </div>

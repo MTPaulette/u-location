@@ -4,7 +4,7 @@
       <pageTitle title="blog details" />
       <div class="mycontainer">
         <div class="grid grid-cols-1 md:grid-cols-3 md:gap-8 lg:gap-14">
-          <div class="col-span-3 md:col-span-2">
+          <div class="col-span-3 md:col-span-2 relative">
             <div v-if="post.images.length" class="mb-8 mt-0">
               <myCarousel :images="post.images" />
             </div>
@@ -44,10 +44,11 @@
             </div>
 
 
-            <div class="text-base text-gray-700 dark:text-gray-400">
+            <div class="text-base text-gray-700 dark:text-gray-4 w-full overflow-x-hidden">
               <p class="content" v-html="post.content" />
             </div>
-            <div class="mt-20">
+            <!-- <div class="w-full relative md:absolute md:bottom-20 mt-20 md:mt-0"> -->
+            <div class="my-10">
               <Share />
             </div>
           </div>
@@ -68,7 +69,7 @@
             <!-- articles populaires -->
             <div class="mt-6">
               <div>
-                <sectionTitle title="articles populaires" />
+                <sectionTitle title="Articles populaires" />
               </div>
               <div v-for="popularPost in popularPosts" :key="popularPost.id">
                 <Link :href="route('post.show', {post: popularPost.id})">

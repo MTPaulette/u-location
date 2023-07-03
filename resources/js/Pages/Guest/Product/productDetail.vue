@@ -35,7 +35,7 @@
                   <p v-if="weight.pivot.remaining_stock == 0"><span class="text-danger text-xs">not available</span></p>
                 </div>
               </div>
-              <div class="font-medium text-justify border-b my-border-gray pb-5 mb-4 text-gray-700 dark:text-gray-400">
+              <div class="font-medium text-justify border-b my-border-gray pb-5 mb-4 text-gray-700 dark:text-gray-400 w-full overflow-x-hidden">
                 <p class="content" v-html="product.description" />
               </div>
               <!-- weight -->

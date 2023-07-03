@@ -17,7 +17,7 @@
           <div>
             <h2 class="mb-6 text-base font-semibold text-gray-300 dark:text-gray-400">Pages</h2>
             <ul class="">
-              <li v-for="(pageLink, i) in pagesLinks" :key="i" ref="pagesLinksRef" class="mb-2 text-sm text-gray-500 hover:text-gray-300">
+              <li v-for="(pageLink, i) in pagesLinks" :key="i" ref="pagesLinksRef" class="mb-2 text-base text-gray-500 hover:text-gray-300">
                 <a :href="pageLink[0]">{{ pageLink[1] }}</a>
               </li>
             </ul>
@@ -26,8 +26,8 @@
           <div>
             <h2 class="mb-6 text-base font-semibold text-gray-300 dark:text-gray-400">Legal</h2>
             <ul class="">
-              <!-- <li v-for="(legalLink, i) in legalLinks" :key="i" ref="legalLinksRef" class="mb-2 text-sm text-gray-500 hover:text-gray-400 dark:hover:text-gray-300"> -->
-              <li v-for="(legalLink, i) in legalLinks" :key="i" ref="legalLinksRef" class="mb-2 text-sm text-gray-500 hover:text-gray-300">
+              <!-- <li v-for="(legalLink, i) in legalLinks" :key="i" ref="legalLinksRef" class="mb-2 text-base text-gray-500 hover:text-gray-400 dark:hover:text-gray-300"> -->
+              <li v-for="(legalLink, i) in legalLinks" :key="i" ref="legalLinksRef" class="mb-2 text-base text-gray-500 hover:text-gray-300">
                 <a :href="legalLink[0]">{{ legalLink[1] }}</a>
               </li>
             </ul>
@@ -37,7 +37,7 @@
             <h2 class="mb-6 text-base font-semibold text-gray-300 dark:text-gray-400">Articles recents</h2>
             <!-- <ul class="list-[square] pl-5 "> -->
             <ul class="">
-              <li v-for="(post, i) in posts" :key="i" ref="postsRef" class="mb-2 text-sm text-gray-500 hover:text-gray-300">
+              <li v-for="(post, i) in posts" :key="i" ref="postsRef" class="mb-2 text-base text-gray-500 hover:text-gray-300">
                 <a :href="post[0]">
                   <p>{{ post[1] }}</p>
                 </a>
@@ -47,7 +47,7 @@
           <!-- <div class="col-span-2">
             <h2 class="mb-6 text-base font-semibold text-gray-300 dark:text-gray-400">Quelques produits</h2>
             <div class="flex flex-wrap ">
-              <div v-for="(product, i) in products" :key="i" ref="productsRef" class="mb-2 text-sm text-gray-500 hover:text-gray-300">
+              <div v-for="(product, i) in products" :key="i" ref="productsRef" class="mb-2 text-base text-gray-500 hover:text-gray-300">
                 <Bagde :product="product" />
               </div>
             </div>
@@ -56,7 +56,7 @@
       </div>
       <hr class="my-6 my-border-gray sm:mx-auto lg:my-8" />
       <div class="sm:flex sm:items-center sm:justify-between">
-        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+        <span class="text-base text-gray-500 sm:text-center dark:text-gray-400">
           © {{ new Date().getFullYear() }} <span class="pointer-events-none">Agrimax™</span>. Tous droits reserves.
         </span>
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">

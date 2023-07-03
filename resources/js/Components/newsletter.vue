@@ -1,6 +1,6 @@
 <template>
   <div class="relative overflow-hidden text-center py-12 md:py-20 px-6 sm:px-12 md:px-28 bg-gray-100 dark:bg-gray-700">
-    <MyTitle title="Rejoindre notre newsletter!" />
+    <MyTitle title="Rejoindre notre newsletter!" class="font-bold mb-8 text-3xl sm:text-4xl lg:text-[40px] xl:text-[42px]" />
     <p class="text-base text-black dark:text-gray-400 mt-4 mb-8">
       Voulez-vous etre averti lorsqu'il y'a du nouveau sur Agrimax? Inscrivez vous à la Newsletter et vous
       serez parmi les premiers à découvrir les nouveaux produits, les nouvelles articles et les informations complémentaires.

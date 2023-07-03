@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-lg px-6 py-2 md:px-4 md:py-4">
+  <div class="rounded-lg px-6 py-0 md:px-4 md:py-0">
     <h3 class="font-semibold mb-8 text-2xl md:text-[26px] text-gray-900 dark:text-gray-100">
       Laisser un Message
     </h3>
@@ -38,6 +38,7 @@
         <textarea id="message" rows="4" class="text-area" placeholder="Leave a comment..." />
       </div>
       <div class="mb-0">
+        <!-- <Button label="envoyer" success rounded large /> -->
         <button type="submit" class="submit-btn-style">envoyer</button>
       </div>
     </form>
