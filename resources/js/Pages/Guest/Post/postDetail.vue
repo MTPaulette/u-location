@@ -11,8 +11,17 @@
 
             <div>
               <myTitle :title="post.title" />
-              <!-- <h2 class="mt-6 mb-3 font-bold text-xl md:text-2xl capitalize text-black dark:text-gray-100 ">{{ post.name }}</h2> -->
-              <div class="overflow-hidden border-b my-border-gray pb-5 mb-6">
+              <!-- <p class="-mt-4 leading-3 mb-5 text-gray-600 dark:text-gray-100">categorie: {{ post.theme.name }}</p> -->
+              <p class="font-semibold text-justify border-y my-border-gray py-2 text-gray-900 dark:text-gray-200 w-full overflow-x-hidden">
+                {{ post.theme }}
+                Categorie: <Link 
+                  :href="route('PostsByTheme', {theme: post.theme})" 
+                  class="text-sheet-50 hover:underline"
+                >
+                  {{ post.theme.name }}
+                </Link>
+              </p>
+              <div class="overflow-hidden border-b my-border-gray py-5 mb-6">
                 <div class="flex text-sm text-gray-600 dark:text-gray-100">
                   <a href="#" class="flex items-center border-r-2 my-border-gray px-4 capitalize cursor-text">
                     <span class=" mr-1 text-sheet-100">
@@ -29,7 +38,7 @@
                         <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                       </svg>
                     </span>
-                    {{ post.created_at }}
+                    {{ formatDate(post.created_at) }}
                   </a>
                   <a href="#" class="flex items-center px-4 cursor-text">
                     <span class=" mr-1 text-sheet-100 pointer-events-none">
@@ -85,6 +94,7 @@
 </template>
 
 <script setup>
+import moment from 'moment'
 import MainLayout from '@/Layouts/MainLayout.vue'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import sectionTitle from '@/Components/sectionTitle.vue'
@@ -101,4 +111,9 @@ defineProps({
   themes: Object,
   popularPosts: Object,
 })
+
+const formatDate = (date) => {
+  return moment(date).locale('fr').fromNow()
+  // return moment(date).locale('fr').format('LLL')
+}
 </script>

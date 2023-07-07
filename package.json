@@ -30,6 +30,7 @@
         "@vitejs/plugin-vue": "^4.1.0",
         "@vueuse/core": "^10.1.2",
         "chart.js": "^4.2.1",
+        "moment": "^2.29.4",
         "nprogress": "^0.2.0",
         "vue": "^3.2.47",
         "vue-multiselect": "^3.0.0-beta.1",

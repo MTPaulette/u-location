@@ -1,16 +1,13 @@
 <template>
   <MainLayout>
     <pageTitle title="articles de categorie" />
-    <div class="ml-3">
+    <div class="ml-3 my-4">
       <h2 class="title">
         <span v-if="filters['q']">Recherche de: <span class="text-gray-500">{{ filters['q'] }}</span> </span> <br />
         <span v-if="selectedCategory"> Suivant la categorie: {{ selectedCategory }} <span v-if="selectedCategory" class="text-gray-500"> {{ selectedCategory['name'] }}</span>.</span>
       </h2>
-      <!-- <myTitle title="Articles de la categorie:" /> -->
     </div>
     <div class="mycontainer sm:px-20 md:px-7">
-      <!-- <h2 class="title text-gray-600">"{{ $page.props.filters['category'] }}"</h2> -->
-      
       <div class="grid grid-cols-1 md:grid-cols-5 md:gap-14">
         <div class="col-span-3 md:col-span-3">
           <div v-if="products.data.length">

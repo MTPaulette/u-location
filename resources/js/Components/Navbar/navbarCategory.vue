@@ -55,19 +55,18 @@
 import { onMounted } from 'vue'
 import { useForm, usePage } from '@inertiajs/vue3'
 import { initFlowbite } from 'flowbite'
-
+import { computed } from 'vue'
 // initialize components based on data attribute selectors
 onMounted(() => {
   initFlowbite()
 })
 
-defineProps({
-  informations: Object,
-  categories: Object,
-})
-
 const page = usePage()
 let selectedCategory = page.props.category
+
+const categories = computed(
+  () => page.props.categories,
+)
 
 const filterForm = useForm({
   category: null,

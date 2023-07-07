@@ -8,7 +8,7 @@
           </a>
 
           <div class="w-1/2 hidden sm:block">
-            <SearchCategory :categories="categories" />
+            <SearchCategory />
           </div>
 
           <div class="flex items-center text-gray-900">
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="w-full mt-7 block sm:hidden">
-          <SearchCategory id="dropdown2" :categories="categories" />
+          <SearchCategory id="dropdown2" />
         </div>
       </div>
     </nav>
@@ -64,11 +64,6 @@ const page = usePage()
 const user = computed(
   () => page.props.user,
 )
-
-defineProps({
-  categories: Object,
-})
-
 
 // initialize components based on data attribute selectors
 onMounted(() => {

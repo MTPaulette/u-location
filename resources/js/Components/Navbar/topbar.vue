@@ -57,7 +57,11 @@
 </template>
 
 <script setup>
-defineProps({
-  informations: Object,
-})
+import { usePage } from '@inertiajs/vue3'
+import { computed } from 'vue'
+
+const page = usePage()
+const informations = computed(
+  () => page.props.informations,
+)
 </script>

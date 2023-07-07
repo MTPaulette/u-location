@@ -75,10 +75,7 @@ class HandleInertiaRequests extends Middleware
             'category' => $request->query() ? (
                 array_key_exists('category',$request->query()) ? 
                     Category::select('name')->where('id', '=', $request->query()['category'])->first()
-                    // array_key_exists('name', Category::select('name')->where('id', '=', $request->query()['category'])->first()) ?
-                    //     Category::select('name')->where('id', '=', $request->query()['category'])->first()->name
-                    // :null
-                    
+                    // Category::select('name')->where('id', '=', $request->query()['category'])->first()
                 : 'null1'
             ): 'null2',
             

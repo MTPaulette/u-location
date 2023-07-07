@@ -1,5 +1,4 @@
 <template>
-  {{ product }}
   <div class="border-0 my-border-gray border-b max-w-full">
     <div class="flex items-center px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
       <div class="flex-shrink-0">
@@ -14,7 +13,7 @@
         <!-- <p class="h-10 md:h-8 overflow-hidden text-justify text-sm md:text-xs mb-2 text-gray-700 dark:text-gray-400"><p v-html="product.description" /></p> -->
     
 
-        <p class="truncate w-full text-xs md:text-[10px] text-gray-600 dark:text-gray-400">categorie: la categorie fruits et legumes de saison</p>
+        <p class="truncate w-full text-xs md:text-[10px] text-gray-600 dark:text-gray-400">categorie: {{ product.category.name }}</p>
         <div class="flex items-center truncate text-xs md:text-[10px] text-gray-600 dark:text-gray-400">
           <span class="mr-1 text-sheet-100">
             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
@@ -22,9 +21,8 @@
             </svg>
           </span>
           
-          <div class="truncate">
-            lo {{ product.createdAtDiff }}
-            {{ product.created_at }}
+          <div class="truncate w-full">
+            {{ formatDate(product.created_at) }}
           </div>
         </div>
       </div>
@@ -33,9 +31,16 @@
 </template>
 
 <script setup>
+import moment from 'moment'
+
 defineProps({
   product: Object,
 })
+
+const formatDate = (date) => {
+  // return moment(date).locale('fr').fromNow()
+  return moment(date).locale('fr').format('LLL')
+}
 
 const getImgUrl = (src) =>{
   return  new URL('./../../../../../public/storage/'+src, import.meta.url).href

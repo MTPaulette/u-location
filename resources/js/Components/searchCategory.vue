@@ -34,13 +34,18 @@
 
 <script setup>
 import { useForm, usePage } from '@inertiajs/vue3'
+import { computed } from 'vue'
 
 const page = usePage()
 const filters =  page.props.filters
 let selectedCategory = page.props.category
 
+const categories = computed(
+  () => page.props.categories,
+)
+
+
 defineProps({
-  categories: Object,
   id: {
     type: String,
     default: "dropdown",

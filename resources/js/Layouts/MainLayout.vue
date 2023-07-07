@@ -1,9 +1,9 @@
 <template>
-  <Topbar :informations="informations" />
+  <Topbar />
   <!-- <Navbar /> -->
-  <SearchCategoryBar :categories="categories" />
+  <SearchCategoryBar />
   <div class="hidden sm:block">
-    <NavbarCategory :categories="categories" />
+    <NavbarCategory />
   </div>
   <div class=" text-black dark:text-gray-400 bg-white my-border-gray dark:bg-gray-800">
     <div v-if="flashSuccess">
@@ -31,13 +31,4 @@ const page = usePage()
 const flashSuccess = computed(
   () => page.props.flash.success,
 )
-
-const informations = computed(
-  () => page.props.informations,
-)
-
-const categories = computed(
-  () => page.props.categories,
-)
-
 </script>

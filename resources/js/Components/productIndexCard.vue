@@ -42,7 +42,7 @@
       </div>
   
 
-      <p class="truncate w-full text-xs md:text-[10px] text-gray-600 dark:text-gray-400">categorie: la categorie fruits et legumes de saison</p>
+      <p class="truncate w-full text-xs md:text-[10px] text-gray-600 dark:text-gray-400">categorie: {{ product.category.name }}</p>
       <!-- <div class="flex items-center truncate text-xs md:text-[10px] text-gray-600 dark:text-gray-400">
           <span class="mr-1 text-sheet-100">
             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">

@@ -35,7 +35,10 @@
                   <p v-if="weight.pivot.remaining_stock == 0"><span class="text-danger text-xs">not available</span></p>
                 </div>
               </div>
-              <div class="font-medium text-justify border-b my-border-gray pb-5 mb-4 text-gray-700 dark:text-gray-400 w-full overflow-x-hidden">
+              <p class="font-semibold text-justify border-y my-border-gray py-2 text-gray-900 dark:text-gray-200 w-full overflow-x-hidden">
+                Categorie: <span class="text-sheet-50">{{ product.category.name }}</span>
+              </p>
+              <div class="font-medium text-justify border-b my-border-gray py-5 mb-4 text-gray-700 dark:text-gray-400 w-full overflow-x-hidden">
                 <p class="content" v-html="product.description" />
               </div>
               <!-- weight -->

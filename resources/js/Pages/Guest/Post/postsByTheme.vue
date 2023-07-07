@@ -1,11 +1,16 @@
 <template>
   <MainLayout>
     <pageTitle title="articles de categorie" />
-    <div class="ml-3">
-      <myTitle title="Articles de la categorie:" />
+    <div class="ml-3 my-4">
+      <h2 class="title">
+        Recherche suivant la categorie: <span class="text-gray-500"> {{ theme.name }}</span>.
+      </h2>
     </div>
+    <!-- <div class="ml-3">
+      <myTitle title="Articles de la categorie:" />
+    </div> -->
     <div class="mycontainer sm:px-20 md:px-7">
-      <h2 class="title mt-4 text-gray-600">"{{ theme.name }}"</h2>
+      <!-- <h2 class="title mt-4 text-gray-600">"{{ theme.name }}"</h2> -->
       <!-- <myTitle class="text-gray-600" :title="'<<'+theme.name+'>>'" /> -->
       <div class="grid grid-cols-1 md:grid-cols-5 md:gap-14">
         <div class="col-span-3 md:col-span-3">
@@ -46,6 +51,7 @@ import postCard from '@/Components/postCard.vue'
 import pagination from '@/Components/pagination.vue'
 import myTitle from '@/Components/myTitle.vue'
 import ThemeList from '@/Components/themeList.vue'
+import { Link } from '@inertiajs/vue3'
 
 defineProps({
   posts: Object,

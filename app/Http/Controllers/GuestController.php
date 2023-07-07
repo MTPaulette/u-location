@@ -13,11 +13,13 @@ class GuestController extends Controller
         return Inertia("Guest/index", [
             'products' => Product::orderByDesc('created_at')
                                 ->with('images')
+                                ->with('category')
                                 ->get()
                                 ->take(10),
 
             'posts' => Post::orderByDesc('created_at')
                                 ->with('images')
+                                ->with('theme')
                                 ->get()
                                 ->take(4)
         ]);

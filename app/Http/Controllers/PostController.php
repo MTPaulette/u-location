@@ -23,20 +23,11 @@ class PostController extends Controller
     public function index()
     {
         return Inertia("Guest/Post/allPost", [
-
-            /* 
-            'images' =>  DB::table('images')
-                            ->select('id', 'filename', 'post_id')
-                            ->whereNotNull('post_id')
-                            ->orderByDesc('created_at') // get first images
-                            ->take(5) //or limit(5)
-                            ->get(),
-            */
-
             'posts' => Post::orderByDesc('created_at')
-                            ->withCount('images')
-                            ->with('images')
-                            ->paginate(5)
+                    ->withCount('images')
+                    ->with('images')
+                    ->with('theme')
+                    ->paginate(5)
         ]);
     }
     
@@ -48,18 +39,13 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        // if(Auth::user()->can("view", $post)) {
-           // abort(403);
-        // };
-
-        //$this->authorize('view', $post);
-
-        $post->load(['images', 'user']);
+        $post->load(['images', 'user', 'theme']);
         return Inertia("Guest/Post/postDetail", [
             'post' => $post,
             'themes' => Theme::orderBy('created_at')->get(),
             'popularPosts' => Post::orderByDesc('created_at')
                                 ->with('images')
+                                ->with('theme')
                                 ->get()
                                 ->take(4)
         ]);
@@ -78,6 +64,7 @@ class PostController extends Controller
             'themes' => Theme::all(),
             'posts' => Post::where('theme_id', '=', $theme->id)
                             ->orderByDesc('created_at')
+                            ->with('theme')
                             ->with('images')
                             ->paginate(5)
         ]);

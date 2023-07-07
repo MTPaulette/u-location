@@ -44,11 +44,12 @@ class ProductController extends Controller
                 $similarProducts = $category->products->shuffle()->with('images')->take(4);
             }
         */
-        $product->load(['images', 'advantages', 'ingredients', 'weights']);
+        $product->load(['images', 'advantages', 'ingredients', 'weights', 'category']);
         return Inertia("Guest/Product/productDetail", [
             'product' => $product,
             'popularProducts' => Product::orderByDesc('created_at')
                                 ->with('images')
+                                ->with('category')
                                 ->get()
                                 ->take(4)
         ]);
@@ -64,6 +65,7 @@ class ProductController extends Controller
             'products' => Product::where('category_id', '=', $category->id)
                             ->orderByDesc('created_at')
                             ->with('images')
+                            ->with('category')
                             ->paginate(5)
         ]);
     }
@@ -107,6 +109,7 @@ class ProductController extends Controller
         return Inertia("Guest/Product/productsFiltered", [
             'products' => $query->withCount('images')
                             ->with('images')
+                            ->with('category')
                             ->paginate(5)
                             ->withQueryString()
         ]);

@@ -1,9 +1,9 @@
 <template>
-  <Topbar :informations="informations" />
+  <Topbar />
   <!-- <div class="flex flex-col-reverse sm:flex-col"></div> -->
-  <SearchCategoryBar :categories="categories" />
+  <SearchCategoryBar />
   <div class="hidden sm:block">
-    <NavbarCategory :categories="categories" />
+    <NavbarCategory />
   </div>
   <div class=" text-black dark:text-gray-400 bg-white my-border-gray dark:bg-gray-800">
     <!-- <div class="text-black dark:text-gray-400 bg-gray-100 dark:bg-gray-700 my-border-gray dark:border-gray-600"> -->
@@ -32,14 +32,6 @@ import FlashAlert from '@/Components/flashAlert.vue'
 const page = usePage()
 const flashSuccess = computed(
   () => page.props.flash.success,
-)
-
-const informations = computed(
-  () => page.props.informations,
-)
-
-const categories = computed(
-  () => page.props.categories,
 )
 
 </script>
