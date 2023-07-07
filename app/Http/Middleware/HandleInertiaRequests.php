@@ -63,7 +63,7 @@ class HandleInertiaRequests extends Middleware
             // value of category and input in the searchCategory component
             'filters' => $request->query(),
 
-            'category' => 'change la moi dans le handleInertia requests',
+            // 'category' => 'change la moi dans le handleInertia requests',
 
             /*
             'category' => $request->query() ? (
@@ -72,6 +72,15 @@ class HandleInertiaRequests extends Middleware
                             : null
                         ): null,
             */
+            'category' => $request->query() ? (
+                array_key_exists('category',$request->query()) ? 
+                    Category::select('name')->where('id', '=', $request->query()['category'])->first()
+                    // array_key_exists('name', Category::select('name')->where('id', '=', $request->query()['category'])->first()) ?
+                    //     Category::select('name')->where('id', '=', $request->query()['category'])->first()->name
+                    // :null
+                    
+                : 'null1'
+            ): 'null2',
             
         ]);
     }

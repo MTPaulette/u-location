@@ -23,12 +23,19 @@
 
 <script setup>
 import sectionTitle from '@/Components/sectionTitle.vue'
-import { useForm } from '@inertiajs/vue3'
+import { useForm, usePage } from '@inertiajs/vue3'
+import { computed } from 'vue'
+
+const page = usePage()
+const categories = computed(
+  () => page.props.categories,
+)
 
 defineProps({
   title: String,
   categories: Object,
 })
+
 
 const filterForm = useForm({
   category: null,

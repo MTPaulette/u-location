@@ -4,7 +4,7 @@
       <pageTitle title="a propos" />
     
       <!-- our mission -->
-      <div class="mycontainer pb-12 sm:pb-20">
+      <div class="mycontainer md:px-10 lg:px-20 pb-12 sm:pb-20">
         <!-- <div class="mycontainer py-12 sm:py-20"> -->
         
         <!-- our mission -->
@@ -49,7 +49,8 @@
             <div class="w-full px-4">
               <div class="text-center mx-auto mb-7 sm:mb-14 max-w-[620px]">
                 <span class="font-semibold text-lg mb-2 block capitalize">notre equipe</span>
-                <myTitle :title="informations.about_title" class="font-bold mb-8 text-3xl sm:text-4xl lg:text-[40px] xl:text-[42px]" />
+                <myTitle :title="informations.about_title" />
+                <!-- <myTitle :title="informations.about_title" class="font-bold mb-8 text-3xl sm:text-4xl lg:text-[40px] xl:text-[42px]" /> -->
                 <p class="text-lg sm:text-xl leading-relaxed">{{ informations.about_subtitle }}</p>
               </div>
             </div>

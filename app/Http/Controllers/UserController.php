@@ -47,7 +47,7 @@ class UserController extends Controller
             'email' => 'required|unique',
             'password' => 'required|min:6',
         ]));
-        return to_route('user.index')->with('success', 'user was successfully created!!!');
+        return redirect()->route('dashboard')->with('success', 'user was successfully created!!!');
         // return redirect('/post)
     }
 

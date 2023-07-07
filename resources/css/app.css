@@ -112,6 +112,10 @@
     @apply text-white bg-yellow-500 hover:bg-yellow-800 focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800
   }
 
+  .btn-mango {
+    @apply text-white border bg-mango hover:bg-transparent hover:text-mango hover:border-mango hover:shadow-lg focus:ring-mango
+  }
+
   .btn-extrasmall {
     @apply px-2.5 py-1.5 text-xs
   }

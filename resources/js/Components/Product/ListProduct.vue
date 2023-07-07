@@ -124,7 +124,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <div data-modal-target="editProductModal" data-modal-show="editProductModal">
+                    <div data-modal-target="customModal" data-modal-show="customModal">
                       <!-- Modal toggle -->
                       <Button label="edit" hasicon rounded btn extrasmall>
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">

@@ -37,6 +37,23 @@ class IngredientController extends Controller
 
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Ingredient  $ingredient
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Ingredient $ingredient)
+    {
+        if($request->ingredient) {
+            $ingredient->name = $request->ingredient;
+        }
+        $ingredient->update();
+        return redirect()->back()->with('success', 'ingredient updated!');
+    }
+    
+
+    /**
      * Remove the specified resource from storage.
      */
     public function destroy($id)

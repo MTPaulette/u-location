@@ -19,16 +19,18 @@ class CartController extends Controller
             $tax = config('cart.tax')/100;
             $cartTax = $subtotal*$tax;
         */
-        return Inertia("Guest/cart", [
+        return Inertia("Guest/cart"
+        
+        /*, [
             'cartItems' => $cart->content(),
             'cartcount' => $cart->count(),
             'subtotal' => $cart->subtotal(),
-            /*
+            
                 'carttaxrate' => $cartTaxRate,
                 'carttax' => $cartTax,
                 'total' => $cart->total(),
-            */
-        ]);
+        ]*/
+    );
     }
 
     /**

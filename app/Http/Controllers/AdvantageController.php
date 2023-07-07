@@ -35,6 +35,22 @@ class AdvantageController extends Controller
         return redirect()->route('advantage.index')->with('success', 'advantage successfully created');
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Advantage  $advantage
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Advantage $advantage)
+    {
+        if($request->advantage) {
+            $advantage->name = $request->advantage;
+        }
+        $advantage->update();
+        return redirect()->back()->with('success', 'advantage updated!');
+    }
+
 
     /**
      * Remove the specified resource from storage.

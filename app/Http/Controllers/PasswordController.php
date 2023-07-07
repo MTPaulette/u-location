@@ -6,6 +6,22 @@ use Illuminate\Http\Request;
 
 class PasswordController extends Controller
 {
+    // show the reset password page
+    public function create() {
+        return Inertia("Authentification/reset");
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+    
     /**
      * Update the user's password.
      *

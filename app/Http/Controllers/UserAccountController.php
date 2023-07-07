@@ -93,4 +93,6 @@ class UserAccountController extends Controller
         return redirect()->back()->with('success', 'profile was successfully updated!!!');
         // return redirect('/dashboard')->with('success', 'profile was successfully updated!!!');
     }
+    
+
 }

@@ -20,6 +20,7 @@ use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,6 +46,7 @@ Route::resource("product", ProductController::class)->only(['index', 'show']);
 
 /* cart routes */
 Route::resource("cart", CartController::class)->only(['index', 'store', 'update', 'destroy']);
+Route::resource("checkout", CheckoutController::class)->only(['index', 'store', 'update', 'destroy']);
 Route::delete("/clearCart",[CartController::class, "clear"])->name('cart.clear');
 
 /* search post by them and product by category */
@@ -59,9 +61,12 @@ Route::delete("/logout",[AuthController::class, "destroy"])->name("logout");
 Route::get("/register",[UserAccountController::class, "create"])->name("register");
 Route::post("/register",[UserAccountController::class, "store"])->name("register");
 
+Route::get("/reset",[PasswordController::class, "create"])->name("reset");
+Route::post("/reset",[PasswordController::class, "store"])->name("reset");
+
 
 Route::middleware('auth')->group(function () {
-  Route::get("/dashboard",[DashboardController::class, "home"]);
+  Route::get("/dashboard",[DashboardController::class, "home"])->name("dashboard");
   Route::get("/statistic",[DashboardController::class, "statistic"]);
   Route::get("/notifications",[DashboardController::class, "notification"]);
   Route::resource("order", OrderController::class);
@@ -79,10 +84,10 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
-  Route::resource("category",CategoryController::class)->only(['index','store','destroy']);
-  Route::resource("theme",ThemeController::class)->only(['index','store','destroy']);
-  Route::resource("advantage",AdvantageController::class)->only(['index','store','destroy']);
-  Route::resource("ingredient",IngredientController::class)->only(['index','store','destroy']);
+  Route::resource("category",CategoryController::class)->only(['index','store','update','destroy']);
+  Route::resource("theme",ThemeController::class)->only(['index','store','update','destroy']);
+  Route::resource("advantage",AdvantageController::class)->only(['index','store','update','destroy']);
+  Route::resource("ingredient",IngredientController::class)->only(['index','store','update','destroy']);
 });
 
 
@@ -94,8 +99,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
       Route::resource('post.image', PostImageController::class)->only(['create', 'store','destroy']);
       Route::resource("post", PostDashboardController::class);
       Route::resource("product", ProductDashboardController::class);
-
-
   });
 });
 

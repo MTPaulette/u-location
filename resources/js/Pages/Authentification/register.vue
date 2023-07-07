@@ -1,7 +1,7 @@
 <template>
   <AuthentificationLayout>
     <template #title>
-      <myTitle title="S inscrire" class="text-sheet-200" />
+      <myTitle title="S'inscrire" class="text-sheet-200 font-bold text-3xl sm:text-4xl lg:text-[40px] xl:text-[42px]" />
     </template>
 
     <template #default>
@@ -45,11 +45,11 @@
           <label for="agree" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">I agree with the <a href="/terms" class="text-mango hover:underline dark:text-mango">terms and conditions</a> and <a href="/privacy" class="text-mango hover:underline dark:text-mango">privacy policy</a>.</label>
         </div>
         <div class="mt-3">
-          <button type="submit" class="rounded-lg submit-btn-style border-mango">creer compte</button>
+          <Button type="submit" label="creer compte" mango rounded large />
+          <!-- <button type="submit" class="rounded-lg submit-btn-style border-mango">creer compte</button> -->
         </div>
-        <!-- <button type="submit" class="mt-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-mango font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-mango dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button> -->
       </form>
-      <div class="flex justify-end text-xs mb-2 text-gray-700 dark:text-gray-400 -mt-2">
+      <div class="flex justify-end text-xs mb-2 text-gray-700 dark:text-gray-400 mt-2">
         Deja inscrit? &nbsp; <a href="/login" class="text-sheet-100 hover:text-mango"> Se connecter</a>
       </div>
     </template>
@@ -60,6 +60,7 @@
 <script setup>
 import AuthentificationLayout from '@/Layouts/AuthentificationLayout.vue'
 import myTitle from '@/Components/myTitle.vue'
+import Button from '@/Components/button.vue'
 import { useForm } from '@inertiajs/vue3'
 
 const form = useForm({
@@ -73,10 +74,10 @@ const form = useForm({
 const create = () => form.post('/register')
 </script>
 
-<script>
+<!-- <script>
 import BaseLayout from '@/Layouts/BaseLayout.vue'
 
 export default {
   layout: BaseLayout,
 }
-</script>
+</script> -->

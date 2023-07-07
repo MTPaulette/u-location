@@ -2,11 +2,15 @@
   <MainLayout>
     <pageTitle title="articles de categorie" />
     <div class="ml-3">
-      <myTitle title="Articles de la categorie:" />
+      <h2 class="title">
+        <span v-if="filters['q']">Recherche de: <span class="text-gray-500">{{ filters['q'] }}</span> </span> <br />
+        <span v-if="selectedCategory"> Suivant la categorie: {{ selectedCategory }} <span v-if="selectedCategory" class="text-gray-500"> {{ selectedCategory['name'] }}</span>.</span>
+      </h2>
+      <!-- <myTitle title="Articles de la categorie:" /> -->
     </div>
     <div class="mycontainer sm:px-20 md:px-7">
       <!-- <h2 class="title text-gray-600">"{{ $page.props.filters['category'] }}"</h2> -->
-      <h2 class="title text-gray-600">"{{ $page.props.category }}"</h2>
+      
       <div class="grid grid-cols-1 md:grid-cols-5 md:gap-14">
         <div class="col-span-3 md:col-span-3">
           <div v-if="products.data.length">
@@ -23,7 +27,7 @@
           <div class="md:flex justify-center min-w-[200px]">
             <div class="w-full min-w-[204px] h-3/6">
               <div>
-                <CategoryList title="Categories" :categories="categories" />
+                <CategoryList title="Categories" />
               </div>
             </div>
           </div>
@@ -48,12 +52,12 @@ import myTitle from '@/Components/myTitle.vue'
 import CategoryList from '@/Components/categoryList.vue'
 
 import { Link, usePage } from '@inertiajs/vue3'
-import { computed } from 'vue'
 
 const page = usePage()
-const categories = computed(
-  () => page.props.categories,
-)
+
+const filters =  page.props.filters
+let selectedCategory = page.props.category
+
 
 defineProps({
   products: Object,

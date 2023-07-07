@@ -5,8 +5,8 @@
   <button
     v-if="hasicon" :type="type"
     :disabled="disabled"
-    class="inline-flex items-center justify-center capitalize font-medium focus:ring-4 focus:outline-none disabled"
-    :class="{'rounded-lg':rounded ,'btn-default':btn, 'btn-transparent':transparent, 'btn-light':light, 'btn-success':success, 'btn-warning':warning, 'btn-danger':danger,'btn-extrasmall':extrasmall, 'btn-small': small, 'btn-base': base, 'btn-large': large}"
+    class="inline-flex items-center justify-center capitalize font-medium focus:ring-4 focus:outline-none disabled whitespace-nowrap"
+    :class="{'rounded-lg':rounded ,'btn-default':btn, 'btn-transparent':transparent, 'btn-light':light, 'btn-success':success, 'btn-warning':warning, 'btn-danger':danger, 'btn-mango':mango,'btn-extrasmall':extrasmall, 'btn-small': small, 'btn-base': base, 'btn-large': large}"
   >
     <slot />
     <span class="ml-2">{{ label }}</span>
@@ -18,8 +18,8 @@
   <button
     v-else :type="type"
     :disabled="disabled"
-    :class="{'rounded-lg':rounded ,'btn-default':btn, 'btn-transparent':transparent, 'btn-light':light, 'btn-success':success, 'btn-warning':warning, 'btn-danger':danger,'btn-extrasmall':extrasmall, 'btn-small': small, 'btn-base': base, 'btn-large': large }"
-    class="inline-flex items-center capitalize font-medium focus:ring-4 focus:outline-none disabled"
+    :class="{'rounded-lg':rounded ,'btn-default':btn, 'btn-transparent':transparent, 'btn-light':light, 'btn-success':success, 'btn-warning':warning, 'btn-danger':danger,'btn-mango':mango ,'btn-extrasmall':extrasmall, 'btn-small': small, 'btn-base': base, 'btn-large': large }"
+    class="inline-flex items-center capitalize font-medium focus:ring-4 focus:outline-none disabled whitespace-nowrap"
   >
     {{ label }}
   </button>
@@ -38,7 +38,7 @@ defineProps({
   },
   type: {
     type: String,
-    default: 'btn',
+    default: 'button',
   },
   hasicon: {
     type: Boolean,
@@ -65,6 +65,10 @@ defineProps({
     default: false,
   },
   warning: {
+    type: Boolean,
+    default: false,
+  },
+  mango: {
     type: Boolean,
     default: false,
   },

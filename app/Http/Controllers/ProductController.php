@@ -23,9 +23,10 @@ class ProductController extends Controller
     {
         return Inertia("Guest/Product/allProduct", [
             'products' => Product::orderByDesc('created_at')->withCount('images')
+                            ->with('category')
                             ->with('images')
                             ->paginate(5)
-                            ->withQueryString()
+                            // ->withQueryString()
         ]);
     }
     

@@ -27,3 +27,10 @@ const flashSuccess = computed(
   () => page.props.flash.success,
 )
 </script>
+
+<style>
+.content ol {
+  padding: 0 2rem;
+  list-style: decimal;
+}
+</style>

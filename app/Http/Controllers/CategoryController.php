@@ -33,6 +33,24 @@ class CategoryController extends Controller
     }
 
 
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Category $category)
+    {
+        if($request->category) {
+            $category->name = $request->category;
+        }
+
+        $category->update();
+        return redirect()->back()->with('success', 'category updated!');
+    }
+    
     /**
      * Remove the specified resource from storage.
      */

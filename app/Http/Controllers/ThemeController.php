@@ -37,6 +37,22 @@ class ThemeController extends Controller
 
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Theme  $theme
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Theme $theme)
+    {
+        if($request->theme) {
+            $theme->name = $request->theme;
+        }
+        $theme->update();
+        return redirect()->back()->with('success', 'theme updated!');
+    }
+
+    /**
      * Remove the specified resource from storage.
      */
     public function destroy($id)
