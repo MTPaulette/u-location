@@ -1,6 +1,6 @@
 <template>
   <DashboardLayout>
-    <div class="sm:flex sm:flex-row-reverse sm:justify-between sm:items-center mt-5 mb-3 mx-0 sm:mx-5">
+    <div class="sm:flex sm:flex-row-reverse sm:justify-between sm:items-center h-auto mt-5 mb-3 mx-0 sm:mx-5">
       <div>
         <breadcrumb link1="dashboard" link2="advantages" />
       </div>

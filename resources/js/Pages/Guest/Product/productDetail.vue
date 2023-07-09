@@ -42,7 +42,7 @@
               <div class="w-full">
                 <p class="font-semibold mb-2 text-gray-900 dark:text-gray-200 ">Products added to the basket</p>
                 <div>
-                  <form class="flex flex-wrap gap-2 w-full justify-around md:justify-start items-end" @submit.prevent="addToCart">
+                  <form class="flex flex-wrap gap-2 w-full justify-start items-end" @submit.prevent="addToCart">
                     <div class="block sm:flex items-center">
                       <label for="weight" class="label mb-1 mr-2">Weight:</label>
                       <select id="weight" v-model="weightIndex" name="weight" class="w-24 md:w-[90px] xl:w-24 py-1 text-center border-t border-b my-border-gray bg-gray-50 dark:bg-transparent" @click="initialiseForm()">
@@ -59,7 +59,12 @@
                         <span class="px-2 cursor-pointer" @click="increment">&#xff0b;</span>
                       </div>
                     </div>
-                    <Button label="add to cart" type="submit" rounded success small :disabled="!canUpload" />
+                    <div class="flex gap-2">
+                      <Button label="add to cart" type="submit" rounded success small :disabled="!canUpload" />
+                      <Link href="/cart">
+                        <Button label="view cart" light rounded small />
+                      </Link>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -115,7 +120,7 @@ import myTitle from '@/Components/myTitle.vue'
 import { ref } from 'vue'
 import UlList from '@/Components/ulList.vue'
 import Button from '@/Components/button.vue'
-import { useForm, router } from '@inertiajs/vue3'
+import { useForm, router, Link } from '@inertiajs/vue3'
 import NProgress from 'nprogress'
 
 const props = defineProps({
