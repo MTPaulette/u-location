@@ -42,7 +42,6 @@
       </div> -->
 
       <div class="flex justify-start md:justify-between lg:justify-start w-full flex-wrap overflow-x-hidden over-y h-[520px]">
-        <!-- <div v-for="product in products" :key="product.id" class="relative w-1/2 sm:w-[225px] lg:1/5 h-1/2"> -->
         <div v-for="product in products" :key="product.id" class="relative w-1/2 sm:bg-transparent sm:w-1/3 md:max-w-[225px] lg:w-1/4 xl:w-1/5  h-1/2">
           <Link :href="route('product.show', {product: product.id})">
             <productIndexCard :product="product" />

@@ -14,7 +14,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Inertia("Dashboard/Add/Category");
+        return Inertia("Dashboard/Add/Category", [
+            'categories' => Category::orderBy('name', 'asc')
+                                    ->get()
+        ]);
     }
     
     /**

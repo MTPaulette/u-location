@@ -33,10 +33,10 @@
           
           <div v-if="selected == advantage.id">
             <form class="relative w-full" @submit.prevent="update(advantage)">
-              <label for="advanatge" class="block text-base font-medium text-gray-900 dark:text-white">Category</label>
-              <textarea v-model="form.advanatge" rows="2" class="text-area mb-2" placeholder="new advanatge..." />
+              <label for="advantage" class="block text-base font-medium text-gray-900 dark:text-white">Category</label>
+              <textarea v-model="form.advantage" rows="2" class="text-area mb-2" placeholder="new advantage..." />
               <div class="flex gap-1">
-                <Button type="submit" label="update" rounded success extrasmall :disabled="!form.advanatge" />
+                <Button type="submit" label="update" rounded success extrasmall :disabled="!form.advantage" />
                 <div @click="selected = null">
                   <Button type="cancel" label="cancel" rounded light extrasmall />
                 </div>
@@ -63,17 +63,17 @@ defineProps({
 const selected = ref(null)
 
 const form = useForm({
-  advanatge: null,
+  advantage: null,
 })
 
-const showUpdateForm = (advanatge) => {
-  form.advanatge = advanatge.name
-  selected.value = advanatge.id
+const showUpdateForm = (advantage) => {
+  form.advantage = advantage.name
+  selected.value = advantage.id
 }
 
-const update = (advanatge) => {
+const update = (advantage) => {
   form.put(
-    route('advanatge.update', {advanatge: advanatge}),
+    route('advantage.update', {advantage: advantage}),
   )
   selected.value = null
 }

@@ -20,16 +20,16 @@
 
 .over-x::-webkit-scrollbar-track,
 .over-y::-webkit-scrollbar-track{
-  box-shadow: inset 0 0 6px #9e9e9e;
-  /* box-shadow: inset 0 0 6px #FFF; */
+  /* box-shadow: inset 0 0 6px #9e9e9e; */
+  box-shadow: inset 0 0 6px #FFF;
 }
 
 .over-x::-webkit-scrollbar-thumb,
 .over-y::-webkit-scrollbar-thumb{
-  /* outline: 1px solid #C4C4C4;
-  background: #C4C4C4; */
-  outline: 1px solid #61a60e;
-  background: #61a60e;
+  outline: 1px solid #C4C4C4;
+  background: #C4C4C4;
+  /* outline: 1px solid #61a60e;
+  background: #61a60e; */
   border-radius: 8px;
 }
 

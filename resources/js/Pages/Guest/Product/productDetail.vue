@@ -10,10 +10,7 @@
               <img class="w-full md:max-w-[400px] h-full rounded-lg" :src="getImgUrl(product.images[selectedImage].filename)" />
             </div>
             
-            <div class="over-y flex flex-col md:flex-row over-x w-20 sm:w-28 md:w-full h-56 sm:h-64 md:h-auto gap-1 items-end pr-1 md:pr-0 md:pb-1.5">
-              <div v-for="(image, i) in product.images" :key="image.id" class="flex-shrink-0" @click="selectedImage=i">
-                <img class="border-2 rounded w-12 h-10 sm:w-16 sm:h-14 lg:w-20 lg:h-16" :class="selectedImage==i?'border-mango': 'border-sheet-100'" :src="getImgUrl(image.filename)" />
-              </div>
+            <div class="over-y flex flex-col md:flex-row justify-center over-x w-20 sm:w-28 md:w-full h-56 sm:h-64 md:h-auto gap-1 items-end pr-1 md:pr-0 md:pb-1.5">
               <div v-for="(image, i) in product.images" :key="image.id" class="flex-shrink-0" @click="selectedImage=i">
                 <img class="border-2 rounded w-12 h-10 sm:w-16 sm:h-14 lg:w-20 lg:h-16" :class="selectedImage==i?'border-mango': 'border-sheet-100'" :src="getImgUrl(image.filename)" />
               </div>

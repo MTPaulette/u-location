@@ -4,7 +4,7 @@
     <div class="ml-3 my-4">
       <h2 class="title">
         <span v-if="filters['q']">Recherche de: <span class="text-gray-500">{{ filters['q'] }}</span> </span> <br />
-        <span v-if="selectedCategory"> Suivant la categorie: {{ selectedCategory }} <span v-if="selectedCategory" class="text-gray-500"> {{ selectedCategory['name'] }}</span>.</span>
+        <span v-if="filters['category']"> Suivant la categorie: <span class="text-gray-500"> {{ filters['category'] }}</span>.</span>
       </h2>
     </div>
     <div class="mycontainer sm:px-20 md:px-7">
@@ -45,7 +45,6 @@ import MainLayout from '@/Layouts/MainLayout.vue'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import productCard from '@/Components/productCard.vue'
 import pagination from '@/Components/pagination.vue'
-import myTitle from '@/Components/myTitle.vue'
 import CategoryList from '@/Components/categoryList.vue'
 
 import { Link, usePage } from '@inertiajs/vue3'
@@ -53,7 +52,6 @@ import { Link, usePage } from '@inertiajs/vue3'
 const page = usePage()
 
 const filters =  page.props.filters
-let selectedCategory = page.props.category
 
 
 defineProps({

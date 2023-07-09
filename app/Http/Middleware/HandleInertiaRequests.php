@@ -61,24 +61,8 @@ class HandleInertiaRequests extends Middleware
             'subtotal' => $cart->subtotal(),
 
             // value of category and input in the searchCategory component
+            // Category::select('name')->where('id', '=', $request->query()['category'])->first()->name
             'filters' => $request->query(),
-
-            // 'category' => 'change la moi dans le handleInertia requests',
-
-            /*
-            'category' => $request->query() ? (
-                            $request->query()['category'] ? 
-                                Category::select('name')->where('id', '=', $request->query()['category'])->first()->name
-                            : null
-                        ): null,
-            */
-            'category' => $request->query() ? (
-                array_key_exists('category',$request->query()) ? 
-                    Category::select('name')->where('id', '=', $request->query()['category'])->first()
-                    // Category::select('name')->where('id', '=', $request->query()['category'])->first()
-                : 'null1'
-            ): 'null2',
-            
         ]);
     }
 }

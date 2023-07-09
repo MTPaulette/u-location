@@ -27,7 +27,7 @@
           </form>
         </div>
         <div class="col-span-3 my-20 md:my-0 border-none md:border-l-2 md:my-border-gray md:pl-7">
-          <categoryList title="Categories" @delete="deleteItem" />
+          <categoryList title="Categories" :categories="categories" @delete="deleteItem" />
         </div>
       </div>
     </div>
@@ -41,6 +41,10 @@ import myTitle from '@/Components/myTitle.vue'
 import categoryList from '@/Components/List/category.vue'
 import Button from '@/Components/button.vue'
 import { useForm, router } from '@inertiajs/vue3'
+
+defineProps({
+  categories: Object,
+})
 
 const form = useForm({
   category: '',

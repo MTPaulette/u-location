@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Info;
 use App\Models\Category;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -86,11 +87,7 @@ class ProductController extends Controller
         $query = Product::orderByDesc('created_at')
                 ->when(
                     $filters['category'] ?? false,
-                    function($query, $value) {
-                        $category_id = Category::select('id')->where('name', '=', $value)->first()->id;
-                        $query->where('category_id', '=', $category_id);
-                    }
-                    // fn($query, $value) => $query->where('category_id', '=', $value)
+                    fn($query, $value) => $query->where('category_id', '=', $value)
                 )
                 ->when(
                     $filters['q'] ?? false,
@@ -118,4 +115,5 @@ class ProductController extends Controller
                             ->withQueryString()
         ]);
     }
+    
 }

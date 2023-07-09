@@ -7,7 +7,7 @@
             <label for="category-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">categories</label>
             <button id="category-button" data-dropdown-toggle="category-dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 sm:py-0 h-auto sm:h-16 px-2 md:px-4 text-base font-semibold uppercase text-center text-white bg-mango hover:bg-sheet-200 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700" type="button">
               <div class="w-[142px] truncate h-5">
-                <span v-if="filterForm.category">{{ selectedCategory }}</span>
+                <span v-if="filterForm.category">{{ filterForm.category }}</span>
                 <span v-else>All categories</span>
               </div>
               <svg aria-hidden="true" class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -15,6 +15,7 @@
               </svg>
             </button>
             <div id="category-dropdown" class="z-10 bg-white hidden divide-y divide-gray-100 shadow-lg w-48 h-[350px] dark:bg-gray-700">
+              <!-- <div id="category-dropdown" ref="dropCategories" class="z-10 bg-white hidden divide-y divide-gray-100 shadow-lg w-48 h-[350px] dark:bg-gray-700"> -->
               <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="category-button">
                 <li
                   v-for="category in categories" 
@@ -62,11 +63,12 @@ onMounted(() => {
 })
 
 const page = usePage()
-let selectedCategory = page.props.category
 
 const categories = computed(
   () => page.props.categories,
 )
+
+// const dropCategories = ref(null)
 
 const filterForm = useForm({
   category: null,
@@ -74,8 +76,7 @@ const filterForm = useForm({
 })
 
 const research = (category) => {
-  filterForm.category = category.id
-  selectedCategory = category.name
+  filterForm.category = category.name
   filterForm.get(
     route('product.filters'),
     {
@@ -83,6 +84,7 @@ const research = (category) => {
       preserveScroll: true,
     },
   )
+  // dropCategories.value.hide()
 }
 
 const menuItems = [['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/#','services'], ['/product','store']]
