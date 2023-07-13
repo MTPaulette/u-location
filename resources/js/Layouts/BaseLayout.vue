@@ -1,4 +1,5 @@
 <template>
+  <div class="selection:first-letter:bg-blue-500 selection:first-letter:text-white" />
   <slot />
 </template>
 
@@ -21,7 +22,8 @@
 .over-x::-webkit-scrollbar-track,
 .over-y::-webkit-scrollbar-track{
   /* box-shadow: inset 0 0 6px #9e9e9e; */
-  box-shadow: inset 0 0 6px #FFF;
+  /* box-shadow: inset 0 0 6px #FFF; */
+  box-shadow: inset 0 0 6px transparent;
 }
 
 .over-x::-webkit-scrollbar-thumb,

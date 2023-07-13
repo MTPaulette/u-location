@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Info;
 use App\Models\Post;
 use App\Models\Theme;
 use Illuminate\Http\Request;
-use PDF;
 // use Illuminate\Support\Facades\DB;
 
 class PostDashboardController extends Controller

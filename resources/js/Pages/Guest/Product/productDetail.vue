@@ -13,6 +13,8 @@
             <div class="over-y flex flex-col md:flex-row justify-center over-x w-20 sm:w-28 md:w-full h-56 sm:h-64 md:h-auto gap-1 items-end pr-1 md:pr-0 md:pb-1.5">
               <div v-for="(image, i) in product.images" :key="image.id" class="flex-shrink-0" @click="selectedImage=i">
                 <img class="border-2 rounded w-12 h-10 sm:w-16 sm:h-14 lg:w-20 lg:h-16" :class="selectedImage==i?'border-mango': 'border-sheet-100'" :src="getImgUrl(image.filename)" />
+              </div><div v-for="(image, i) in product.images" :key="image.id" class="flex-shrink-0" @click="selectedImage=i">
+                <img class="border-2 rounded w-12 h-10 sm:w-16 sm:h-14 lg:w-20 lg:h-16" :class="selectedImage==i?'border-mango': 'border-sheet-100'" :src="getImgUrl(image.filename)" />
               </div>
             </div>
           </div>
@@ -45,7 +47,7 @@
                   <form class="flex flex-wrap gap-2 w-full justify-start items-end" @submit.prevent="addToCart">
                     <div class="block sm:flex items-center">
                       <label for="weight" class="label mb-1 mr-2">Weight:</label>
-                      <select id="weight" v-model="weightIndex" name="weight" class="w-24 md:w-[90px] xl:w-24 py-1 text-center border-t border-b my-border-gray bg-gray-50 dark:bg-transparent" @click="initialiseForm()">
+                      <select id="weight" v-model="weightIndex" name="weight" class="w-24 md:w-[90px] xl:w-24 py-1 text-center border-t border-b my-border-gray bg-gray-50 dark:bg-transparent dark:focus:bg-gray-600" @click="initialiseForm()">
                         <option v-for="(weight, i) in product.weights" :key="weight.id" :value="i">
                           {{ weight.name }}
                         </option>

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Product;
 use App\Models\Post;
-use Illuminate\Http\Request;
+use App\Models\Country;
+use App\Models\City;
+use App\Models\Address;
 
 class GuestController extends Controller
 {
@@ -34,11 +35,19 @@ class GuestController extends Controller
         return Inertia("Guest/about");
     }
 
-    // public function notFound() {
-    //     return Inertia("Guest/notFound");
-    // }
-
     public function dashboard() {
         return Inertia("Dashboard/Home");
+    }
+    
+    public function checkout()
+    {
+        return Inertia("Guest/checkout", [
+            'countries' => Country::orderBy('name', 'asc')->get(),
+            'cities' => City::orderBy('name', 'asc')->get()->groupBy('country_id'),
+            'addresses' => Address::orderBy('street', 'asc')
+                                        ->with('city')
+                                        ->get()
+                                        ->groupBy('city_id'),
+        ]);
     }
 }

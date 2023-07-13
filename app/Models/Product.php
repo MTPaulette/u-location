@@ -32,7 +32,11 @@ class Product extends Model
     }
 
     public function orders(): BelongsToMany {
-        return $this->belongsToMany(Order::class);
+        // return $this->belongsToMany(Order::class);
+        
+        return $this->belongsToMany(Order::class, 'order_products')
+                    ->using(Order_product::class)
+                    ->withPivot('weight', 'unit_price', 'quantity');
     }
     
     public function advantages(): BelongsToMany {

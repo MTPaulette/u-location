@@ -37,8 +37,7 @@ use Illuminate\Support\Facades\Route;
 Route::get("/",[GuestController::class, "index"])->name("index");
 Route::get("/contact",[GuestController::class, "contact"]);
 Route::get("/about",[GuestController::class, "about"]);
-Route::get("/notFound",[GuestController::class, "notFound"]);
-// Route::get("/cart",[GuestController::class, "cart"]);
+Route::get("/checkout",[GuestController::class, "checkout"]);
 
 
 Route::resource("post", PostController::class)->only(['index', 'show']);
@@ -46,7 +45,6 @@ Route::resource("product", ProductController::class)->only(['index', 'show']);
 
 /* cart routes */
 Route::resource("cart", CartController::class)->only(['index', 'store', 'update', 'destroy']);
-Route::resource("checkout", CheckoutController::class)->only(['index', 'store', 'update', 'destroy']);
 Route::delete("/clearCart",[CartController::class, "clear"])->name('cart.clear');
 
 /* search post by them and product by category */
