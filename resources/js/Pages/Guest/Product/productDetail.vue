@@ -57,7 +57,8 @@
                       <label for="qty" class="label mb-1 mr-2">Qty:</label>
                       <div class="flex items-center justify-center border my-border-gray">
                         <span class="px-2 cursor-pointer" @click="decrement">&mdash;</span>
-                        <input type="text" :value="form.qty" class="w-12 md:w-10 xl:w-12 h-8 text-center border-none bg-gray-50 dark:bg-transparent" />
+                        <!-- <input type="text" :value="form.qty" class="w-12 md:w-10 xl:w-12 h-8 text-center border-none bg-gray-50 dark:bg-transparent" /> -->
+                        <input type="text" :value="form.qty" class="w-12 md:w-10 xl:w-12 h-8 text-center border-none bg-gray-50 dark:bg-transparent" @input="changeQty" />
                         <span class="px-2 cursor-pointer" @click="increment">&#xff0b;</span>
                       </div>
                     </div>
@@ -176,9 +177,6 @@ const initialiseForm = () => {
 const addToCart = () => {
   form.post(
     route('cart.store'),
-    {
-      onSuccess: () => form.reset('images'),
-    },
   )
 }
 
@@ -188,7 +186,22 @@ const decrement = () => {
     form.qty--
 }
 const increment = () => {
-  form.qty = form.qty+1
+  if(form.qty < form.remaining_stock) {
+    form.qty = form.qty+1
+  }
+  else {
+    form.qty = form.remaining_stock
+  }
+  // form.qty = form.qty+1
+}
+const changeQty = (e) => {
+  let qty = e.target.value
+  if(qty < form.remaining_stock) {
+    form.qty = qty
+  }
+  else {
+    form.qty = form.remaining_stock
+  }
 }
 
 const formatPrice = (price) => {

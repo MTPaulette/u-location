@@ -22,4 +22,8 @@ class City extends Model
     public function addresses(): HasMany {
         return $this->hasMany(Address::class);
     }
+
+    public function orders(): HasMany {
+        return $this->hasMany(Order::class);
+    }
 }

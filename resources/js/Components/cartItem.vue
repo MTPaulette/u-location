@@ -25,7 +25,7 @@
   <td class="px-4 py-3">
     <div class="flex items-center justify-center border my-border-gray">
       <span class="px-2 cursor-pointer" @click="decrement">&mdash;</span>
-      <input type="text" :value="form.qty" class="w-12 h-7 text-center border-none bg-white dark:bg-transparent" />
+      <input type="text" :value="form.qty" class="w-12 h-7 text-center border-none bg-white dark:bg-transparent" @blur="changeQty" />
       <span class="px-2 cursor-pointer" @click="increment">&#xff0b;</span>
     </div>
   </td>
@@ -76,7 +76,27 @@ const decrement = () => {
   }
 }
 const increment = () => {
-  form.qty++
+  let remaining_stock = props.cartItem.options.remaining_stock
+  if(form.qty < remaining_stock) {
+    form.qty++
+  }
+  else {
+    form.qty = remaining_stock
+  }
+  // form.qty++
+  updateQty()
+}
+
+const changeQty = (e) => {
+  console.log("==========================================")
+  let qty = e.target.value
+  let remaining_stock = props.cartItem.options.remaining_stock
+  if(qty < remaining_stock) {
+    form.qty = qty
+  }
+  else {
+    form.qty = remaining_stock
+  }
   updateQty()
 }
 

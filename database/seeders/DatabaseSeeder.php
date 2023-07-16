@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         
         \App\Models\Info::factory()->create();
-        \App\Models\Category::factory(30)->create();
+        \App\Models\Category::factory(50)->create();
         \App\Models\Theme::factory(20)->create();
         
         \App\Models\Country::factory(5)->create();
@@ -54,23 +54,33 @@ class DatabaseSeeder extends Seeder
         ]);
         
 
-        \App\Models\Product::factory(2)->create([
+        \App\Models\Product::factory(10)->create([
             'category_id' => 1,
             'user_id' => 1,
         ]);
 
-        \App\Models\Product::factory(2)->create([
+        \App\Models\Product::factory(7)->create([
             'category_id' => 2,
             'user_id' => 3,
         ]);
 
-        \App\Models\Product::factory(2)->create([
-            'category_id' => 3,
+        \App\Models\Product::factory(5)->create([
+            'category_id' => 7,
+            'user_id' => 2,
+        ]);
+
+        \App\Models\Product::factory(3)->create([
+            'category_id' => 9,
+            'user_id' => 2,
+        ]);
+
+        \App\Models\Product::factory(4)->create([
+            'category_id' => 10,
             'user_id' => 2,
         ]);
 
 
-        \App\Models\Post::factory(5)->create([
+        \App\Models\Post::factory(15)->create([
             'theme_id' => 1,
             'user_id' => 2,
         ]);
@@ -130,8 +140,16 @@ class DatabaseSeeder extends Seeder
         $product2 = \App\Models\Product::find(2);
         $product3 = \App\Models\Product::find(3);
 
+        $city1 = \App\Models\Product::find(1);
+        $city2 = \App\Models\Product::find(2);
+        $city3 = \App\Models\Product::find(3);
+
         $order1 = \App\Models\Order::find(1);
         $order2 = \App\Models\Order::find(2);
+
+        $city1->orders()->attach($order1);
+        $city2->orders()->attach($order1);
+        $city3->orders()->attach($order2);
 
         $product1->orders()->attach($order1);
         $product2->orders()->attach($order1);
@@ -176,9 +194,44 @@ class DatabaseSeeder extends Seeder
         $product2->weights()->attach($w1, ['price' => 7500, 'initial_stock' => 800, 'remaining_stock' => 800]);
         $product3->weights()->attach($w2, ['price' => 10000, 'initial_stock' => 750, 'remaining_stock' => 750]);
 
-        $product1->weights()->attach($w3);
-        $product2->weights()->attach($w1);
-        $product3->weights()->attach($w2);
+        \App\Models\Product::find(5)->weights()->attach($w1, ['price' => 25000, 'initial_stock' => 500, 'remaining_stock' => 500]);
+        \App\Models\Product::find(5)->weights()->attach($w3, ['price' => 2500, 'initial_stock' => 350, 'remaining_stock' => 350]);
+        \App\Models\Product::find(15)->weights()->attach($w1, ['price' => 7500, 'initial_stock' => 800, 'remaining_stock' => 800]);
+        \App\Models\Product::find(15)->weights()->attach($w2, ['price' => 10000, 'initial_stock' => 750, 'remaining_stock' => 750]);
+
+
+
+        \App\Models\Product::find(6)->weights()->attach($w1, ['price' => 25000, 'initial_stock' => 500, 'remaining_stock' => 500]);
+        \App\Models\Product::find(6)->weights()->attach($w3, ['price' => 2500, 'initial_stock' => 350, 'remaining_stock' => 350]);
+        \App\Models\Product::find(16)->weights()->attach($w1, ['price' => 7500, 'initial_stock' => 800, 'remaining_stock' => 800]);
+        \App\Models\Product::find(16)->weights()->attach($w2, ['price' => 10000, 'initial_stock' => 750, 'remaining_stock' => 750]);
+        
+
+        \App\Models\Product::find(7)->weights()->attach($w1, ['price' => 25000, 'initial_stock' => 500, 'remaining_stock' => 500]);
+        \App\Models\Product::find(7)->weights()->attach($w3, ['price' => 2500, 'initial_stock' => 350, 'remaining_stock' => 350]);
+        \App\Models\Product::find(17)->weights()->attach($w1, ['price' => 7500, 'initial_stock' => 800, 'remaining_stock' => 800]);
+        \App\Models\Product::find(17)->weights()->attach($w2, ['price' => 10000, 'initial_stock' => 750, 'remaining_stock' => 750]);
+
+        \App\Models\Product::find(8)->weights()->attach($w1, ['price' => 25000, 'initial_stock' => 500, 'remaining_stock' => 500]);
+        \App\Models\Product::find(8)->weights()->attach($w3, ['price' => 2500, 'initial_stock' => 350, 'remaining_stock' => 350]);
+        \App\Models\Product::find(28)->weights()->attach($w1, ['price' => 7500, 'initial_stock' => 800, 'remaining_stock' => 800]);
+        \App\Models\Product::find(28)->weights()->attach($w2, ['price' => 10000, 'initial_stock' => 750, 'remaining_stock' => 750]);
+
+        \App\Models\Product::find(13)->weights()->attach($w1, ['price' => 25000, 'initial_stock' => 500, 'remaining_stock' => 500]);
+        \App\Models\Product::find(13)->weights()->attach($w3, ['price' => 2500, 'initial_stock' => 350, 'remaining_stock' => 350]);
+        \App\Models\Product::find(18)->weights()->attach($w1, ['price' => 7500, 'initial_stock' => 800, 'remaining_stock' => 800]);
+        \App\Models\Product::find(18)->weights()->attach($w2, ['price' => 10000, 'initial_stock' => 750, 'remaining_stock' => 750]);
+
+
+        \App\Models\Product::find(12)->weights()->attach($w1, ['price' => 25000, 'initial_stock' => 500, 'remaining_stock' => 500]);
+        \App\Models\Product::find(12)->weights()->attach($w3, ['price' => 2500, 'initial_stock' => 350, 'remaining_stock' => 350]);
+        \App\Models\Product::find(24)->weights()->attach($w1, ['price' => 7500, 'initial_stock' => 800, 'remaining_stock' => 800]);
+        \App\Models\Product::find(24)->weights()->attach($w2, ['price' => 10000, 'initial_stock' => 750, 'remaining_stock' => 750]);
+
+
+        // $product1->weights()->attach($w3);
+        // $product2->weights()->attach($w1);
+        // $product3->weights()->attach($w2);
         
 }
 }

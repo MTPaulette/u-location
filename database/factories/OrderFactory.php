@@ -17,7 +17,8 @@ class OrderFactory extends Factory
     public function definition()
     {
         return [
-            'code' => fake()->numberBetween(100, 5000),
+            // 'code' => fake()->numberBetween(100, 5000),
+            'billing_address' => fake()->address(),
         ];
     }
 }

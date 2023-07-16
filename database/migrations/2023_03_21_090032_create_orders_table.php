@@ -16,19 +16,21 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
-            $table->string('confirmation_number')->nullable();
+            // $table->string('confirmation_number')->nullable();
             $table->string('billing_email')->nullable();
             $table->string('billing_name')->nullable();
-            $table->string('billing_name_on_card')->nullable();
+            // $table->string('billing_name_on_card')->nullable();
+            // $table->string('billing_city')->nullable();
+            $table->foreignIdFor(\App\Models\City::class)->default(4);
             $table->string('billing_address')->nullable();
-            $table->string('billing_city')->nullable();
-            $table->string('billing_state')->nullable();
-            $table->string('billing_zip_code')->nullable();
+            // $table->string('billing_state')->nullable();
+            // $table->string('billing_zip_code')->nullable();
+            
             $table->integer('billing_discount')->default(0);
             $table->string('billing_discount_code')->nullable();
-            $table->integer('billing_subtotal');
-            $table->integer('billing_tax');
-            $table->integer('billing_total');
+            $table->integer('billing_subtotal')->default(0);
+            $table->integer('billing_tax')->default(0);
+            $table->integer('billing_total')->default(0);
             $table->boolean('shipped')->default(false);
             $table->timestamps();
         });

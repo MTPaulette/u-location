@@ -13,14 +13,14 @@ class Order extends Model
 
     protected $fillable = [
         'user_id',
-        'confirmation_number',
+        // 'confirmation_number',
         'billing_email',
         'billing_name',
-        'billing_name_on_card',
-        'billing_address',
+        // 'billing_name_on_card',
         'billing_city',
-        'billing_state',
-        'billing_zip_code',
+        'billing_address',
+        // 'billing_state',
+        // 'billing_zip_code',
         'billing_discount',
         'billing_discount_code',
         'billing_subtotal',
@@ -53,9 +53,14 @@ class Order extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function products(): BelongsToMany {
-        // return $this->belongsToMany(Product::class)->withPivot('quantity');
-        return $this->belongsToMany(Product::class, 'order_products')
-                    ->using(Order_product::class)
+        return $this->belongsToMany(Product::class)
                     ->withPivot('weight', 'unit_price', 'quantity');
+        // return $this->belongsToMany(Product::class, 'order_products')
+        //             ->using(Order_product::class)
+        //             ->withPivot('weight', 'unit_price', 'quantity');
+    }
+    
+    public function city(): BelongsTo {
+        return $this->belongsTo(City::class);
     }
 }

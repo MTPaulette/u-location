@@ -62,12 +62,12 @@ Route::post("/register",[UserAccountController::class, "store"])->name("register
 Route::get("/reset",[PasswordController::class, "create"])->name("reset");
 Route::post("/reset",[PasswordController::class, "store"])->name("reset");
 
+Route::resource("order", OrderController::class);
 
 Route::middleware('auth')->group(function () {
   Route::get("/dashboard",[DashboardController::class, "home"])->name("dashboard");
   Route::get("/statistic",[DashboardController::class, "statistic"]);
   Route::get("/notifications",[DashboardController::class, "notification"]);
-  Route::resource("order", OrderController::class);
   Route::resource("invoice", InvoiceController::class);
 });
 

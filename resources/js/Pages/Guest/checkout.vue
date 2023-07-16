@@ -5,10 +5,12 @@
       <div class="w-full">
         <myTitle title="Make your checkout here" />
 
-        <div class="mt-2 mb-4">Please register in order to checkout more quickly.</div>
+        <div class="mt-2 mb-4">Please register in order to checkout more quickly.</div><br />
+        <br />
+        cartcount: {{ cartcount }}
         <br />
         <br />
-        form: {{ form }}
+        form: {{ cartItems }}
         <br /><br />
       </div>
       <!-- <div class="grid grid-cols-1 md:grid-cols-4 gap-0 md:gap-4"> -->
@@ -18,7 +20,7 @@
           <!-- general informations -->
           <div class="mt-4 md:mt-0 md:col-span-3 lg:col-span-2 w-full px-5 py-4 h-auto bg-white border my-border-gray rounded-lg dark:bg-gray-800">
             <form method="POST" @submit.prevent="order">
-              <div v-if="!form.new_address">
+              <div>
                 <div class="mb-4">
                   <h2 class="font-semibold text-xl md:text-2xl text-gray-700 dark:text-gray-200"> General Information </h2>
                 </div>
@@ -46,7 +48,7 @@
                     </div>
                   </div>
 
-                  <div class="w-full block sm:flex justify-between items-end gap-2 mt-2 sm:mt-6">
+                  <div v-if="!form.new_address" class="w-full block sm:flex justify-between items-end gap-2 mt-2 sm:mt-6">
                     <div class="w-full">
                       <label for="address" class="label">Address</label>
                       <select id="address" v-model="form.address_id" name="weight" class="input">
@@ -67,8 +69,8 @@
 
 
               <!-- new address -->
-              <div v-else>
-                <div class="mb-4">
+              <div v-if="form.new_address">
+                <div class="mt-9 mb-3">
                   <h2 class="font-semibold text-xl md:text-2xl text-gray-700 dark:text-gray-200"> Enter new address </h2>
                 </div>
                 <div class="flex flex-col justify-between w-full h-auto">
@@ -195,6 +197,11 @@
       </template>
       </Modal> -->
     </div>
+    <div>
+      <div v-for="cartItem in cartItems" :key="cartItem.rowId">
+        {{ order(cartItem) }}
+      </div>
+    </div>
   </MainLayout>
 </template>
 
@@ -223,6 +230,10 @@ const cartcount = computed(
   () => page.props.cartcount,
 )
 
+const cartItems = computed(
+  () => page.props.cartItems,
+)
+
 const subtotal = computed(
   () => page.props.subtotal,
 )
@@ -232,6 +243,8 @@ const formatPrice = (price) => {
 }
 
 const form = useForm({
+  // cartItems: cartItems.value,
+  // products: [],
   firstname: user.value ? user.value.firstname : null,
   lastname: user.value ? user.value.lastname : null,
   telephone: user.value ? user.value.telephone : null,
@@ -246,13 +259,24 @@ const form = useForm({
 
 
 const showAddressFrom = () => {
-  console.log("============================================")
-  console.log(cartcount.value)
   if(cartcount.value) {
     form.new_address = true
     form.address_id = null
   }
 }
 
-const order = () => form.post(route('order.store'))
+const order = (cartItem) => {
+  console.log("============================================")
+  console.log(cartItem.id)
+  form.products.push(cartItem.id)
+  /*
+  console.log(cartItems.value)
+  for(const products in cartItems.value){
+    console.log(products)
+    // form.products.push(weightItem)
+    
+  }
+  */
+  // form.post(route('order.store'))
+}
 </script>

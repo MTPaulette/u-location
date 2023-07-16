@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->nullable()->constrained()->onDelete('cascade');
+            $table->unsignedInteger('weight')->nullable();
+            $table->unsignedInteger('unit_price')->default(0);
             $table->unsignedBigInteger('quantity')->default(0);
+            
             $table->timestamps();
         });
     }
