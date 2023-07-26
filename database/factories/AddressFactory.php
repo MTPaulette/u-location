@@ -17,7 +17,8 @@ class AddressFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'city_id' => fake()->numberBetween(1, 20),
+            'street' => fake()->streetName()
         ];
     }
 }

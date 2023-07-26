@@ -52,7 +52,5 @@ class Product extends Model
         return $this->belongsToMany(Weight::class, 'weight_products')
                     ->using(Weight_product::class)
                     ->withPivot('price', 'initial_stock', 'remaining_stock');
-        // return $this->belongsToMany(Weight::class, 'weight_products');
-        // return $this->belongsToMany(Weight::class)->using(Weight_product::class);
     }
 }

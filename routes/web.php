@@ -8,6 +8,7 @@ use App\Http\Controllers\PostDashboardController;
 use App\Http\Controllers\ProductDashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderDashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\UserAccountController;
@@ -97,6 +98,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
       Route::resource('post.image', PostImageController::class)->only(['create', 'store','destroy']);
       Route::resource("post", PostDashboardController::class);
       Route::resource("product", ProductDashboardController::class);
+      Route::resource("order", OrderDashboardController::class);
   });
 });
 
@@ -105,6 +107,8 @@ Route::prefix('export')
 ->group(function () {
     Route::get('/posts', [PostDashboardController::class, 'createPDF']);
     Route::get('/products', [ProductDashboardController::class, 'createPDF']);
+    // Route::get('/order', [OrderController::class, 'createPDF'])->name('export.order');
+    Route::get('/order/{order}', [OrderController::class, 'createPDF'])->name('export.order');
     Route::get('/users', [UserController::class, 'createPDF']);    
 });
 

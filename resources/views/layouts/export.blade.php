@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<!-- <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark"> -->
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +9,6 @@
     <body>
       <div id="posts">
         <div class="logo">
-          <!-- <img src="{{ public_path('/image/logo.png') }}" height="120px" width="170px" alt="Agrimax Logo" /> -->
           <img src="{{ public_path('/image/logo.png') }}" height="150px" width="200px" alt="Agrimax Logo" />
         </div>
         <div class="title">
@@ -32,8 +30,6 @@
 
   ul, ol {
     margin: 0;
-    /* margin-top: -0.75rem; */
-    /* margin-bottom: -1.5rem; */
   }
 
   li p {

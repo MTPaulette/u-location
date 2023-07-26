@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             'country_id' => 4
         ]);
 
+        \App\Models\Address::factory(50)->create();
 
         \App\Models\User::factory(2)->create([
             'city_id' => 4

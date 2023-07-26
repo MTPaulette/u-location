@@ -197,11 +197,11 @@
       </template>
       </Modal> -->
     </div>
-    <div>
+    <!-- <div>
       <div v-for="cartItem in cartItems" :key="cartItem.rowId">
         {{ order(cartItem) }}
       </div>
-    </div>
+    </div> -->
   </MainLayout>
 </template>
 
@@ -249,11 +249,13 @@ const form = useForm({
   lastname: user.value ? user.value.lastname : null,
   telephone: user.value ? user.value.telephone : null,
   email: user.value ? user.value.email : null,
+  password: null,
   country_id: null,
   city_id: null,
   address_id: null,
   street: null,
   paiement_mode: false,
+  subtotal: subtotal.value,
   new_address: false,
 })
 
@@ -265,11 +267,12 @@ const showAddressFrom = () => {
   }
 }
 
-const order = (cartItem) => {
+const order = () => {
+  /*
   console.log("============================================")
   console.log(cartItem.id)
   form.products.push(cartItem.id)
-  /*
+  
   console.log(cartItems.value)
   for(const products in cartItems.value){
     console.log(products)
@@ -277,6 +280,8 @@ const order = (cartItem) => {
     
   }
   */
-  // form.post(route('order.store'))
+  const year = new Date().getFullYear()
+  form.password = form.lastname+'_'+year
+  form.post(route('order.store'))
 }
 </script>

@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Address;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Date;
 
 class OrderController extends Controller
 {
@@ -14,8 +18,11 @@ class OrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return Inertia('Dashboard/Orders/Index', [
-            'orders' => Auth::user()->orders()->with('products')->latest()->paginate(2)
+        return Inertia('Dashboard/Order/List', [
+            //'orders' => Order::orderByDesc('created_at')->with('products')->get(),
+            'orders' => Auth::user()->orders()->with('products')->orderByDesc('created_at')->get(),
+            'user' => Auth::user(),
+            // latest()->paginate(2)
         ]);
     }
 
@@ -37,7 +44,44 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
+        $order = new Order();
+        $order->billing_subtotal = $request->subtotal;
+        $order->paiement_mode = $request->paiement_mode;
+        if($request->user()) {
+            $order->user_id = $request->user()->id;
+        }else {
+            $user = User::create(
+                $request->validate([
+                'firstname' => 'max:50',
+                'lastname' => 'required|max:50',
+                'email' => 'required|email|unique:users',
+                'password' => '',
+                'telephone' => 'required',
+                // 'password' => 'required|min:6|confirmed',
+            ]));
+           // $user->password = $request->lastname.'_'.date('Y');
+            $order->user_id = $user->id;
+        }
+
+        if($request->new_address) {
+            $address = new Address();
+            $address->city_id = $request->city_id;
+            $address->street = $request->street;
+            $address->save();
+            $order->address_id = $address->id;
+           // dd($address->id);
+
+        }else {
+            $order->address_id = $request->address_id;
+        }
+
+        $order->save();
+        $cartItems = Cart::instance('default')->content();
+        foreach($cartItems as $cartItem) {
+            $order->orders()->attach($cartItem->id, ['weight' => $cartItem->weight, 'quantity' => $cartItem->qty]);
+        }
+        return redirect()->route('index')->with('success', 'order successfully save!');
     }
 
     /**
@@ -48,7 +92,7 @@ class OrderController extends Controller
      */
     public function show(Order $order) {
         return Inertia('Dashboard/Orders/Show', [
-            'order' => $order->load('products'),
+            'order' => $order->load('orders'),
         ]);
     }
 
@@ -84,5 +128,15 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    //public function createPDF() {
+        public function createPDF(Order $order) {
+        //$orders = Order::orderByDesc('created_at')->with('products')->get();
+        $pdf = app('dompdf.wrapper');
+        $pdf->getDomPDF()->set_option("enable_php", true);
+        $pdf->loadView('download/orders', compact('order'));
+        // return $pdf->download('agrimax_orders_list'.now().'.pdf');
+        return $pdf->stream('agrimax_order_'.now().'.pdf');
     }
 }

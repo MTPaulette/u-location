@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\City::class)->nullable();
+            $table->foreignIdFor(\App\Models\City::class);
             $table->string('street');
             $table->timestamps();
         });

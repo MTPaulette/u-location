@@ -12,13 +12,15 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        // 'user_id',
         // 'confirmation_number',
-        'billing_email',
-        'billing_name',
+        // 'billing_email',
+        // 'billing_name',
         // 'billing_name_on_card',
-        'billing_city',
-        'billing_address',
+
+        // 'billing_city',
+        // 'billing_address',
+
         // 'billing_state',
         // 'billing_zip_code',
         'billing_discount',
@@ -27,6 +29,7 @@ class Order extends Model
         'billing_tax',
         'billing_total',
         'shipped',
+        'paiement_mode',
     ];
 
     /**
@@ -54,13 +57,10 @@ class Order extends Model
      */
     public function products(): BelongsToMany {
         return $this->belongsToMany(Product::class)
-                    ->withPivot('weight', 'unit_price', 'quantity');
-        // return $this->belongsToMany(Product::class, 'order_products')
-        //             ->using(Order_product::class)
-        //             ->withPivot('weight', 'unit_price', 'quantity');
+                    ->withPivot('weight', 'quantity');
     }
     
-    public function city(): BelongsTo {
-        return $this->belongsTo(City::class);
+    public function address(): BelongsTo {
+        return $this->belongsTo(Address::class);
     }
 }

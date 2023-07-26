@@ -18,7 +18,7 @@ class OrderFactory extends Factory
     {
         return [
             // 'code' => fake()->numberBetween(100, 5000),
-            'billing_address' => fake()->address(),
+            // 'billing_address' => fake()->address(),
         ];
     }
 }
