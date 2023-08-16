@@ -13,6 +13,14 @@
     @apply mx-auto px-4 sm:px-6 md:px-8
   }
 
+  .active-navbar-link {
+    @apply bg-sheet-200 text-white
+  }
+
+  .active-sidebar-link {
+    @apply bg-gray-100 dark:bg-gray-700 text-white
+  }
+
   .sidebar-icon {
     @apply flex-shrink-0 w-6 h-6
   }

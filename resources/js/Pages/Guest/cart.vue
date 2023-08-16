@@ -1,5 +1,5 @@
 <template>
-  <MainLayout>
+  <IndexLayout>
     <pageTitle title="cart" />
     <div class="mycontainer md:px-10 lg:px-14">
       <!-- <Cart 
@@ -115,11 +115,11 @@
         :subtotal="subtotal"
       /> -->
     </div>
-  </MainLayout>
+  </IndexLayout>
 </template>
 
 <script setup>
-import MainLayout from '@/Layouts/MainLayout.vue'
+import IndexLayout from '@/Layouts/IndexLayout.vue'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import CartItem from '@/Components/cartItem.vue'
 import Button from '@/Components/button.vue'

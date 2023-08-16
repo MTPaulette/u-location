@@ -56,9 +56,15 @@ class Order extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function products(): BelongsToMany {
-        return $this->belongsToMany(Product::class)
-                    ->withPivot('weight', 'quantity');
+        return $this->belongsToMany(Product::class, 'order_products')
+                    ->using(Order_product::class)
+                    ->withPivot('weight', 'price', 'qty', 'totalPrice');
     }
+
+    // public function products(): BelongsToMany {
+    //     return $this->belongsToMany(Product::class)
+    //                 ->withPivot('weight', 'price', 'qty', 'totalPrice');
+    // }
     
     public function address(): BelongsTo {
         return $this->belongsTo(Address::class);

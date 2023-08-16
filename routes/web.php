@@ -35,7 +35,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/",[GuestController::class, "index"])->name("index");
+Route::get("/home",[GuestController::class, "index"])->name("index");
 Route::get("/contact",[GuestController::class, "contact"]);
 Route::get("/about",[GuestController::class, "about"]);
 Route::get("/checkout",[GuestController::class, "checkout"]);

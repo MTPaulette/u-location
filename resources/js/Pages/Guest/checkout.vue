@@ -1,5 +1,5 @@
 <template>
-  <MainLayout>
+  <IndexLayout>
     <pageTitle title="checkout" />
     <div class="mycontainer md:px-10 lg:px-14">
       <div class="w-full">
@@ -10,7 +10,7 @@
         cartcount: {{ cartcount }}
         <br />
         <br />
-        form: {{ cartItems }}
+        <!-- form: {{ cartItems }} -->
         <br /><br />
       </div>
       <!-- <div class="grid grid-cols-1 md:grid-cols-4 gap-0 md:gap-4"> -->
@@ -197,16 +197,18 @@
       </template>
       </Modal> -->
     </div>
-    <!-- <div>
+    <div>
       <div v-for="cartItem in cartItems" :key="cartItem.rowId">
-        {{ order(cartItem) }}
+        {{ cartItem.options.weight_name }}
+        <br />
+        <br />
       </div>
-    </div> -->
-  </MainLayout>
+    </div>
+  </IndexLayout>
 </template>
 
 <script setup>
-import MainLayout from '@/Layouts/MainLayout.vue'
+import IndexLayout from '@/Layouts/IndexLayout.vue'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import Button from '@/Components/button.vue'
 import myTitle from '@/Components/myTitle.vue'
@@ -268,18 +270,6 @@ const showAddressFrom = () => {
 }
 
 const order = () => {
-  /*
-  console.log("============================================")
-  console.log(cartItem.id)
-  form.products.push(cartItem.id)
-  
-  console.log(cartItems.value)
-  for(const products in cartItems.value){
-    console.log(products)
-    // form.products.push(weightItem)
-    
-  }
-  */
   const year = new Date().getFullYear()
   form.password = form.lastname+'_'+year
   form.post(route('order.store'))

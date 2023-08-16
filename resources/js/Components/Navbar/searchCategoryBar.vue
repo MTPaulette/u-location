@@ -3,7 +3,7 @@
     <nav class="w-full px-3 sm:px-4 py-14 rounded border-gray-300 dark:bg-gray-800 bg-white">
       <div class="flex flex-wrap items-center justify-start mx-auto w-full">
         <div class="flex items-center justify-between w-full">
-          <a href="/" class="flex items-center">
+          <a href="/home" class="flex items-center">
             <img src="./../../../images/logo.png" class="h-16 -mt-6 sm:h-[80px]" alt="Agrimax Logo" />
           </a>
 
@@ -35,10 +35,17 @@
         <!-- middle links menu -->
         <div class="block bg-mango sm:hidden w-full">
           <div id="navbar-search" class="items-center justify-between hidden w-full bg-black mt-2 py-2 md:flex md:w-auto md:order-1 md:justify-center">
-            <ul class="flex flex-col px-4 md:flex-row md:space-x-8 md:mt-0 text-base md:text-base md:font-medium">
-              <li v-for="(linkItem, i) in menuItems" :key="i" class="py-0.5 sm:py-0 h-auto sm:h-16 px-4 flex items-center hover:bg-sheet-200">
-                <!-- <Link href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Accueil</Link> -->
-                <a :href="linkItem[0]" class="block py-2 pl-3 pr-4 whitespace-nowrap text-gray-100 capitalize hover:bg-transparent md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">{{ linkItem[1] }}</a>
+            <ul class="flex flex-col w-full px-4 md:flex-row md:space-x-8 md:mt-0 text-base md:text-base md:font-medium">
+              <li v-for="(linkItem, i) in menuItems" :key="i" class="w-full py-0.5 sm:py-0 h-auto sm:h-16 px-4 flex items-center hover:bg-sheet-200 text-gray-100 dark:text-gray-400">
+                <!-- <Link href="/home" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Accueil</Link> 
+                  :class="{'active-navbar-link': $page.url.startsWith(linkItem[0])}" class="block w-full py-2 pl-3 pr-4 whitespace-nowrap text-gray-100 capitalize hover:bg-transparent md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                -->
+                <Link
+                  :href="linkItem[0]"
+                  :class="{'active-navbar-link': $page.url.startsWith(linkItem[0])}" class="block w-full py-2 pl-3 pr-4 whitespace-nowrap capitalize md:p-0 hover:text-white"
+                >
+                  {{ linkItem[1] }}
+                </Link>
               </li>
             </ul>
           </div>
@@ -57,7 +64,7 @@ import Pannier from '@/Components/Navbar/tools/pannier.vue'
 import LoggedUser from '@/Components/Navbar/tools/loggedUser.vue'
 import DarkMode from '@/Components/Navbar/tools/darkMode.vue'
 import { initFlowbite } from 'flowbite'
-import { usePage } from '@inertiajs/vue3'
+import { usePage, Link } from '@inertiajs/vue3'
 import { computed, onMounted } from 'vue'
 
 const page = usePage()
@@ -70,7 +77,7 @@ onMounted(() => {
   initFlowbite()
 })
 
-const menuItems = [['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/#','services'], ['/product','store']]
+const menuItems = [['/home','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/#','services'], ['/product','store']]
 
 </script>
 

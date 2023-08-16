@@ -1,7 +1,7 @@
 
 <template>
-  <nav class="fixed top-0 z-50 w-full bg-white border-b my-border-gray dark:bg-black">
-    <!-- <nav class="fixed top-0 z-50 w-full bg-white border-b my-border-gray dark:bg-gray-800"> -->
+  <!-- <nav class="fixed top-0 z-50 w-full bg-white border-b my-border-gray dark:bg-black"> -->
+  <nav class="fixed top-0 z-50 w-full bg-white border-b my-border-gray dark:bg-gray-800">
     <div class="px-3 py-3 lg:px-5 lg:pl-3">
       <div class="flex items-center justify-between">
         <div class="flex items-center justify-start">
@@ -11,7 +11,7 @@
               <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z" />
             </svg>
           </button>
-          <a href="/" class="flex ml-2 md:mr-24">
+          <a href="/home" class="flex ml-2 md:mr-24">
             <img src="./../../../images/logo.png" class="h-8 mr-3" alt="Agrimax Logo" />
             <span class="self-center text-xl font-semibold sm:text-2xl hidden sm:inline whitespace-nowrap text-sheet-100 dark:text-white">Agrimax</span>
           </a>

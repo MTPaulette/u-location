@@ -18,20 +18,20 @@ return new class extends Migration
             // $table->foreignId('user_id')
             $table->foreignIdFor(\App\Models\User::class)->nullable()->constrained()->onDelete('cascade');
             // $table->string('confirmation_number')->nullable();
-            // $table->string('billing_email')->nullable();
-            // $table->string('billing_name')->nullable();
-            // $table->string('billing_name_on_card')->nullable();
-            // $table->string('billing_city')->nullable();
+            // $table->string('email')->nullable();
+            // $table->string('name')->nullable();
+            // $table->string('name_on_card')->nullable();
+            // $table->string('city')->nullable();
             $table->foreignIdFor(\App\Models\Address::class)->default(2);
-            // $table->string('billing_address')->nullable();
-            // $table->string('billing_state')->nullable();
-            // $table->string('billing_zip_code')->nullable();
+            // $table->string('address')->nullable();
+            // $table->string('state')->nullable();
+            // $table->string('zip_code')->nullable();
             
-            $table->integer('billing_discount')->default(0);
-            $table->string('billing_discount_code')->nullable();
-            $table->integer('billing_subtotal')->default(0);
-            $table->integer('billing_tax')->default(0);
-            $table->integer('billing_total')->default(0);
+            $table->integer('discount')->default(0);
+            $table->string('discount_code')->nullable();
+            $table->integer('subtotal')->default(0);
+            $table->integer('tax')->default(0);
+            $table->integer('total')->default(0);
             $table->boolean('shipped')->default(false);
             $table->boolean('paiement_mode')->default(true);
             $table->timestamps();

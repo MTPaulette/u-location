@@ -10,7 +10,7 @@
         <h2> 404 - We couldn't find that page.</h2>
         <h3>Maybe you can find what you need here?</h3>
         <div>
-         <a href="/">
+         <a href="/home">
          <button type="button"
             class="btn">
            <!-- <Button label="back to home" hasicon rounded success base> -->

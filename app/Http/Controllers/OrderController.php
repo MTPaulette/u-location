@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Address;
 use App\Models\User;
+use App\Models\Info;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Support\Facades\Date;
 
 class OrderController extends Controller
 {
@@ -19,8 +19,13 @@ class OrderController extends Controller
      */
     public function index() {
         return Inertia('Dashboard/Order/List', [
-            //'orders' => Order::orderByDesc('created_at')->with('products')->get(),
-            'orders' => Auth::user()->orders()->with('products')->orderByDesc('created_at')->get(),
+            // 'orders' => Order::orderByDesc('created_at')->with('products')->get(),
+            // 'orders' => Auth::user()->orders()->with('products')->orderByDesc('created_at')->get(),
+            'orders' => Auth::user()->orders()
+                                    ->with('address')
+                                    ->with('products')
+                                    ->orderByDesc('created_at')
+                                    ->get(),
             'user' => Auth::user(),
             // latest()->paginate(2)
         ]);
@@ -46,10 +51,11 @@ class OrderController extends Controller
     {
         // dd($request);
         $order = new Order();
-        $order->billing_subtotal = $request->subtotal;
+        $order->subtotal = $request->subtotal;
         $order->paiement_mode = $request->paiement_mode;
         if($request->user()) {
-            $order->user_id = $request->user()->id;
+            $user = $request->user();
+            $order->user_id = $user->id;
         }else {
             $user = User::create(
                 $request->validate([
@@ -79,8 +85,17 @@ class OrderController extends Controller
         $order->save();
         $cartItems = Cart::instance('default')->content();
         foreach($cartItems as $cartItem) {
-            $order->orders()->attach($cartItem->id, ['weight' => $cartItem->weight, 'quantity' => $cartItem->qty]);
+            $order->products()->attach($cartItem->id, [
+                'weight' => $cartItem->options->weight_name,
+                // 'weight' => $cartItem->weight,
+                'price' => $cartItem->price,
+                'qty' => $cartItem->qty,
+                'totalPrice' => $cartItem->options->totalPrice
+            ]);
+            // $order->products()->attach($cartItem->id, ['weight' => $cartItem->weight, 'quantity' => $cartItem->qty]);
+            // $user->orders()->attach($cartItem->id, ['weight' => $cartItem->weight, 'quantity' => $cartItem->qty]);
         }
+        
         return redirect()->route('index')->with('success', 'order successfully save!');
     }
 
@@ -133,9 +148,13 @@ class OrderController extends Controller
     //public function createPDF() {
         public function createPDF(Order $order) {
         //$orders = Order::orderByDesc('created_at')->with('products')->get();
+        
+        $order->load(['products']);
+        $user = Auth::user();
+        $informations = Info::find(1);
         $pdf = app('dompdf.wrapper');
         $pdf->getDomPDF()->set_option("enable_php", true);
-        $pdf->loadView('download/orders', compact('order'));
+        $pdf->loadView('download/orders', compact(['order', 'user', 'informations']));
         // return $pdf->download('agrimax_orders_list'.now().'.pdf');
         return $pdf->stream('agrimax_order_'.now().'.pdf');
     }

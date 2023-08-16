@@ -8,6 +8,7 @@
         <myTitle title="My Orders" />
       </div>
     </div>
+    <!-- <div class="w-full px-5 py-5 h-auto bg-white border my-border-gray rounded-lg shadow dark:bg-gray-800"> -->
     <div class="w-full px-5 py-5 h-auto bg-white border my-border-gray rounded-lg shadow dark:bg-gray-800">
       <div class="block sm:flex justify-end sm:items-center py-3 bg-white dark:bg-gray-800">
         <div class="flex items-center">
@@ -50,22 +51,21 @@
             <h4 class="px-10 font-semibold text-gray-500 dark:text-gray-200 text-lg leading-5 whitespace-nowrap">il ya un mois</h4>
             <div class="w-2/3 border my-border-gray" />
           </div>
-          <div class="flex flex-wrap gap-4">
-            <div v-for="order in orders" :key="order.id" class="w-[150px]">
-              <!-- <Link :href="route('order.show', {order: order.id})"> -->
+          <div class="flex flex-wrap justify-between gap-y-4 sm:gap-4">
+            <!-- <div v-for="order in orders" :key="order.id" class="w-full"> -->
+            <div v-for="order in orders" :key="order.id" class="w-[155px] sm:w-[200px]">
               <OrderCard :order="order" />
             </div>
           </div>
         </div>
 
-        <div>
+        <!-- <div>
           <div class="flex justify-between items-center w-full mt-20 mb-10">
-            <!-- <div class="w-2/3 border my-border-gray" /> -->
             <h4 class="pr-10 font-semibold text-gray-500 dark:text-gray-200 text-lg leading-5 whitespace-nowrap">il ya deux mois</h4>
             <div class="w-full border my-border-gray" />
           </div>
-          <div class="flex flex-wrap gap-4">
-            <div v-for="order in orders" :key="order.id" class="w-[150px]">
+          <div class="flex flex-wrap justify-between gap-y-4 sm:gap-4">
+            <div v-for="order in orders" :key="order.id" class="w-[155px] sm:w-[200px]">
               <OrderCard :order="order" />
             </div>
           </div>
@@ -76,12 +76,12 @@
             <div class="w-full border my-border-gray" />
             <h4 class="pl-10 font-semibold text-gray-500 dark:text-gray-200 text-lg leading-5 whitespace-nowrap">il ya trois mois</h4>
           </div>
-          <div class="flex flex-wrap gap-4">
-            <div v-for="order in orders" :key="order.id" class="w-[150px]">
+          <div class="flex flex-wrap justify-between gap-y-4 sm:gap-4">
+            <div v-for="order in orders" :key="order.id" class="w-[155px] sm:w-[200px]">
               <OrderCard :order="order" />
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </DashboardLayout>
@@ -93,7 +93,6 @@ import breadcrumb from '@/Components/PageTitle/tools/breadcrumb.vue'
 import myTitle from '@/Components/myTitle.vue'
 import OrderCard from '@/Components/orderCard.vue'
 import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
-import { Link } from '@inertiajs/vue3'
 
 defineProps({
   orders: Object,

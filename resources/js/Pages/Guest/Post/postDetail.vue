@@ -13,7 +13,6 @@
               <myTitle :title="post.title" />
               <!-- <p class="-mt-4 leading-3 mb-5 text-gray-600 dark:text-gray-100">categorie: {{ post.theme.name }}</p> -->
               <p class="font-semibold text-justify border-y my-border-gray py-2 text-gray-900 dark:text-gray-200 w-full overflow-x-hidden">
-                {{ post.theme }}
                 Categorie: <Link 
                   :href="route('PostsByTheme', {theme: post.theme})" 
                   class="text-sheet-50 hover:underline"

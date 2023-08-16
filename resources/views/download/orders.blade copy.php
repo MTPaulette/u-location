@@ -1,8 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-<br><br><br><br> {{ $informations }}
-
+ <br><br><br><br> {{ $order }}
   <div class="main-container">
     <!-- <div class="green-section"></div> -->
     <div class="head-title">
@@ -28,21 +27,19 @@
           </tr>
           <tr>
               <td>
-                  <div class="capitalize">
-                      <p>Agrimax SARL</p>
-                      <p>Yaounde,</p>
-                      <p>Cameroon</p>                    
-                      <p>email: <span class="lowercase"> {{ $informations->email }}</span></p>
-                      <p>Contact: <span class="lowercase">{{ $informations->telephone1 }} / {{ $informations->telephone2 }}</span></p>
+                  <div class="box-text">
+                      <p>Mountain View,</p>
+                      <p>California,</p>
+                      <p>United States</p>                    
+                      <p>Contact: (650) 253-0000</p>
                   </div>
               </td>
               <td>
-                  <div class="capitalize">
+                  <div class="box-text">
                       <p> 410 Terry Ave N,</p>
                       <p>Seattle WA 98109,</p>
-                      <p>{{ $order->address->street }}</p>                    
-                      <p>email: <span class="lowercase">{{ $user->email }}</span></p>
-                      <p>Contact: <span class="lowercase">{{ $user->telephone }}</span></p>
+                      <p>United States</p>                    
+                      <p>Contact: 1-206-266-1000</p>
                   </div>
               </td>
           </tr>
@@ -55,7 +52,7 @@
               <th class="w-50">Shipping Method</th>
           </tr>
           <tr>
-              <td>Cash On Delivery {{ $order->paiement_mode }}</td>
+              <td>Cash On Delivery</td>
               <td>Free Shipping - Free Shipping</td>
           </tr>
       </table>
@@ -64,28 +61,23 @@
       <table class="table w-100 mt-10">
           <tr>
               <th class="w-50">SKU</th>
-              <th class="w-100">Product Name</th>
-              <th class="w-25">weight</th>
-              <th class="w-50">Price<br>(FCFA)</th>
+              <th class="w-50">Product Name</th>
+              <th class="w-50">Price</th>
               <th class="w-50">Qty</th>
-              <th class="w-50">Subtotal<br>(FCFA)</th>
+              <th class="w-50">Subtotal</th>
               <th class="w-50">Tax Amount</th>
               <th class="w-50">Grand Total</th>
           </tr>
-          
-          @foreach($order->products ?? '' as $product)
           <tr align="center">
-              <td>{{ $product->code }}</td>
-              <td align="left">{{ $product->name }}</td>
-              <td>{{ $product->pivot->weight }}</td>
-              <td>{{ $product->pivot->price }}</td>
-              <td>{{ $product->pivot->qty }}</td>
-              <td>{{ $product->pivot->totalPrice }}</td>
-              <td>0</td>
-              <td>0</td>
+              <td>M101</td>
+              <td>Andoid Smart Phone</td>
+              <td>$500.2</td>
+              <td>3</td>
+              <td>$1500</td>
+              <td>$50</td>
+              <td>$1550.20</td>
           </tr>
-          @endforeach
-          <!-- <tr align="center">
+          <tr align="center">
               <td>M102</td>
               <td>Andoid Smart Phone</td>
               <td>$250</td>
@@ -93,9 +85,18 @@
               <td>$500</td>
               <td>$50</td>
               <td>$550.00</td>
-          </tr> -->
+          </tr>
+          <tr align="center">
+              <td>T1010</td>
+              <td>Andoid Smart Phone</td>
+              <td>$1000</td>
+              <td>5</td>
+              <td>$5000</td>
+              <td>$500</td>
+              <td>$5500.00</td>
+          </tr>
           <tr>
-              <td colspan="8">
+              <td colspan="7">
                   <div class="total-part">
                       <div class="total-left w-85 float-left" align="right">
                           <p>Sub Total</p>
@@ -103,7 +104,7 @@
                           <p>Total Payable</p>
                       </div>
                       <div class="total-right w-15 float-left text-bold" align="right">
-                          <p>{{ $order->subtotal }}</p>
+                          <p>$7600</p>
                           <p>$400</p>
                           <p>$8000.00</p>
                       </div>
@@ -114,9 +115,6 @@
       </table>
     </div>
   </div>
-  
- <br><br><br><br> {{ $user }}
- <br><br><br><br> {{ $order }}
 @stop
 
 <style type="text/css">
@@ -162,9 +160,6 @@
     .w-85{
         width: 85%;   
     }
-    .w-25{
-        width: 15%;   
-    }
     .w-15{
         width: 15%;   
     }
@@ -194,12 +189,6 @@
     .border{
         border: 1px solid black;
     }
-    .capitalize {
-        text-transform: capitalize;
-    }
-    .lowercase {
-        text-transform: lowercase;
-    }
 
     table tr,th,td{
         border: 1px solid #d2d2d2;
@@ -218,7 +207,7 @@
     table{
         border-collapse: collapse;
     }
-    .capitalize p{
+    .box-text p{
         line-height: 10px;
     }
     .float-left{

@@ -1,5 +1,6 @@
 <template>
-  <div class="flex justify-around items-center h-[100px] lg:h-[150px] w-full shadow-sm shadow-sheet-50 text-sheet-100 font-extrabold text-[10px] lg:text-sm uppercase">
+  <!-- <div class="flex justify-around items-center h-[100px] lg:h-[150px] w-full shadow-sm shadow-sheet-50 text-sheet-100 font-extrabold text-[10px] lg:text-sm uppercase"> -->
+  <div class="flex justify-around items-center h-[100px] w-full shadow shadow-sheet-50 mb-1 text-sheet-100 font-extrabold text-[10px] uppercase">
     <!-- <div class="flex justify-around items-center min-h-[150px] w-full pb-12 lg:pb-0 shadow-sm shadow-sheet-50 bg-white text-sheet-100 font-extrabold text-sm uppercase"> -->
     <!-- <div class="bg-danger"> -->
     <div class="flex flex-col items-center justify-center">
@@ -14,7 +15,8 @@
     </div>
 
     <div>
-      <img src="./../../images/naturel.png" class="h-[90px] w-[120px] lg:h-[170px] lg:w-[250px]" />
+      <img src="./../../images/naturel.png" class="h-[90px] w-[120px]" />
+      <!-- <img src="./../../images/naturel.png" class="h-[90px] w-[120px] lg:h-[170px] lg:w-[250px]" /> -->
     </div>
 
     <div class="flex flex-col items-center justify-center">

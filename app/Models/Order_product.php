@@ -10,7 +10,8 @@ class Order_product extends Pivot
     use HasFactory;
     protected $fillable = [
         'weight',
-        'unit_price',
-        'quantity',
+        'price',
+        'qty',
+        'totalPrice',
     ];
 }

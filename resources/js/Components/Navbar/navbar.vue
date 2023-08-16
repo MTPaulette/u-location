@@ -2,7 +2,7 @@
   <header>
     <nav class="bg-transparent px-2 sm:px-4 py-2.5 rounded bg-white my-border-gray dark:bg-gray-800">
       <div class="flex flex-wrap items-center justify-between mx-auto w-full">
-        <a href="/" class="flex items-center">
+        <a href="/home" class="flex items-center">
           <!-- <img src="{{ Vite::asset('resources/images/logo.png') }}" class="h-9 mr-3 sm:h-12" alt="Agrimax Logo" /> -->
           <img src="./../../../images/logo.png" class="h-9 mr-3 sm:h-12" alt="Agrimax Logo" />
         </a>
@@ -38,8 +38,13 @@
           </div>
           <ul class="flex flex-col p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
             <li v-for="(linkItem, i) in menuItems" :key="i">
-              <!-- <Link href="/" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Accueil</Link> -->
-              <a :href="linkItem[0]" class="block py-2 pl-3 pr-4 text-gray-900 rounded capitalize hover:bg-transparent hover:text-mango md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">{{ linkItem[1] }}</a>
+              <!-- <Link href="/home" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Accueil</Link> -->
+              <Link
+                :href="linkItem[0]"
+                :class="{'active-navbar-link': $page.url.startsWith(linkItem[0])}" class="block py-2 pl-3 pr-4 text-gray-900 rounded capitalize hover:bg-transparent hover:text-mango md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+              >
+                {{ linkItem[1] }}
+              </Link>
             </li>
           </ul>
         </div>
@@ -54,7 +59,7 @@ import { initFlowbite } from 'flowbite'
 // import { Link } from '@inertiajs/vue3'
 import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
 import LoggedUser from '@/Components/Navbar/tools/loggedUser.vue'
-import { usePage } from '@inertiajs/vue3'
+import { usePage, Link } from '@inertiajs/vue3'
 import { computed } from 'vue'
 
 const page = usePage()
@@ -67,6 +72,6 @@ onMounted(() => {
   initFlowbite()
 })
 
-const menuItems = [['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/market','marche'], ['/services','services']]
+const menuItems = [['/home','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/market','marche'], ['/services','services']]
 
 </script>

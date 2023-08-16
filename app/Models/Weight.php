@@ -14,7 +14,6 @@ class Weight extends Model
     ];
 
     public function products(): BelongsToMany {
-        
         return $this->belongsToMany(Product::class, 'weight_products')
                     ->using(Weight_product::class)
                     ->withPivot('price', 'initial_stock', 'remaining_stock');

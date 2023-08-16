@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import Sidebar from '@/Components/Dashboard/Sidebar.vue'
+import Sidebar from '@/Components/Sidebar/Sidebar.vue'
 // import NavbarDashboard from '@/Components/Navbar/navbarDashboard.vue'
 import Footer from '@/Components/Footer/footerDashboard.vue'
 

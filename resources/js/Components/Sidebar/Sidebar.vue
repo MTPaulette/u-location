@@ -1,11 +1,14 @@
 <template>
   <NavbarDashboard />
   <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 sm:w-52 xl:w-64 h-screen pt-16 transition-transform -translate-x-full bg-white border-r my-border-gray sm:translate-x-0 dark:bg-gray-800" aria-label="Sidebar">
-    <div id="main-sidebar" class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-black">
-      <!-- <div id="main-sidebar" class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800"> -->
+    <!-- <div id="main-sidebar" class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-black"> -->
+    <div id="main-sidebar" class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
       <ul class="space-y-2 font-medium h-min-3/4 min-h-[60%]">
         <li>
-          <Link href="/dashboard" class="sidebar-item">
+          <Link
+            href="/dashboard" class="sidebar-item"
+            :class="{'active-sidebar-link': $page.url.startsWith('/dashboard')}"
+          >
             <svg aria-hidden="true" class="sidebar-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" /><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
             </svg>
@@ -30,8 +33,17 @@
             </svg>
           </button>
           <ul id="dropdown-advantage" class="hidden py-2 space-y-2">
-            <li>
-              <Link href="/advantage" class="sidebar-item-dropdown">Advantage</Link>
+            <li v-for="(addItem, i) in addItems" :key="i">
+              <Link
+                :href="addItem[0]"
+                :class="{'active-sidebar-link': $page.url.startsWith(addItem[0])}"
+                class="sidebar-item-dropdown"
+              >
+                {{ addItem[1] }}
+              </Link>
+            </li>
+            <!-- <li>
+              <Link href="/advantage" class="sidebar-item-dropdown" :class="{'active-sidebar-link': $page.url.startsWith(linkItem[0])}">Advantage</Link>
             </li>
             <li>
               <Link href="/category" class="sidebar-item-dropdown">Category</Link>
@@ -41,7 +53,7 @@
             </li>
             <li>
               <Link href="/theme" class="sidebar-item-dropdown">Theme</Link>
-            </li>
+            </li> -->
           </ul>
         </li>
 
@@ -56,7 +68,16 @@
             </svg>
           </button>
           <ul id="dropdown-user" class="hidden py-2 space-y-2">
-            <li>
+            <li v-for="(userItem, i) in userItems" :key="i">
+              <Link
+                :href="userItem[0]"
+                :class="{'active-sidebar-link': $page.url.startsWith(userItem[0])}"
+                class="sidebar-item-dropdown"
+              >
+                {{ userItem[1] }}
+              </Link>
+            </li>
+            <!-- <li>
               <Link href="/user" class="sidebar-item-dropdown">Users List</Link>
             </li>
             <li>
@@ -64,7 +85,7 @@
             </li>
             <li>
               <Link href="/profile" class="sidebar-item-dropdown">Profile</Link>
-            </li>
+            </li> -->
           </ul>
         </li>
         <li v-else>
@@ -75,7 +96,13 @@
           </button>
           <ul id="dropdown-user" class="hidden py-2 space-y-2">
             <li>
-              <Link href="/profile" class="sidebar-item-dropdown">Profile</Link>
+              <Link
+                href="/profile" 
+                :class="{'active-sidebar-link': $page.url.startsWith('/profile')}"
+                class="sidebar-item-dropdown"
+              >
+                Profile
+              </Link>
             </li>
           </ul>
         </li>
@@ -87,7 +114,16 @@
             <svg sidebar-toggle-item class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
           </button>
           <ul id="dropdown-ecommerce" class="hidden py-2 space-y-2">
-            <li>
+            <li v-for="(ecommerceItem, i) in ecommerceItems" :key="i">
+              <Link
+                :href="ecommerceItem[0]"
+                :class="{'active-sidebar-link': $page.url.startsWith(ecommerceItem[0])}"
+                class="sidebar-item-dropdown"
+              >
+                {{ ecommerceItem[1] }}
+              </Link>
+            </li>
+            <!-- <li>
               <Link href="/product" class="sidebar-item-dropdown">Products</Link>
             </li>
             <li>
@@ -98,7 +134,7 @@
             </li>
             <li>
               <Link href="/invoice" class="sidebar-item-dropdown">Invoice</Link>
-            </li>
+            </li> -->
           </ul>
         </li>
         
@@ -188,6 +224,9 @@ const user = computed(
   () => page.props.user,
 )
 
+const addItems = [['/advantage','Advantage'], ['/category','Category'], ['/ingredient','Ingredient'], ['/theme','Theme']]
+const userItems = [['/user','Users List'], ['/user/create','New User'], ['/profile','Profile']]
+const ecommerceItems = [['/product','Products'], ['/billing','Billing'], ['/order','Order'], ['/invoice','Invoice']]
 
 // initialize components based on data attribute selectors
 onMounted(() => {

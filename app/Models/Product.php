@@ -32,8 +32,10 @@ class Product extends Model
     }
 
     public function orders(): BelongsToMany {
-        return $this->belongsToMany(Order::class);
-        
+        return $this->belongsToMany(Order::class, 'order_products')
+                    ->using(Order_product::class)
+                    ->withPivot('weight', 'price', 'qty', 'totalPrice');
+    
         // return $this->belongsToMany(Order::class, 'order_products')
         //             ->using(Order_product::class)
         //             ->withPivot('weight', 'unit_price', 'quantity');
@@ -48,7 +50,6 @@ class Product extends Model
     }
 
     public function weights(): BelongsToMany {
-        
         return $this->belongsToMany(Weight::class, 'weight_products')
                     ->using(Weight_product::class)
                     ->withPivot('price', 'initial_stock', 'remaining_stock');

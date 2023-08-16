@@ -40,7 +40,7 @@ class ProductDashboardController extends Controller
         return Inertia("Dashboard/Product/Add", [
             'advantages' =>  Advantage::select('id', 'name')->orderBy('name', 'asc')->get(),
             'ingredients' =>  Ingredient::select('id', 'name')->orderBy('name', 'asc')->get(),
-            'weights' =>  Weight::all('id', ),
+            'weights' =>  Weight::all('id', 'name' ),
             'categories' =>  Category::select('id', 'name')->orderBy('name', 'asc')->get(),
         ]);
     }
@@ -56,14 +56,17 @@ class ProductDashboardController extends Controller
         // dd($request->weights);
         
         $product = new Product();
-        $product->code = "PROD_".$request->name;
         $product->name = $request->name;
+        $product->code = $request->name;
         $product->description = $request->description;
         $product->preparation = $request->preparation;
         $product->utilisation = $request->utilisation;
         $product->category_id = $request->category_id;
         $product->user_id = $request->user()->id;
 
+        $product->save();
+        // dd($product->id);
+        $product->code = "AGPROD".substr(strtoupper($request->name),0,2,).$product->id;
         $product->save();
 
         foreach($request->ingredients as $ingredient) {

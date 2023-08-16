@@ -6,14 +6,17 @@
         <myTitle :title="product.name" class="uppercase md:hidden block text-white bg-black text-center p-2" />
         <div class="grid grid-cols-1 md:grid-cols-2 md:gap-10 border-b my-border-gray pb-5 mb-4 justify-center md:justify-start">
           <div v-if="product.images.length" class="mb-2 md:mb-8 mt-0 w-full overflow-x-hidden flex justify-center items-center md:block md:justify-start md:items-start md:gap-0">
-            <div class="flex justify-center relative w-full md:w-full h-56 sm:h-64 md:h-72 mb-0 md:mb-7">
-              <img class="w-full md:max-w-[400px] h-full rounded-lg" :src="getImgUrl(product.images[selectedImage].filename)" />
+            <div class="flex justify-center flex-shrink-0 relative w-full md:w-full h-56 sm:h-64 md:h-72 mb-0 md:mb-7">
+              <img class="w-full md:max-w-[400px] h-full rounded-lg" :src="getImgUrl(product.images[selectedImage].filename)" /><div class="absolute right-0 top-0">
+                <div class="flex-shrink-0 bg-black/755">
+                  <!-- <img src="./../../images/naturel_green.png" class="h-12 w-14" /> -->
+                  <img src="./../../../../images/naturel_white.png" class="h-12 w-14" />
+                </div>
+              </div>
             </div>
             
             <div class="over-y flex flex-col md:flex-row justify-center over-x w-20 sm:w-28 md:w-full h-56 sm:h-64 md:h-auto gap-1 items-end pr-1 md:pr-0 md:pb-1.5">
               <div v-for="(image, i) in product.images" :key="image.id" class="flex-shrink-0" @click="selectedImage=i">
-                <img class="border-2 rounded w-12 h-10 sm:w-16 sm:h-14 lg:w-20 lg:h-16" :class="selectedImage==i?'border-mango': 'border-sheet-100'" :src="getImgUrl(image.filename)" />
-              </div><div v-for="(image, i) in product.images" :key="image.id" class="flex-shrink-0" @click="selectedImage=i">
                 <img class="border-2 rounded w-12 h-10 sm:w-16 sm:h-14 lg:w-20 lg:h-16" :class="selectedImage==i?'border-mango': 'border-sheet-100'" :src="getImgUrl(image.filename)" />
               </div>
             </div>
@@ -112,6 +115,10 @@
         </div>
       </div>
     </div>
+
+    <div>
+      <Streamer />
+    </div>
   </MainLayout>
 </template>
 
@@ -123,6 +130,7 @@ import myTitle from '@/Components/myTitle.vue'
 import { ref } from 'vue'
 import UlList from '@/Components/ulList.vue'
 import Button from '@/Components/button.vue'
+import Streamer from '@/Components/streamer.vue'
 import { useForm, router, Link } from '@inertiajs/vue3'
 import NProgress from 'nprogress'
 
