@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-4 py-3 mb-2 shadow">
+  <div class="w-full px-4 py-3 mb-2 shadow dark:shadow-black hover:shadow-gray-400 dark:hover:shadow-gray-400 ">
     <div class="my-border-gray border-b border-red-100 pb-3 mb-1">
       <div class="flex-shrink-0 relative flex justify-center">
         <img class="rounded w-20 lg:w-26 h-20 sm:h-26" src="./../../images/pdf.png" alt="order image" />
@@ -8,7 +8,10 @@
             
     <div class="w-full mb-2 dark:text-gray-400 text-sm">
       <div class="w-full flex justify-between items-center">
-        <h4>agrimax_order_{{ order.created_at }}.pdf</h4>
+        <div>
+          <h4>order id: <span class="font-semibold">{{ order.code }}</span></h4>
+          <h4>date: <span class="font-semibold">{{ order.created_at }}</span></h4>
+        </div>
         <div class="flex gap-x-2"> 
           <!-- <Link :href="route('order.show', {order: order.id})" class="hover:text-sheet-50 dark:hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">  

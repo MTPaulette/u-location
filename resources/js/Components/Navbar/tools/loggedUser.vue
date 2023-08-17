@@ -6,6 +6,7 @@
   </button>
   <div id="user-dropdown" class="z-50 hidden my-4 text-base list-none bg-gray-50 divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
     <div v-if="user" class="px-4 py-3">
+      <span class="block text-sm text-gray-900 dark:text-white">{{ user.role_id }}</span>
       <span class="block text-sm text-gray-900 dark:text-white">{{ user.firstname }}</span>
       <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">{{ user.email }}</span>
     </div>

@@ -12,7 +12,7 @@
             </svg>
           </button>
           <a href="/home" class="flex ml-2 md:mr-24">
-            <img src="./../../../images/logo.png" class="h-8 mr-3" alt="Agrimax Logo" />
+            <img src="./../../../images/logo.png" class="h-12 mr-3" alt="Agrimax Logo" />
             <span class="self-center text-xl font-semibold sm:text-2xl hidden sm:inline whitespace-nowrap text-sheet-100 dark:text-white">Agrimax</span>
           </a>
         </div>

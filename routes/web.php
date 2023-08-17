@@ -8,7 +8,6 @@ use App\Http\Controllers\PostDashboardController;
 use App\Http\Controllers\ProductDashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\OrderDashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\UserAccountController;
@@ -19,9 +18,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\IngredientController;
-use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,13 +60,12 @@ Route::post("/register",[UserAccountController::class, "store"])->name("register
 Route::get("/reset",[PasswordController::class, "create"])->name("reset");
 Route::post("/reset",[PasswordController::class, "store"])->name("reset");
 
-Route::resource("order", OrderController::class);
 
 Route::middleware('auth')->group(function () {
   Route::get("/dashboard",[DashboardController::class, "home"])->name("dashboard");
   Route::get("/statistic",[DashboardController::class, "statistic"]);
   Route::get("/notifications",[DashboardController::class, "notification"]);
-  Route::resource("invoice", InvoiceController::class);
+  Route::resource("order", OrderController::class);
 });
 
 
@@ -98,7 +94,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
       Route::resource('post.image', PostImageController::class)->only(['create', 'store','destroy']);
       Route::resource("post", PostDashboardController::class);
       Route::resource("product", ProductDashboardController::class);
-      Route::resource("order", OrderDashboardController::class);
   });
 });
 

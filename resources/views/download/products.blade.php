@@ -1,5 +1,9 @@
 @extends('layouts.export')
 
+@section('title')
+<span>agrimax products list</span>
+@stop
+
 @section('content')
   <table>
     <thead>
@@ -15,15 +19,24 @@
     <tr>
       <th scope="row">{{ $product->id }}</th>
       <td>
-        {{$product}}
-        <br>
-        <span class="product-title">{{ $product->name }}</span>
-        <br/><br/><span class="product-item">category:</span> <br/>{{ $product->category }}
-        <br/><br/><span class="product-item">by:</span> <br/><span class="product-user">{{ $product->user }}</span>
-        <br/><br/><span class="product-item">at:</span> <br/>{{ $product->created_at }}
+        <span class="title">{{ $product->name }}</span>
+        <br/><br/><span class="item">category:</span> <br/>{{ $product->category->name }}
+        <br/><br/><span class="item">by:</span> <br/><span class="user">{{ $product->user->email }}</span>
+        <br/><br/><span class="item">at:</span> <br/>{{ $product->created_at }}
       </td>
-      <td>{{ $product->description }}</td>
-      <td>{{ $product->description }}</td>
+      <td>
+        <?php echo html_entity_decode($product->description) ?>
+      </td>
+      <td>
+        @if($product->images_count)
+          @foreach($product->images ?? '' as $image)
+          <img src="{{ public_path('/image/logo.png') }}" height="50px" width="70px" alt="Agrimax Logo" />
+            {{ $image }} <br>
+          @endforeach
+        @else
+          <span class="no-image">no image</span>
+        @endif
+      </td>
     </tr>
     @endforeach
     </tbody>

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('code')->nullable();
             // $table->foreignId('user_id')
             $table->foreignIdFor(\App\Models\User::class)->nullable()->constrained()->onDelete('cascade');
             // $table->string('confirmation_number')->nullable();
@@ -32,6 +33,7 @@ return new class extends Migration
             $table->integer('subtotal')->default(0);
             $table->integer('tax')->default(0);
             $table->integer('total')->default(0);
+            $table->boolean('confirmed')->default(false);
             $table->boolean('shipped')->default(false);
             $table->boolean('paiement_mode')->default(true);
             $table->timestamps();

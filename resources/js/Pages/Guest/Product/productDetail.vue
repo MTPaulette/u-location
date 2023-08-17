@@ -8,10 +8,9 @@
           <div v-if="product.images.length" class="mb-2 md:mb-8 mt-0 w-full overflow-x-hidden flex justify-center items-center md:block md:justify-start md:items-start md:gap-0">
             <div class="flex justify-center flex-shrink-0 relative w-full md:w-full h-56 sm:h-64 md:h-72 mb-0 md:mb-7">
               <img class="w-full md:max-w-[400px] h-full rounded-lg" :src="getImgUrl(product.images[selectedImage].filename)" /><div class="absolute right-0 top-0">
-                <div class="flex-shrink-0 bg-black/755">
-                  <!-- <img src="./../../images/naturel_green.png" class="h-12 w-14" /> -->
+                <!-- <div class="flex-shrink-0 bg-black/755">
                   <img src="./../../../../images/naturel_white.png" class="h-12 w-14" />
-                </div>
+                </div> -->
               </div>
             </div>
             

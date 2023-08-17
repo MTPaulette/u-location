@@ -12,7 +12,8 @@
           <img src="{{ public_path('/image/logo.png') }}" height="150px" width="200px" alt="Agrimax Logo" />
         </div>
         <div class="title">
-          <h1>agrimax posts list</h1>
+          <h1>@yield('title')</h1>
+          <!-- <h1>agrimax posts list</h1> -->
           <p><span>Date</span>: {{ now() }}</p>
         </div>
         <div class="content">
@@ -68,15 +69,15 @@
     border: 1px solid gray;
   }
 
-  #posts td .post-title {
+  #posts td .title {
     font-weight: bold;
   }
 
-  #posts td .post-item {
+  #posts td .item {
     text-decoration: underline;
   }
 
-  #posts td .post-user {
+  #posts td .user {
     color: rgb(26 86 219 / 1);
   }
 

@@ -1,5 +1,9 @@
 @extends('layouts.export')
 
+@section('title')
+<span>agrimax posts list</span>
+@stop
+
 @section('content')
   <table>
     <thead>
@@ -14,10 +18,10 @@
     <tr>
       <th scope="row">{{ $post->id }}</th>
       <td>
-        <span class="post-title">{{ $post->title }}</span>
-        <br/><br/><span class="post-item">category:</span> <br/>{{ $post->theme }}
-        <br/><br/><span class="post-item">by:</span> <br/><span class="post-user">{{ $post->user }}</span>
-        <br/><br/><span class="post-item">at:</span> <br/>{{ $post->created_at }}
+        <span class="title">{{ $post->title }}</span>
+        <br/><br/><span class="item">category:</span> <br/>{{ $post->theme }}
+        <br/><br/><span class="item">by:</span> <br/><span class="user">{{ $post->user }}</span>
+        <br/><br/><span class="item">at:</span> <br/>{{ $post->created_at }}
       </td>
       <td>
         <!-- {{ $post->content }} -->

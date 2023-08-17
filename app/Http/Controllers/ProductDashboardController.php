@@ -130,7 +130,11 @@ class ProductDashboardController extends Controller
     }
     
     public function createPDF() {
-        $products = Product::orderByDesc('created_at')->withCount('images')->get();
+        $products = Product::orderByDesc('created_at')
+                                ->with('images')
+                                ->withCount('images')
+                                ->get();
+        // dd($products);
         $pdf = app('dompdf.wrapper');
         $pdf->getDomPDF()->set_option("enable_php", true);
         $pdf->loadView('download/products', compact('products'));

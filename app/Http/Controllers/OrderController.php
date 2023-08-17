@@ -66,7 +66,8 @@ class OrderController extends Controller
                 'telephone' => 'required',
                 // 'password' => 'required|min:6|confirmed',
             ]));
-           // $user->password = $request->lastname.'_'.date('Y');
+            $user->password = $request->lastname.'_'.date('Y');
+            $user->save();
             $order->user_id = $user->id;
         }
 
@@ -83,6 +84,9 @@ class OrderController extends Controller
         }
 
         $order->save();
+        $order->code = "AGORD".$order->id;
+        $order->save();
+
         $cartItems = Cart::instance('default')->content();
         foreach($cartItems as $cartItem) {
             $order->products()->attach($cartItem->id, [
@@ -96,6 +100,7 @@ class OrderController extends Controller
             // $user->orders()->attach($cartItem->id, ['weight' => $cartItem->weight, 'quantity' => $cartItem->qty]);
         }
         
+        Cart::instance('default')->destroy();
         return redirect()->route('index')->with('success', 'order successfully save!');
     }
 
@@ -149,12 +154,11 @@ class OrderController extends Controller
         public function createPDF(Order $order) {
         //$orders = Order::orderByDesc('created_at')->with('products')->get();
         
-        $order->load(['products']);
-        $user = Auth::user();
+        $order->load(['products', 'user']);
         $informations = Info::find(1);
         $pdf = app('dompdf.wrapper');
         $pdf->getDomPDF()->set_option("enable_php", true);
-        $pdf->loadView('download/orders', compact(['order', 'user', 'informations']));
+        $pdf->loadView('download/orders', compact(['order', 'informations']));
         // return $pdf->download('agrimax_orders_list'.now().'.pdf');
         return $pdf->stream('agrimax_order_'.now().'.pdf');
     }

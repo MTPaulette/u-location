@@ -53,7 +53,7 @@ class CartController extends Controller
             'product' => $product,
             'product_code' => $product['code'],
             'weight_name' => $weight_name,
-            'images' => $product['images'][0],
+            'images' => $product['images']?$product['images'][0]: null,
             'description' => $product['description'],
             'remaining_stock' => $request->remaining_stock
         ])->associate('App\Models\Product');

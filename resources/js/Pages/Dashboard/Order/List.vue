@@ -43,45 +43,17 @@
         </div>
       </div>
       <div>
-        <div>
-          <!-- <div class="flex justify-start md:justify-between lg:justify-start w-full flex-wrap overflow-x-hidden over-y h-[520px] gap-x-3 bg-pineapple">
-          <div v-for="order in orders" :key="order.id" class="relative w-1/2 sm:bg-transparent sm:w-1/3 md:max-w-[225px] lg:w-1/4 xl:w-1/5  h-1/2"> -->
-          <div class="flex justify-between items-center w-full my-10">
-            <div class="w-2/3 border my-border-gray" />
-            <h4 class="px-10 font-semibold text-gray-500 dark:text-gray-200 text-lg leading-5 whitespace-nowrap">il ya un mois</h4>
-            <div class="w-2/3 border my-border-gray" />
-          </div>
-          <div class="flex flex-wrap justify-between gap-y-4 sm:gap-4">
-            <!-- <div v-for="order in orders" :key="order.id" class="w-full"> -->
-            <div v-for="order in orders" :key="order.id" class="w-[155px] sm:w-[200px]">
-              <OrderCard :order="order" />
-            </div>
+        <div class="flex justify-between items-center w-full my-10">
+          <div class="w-2/3 border my-border-gray" />
+          <h4 class="px-10 font-semibold text-gray-500 dark:text-gray-200 text-lg leading-5 whitespace-nowrap">il ya un mois</h4>
+          <div class="w-2/3 border my-border-gray" />
+        </div>
+        <div class="flex flex-wrap gap-4 sm:gap-4">
+          <!-- <div class="flex flex-wrap justify-between gap-y-4 sm:gap-4"> -->
+          <div v-for="order in orders" :key="order.id" class="w-[155px] sm:w-[200px]">
+            <OrderCard :order="order" />
           </div>
         </div>
-
-        <!-- <div>
-          <div class="flex justify-between items-center w-full mt-20 mb-10">
-            <h4 class="pr-10 font-semibold text-gray-500 dark:text-gray-200 text-lg leading-5 whitespace-nowrap">il ya deux mois</h4>
-            <div class="w-full border my-border-gray" />
-          </div>
-          <div class="flex flex-wrap justify-between gap-y-4 sm:gap-4">
-            <div v-for="order in orders" :key="order.id" class="w-[155px] sm:w-[200px]">
-              <OrderCard :order="order" />
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex justify-between items-center w-full mt-20 mb-10">
-            <div class="w-full border my-border-gray" />
-            <h4 class="pl-10 font-semibold text-gray-500 dark:text-gray-200 text-lg leading-5 whitespace-nowrap">il ya trois mois</h4>
-          </div>
-          <div class="flex flex-wrap justify-between gap-y-4 sm:gap-4">
-            <div v-for="order in orders" :key="order.id" class="w-[155px] sm:w-[200px]">
-              <OrderCard :order="order" />
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </DashboardLayout>

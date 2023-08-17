@@ -1,7 +1,6 @@
 @extends('layouts.default')
 
 @section('content')
-<br><br><br><br> {{ $informations }}
 
   <div class="main-container">
     <!-- <div class="green-section"></div> -->
@@ -10,9 +9,9 @@
     </div>
     <div class="add-detail mt-10">
       <div class="w-50 float-left mt-10">
-          <p class="m-0 pt-5 text-bold w-100">Invoice Id - <span class="gray-color">#1</span></p>
-          <p class="m-0 pt-5 text-bold w-100">Order Id - <span class="gray-color">AB123456A</span></p>
-          <p class="m-0 pt-5 text-bold w-100">Order Date - <span class="gray-color">22-01-2023</span></p>
+          <!-- <p class="m-0 pt-5 text-bold w-100">Invoice Id - <span class="gray-color">#1</span></p> -->
+          <p class="m-0 pt-5 text-bold w-100">Order Id - <span class="gray-color">{{ $order->code }}</span></p>
+          <p class="m-0 pt-5 text-bold w-100">Order Date - <span class="gray-color">{{ $order->created_at }}</span></p>
       </div>
       <div class="float-right logo mt-10">
             <img src="{{ public_path('/image/logo.png') }}" alt="Agrimax Logo" />
@@ -30,19 +29,17 @@
               <td>
                   <div class="capitalize">
                       <p>Agrimax SARL</p>
-                      <p>Yaounde,</p>
-                      <p>Cameroon</p>                    
+                      <p>Yaounde, Cameroon</p>                    
                       <p>email: <span class="lowercase"> {{ $informations->email }}</span></p>
                       <p>Contact: <span class="lowercase">{{ $informations->telephone1 }} / {{ $informations->telephone2 }}</span></p>
                   </div>
               </td>
               <td>
                   <div class="capitalize">
-                      <p> 410 Terry Ave N,</p>
-                      <p>Seattle WA 98109,</p>
+                      <p>{{ $order->user->firstname }} <span class="uppercase">{{ $order->user->lastname }}</span> </p>
                       <p>{{ $order->address->street }}</p>                    
-                      <p>email: <span class="lowercase">{{ $user->email }}</span></p>
-                      <p>Contact: <span class="lowercase">{{ $user->telephone }}</span></p>
+                      <p>email: <span class="lowercase">{{ $order->user->email }}</span></p>
+                      <p>Contact: <span class="lowercase">{{ $order->user->telephone }}</span></p>
                   </div>
               </td>
           </tr>
@@ -55,15 +52,21 @@
               <th class="w-50">Shipping Method</th>
           </tr>
           <tr>
-              <td>Cash On Delivery {{ $order->paiement_mode }}</td>
-              <td>Free Shipping - Free Shipping</td>
+            <td>
+              @if($order->paiement_mode)
+                Cash On Delivery
+              @else
+                -
+              @endif
+            </td>
+            <td>Free Shipping - Free Shipping</td>
           </tr>
       </table>
     </div>
     <div class="table-section bill-tbl w-100 mt-10">
       <table class="table w-100 mt-10">
           <tr>
-              <th class="w-50">SKU</th>
+              <th class="w-50">Product Id</th>
               <th class="w-100">Product Name</th>
               <th class="w-25">weight</th>
               <th class="w-50">Price<br>(FCFA)</th>
@@ -103,9 +106,9 @@
                           <p>Total Payable</p>
                       </div>
                       <div class="total-right w-15 float-left text-bold" align="right">
-                          <p>{{ $order->subtotal }}</p>
+                          <p>{{ $order->subtotal }} FCFA</p>
                           <p>$400</p>
-                          <p>$8000.00</p>
+                          <p>{{ $order->subtotal }} FCFA</p>
                       </div>
                       <div style="clear: both;"></div>
                   </div> 
@@ -114,9 +117,6 @@
       </table>
     </div>
   </div>
-  
- <br><br><br><br> {{ $user }}
- <br><br><br><br> {{ $order }}
 @stop
 
 <style type="text/css">
@@ -199,6 +199,9 @@
     }
     .lowercase {
         text-transform: lowercase;
+    }
+    .uppercase {
+        text-transform: uppercase;
     }
 
     table tr,th,td{
