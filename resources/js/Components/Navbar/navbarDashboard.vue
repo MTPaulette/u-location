@@ -32,7 +32,7 @@
           </div>
           <!-- user's info dropdown menu -->
           <div>
-            <LoggedUser :user="user" />
+            <LoggedUser />
           </div>
           <!-- </div> -->
         </div>
@@ -49,14 +49,6 @@ import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
 import LoggedUser from '@/Components/Navbar/tools/loggedUser.vue'
 import Notification from '@/Components/Navbar/tools/notification.vue'
 import DarkMode from '@/Components/Navbar/tools/darkMode.vue'
-
-import { usePage } from '@inertiajs/vue3'
-import { computed } from 'vue'
-
-const page = usePage()
-const user = computed(
-  () => page.props.user,
-)
 
 // initialize components based on data attribute selectors
 onMounted(() => {

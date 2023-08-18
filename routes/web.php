@@ -19,6 +19,7 @@ use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,8 @@ Route::get("/home",[GuestController::class, "index"])->name("index");
 Route::get("/contact",[GuestController::class, "contact"]);
 Route::get("/about",[GuestController::class, "about"]);
 Route::get("/checkout",[GuestController::class, "checkout"]);
+
+Route::resource("order", OrderController::class);
 
 
 Route::resource("post", PostController::class)->only(['index', 'show']);
@@ -64,8 +67,9 @@ Route::post("/reset",[PasswordController::class, "store"])->name("reset");
 Route::middleware('auth')->group(function () {
   Route::get("/dashboard",[DashboardController::class, "home"])->name("dashboard");
   Route::get("/statistic",[DashboardController::class, "statistic"]);
-  Route::get("/notifications",[DashboardController::class, "notification"]);
-  Route::resource("order", OrderController::class);
+  // Route::get("/notifications",[DashboardController::class, "notification"]);
+  // Route::resource("order", OrderController::class);
+  Route::resource("notification",NotificationController::class)->only(['index','update']);
 });
 
 

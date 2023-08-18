@@ -22,13 +22,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { Link } from '@inertiajs/vue3'
+import { usePage, Link } from '@inertiajs/vue3'
+import { computed, ref } from 'vue'
 
-defineProps({
-  user: Object,
-})
-
+const page = usePage()
+const user = computed(
+  () => page.props.user,
+)
 const menuItems = ref([['/dashboard','dashboard'], ['/settings','reglages']])
 const itemsRef = ref([])
 

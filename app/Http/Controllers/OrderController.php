@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Address;
 use App\Models\User;
 use App\Models\Info;
+use App\Notifications\OrderPassed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -101,6 +102,16 @@ class OrderController extends Controller
         }
         
         Cart::instance('default')->destroy();
+
+        /**
+         * send notification to user when he pass an order
+         */
+
+        // dd($order->user);
+        $user->notify(
+            // $order->user->notifiy(
+            new OrderPassed($order)
+        );
         return redirect()->route('index')->with('success', 'order successfully save!');
     }
 

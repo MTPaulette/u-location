@@ -21,7 +21,7 @@
           </div>
 
           <!-- user's info dropdown menu -->
-          <LoggedUser :user="user" />
+          <LoggedUser />
 
           <!-- toggle icon menu on small screen-->
           <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
@@ -56,16 +56,9 @@
 <script setup>
 import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
-// import { Link } from '@inertiajs/vue3'
 import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
 import LoggedUser from '@/Components/Navbar/tools/loggedUser.vue'
-import { usePage, Link } from '@inertiajs/vue3'
-import { computed } from 'vue'
-
-const page = usePage()
-const user = computed(
-  () => page.props.user,
-)
+import { Link } from '@inertiajs/vue3'
 
 // initialize components based on data attribute selectors
 onMounted(() => {

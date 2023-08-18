@@ -16,13 +16,19 @@
               <DarkMode />
             </div>
 
+            <!-- notification -->
+            <div class="mt-2">
+              <Notification />
+            </div>
+
             <div class="hover:text-sheet-200">
               <Pannier />
             </div>
 
+
             <!-- user's info dropdown menu -->
             <div>
-              <LoggedUser :user="user" />
+              <LoggedUser />
             </div>
             <!-- toggle icon menu on small screen-->
             <button data-collapse-toggle="navbar-search" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-search" aria-expanded="false">
@@ -63,15 +69,10 @@ import SearchCategory from '@/Components/searchCategory.vue'
 import Pannier from '@/Components/Navbar/tools/pannier.vue'
 import LoggedUser from '@/Components/Navbar/tools/loggedUser.vue'
 import DarkMode from '@/Components/Navbar/tools/darkMode.vue'
+import Notification from '@/Components/Navbar/tools/notification.vue'
 import { initFlowbite } from 'flowbite'
-import { usePage, Link } from '@inertiajs/vue3'
-import { computed, onMounted } from 'vue'
-
-const page = usePage()
-const user = computed(
-  () => page.props.user,
-)
-
+import { Link } from '@inertiajs/vue3'
+import { onMounted } from 'vue'
 // initialize components based on data attribute selectors
 onMounted(() => {
   initFlowbite()

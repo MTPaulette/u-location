@@ -51,6 +51,7 @@ class HandleInertiaRequests extends Middleware
                 'lastname' => $request->user()->lastname,
                 'email' => $request->user()->email,
                 'role_id' => $request->user()->role->id,
+                'notificationCount' => $request->user()->unreadNotifications()->count(),
                 //'telephone' => $request->user()->telephone,
             ] : null,
             
@@ -60,6 +61,7 @@ class HandleInertiaRequests extends Middleware
             'cartItems' => $cart->content(),
             'cartcount' => $cart->count(),
             'subtotal' => $cart->subtotal(),
+
 
             // value of category and input in the searchCategory component
             // Category::select('name')->where('id', '=', $request->query()['category'])->first()->name

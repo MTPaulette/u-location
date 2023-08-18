@@ -47,13 +47,8 @@
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/vue3'
 
 defineProps({
   order: Object,
 })
-
-const formatPrice = (price) => {
-  return price+" FCFA"
-}
 </script>
