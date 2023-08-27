@@ -49,7 +49,7 @@
           <!-- <button type="submit" class="rounded-lg submit-btn-style border-mango">creer compte</button> -->
         </div>
       </form>
-      <div class="flex justify-end text-xs mb-2 text-gray-700 dark:text-gray-400 mt-2">
+      <div class="flex justify-end text-sm mb-2 text-gray-700 dark:text-gray-400 mt-2">
         Deja inscrit? &nbsp; <a href="/login" class="text-sheet-100 hover:text-mango"> Se connecter</a>
       </div>
     </template>

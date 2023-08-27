@@ -15,10 +15,6 @@
   </div>
 </template>
 
-<!-- <script setup>
-import DarkMode from '@/Components/Navbar/tools/darkMode.vue'
-</script> -->
-
 <style scoped>
 .main {
   background-image: url('./../../images/mango15.jpg');
