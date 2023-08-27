@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Info;
-use App\Models\Image;
 use App\Models\Post;
 use App\Models\Theme;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {

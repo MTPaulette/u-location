@@ -50,7 +50,7 @@ class UserAccountController extends Controller
         Auth::login($user);
         event(new Registered($user));
         
-        return to_route('user.index')->with('success', 'user was successfully created!!!');
+        return redirect()->route('profile')->with('success', 'user was successfully created!!!');
     }
     
 
