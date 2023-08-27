@@ -4,7 +4,7 @@
       <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
     </svg>
     <div class="relative flex">
-      <span class="relative inline-flex text-xs text-white px-1 bg-red-500 border-2 border-white rounded-full -top-2 right-3 dark:border-gray-600">
+      <span class="relative inline-flex text-[8px] md:text-xs text-white px-1 leading-[12px] bg-red-500 border-2 border-white rounded-full -top-2 right-3 dark:border-gray-600">
         {{ cartcount }}
       </span>
     </div>
@@ -42,8 +42,8 @@
             <div>
               <p>weight: {{ cartItem.options.weight_name }}</p>
               <p>qty: {{ cartItem.qty }}</p>
-              <p class="whitespace-nowrap">P.U: {{ formatPrice(cartItem.price) }} each</p>
-              <p class="font-semibold whitespace-nowrap">P.T: {{ formatPrice(cartItem.options.totalPrice) }}</p>
+              <p class="whitespace-nowrap">P.U: <Price :value="cartItem.price" /> each</p>
+              <p class="font-semibold whitespace-nowrap">P.T: <Price :value="cartItem.options.totalPrice" /></p>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
     <div class="divide-y divide-gray-100 dark:divide-gray-700">
       <div class="flex justify-between text-lg uppercase font-bold px-3 py-4 text-black dark:text-gray-100">
         <p>total</p>
-        <p>{{ formatPrice(subtotal) }}</p>
+        <p><Price :value="subtotal" /></p>
       </div>
     </div>
     <Link class="w-full flex justify-center p-3" href="/cart">
@@ -65,6 +65,7 @@
 
 <script setup>
 import Button from '@/Components/button.vue'
+import Price from '@/Components/Price.vue'
 import { Link, usePage } from '@inertiajs/vue3'
 import { computed } from 'vue'
 
@@ -80,7 +81,4 @@ const cartcount = computed(
 const subtotal = computed(
   () => page.props.subtotal,
 )
-const formatPrice = (price) => {
-  return price+" FCFA"
-}
 </script>

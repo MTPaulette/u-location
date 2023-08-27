@@ -131,7 +131,7 @@
           <div class="w-full px-4 py-3 border rounded-lg my-border-gray ">
             <div class="flex justify-between mb-2">
               <p>Cart subtotal</p>
-              <p class="font-semibold text-sm mt-1 text-black dark:text-white">{{ formatPrice(subtotal) }}</p>
+              <p class="font-semibold text-sm mt-1 text-black dark:text-white"><Price :value="subtotal" /></p>
             </div>
         
             <div class="flex justify-between mb-2 items-center">
@@ -146,7 +146,7 @@
 
             <div class="flex justify-between pb-6 border-b my-border-gray">
               <p>Cart total</p>
-              <p class="font-bold px-1 bg-black text-white dark:text-white">{{ formatPrice(subtotal) }}</p>
+              <p class="font-bold px-1 bg-black text-white dark:text-white"><Price :value="subtotal" /></p>
             </div>
             <div class="mt-6">
               <Link href="/checkout">
@@ -212,6 +212,7 @@ import IndexLayout from '@/Layouts/IndexLayout.vue'
 import pageTitle from '@/Components/PageTitle/pageTitle.vue'
 import Button from '@/Components/button.vue'
 import myTitle from '@/Components/myTitle.vue'
+import Price from '@/Components/Price.vue'
 // import Modal from '@/Components/modal.vue'
 import { Link, usePage, useForm } from '@inertiajs/vue3'
 import { computed } from 'vue'
@@ -239,10 +240,6 @@ const cartItems = computed(
 const subtotal = computed(
   () => page.props.subtotal,
 )
-
-const formatPrice = (price) => {
-  return price+" FCFA"
-}
 
 const form = useForm({
   // cartItems: cartItems.value,

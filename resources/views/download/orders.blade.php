@@ -85,7 +85,7 @@
               <td>{{ $product->pivot->qty }}</td>
               <td>{{ $product->pivot->totalPrice }}</td>
               <td>0</td>
-              <td>0</td>
+              <td>{{ $product->pivot->totalPrice }}</td>
           </tr>
           @endforeach
           <!-- <tr align="center">
@@ -100,12 +100,12 @@
           <tr>
               <td colspan="8">
                   <div class="total-part">
-                      <div class="total-left w-85 float-left" align="right">
+                      <div class="total-left w-60 float-left" align="right">
                           <p>Sub Total</p>
                           <p>Tax (18%)</p>
                           <p>Total Payable</p>
                       </div>
-                      <div class="total-right w-15 float-left text-bold" align="right">
+                      <div class="total-right w-40 float-left text-bold" align="right">
                           <p>{{ $order->subtotal }} FCFA</p>
                           <p>$400</p>
                           <p>{{ $order->subtotal }} FCFA</p>
@@ -159,8 +159,11 @@
     .w-50{
         width: 50%;   
     }
-    .w-85{
-        width: 85%;   
+    .w-60{
+        width: 65%;   
+    }
+    .w-40{
+        width: 35%;   
     }
     .w-25{
         width: 15%;   

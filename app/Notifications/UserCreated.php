@@ -6,9 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use App\Models\Order;
+use App\Models\User;
 
-class OrderPassed extends Notification
+class UserCreated extends Notification
 {
     use Queueable;
 
@@ -17,10 +17,9 @@ class OrderPassed extends Notification
      *
      * @return void
      */
-    public function __construct(private Order $order)
+    public function __construct(private User $user)
     {
     }
-
     /**
      * Get the notification's delivery channels.
      *
@@ -29,7 +28,6 @@ class OrderPassed extends Notification
      */
     public function via($notifiable)
     {
-        // return ['mail'];
         return ['database'];
     }
 
@@ -56,8 +54,7 @@ class OrderPassed extends Notification
     public function toArray($notifiable)
     {
         return [
-            'order_id' => $this->order->id,
-            'user_id' => $this->order->user_id,
+            'user_id' => $this->user->id,
             // 'total' => $this->order->total,
             // 'order_id' => $this->order->id,
         ];

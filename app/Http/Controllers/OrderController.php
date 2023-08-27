@@ -7,6 +7,7 @@ use App\Models\Address;
 use App\Models\User;
 use App\Models\Info;
 use App\Notifications\OrderPassed;
+use App\Notifications\UserCreated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -52,6 +53,7 @@ class OrderController extends Controller
     {
         // dd($request);
         $order = new Order();
+        $newUser = false;
         $order->subtotal = $request->subtotal;
         $order->paiement_mode = $request->paiement_mode;
         if($request->user()) {
@@ -70,6 +72,7 @@ class OrderController extends Controller
             $user->password = $request->lastname.'_'.date('Y');
             $user->save();
             $order->user_id = $user->id;
+            $newUser = true;
         }
 
         if($request->new_address) {
@@ -105,13 +108,13 @@ class OrderController extends Controller
 
         /**
          * send notification to user when he pass an order
+         * and when his account is created during the order
          */
 
-        // dd($order->user);
-        $user->notify(
-            // $order->user->notifiy(
-            new OrderPassed($order)
-        );
+        $user->notify(new OrderPassed($order));
+        if($newUser) {
+            $user->notify(new UserCreated($user));
+        }
         return redirect()->route('index')->with('success', 'order successfully save!');
     }
 

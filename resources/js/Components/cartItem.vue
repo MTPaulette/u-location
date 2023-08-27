@@ -31,8 +31,8 @@
   </td>
                   
   <td class="px-4 py-3 text-gray-900 dark:text-white">
-    <p class="font-semibold mb-2 whitespace-nowrap">{{ formatPrice(cartItem.options.totalPrice) }}</p>
-    <p class="text-gray-600 dark:text-gray-400 whitespace-nowrap">{{ formatPrice(cartItem.price) }} each</p>
+    <p class="font-semibold mb-2 whitespace-nowrap"> <Price :value="cartItem.options.totalPrice" /> </p>
+    <p class="text-gray-600 dark:text-gray-400 whitespace-nowrap"><Price :value="cartItem.price" /> each</p>
   </td>
 
   <td class="px-4 py-3">
@@ -51,6 +51,7 @@
 
 <script setup>
 import { useForm, Link } from '@inertiajs/vue3'
+import Price from '@/Components/Price.vue'
 
 
 const props = defineProps({
@@ -100,7 +101,4 @@ const changeQty = (e) => {
   updateQty()
 }
 
-const formatPrice = (price) => {
-  return price+" FCFA"
-}
 </script>

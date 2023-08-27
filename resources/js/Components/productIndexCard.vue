@@ -28,16 +28,11 @@
           </Link>
         </div>
       </div>
-
-      <!-- <div class="flex justify-between items-center font-semibold">
-        <p class="text-sheet-50 text-sm whitespace-nowrap">20 000FCFA</p>
-        <p class="text-danger text-[10px] line-through whitespace-nowrap">22 000FCFA</p>
-      </div> -->
       
       <div v-if="product.weights[0]">
         <div class="flex justify-between items-center font-semibold text-sm">
           <p class="whitespace-nowrap">{{ product.weights[0].name }}</p>
-          <p v-if="product.weights[0].pivot" class="text-sheet-50 whitespace-nowrap">{{ formatPrice(product.weights[0].pivot.price) }}</p>
+          <p v-if="product.weights[0].pivot" class="text-sheet-50 whitespace-nowrap"><Price :value="product.weights[0].pivot.price" /></p>
         </div>
         <p v-if="product.weights[0].pivot.remaining_stock == 0"><span class="text-danger text-xs">not available</span></p>
       </div>
@@ -66,6 +61,7 @@
 
 <script setup>
 import { Link } from '@inertiajs/vue3'
+import Price from '@/Components/Price.vue'
 
 defineProps({
   product: Object,
@@ -75,7 +71,4 @@ const getImgUrl = (src) =>{
   return  new URL('./../../../../../public/storage/'+src, import.meta.url).href
 }
 
-const formatPrice = (price) => {
-  return price+" FCFA"
-}
 </script>

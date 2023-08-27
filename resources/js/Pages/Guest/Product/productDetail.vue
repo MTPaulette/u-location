@@ -32,7 +32,7 @@
                   class="capitalize cursor-text w-[150px]"
                 >
                   <p>weight: <span class="font-extrabold">{{ weight.name }}</span></p>
-                  <p>Price: <span class="text-sheet-50 font-bold">{{ formatPrice(weight.pivot.price) }}</span></p>
+                  <p>Price: <span class="text-sheet-50 font-bold"><Price :value="weight.pivot.price" /></span></p>
                   <p v-if="weight.pivot.remaining_stock == 0"><span class="text-danger text-xs">not available</span></p>
                 </div>
               </div>
@@ -130,6 +130,7 @@ import { ref } from 'vue'
 import UlList from '@/Components/ulList.vue'
 import Button from '@/Components/button.vue'
 import Streamer from '@/Components/streamer.vue'
+import Price from '@/Components/Price.vue'
 import { useForm, router, Link } from '@inertiajs/vue3'
 import NProgress from 'nprogress'
 
@@ -209,9 +210,5 @@ const changeQty = (e) => {
   else {
     form.qty = form.remaining_stock
   }
-}
-
-const formatPrice = (price) => {
-  return price+" FCFA"
 }
 </script>

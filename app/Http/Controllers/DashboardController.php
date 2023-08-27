@@ -13,11 +13,4 @@ class DashboardController extends Controller
     function statistic() {
         return Inertia("Dashboard/Statistic");
     }
-
-    function notification() {
-        return Inertia("Dashboard/Notification", [
-            'posts' => Post::orderByDesc('created_at')
-                    ->paginate(10)
-        ]);
-    }
 }

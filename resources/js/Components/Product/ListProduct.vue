@@ -101,7 +101,7 @@
               {{ product.remaining_stock }}
             </td>
             <td class="px-6 py-2.5">
-              {{ product.price }} FCFA
+              <Price :value="product.price" />
             </td>
             <td class="px-6 py-2.5">
               {{ product.created_at }}
@@ -185,6 +185,7 @@ import Button from '@/Components/button.vue'
 // import EditProduct from '@/Components/Product/EditProduct.vue'
 import Modal from '@/Components/modal.vue'
 import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
+import Price from '@/Components/Price.vue'
 import { Link } from '@inertiajs/vue3'
 
 defineProps({

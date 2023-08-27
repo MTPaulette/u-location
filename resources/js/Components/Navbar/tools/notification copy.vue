@@ -4,9 +4,10 @@
     <!-- <div class="relative flex">
       <div class="relative inline-flex w-3 h-3 bg-red-500 border-2 border-white rounded-full -top-2 right-3 dark:border-gray-900" />
     </div> -->
+    ufjfiifi
     <div class="relative flex">
-      <span v-if="notificationCount" class="relative inline-flex text-[8px] md:text-xs text-white px-1 leading-[12px] bg-red-500 border-2 border-white rounded-full -top-2 right-3 dark:border-gray-600">
-        {{ notificationCount }}
+      <span v-if="notificationCount" class="relative inline-flex text-xs text-white px-1 bg-red-500 border-2 border-white rounded-full -top-2 right-3 dark:border-gray-600">
+        {{ notificationCount }} 0
       </span>
     </div>
   </button>
@@ -92,7 +93,7 @@ import { computed } from 'vue'
 
 const page = usePage()
 const notificationCount = computed(
-  () => page.props.user? Math.min(page.props.user.notificationCount,9): 0,
+  () => Math.min(page.props.user.notificationCount,9),
 )
 
 </script>

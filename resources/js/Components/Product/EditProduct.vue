@@ -51,7 +51,7 @@
                   <li v-for="(selectedWeight, i) in formproduct.weights" :key="i" class="flex justify-between bg-green-50 border rounded-lg border-green-200 mb-2">
                     <div class="flex items-center">
                       <p class="border-gray-300 border-r-2 px-10">weight: <span class="ml-3 text-gray-900">{{ weights[selectedWeight.weight_id-1].name }}</span></p>
-                      <p class="border-gray-300 border-r-2 px-10">price: <span class="ml-3 text-gray-900">{{ selectedWeight.price }} FCFA</span></p>
+                      <p class="border-gray-300 border-r-2 px-10">price: <span class="ml-3 text-gray-900"><Price :value="selectedWeight.price" /></span></p>
                       <p class="px-10">initial stock: <span class="ml-3 text-gray-900">{{ selectedWeight.initial_stock }}</span></p>
                     </div>
                     <div @click="removeWeightInitialStock(i)">
@@ -187,6 +187,7 @@
 import VueMultiselect from 'vue-multiselect'
 import Button from '@/Components/button.vue'
 import Editor from '@/Components/editor.vue'
+import Price from '@/Components/Price.vue'
 import { useForm } from '@inertiajs/vue3'
 import { ref } from 'vue'
 // import { computed } from 'vue'

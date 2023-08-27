@@ -18,7 +18,10 @@
             <h2 class="mb-6 text-base font-semibold text-gray-300 dark:text-gray-400">Pages</h2>
             <ul class="">
               <li v-for="(pageLink, i) in pagesLinks" :key="i" ref="pagesLinksRef" class="mb-2 text-base text-gray-500 hover:text-gray-300">
-                <a :href="pageLink[0]">{{ pageLink[1] }}</a>
+                <a
+                  :href="pageLink[0]"
+                  :class="{'text-gray-300 dark:text-gray-300': $page.url.startsWith(pageLink[0])}"
+                >{{ pageLink[1] }}</a>
               </li>
             </ul>
           </div>
@@ -96,7 +99,7 @@ onMounted(() => {
   initFlowbite()
 })
 
-const pagesLinks = ref([['/','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/#','services'], ['/product','store']])
+const pagesLinks = ref([['/home','Acceuil'], ['/about','A propos'], ['/post','blog'], ['/contact','contact'], ['/#','services'], ['/product','store']])
 
 const pagesLinksRef = ref([])
 
