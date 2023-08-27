@@ -37,6 +37,7 @@
         <label for="message" class="label">Message<span class="required">*</span></label>
         <textarea id="message" rows="4" class="text-area" placeholder="Leave a comment..." />
       </div>
+
       <div class="mb-0">
         <!-- <Button label="envoyer" success rounded large /> -->
         <button type="submit" class="submit-btn-style">envoyer</button>
