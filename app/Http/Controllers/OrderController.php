@@ -28,8 +28,6 @@ class OrderController extends Controller
                                     ->with('products')
                                     ->orderByDesc('created_at')
                                     ->get(),
-            'user' => Auth::user(),
-            // latest()->paginate(2)
         ]);
     }
 

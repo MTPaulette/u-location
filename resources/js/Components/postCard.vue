@@ -4,7 +4,7 @@
       <div class="flex-shrink-0">
         <img v-if="post.images.length" class="rounded w-16 h-14" :src="getImgUrl(post.images[0].filename)" alt="product image" />
       </div>
-      <div class="w-full pl-3">
+      <div class="w-5/6 sm:w-full pl-3">
         <h4 class="w-5/6 truncate h-5 mb-1">
           <a href="" class="text-base">{{ post.title }}</a>
           <!-- <a href="" class="text-base md:text-sm">{{ post.name }}</a> -->

@@ -68,6 +68,5 @@ import SearchBar from '@/Components/Navbar/tools/searchBar.vue'
 
 defineProps({
   orders: Object,
-  user: Object,
 })
 </script>
