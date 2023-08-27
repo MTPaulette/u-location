@@ -17,7 +17,7 @@
             </div>
 
             <!-- notification -->
-            <div class="mt-2">
+            <div class="mt-2 mr-2">
               <Notification />
             </div>
 

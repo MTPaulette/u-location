@@ -12,11 +12,21 @@
       <div v-if="notifications.data.length">
         <div v-for="notification in notifications.data" :key="notification.id">
           <div v-if="notification.type === 'App\\Notifications\\OrderPassed'">
-            <!-- <OrderPassed :notification="notification" /> -->
-            <UserCreated :notification="notification" />
+            <OrderPassed :notification="notification" trash>
+              <template #content>
+                Votre commande a bien ete prise en compte.
+                Vous serez livre tres prochainement.
+                A tres bientot!
+              </template>
+            </orderpassed>
           </div>
+          <!-- <div v-if="notification.type === 'App\\Notifications\\OrderPassed'"> -->
           <div v-if="notification.type === 'App\\Notifications\\UserCreated'">
-            <UserCreated :notification="notification" />
+            <UserCreated :notification="notification" trash>
+              <template #content>
+                Vous pouvez consulter depuis votre compte, la liste de votre commande et imprimer vos factures.
+              </template>
+            </UserCreated>
           </div>
         </div>
       </div>
