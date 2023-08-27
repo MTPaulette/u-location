@@ -130,13 +130,20 @@ import breadcrumb from '@/Components/PageTitle/tools/breadcrumb.vue'
 import myTitle from '@/Components/myTitle.vue'
 import Button from '@/Components/button.vue'
 import UpdateProfileImage from '@/Components/User/UploadProfileImage.vue'
-import { useForm } from '@inertiajs/vue3'
+import { useForm, usePage } from '@inertiajs/vue3'
+import { computed } from 'vue'
+
 
 defineProps({
-  user: Object,
+  // user: Object,
   countries: Object,
   cities: Object,
 })
+
+const page = usePage()
+const user = computed(
+  () => page.props.user,
+)
 
 const formUser = useForm({
   firstname: null,

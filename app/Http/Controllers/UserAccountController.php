@@ -24,7 +24,7 @@ class UserAccountController extends Controller
     public function show()
     {
         return Inertia("Dashboard/User/Profile", [
-            'user' => Auth::user(),
+            // 'user' => Auth::user(),
             // 'user' => Auth::user()->load('images'),
             'countries' =>  Country::all('id', 'name'),
             'cities' =>  City::all('id', 'name'),

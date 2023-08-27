@@ -17,10 +17,16 @@
       <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">{{ user.email }}</span>
     </div>
     <ul class="py-2" aria-labelledby="user-menu-button">
-      <li v-for="(linkItem, i) in menuItems" :key="i" ref="itemsRef">
-        <Link :href="linkItem[0]" class="block px-4 py-2 capitalize text-sm text-gray-700 hover:bg-sheet-100 hover:text-white dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">{{ linkItem[1] }}</Link>
+      <li v-if="user">
+        <Link href="/dashboard" class="block px-4 py-2 capitalize text-sm text-gray-700 hover:bg-sheet-100 hover:text-white dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</Link>
+      </li>
+      <li v-else>
+        <Link href="/login" class="block px-4 py-2 capitalize text-sm text-gray-700 hover:bg-sheet-100 hover:text-white dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Login</Link>
       </li>
       <li>
+        <Link href="/settings" class="block px-4 py-2 capitalize text-sm text-gray-700 hover:bg-sheet-100 hover:text-white dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">reglages</Link>
+      </li>
+      <li v-if="user">
         <Link href="/logout" method="DELETE" as="btn" class="block px-4 py-2 text-sm text-gray-700 hover:bg-sheet-100 hover:text-white dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Deconnexion</Link>
       </li>
     </ul>
@@ -29,13 +35,11 @@
 
 <script setup>
 import { usePage, Link } from '@inertiajs/vue3'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 
 const page = usePage()
 const user = computed(
   () => page.props.user,
 )
-const menuItems = ref([['/dashboard','dashboard'], ['/settings','reglages']])
-const itemsRef = ref([])
 
 </script>
