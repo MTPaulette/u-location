@@ -50,7 +50,7 @@
 </template>
 
 <script setup>
-import { useForm, Link } from '@inertiajs/vue3'
+import { useForm, Link, router } from '@inertiajs/vue3'
 import Price from '@/Components/Price.vue'
 
 
@@ -67,6 +67,12 @@ const form = useForm({
 const updateQty = () => {
   form.put(
     route('cart.update', {cart: props.cartItem.rowId}),
+    // {
+    //   onFinish: () => router.reload({
+    //     preserveScroll: true,
+    //     preserveState: true,
+    //   }),
+    // },
   )
 }
 

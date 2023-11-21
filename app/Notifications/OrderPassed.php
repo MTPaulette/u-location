@@ -29,8 +29,7 @@ class OrderPassed extends Notification
      */
     public function via($notifiable)
     {
-        // return ['mail'];
-        return ['database'];
+        return ['database', 'mail'];
     }
 
     /**
@@ -42,9 +41,10 @@ class OrderPassed extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('New Order ({$this->order->id}) was passed.')
+                    ->action('See Your Order', route('export.order', $this->order->id))
+                    ->line('Thank you for using our application!')
+                    ->line('Agrimax');
     }
 
     /**

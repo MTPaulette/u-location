@@ -183,8 +183,17 @@ const initialiseForm = () => {
 }
 
 const addToCart = () => {
+  // alert('hhh')
   form.post(
     route('cart.store'),
+    {
+      onSuccess: () =>
+        router.reload({
+          preserveScroll: true,
+          preserveState: true,
+      
+        }),
+    },
   )
 }
 

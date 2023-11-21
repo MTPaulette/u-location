@@ -57,6 +57,8 @@ class CartController extends Controller
             'description' => $product['description'],
             'remaining_stock' => $request->remaining_stock
         ])->associate('App\Models\Product');
+        
+        // return redirect()->route('product.show', $product_id)->with('success', 'product has been added to cart!');
         return redirect()->back()->with('success', 'product has been added to cart!');
     }
 

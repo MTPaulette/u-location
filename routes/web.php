@@ -21,6 +21,8 @@ use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\NotificationSeenController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -73,8 +75,8 @@ Route::middleware('auth')->group(function () {
   Route::put('/notification/{notification}/seen', NotificationSeenController::class)->name('notification.seen');
 });
 
-
-Route::middleware('auth')->group(function () {
+// verified middleware for email verification
+Route::middleware(['auth', 'verified'])->group(function () {
   Route::get('/profile', [UserAccountController::class, 'show'])->name('profile');
   Route::put('/profile', [UserAccountController::class, 'update'])->name('profile.update');
   Route::resource('userImage', UserImageController::class)->only(['store','destroy']);
@@ -111,6 +113,26 @@ Route::prefix('export')
     Route::get('/order/{order}', [OrderController::class, 'createPDF'])->name('export.order');
     Route::get('/users', [UserController::class, 'createPDF']);    
 });
+
+/***
+ * the 3 Email verification routes
+ */
+
+Route::get('/email/verify', function() {
+  return inertia('Authentification/VerifyEmail');
+})->middleware('auth')->name('verification.notice');
+
+
+Route::get('/email/verify/{id}/{hash}', function(EmailVerificationRequest $request) {
+  $request->fulfill();
+  return redirect()->route('index');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+Route::post('/email/verification-notification', function(Request $request) {
+  $request->user()->SendEmailVerificationNotification();
+  return back()->with('message', 'verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
   // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
   // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
