@@ -63,7 +63,7 @@ class PostDashboardController extends Controller
         $post->user_id = $request->user()->id;
 
         $post->save();
-        return redirect()->route('dashboard.post.index')->with('success', 'post successfully created');
+        return redirect()->route('admin.post.index')->with('success', 'post successfully created');
     }
 
     /**

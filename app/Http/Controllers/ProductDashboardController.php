@@ -81,7 +81,7 @@ class ProductDashboardController extends Controller
             $product->weights()->attach($weight['weight_id'], ['price' => $weight['price'], 'initial_stock' => $weight['initial_stock'], 'remaining_stock' => $weight['initial_stock']]);
         }
 
-        return redirect()->route('dashboard.product.index')->with('success', 'product successfully created');
+        return redirect()->route('admin.product.index')->with('success', 'product successfully created');
     }
 
     /**

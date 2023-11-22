@@ -19,6 +19,7 @@ use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\AdvantageController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\InfoController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\NotificationSeenController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -94,13 +95,14 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
-  Route::prefix('dashboard')
-    ->name('dashboard.')
+  Route::prefix('admin')
+    ->name('admin.')
     ->group(function () {
       Route::resource('product.image', ProductImageController::class)->only(['create', 'store','destroy']);
       Route::resource('post.image', PostImageController::class)->only(['create', 'store','destroy']);
       Route::resource("post", PostDashboardController::class);
       Route::resource("product", ProductDashboardController::class);
+      Route::resource('info', InfoController::class)->only(['create', 'update']);
   });
 });
 

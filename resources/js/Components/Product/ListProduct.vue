@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="flex mt-5 sm:mt-0">
-        <Link :href="route('dashboard.product.create')">
+        <Link :href="route('admin.product.create')">
           <Button label="add product" hasicon rounded btn small>
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
               <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
@@ -111,7 +111,7 @@
                 <tr>
                   <td colspan="3">
                     <div class="w-full">
-                      <Link class="w-full" :href="route('dashboard.product.image.create', {product: product.id})">
+                      <Link class="w-full" :href="route('admin.product.image.create', {product: product.id})">
                         <Button :label="'images ('+product.images_count+')'" hasicon rounded transparent large>
                           <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />

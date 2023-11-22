@@ -10,6 +10,7 @@ class Info extends Model
     use HasFactory;
     
     protected $fillable = [
+        'logo',
         'telephone1',
         'telephone2',
         'telephone3',
@@ -27,8 +28,16 @@ class Info extends Model
         'about_title',
         'about_subtitle',
 
+        'about_mission',
+        'about_choose',
+
         'contact_title',
         'contact_subtitle',
+        
+        'equipe1',
+        'equipe2',
+        'equipe3',
+        'equipe4',
 
         'newsletter_title',
         'newsletter_subtitle',

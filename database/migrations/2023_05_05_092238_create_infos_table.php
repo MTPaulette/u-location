@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('infos', function (Blueprint $table) {
             $table->id();
+            $table->string('logo')->nullable();
+
             $table->string('telephone1')->nullable();
             $table->string('telephone2')->nullable();
             $table->string('telephone3')->nullable();
@@ -32,8 +34,16 @@ return new class extends Migration
             $table->string('about_title')->nullable();
             $table->string('about_subtitle')->nullable();
 
+            $table->string('about_mission')->nullable();
+            $table->string('about_choose')->nullable();
+
             $table->string('contact_title')->nullable();
             $table->string('contact_subtitle')->nullable();
+
+            $table->string('equipe1')->nullable();
+            $table->string('equipe2')->nullable();
+            $table->string('equipe3')->nullable();
+            $table->string('equipe4')->nullable();
 
             $table->string('newsletter_title')->nullable();
             $table->string('newsletter_subtitle')->nullable();

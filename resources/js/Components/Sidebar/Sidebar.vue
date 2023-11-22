@@ -130,6 +130,21 @@
           </ul>
         </li>
         
+        <!-- edit sites web pages content -->
+        <li v-if="user.role_id === 1">
+          <Link
+            :href="route('admin.info.create')"
+            class="sidebar-item"
+            :class="{'active-sidebar-link': $page.url.startsWith('/notification')}"
+          >
+            <svg aria-hidden="true" class="sidebar-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
+            </svg>
+            <span class="ml-3"> General Informations</span>
+            <!-- <span class="ml-3">Components</span> -->
+          </Link>
+        </li>
+        
         <li v-if="user.role_id === 1">
           <button type="button" class="sidebar-item" aria-controls="dropdown-product" data-collapse-toggle="dropdown-product">
             <svg aria-hidden="true" class="sidebar-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" /></svg>
@@ -138,10 +153,10 @@
           </button>
           <ul id="dropdown-product" class="hidden py-2 space-y-2">
             <li>
-              <Link :href="route('dashboard.product.index')" class="sidebar-item-dropdown">Products List</Link>
+              <Link :href="route('admin.product.index')" class="sidebar-item-dropdown">Products List</Link>
             </li>
             <li>
-              <Link :href="route('dashboard.product.create')" class="sidebar-item-dropdown">New Product</Link>
+              <Link :href="route('admin.product.create')" class="sidebar-item-dropdown">New Product</Link>
             </li>
           </ul>
         </li>
@@ -154,11 +169,11 @@
           </button>
           <ul id="dropdown-article" class="hidden py-2 space-y-2">
             <li>
-              <Link :href="route('dashboard.post.index')" class="sidebar-item-dropdown">Posts List</Link>
+              <Link :href="route('admin.post.index')" class="sidebar-item-dropdown">Posts List</Link>
             </li>
             <!-- :href="route('product.image.destroy', {product: product.id, image: image.id})" -->
             <li>
-              <Link :href="route('dashboard.post.create')" class="sidebar-item-dropdown">New post</Link>
+              <Link :href="route('admin.post.create')" class="sidebar-item-dropdown">New post</Link>
             </li>
           </ul>
         </li>

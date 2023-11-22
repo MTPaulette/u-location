@@ -42,7 +42,7 @@
           </span>
           <span v-if="informations.period">{{ informations.period }}</span>
         </div>
-        <div class="flex items-center px-2">
+        <a href="/login" class="flex items-center px-2">
           <span class="mr-2 text-sheet-100">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-4" fill="currentColor" viewBox="0 0 16 16">
               <path d="M7.5 1v7h1V1h-1z" />
@@ -50,7 +50,7 @@
             </svg>
           </span>
           <span>Login</span>
-        </div>
+        </a>
       </div>
     </div>
   </nav>
